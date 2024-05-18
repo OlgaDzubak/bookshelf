@@ -12,7 +12,6 @@ const btnScroll = document.querySelector('.btn-up-scroll');             // Зм�
 showBestSellersBooks();
 showCategoryList();                                                     // завантажуємо та показуємо список категорій
 
-
 categoryListBox.addEventListener('click', showBooksOfCategory);         // подія на обрання категорії
 booksBox.addEventListener('click', seeMore);                            // подія на кнопку seeMore
 btnScroll.addEventListener('click', scrollUp)
