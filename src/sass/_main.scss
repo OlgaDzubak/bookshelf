@@ -1,0 +1,589 @@
+// ------ common styles
+//{
+    .main{
+        padding-top: 40px;
+        padding-bottom: 80px;
+    }
+    .main .container{
+        display: flex;
+        gap: 40px;
+    }
+    .category-list-box {
+        //position: relative;
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+    }
+    .category-list-box::-webkit-scrollbar{
+        width: 8px;
+        background-color: var(--scrollbar-light-color);
+    }
+    .category-list-box::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-light-color);
+        border-radius: 12em;
+    }
+
+    .category-list-box-not-empty::-webkit-scrollbar{
+        background-color: transparent ;
+    }
+
+    #category-list-title {
+        font-size: 18px;
+        color: var(--accent-color1);
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    .category-list-item {
+        line-height: 1.33;
+        letter-spacing: -0.02em;
+        color: rgba(17, 17, 17, 0.6);
+        cursor: pointer;
+        margin-bottom: 24px;
+    }
+    .category-list-item:hover,
+    .category-list-item:focus{
+        font-size: 16.9px;
+        letter-spacing: -0.07em;
+        color: var(--accent-color1);
+        text-transform: uppercase;
+
+    }
+
+    .books-box {
+        max-width: 1002px;
+        width: 100%;
+    }
+
+    .best-book-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .best-book-container:not(:last-child) {
+        margin-bottom: 40px;
+    }
+
+    .img-book {
+        border-radius: 8px;
+    } 
+
+    .list-books {
+        list-style: none;
+        letter-spacing: -0.04em;
+    }
+
+    .title-theme-book {
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        margin-bottom: 40px;
+
+        color: var(--text-dark-color);
+    }
+
+    .last-word-color{
+        color: var(--accent-color1);
+    }
+
+    .theme-book {
+        margin-bottom: 18px;
+        
+        font-weight: 400;
+        font-size: 14px; 
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--text-light-color); 
+    }
+
+    .title-book {
+        margin-bottom: 4px;
+
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 0.9;
+        text-transform: uppercase;
+        color: var(--text-dark-color);
+    }
+
+    .author {
+        font-family: var(--main-font), sans-serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: var(--text-light-color)
+    }
+
+    .button-more {
+        padding: 14px 28px;
+
+        align-self: flex-end;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        color: var(--text-dark-color);
+        background-color: transparent;
+        cursor: pointer;
+
+        border: 2px solid var(--accent-color1);
+        border-radius: 40px;
+
+        transition: background-color var(--transition), color var(--transition);
+    }
+
+    .button-more:hover {
+        background-color: var(--accent-color1);
+        color: var(--accent-color3);
+    }
+
+    // ScrollUp style_____________________________________________________
+    .btn-up-scroll {
+        position: fixed;
+        bottom: 80px;
+        right: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        width: 54px;
+        height: 54px;
+        border-color: transparent;
+        background-color: var(--accent-color1);
+        border-radius: 50%;
+
+        transition: opacity var(--transition),
+        visibility var(--transition),
+        transform var(--transition);
+    }
+    .btn-up-scroll::before {
+        content: "";
+        width: 54px;
+        height: 54px;
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(79, 46, 232, 0.3);
+
+        transition: transform var(--transition);
+    }
+    .scrol-up-arrow{
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        transform: translateY(50%);
+        pointer-events: none;
+    }
+    .btn-up-scroll:hover::before,
+    .btn-up-scroll:focus::before {
+        transform: scale(1.2);
+    }
+    .btn-up-scroll.is-hidden-btn {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(100%);
+    }
+
+
+    // Стилі оверлея при ховері на книгу________________________________________________________________________________
+    .img-owerlay {
+        position: relative;
+        overflow: hidden;
+
+        border-radius: 8px;
+        margin-bottom: 14px;
+    }
+    .owerlay {
+        position: absolute;
+        margin: auto;
+        bottom: 0;
+        left: 0;
+
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        
+        background-color: var(--accent-color2);
+        background-blend-mode: soft-light;
+        width: 100%;
+        height: 70px;
+
+        transform: translateY(100%);
+        transition: transform var(--transition);
+    } 
+    .item-book:hover .owerlay,
+    .item-book:focus .owerlay {
+        transform: translateY(0);
+    }
+    .owerlay-content {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 0.8;
+        letter-spacing: -0.04em;
+        
+        text-transform: uppercase;
+        color: var(--text-dark-color);
+        cursor: pointer;
+    }
+
+    // Стилі вразі якщо прожить пустий масив____________________________________________
+    .off-books {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+    .off-books-text {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 0.8;
+        letter-spacing: -0.04em;
+        text-align: center;
+        
+        color: var(--text-light-color);
+    }
+
+
+    // Стилві для Support Ukraine
+    .support-ukraine-container {
+        padding-top: 24px;  
+        padding-bottom: 20px;
+        border-radius: 16px;
+        background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+        box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+    }
+    .support-ukraine-text-block {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0px;
+        gap: 12px;
+      
+    }
+    .support-ukraine-title {
+        line-height: 1.14;
+        margin: 0px;
+        letter-spacing: -0.04em;
+        color: var(--accent-color3);
+        white-space: nowrap;
+    }
+    .svg-support-ukraine {
+        fill: var(--accent-color3);
+        max-width:20px;
+        max-height:32px;
+    }
+
+    .support-ukraine-gallery {
+    list-style: none;
+    }
+    .support_gallery_item {
+    height: 32px;
+    font-size: 14px;
+    line-height: 1.29;
+    color: var(--accent-color3); 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    }
+    .support_gallery_number{
+    font-size: 14px;
+
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    margin-right: 16px;
+
+    width: 14px;
+    height: 18px;
+    }
+    .support_gallery_link img{ 
+    height: 32px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    }
+    .support-ukraine-container-slider {
+        max-width: 159px;
+        height: 292px;
+        margin-top: 40px;
+        overflow: hidden;
+    }
+    .slider-line {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    bottom: 0;
+    transition: all ease 1s;
+    }
+
+
+    .shoping-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    }
+    .shoping-top {
+    flex-grow: 1;
+    }
+    .support-ukraine-container-shoping{
+    min-width: 335px;
+    max-height: 490px;
+
+    padding-top: 24px;
+    padding-bottom: 20px;
+    margin-top: 40px;
+
+    border-radius: 16px;
+    background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+    }
+
+
+    .scroll-up-btn, .scroll-down-btn {
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--accent-color3);
+
+    transition-duration: 1000ms;  
+    }
+    .scroll-up-btn-rotate {
+    transform: rotate(180deg);
+    transition-duration: 1000ms;
+    }
+    .scroll-up-icon {
+    fill: var(--accent-color1);
+    }
+
+//}
+
+
+// ------ mobile styles
+//{
+    @media screen and (max-width: 249.8px) {
+        .support-ukraine-container {
+          padding-left: 25px;
+          padding-right: 25px;
+        }
+        .support-ukraine-container-slider {
+          margin-top: 20px;
+        }
+        .category-list-item {
+            font-size: 14px;
+        }
+        .support-ukraine-title {
+            font-size: 18px;
+        }
+    }
+    @media screen and (min-width: 250px) {
+        .support-ukraine-container {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        .category-list-item {
+            font-size: 16px;
+        } 
+    }
+    @media screen and (max-width: 310px) {
+        .support-ukraine-text-block {
+            justify-content: center;
+        }
+        .support-ukraine-title {
+            white-space: wrap;
+            width: min-content;
+        }
+    }
+    @media screen and (min-width: 305px) and (max-width: 374.8px){
+        .support-ukraine-title {
+            font-size: 22px;
+        }
+    }
+    @media screen and (max-width: 374.8px) {
+        .books-box {
+            text-align: center;
+        }
+        .img-book {
+            height: 256px;
+            width: 180px;
+        }
+        .best-book-container{
+            align-items: center;
+        }
+        .item-book:not(:last-child),
+        .item-book.category:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    
+        .list-books,
+        .list-books.category {
+            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .button-more {
+            margin-top: 8px;
+            align-self: center;
+        }
+        .support-ukraine-container{
+            justify-content: center;
+        }
+
+    }
+    @media screen and (min-width: 375px) {
+        .support-ukraine-title {
+            font-size: 28px;
+        }
+    }
+    @media screen and (min-width: 375px) and (max-width: 767.8px) {
+        .img-book {
+            width: 335px;
+            height: 485px;
+        }
+    
+        .list-books {
+            margin-bottom: 8px;
+        }
+    
+        .item-book:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    
+        .title-theme-book {
+            font-size: 32px;
+            line-height: 0.8;
+        }
+    
+        .theme-book {
+            line-height: 0.8;
+        }
+    }
+    @media screen and (max-width: 767.9px) {
+        .main .container{
+            row-gap: 40px;
+        }
+        .category-list-box {
+            height: 228px;
+        }
+    }
+//}
+
+
+// ------ tablet styles
+//{
+    @media screen and (min-width: 768px) {
+        .main .container{
+            row-gap: 100px;
+        }
+        .list-books{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+    
+        .list-books.category {
+            gap: 40px 24px;
+            margin-bottom: 0;
+        }
+    
+        .title-theme-book {
+            font-size: 48px;
+            line-height: 1;
+        }
+    
+        .theme-book {
+            line-height: 0.6;
+        }
+        .category-list-item {
+            margin-bottom: 32px;
+        }
+        .support-ukraine-container {
+            width: 335px;
+        }
+    }
+    
+    @media screen and (min-width: 768px) and (max-width: 1439.8px) {
+        .category-list-box {
+            width: 337px;
+            height: 472px;
+            margin-right: 31px;
+        }
+        .img-book {
+            width: 218px;
+            height: 316px;
+        }
+        .list-books {
+            margin-bottom: 20px;
+            flex-basis: calc((100% - 48px) / 3);
+        }
+
+        .support-ukraine-container {
+            height: 472px;
+            //max-width: 335px;
+        }
+        .scroll-up-btn, .scroll-down-btn {
+        margin-top: 32px;
+        }
+    }
+
+    @media screen and (max-width: 1439.8px) {
+
+        .books-box {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .support-ukraine-container-shoping{
+            display: none;
+          }
+    }
+
+//}
+
+
+// ------ desktop styles
+//{
+    @media screen and (min-width: 1440px) {
+        .category-list-box {
+            height: 416px;
+        }
+        .books-box {
+            margin-left: auto;
+        }
+    
+        .img-book {
+            height: 256px;
+            width: 180px;
+        }
+    
+        .list-books {
+            margin-bottom: 32px;
+            flex-basis: calc((100% - 96px) / 5);
+        }
+
+        .support-ukraine-container {
+            height: 490px;
+            width: 356px;
+            padding-bottom: 24px;
+        }
+        .scroll-up-btn, .scroll-down-btn {
+        margin-top: 40px;
+        }
+    }
+//}
