@@ -5,7 +5,9 @@
     <div class="sidebar">
       
       <div class="category-list-box">
+        <h3 id="category-list-title" class="category-list-item">All categories</h3>
         <include src="partials/loader.html"></include>
+        <ul class="books-list"></ul>
       </div>
       
       <div class="support-ukraine-container">
@@ -38,12 +40,19 @@
     </div>
 
     <div class = "books-box">
+      
+      <h2 class="title-theme-book"></h2>
+      
       <include src="partials/loader.html"></include>
+      
+      <ul class="books-list"></ul>
+
       <button type="button" class="btn-up-scroll is-hidden-btn">
         <svg class="scrol-up-arrow">
             <use href="/src/images/homepage/symbol-defs.svg#icon-Vector"></use>
         </svg>
       </button>
+
     </div>
 
   </div>

@@ -1,8 +1,6 @@
 import { supportItems } from './support_ukraie_items';
 
-const galleryItemsContainer = document.querySelector(
-  '.support-ukraine-gallery'
-);
+const galleryItemsContainer = document.querySelector('.support-ukraine-gallery');
 const sliderLine = document.querySelector('.slider-line');
 const scrollUp = document.querySelector('.scroll-up-btn');
 const scrollDown = document.querySelector('.scroll-down-btn');
@@ -38,16 +36,15 @@ let slidesPerView = 0; // к-во слайдов в окне
 
 function scrollUpslide() {
   offset += 52;
-
   if (window.innerWidth < 767) {
     slidesPerView = 4;
-    if (offset > (supportItems.length - slidesPerView) * 52) {
+    if (offset > (supportItems.length - slidesPerView-1) * 52) {
       scrollDown.style.display = 'none';
       scrollUp.style.removeProperty('display');
     }
   } else if (window.innerWidth >= 767) {
     slidesPerView = 6;
-    if (offset > (supportItems.length - slidesPerView) * 52) {
+    if (offset > (supportItems.length - slidesPerView-1) * 52) {
       scrollDown.style.display = 'none';
       scrollUp.style.removeProperty('display');
     }

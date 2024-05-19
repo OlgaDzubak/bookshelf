@@ -2,20 +2,26 @@ import { booksAPI } from './booksAPI';
 import {shortTitle, lastBlueWord} from './help_functions';
 import { Notify } from 'notiflix';
 
-const fetchBooks = new booksAPI()
-const categoryListBox = document.querySelector(".category-list-box");   // сюди буде рендеритися список категорій книжок
-const booksBox = document.querySelector(".books-box");                  // сюди буде рендеритися список best sellers books
+const fetchBooks = new booksAPI();
+
+const categoryListBox = document.querySelector(".category-list-box");
+const categoryList = document.querySelector(".category-list");       
 const loader1 =categoryListBox.querySelector(".loader");
+
+const booksBox = document.querySelector(".books-box");                
+const booksBoxTitle = booksBox.querySelector(".title-theme-book");
+const booksList = document.querySelector(".books-list");       
 const loader2 =booksBox.querySelector(".loader");
-const btnScroll = document.querySelector('.btn-up-scroll');             // Змінна та слухач на кнопку скарола
+const btnScroll = document.querySelector('.btn-up-scroll');      
 
+showCategoryList();
 showBestSellersBooks();
-showCategoryList();                                                     // завантажуємо та показуємо список категорій
 
-categoryListBox.addEventListener('click', showBooksOfCategory);         // подія на обрання категорії
-booksBox.addEventListener('click', seeMore);                            // подія на кнопку seeMore
-btnScroll.addEventListener('click', scrollUp)
+categoryListBox.addEventListener('click', showBooksOfCategory);
+booksList.addEventListener('click', seeMore);         
+btnScroll.addEventListener('click', scrollUp);
 window.addEventListener('scroll', scrollTracker);
+
 
 
 // функції завантаження даних з бекенду -------------------------------------------------------------------------
@@ -32,7 +38,7 @@ window.addEventListener('scroll', scrollTracker);
         catch (error) {
             console.error(error);
             Notify.failure('Sorry, there was a server error, please reload the page', {timeout: 3000});
-            return [];
+           return [];
         } 
     }
         // Функція запиту на отримання списку найкращіх книжок від бекенду
@@ -41,7 +47,8 @@ window.addEventListener('scroll', scrollTracker);
             const { data } = await fetchBooks.getTopBooks();
             if (!data.length) { return Notify.failure("Can't find best sellers books on the server. Please reload the page!"); }
             return data;
-        }catch (error){
+        }
+        catch (error){
             console.error(error);
             Notify.failure('Sorry, there was a server error, please reload the page', {timeout: 3000});
             return [];
@@ -66,22 +73,24 @@ window.addEventListener('scroll', scrollTracker);
 
         // розмітка списку категорій
     function createCategoryListMarkup(data) {
-        let categoryListHTML = `<include src="partials/loader.html "></include>
-                                <h3 id="category-list-title" class="category-list-item">All categories</h3>`;
+
+        let categoryListHTML = "";
+
         data.forEach(category => {
-            const categoryLink = `<p id="${category.list_name}" class="category-list-item">${category.list_name}</p>`;
+            const categoryLink = `<li id="${category.list_name}" class="category-list-item">${category.list_name}</li>`;
             categoryListHTML += categoryLink;
         });
+
         return categoryListHTML;
     };
         // розмітка best sellers books
     function createBestSellersBooksMarcup(data, querty) {
 
         const markup = data.map(({list_name, books}) => {
-            const titleBook = `<p class="theme-book">${list_name}</p>`;
+            const category = `<p class="theme-book">${list_name}</p>`;
 
             if (books.length) {
-                let book = books.splice(0, querty).map(({_id, book_image, title, author}) => 
+                let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) => 
                 `<li class="item-book" data-id="${_id}">
                     <div class="img-owerlay">
                         <img src="${book_image}" alt="${title}" class="img-book">
@@ -93,19 +102,17 @@ window.addEventListener('scroll', scrollTracker);
                     <p class="author">${shortTitle(author, 34)}</p>
                 </li>`).join('');
 
-                return `<div class="best-book-container">${titleBook}
-                            <ul class="list-books">${book}</ul>
+                return `<li class="best-book-container">${category}
+                            <ul class="list-books">${booksOfCategory}</ul>
                             <button type="button" class="button-more js-btn-more" id="${list_name}">See more</button>
-                        </div>`
+                        </li>`
             } else {
-                return `<div class="off-books">
+                return `<li class="off-books best-book-container">${category}
                             <p class="off-books-text">Sorry, there are no books in this category, please choose another category</p>
-                        </div>`
+                        </li>`
             }}).join('');
 
-            return `<include src="partials/loader.html "></include>
-                    <h2 class="title-theme-book">Best Sellers <span class="last-word-color">Books</span></h2>
-                    ${markup}`;
+            return markup;
     }
         // розмітка books of category
     function createBooksOfCategoryMarcup(data, querty) {
@@ -124,12 +131,11 @@ window.addEventListener('scroll', scrollTracker);
             </li>`
             ).join('')
 
-            return `<h2 class="title-theme-book">${lastBlueWord(data[0].list_name)}</h2>
-                    <ul class="list-books category">${markup}</ul>`
+            return markup;
         } else {
-                return `<div class="off-books">
+                return `<liv class="off-books">
                             <p class="off-books-text">Sorry, there are no books in this category, please choose another category</p>
-                        </div>`
+                        </li>`
         }
     }
 
@@ -145,14 +151,16 @@ window.addEventListener('scroll', scrollTracker);
         const data = await fetchCategoryList();
 
         if (data.length) {
-            categoryListBox.innerHTML = createCategoryListMarkup(data);
+            categoryList.innerHTML = createCategoryListMarkup(data);
             categoryListBox.classList.add("category-list-box-not-empty");
-        }else{          
-            loader1.classList.add('loader-non-active');
         }
+
+        loader1.classList.add('loader-non-active');
     };
         // Відправлення запиту і формування списку best sellers books 
     async function showBestSellersBooks(){
+
+        booksBoxTitle.innerHTML = `${lastBlueWord("Best Sellers Books")}`;
         
         loader2.classList.remove('loader-non-active');
 
@@ -163,47 +171,63 @@ window.addEventListener('scroll', scrollTracker);
             const pageWidth = document.documentElement.scrollWidth;
 
             if (pageWidth < 768) {
-                booksBox.innerHTML = createBestSellersBooksMarcup(data, 1);
+                booksList.innerHTML = createBestSellersBooksMarcup(data, 1);
             } else if (pageWidth < 1440 && pageWidth >= 768) {
-                booksBox.innerHTML = createBestSellersBooksMarcup(data, 3);
+                booksList.innerHTML = createBestSellersBooksMarcup(data, 3);
             } else {
-                booksBox.innerHTML = createBestSellersBooksMarcup(data, 5);
+                booksList.innerHTML = createBestSellersBooksMarcup(data, 5);
             }
             
-        } else {
-            loader2.classList.add('loader-non-active');
         }
+
+        loader2.classList.add('loader-non-active');
 
     }
         // Відправлення запиту і формування списку книг однієї категорії 
     async function showBooksOfCategory({target}){
+
         if ((!target.classList.contains('category-list-item')) && (!target.classList.contains('js-btn-more'))){
             return;
         } else {
-            let category = target.id.split(" ").join("%20");
+            
+            const category = target.id.split(" ").join("%20");
+            
             if (category === 'category-list-title') {
-                booksBox.innerHTML = '';
-                showBestSellersBooks();
-            } else {
-                booksBox.innerHTML ='';
-                const pageWidth = document.documentElement.scrollWidth;
 
-                 const data  = await fetchBooksOfCategory(category);
+                showBestSellersBooks();
+
+            } else {
+
+                booksBoxTitle.innerHTML = `${lastBlueWord(category)}`;
+
+                loader2.classList.remove('loader-non-active');
+                 
+                const data  = await fetchBooksOfCategory(category);
+
                 if (data.length) {
 
+                    const pageWidth = document.documentElement.scrollWidth;
                     if (pageWidth < 768) {
-                        booksBox.innerHTML = createBooksOfCategoryMarcup(data, 1);
+                        booksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
                     } else if (pageWidth < 1440 && pageWidth >= 768) {
-                        booksBox.innerHTML = createBooksOfCategoryMarcup(data, 3);
+                        booksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
                     } else {
-                        booksBox.innerHTML = createBooksOfCategoryMarcup(data, 5);
+                        booksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
                     }
+
                 } else {
+
                     Notify.failure("Sorry, there was a server error, please reload the page");
                     return;
+
                 }
+                
+                loader2.classList.add('loader-non-active');
+                
                 scrollUp();
+
             }
+            
         }
     }
 
@@ -226,8 +250,10 @@ window.addEventListener('scroll', scrollTracker);
                 scrollUp();
             }
         } catch (error) {
+
             console.error(error);
             Notify.failure('Sorry, there was a server error, please reload the page');
+
         }
     }
         // Функція скролу на початок сторінки

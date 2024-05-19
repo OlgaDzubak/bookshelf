@@ -165,8 +165,11 @@ body.dark .btn-many
     color: var(--text-white-color);
     background-color: black;
     border-radius: 1px solid var(--accent-color3);
-    
 }
+body.dark .empty-shopping-box-text{
+    color: rgba(255, 255, 255, 0.6);
+}
+
 
 // Loader
 body.dark .loader{
