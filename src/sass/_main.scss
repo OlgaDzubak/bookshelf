@@ -51,18 +51,17 @@
 
     .books-box {
         max-width: 1002px;
-        width: 100%;
+     //   width: 100%;
     }
     .best-books-list {
         display: flex;
         flex-direction: column;
-        width: 100%;
+    //    width: 100%;
         row-gap: 40px;
    }
     .category-books-list {
         display: flex;
-        flex-direction: column;
-        width: 100%;
+//        width: 100%;
         column-gap: 24px;
         row-gap: 40px;
     }
@@ -79,10 +78,11 @@
     } 
 
     .list-books {
-        list-style: none;
         letter-spacing: -0.04em;
     }
-
+    .item-book{
+      width: 100%
+    }
     .title-theme-book {
         font-weight: 700;
         letter-spacing: -0.04em;
