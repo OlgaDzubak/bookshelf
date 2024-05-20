@@ -506,7 +506,10 @@
             flex-wrap: wrap;
             gap: 24px;
         }
-    
+    .category-books-list {
+        flex-direction:row;
+        flex-basic: calc((100% - 50px) / 3);
+     
         .list-books.category {
             gap: 40px 24px;
             margin-bottom: 0;
@@ -575,7 +578,10 @@
         .books-box {
             margin-left: auto;
         }
-    
+        .category-books-list {
+        flex-direction:row;
+        flex-basic: calc((100% - 96px) / 5);
+          
         .img-book {
             height: 256px;
             width: 180px;
