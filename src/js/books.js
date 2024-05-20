@@ -10,7 +10,7 @@ const loader1 =categoryListBox.querySelector(".loader");
 
 const booksBox = document.querySelector(".books-box");                
 const booksBoxTitle = booksBox.querySelector(".title-theme-book");
-const booksList = booksBox.querySelector("ul");       
+const booksList = booksBox.querySelector(".list");       
 const loader2 =booksBox.querySelector(".loader");
 const btnScroll = document.querySelector('.btn-up-scroll');      
 
@@ -162,8 +162,8 @@ window.addEventListener('scroll', scrollTracker);
 
         booksBoxTitle.innerHTML = `${lastBlueWord("Best Sellers Books")}`;
         booksList.innerHTML="";
-        booksList.classList.remove("category-books-list");
-        booksList.classList.add("best-books-list");
+        booksList.classList.remove('category-books-list');
+        booksList.classList.add('best-books-list');
         loader2.classList.remove('loader-non-active');
 
         const data = await fetchBestSellersBooks();
@@ -202,8 +202,8 @@ window.addEventListener('scroll', scrollTracker);
 
                 booksBoxTitle.innerHTML = `${lastBlueWord(target.id)}`;
                 booksList.innerHTML="";
-                booksList.classList.remove("best-books-list");
-                booksList.classList.add("category-books-list");
+                booksList.classList.remove('best-books-list');
+                booksList.classList.add('category-books-list');
                 loader2.classList.remove('loader-non-active');
                  
                 const data  = await fetchBooksOfCategory(category);
