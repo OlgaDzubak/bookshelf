@@ -10,7 +10,7 @@ const loader1 =categoryListBox.querySelector(".loader");
 
 const booksBox = document.querySelector(".books-box");                
 const booksBoxTitle = booksBox.querySelector(".title-theme-book");
-const booksList = document.querySelector(".books-list");       
+const booksList = booksBox.querySelector("ul");       
 const loader2 =booksBox.querySelector(".loader");
 const btnScroll = document.querySelector('.btn-up-scroll');      
 
