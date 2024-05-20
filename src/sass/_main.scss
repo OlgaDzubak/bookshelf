@@ -53,12 +53,19 @@
         max-width: 1002px;
         width: 100%;
     }
-    // .books-list {
-    //     display: flex;
-    //     width: 100%;
-   
-    // }
-
+    .best-books-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        row-gap: 40px;
+   }
+    .category-books-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        column-gap: 24px;
+        row-gap: 40px;
+    }
     .best-book-container {
         display: flex;
         flex-direction: column;
