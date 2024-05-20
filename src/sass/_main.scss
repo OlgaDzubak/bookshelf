@@ -61,6 +61,7 @@
    }
     .category-books-list {
         display: flex;
+        flex-direction:column;
 //        width: 100%;
         column-gap: 24px;
         row-gap: 40px;
@@ -79,9 +80,6 @@
 
     .list-books {
         letter-spacing: -0.04em;
-    }
-    .item-book{
-      width: 100%
     }
     .title-theme-book {
         font-weight: 700;
