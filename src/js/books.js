@@ -162,7 +162,8 @@ window.addEventListener('scroll', scrollTracker);
 
         booksBoxTitle.innerHTML = `${lastBlueWord("Best Sellers Books")}`;
         booksList.innerHTML="";
-      
+        booksList.classList.remove("category-books-list");
+        booksList.classList.add("best-books-list");
         loader2.classList.remove('loader-non-active');
 
         const data = await fetchBestSellersBooks();
@@ -201,7 +202,8 @@ window.addEventListener('scroll', scrollTracker);
 
                 booksBoxTitle.innerHTML = `${lastBlueWord(target.id)}`;
                 booksList.innerHTML="";
-              
+                booksList.classList.remove("best-books-list");
+                booksList.classList.add("category-books-list");
                 loader2.classList.remove('loader-non-active');
                  
                 const data  = await fetchBooksOfCategory(category);
