@@ -199,8 +199,9 @@ window.addEventListener('scroll', scrollTracker);
 
             } else {
 
-                booksBoxTitle.innerHTML = `${lastBlueWord(category)}`;
-
+                booksBoxTitle.innerHTML = `${lastBlueWord(target.id)}`;
+                booksList.innerHTML="";
+              
                 loader2.classList.remove('loader-non-active');
                  
                 const data  = await fetchBooksOfCategory(category);
