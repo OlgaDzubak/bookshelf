@@ -161,7 +161,8 @@ window.addEventListener('scroll', scrollTracker);
     async function showBestSellersBooks(){
 
         booksBoxTitle.innerHTML = `${lastBlueWord("Best Sellers Books")}`;
-        
+        booksList.innerHTML="";
+      
         loader2.classList.remove('loader-non-active');
 
         const data = await fetchBestSellersBooks();
