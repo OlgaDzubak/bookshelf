@@ -51,18 +51,18 @@
 
     .books-box {
         max-width: 1002px;
-     //   width: 100%;
+        width: 100%;
     }
     .best-books-list {
         display: flex;
         flex-direction: column;
-    //    width: 100%;
+        width: 100%;
         row-gap: 40px;
    }
     .category-books-list {
         display: flex;
         flex-direction:column;
-//        width: 100%;
+        width: 100%;
         column-gap: 24px;
         row-gap: 40px;
     }
@@ -576,7 +576,7 @@
             height: 416px;
         }
         .books-box {
-            margin-left: auto;
+           // margin-left: auto;
         }
         .category-books-list {
         flex-direction:row;
