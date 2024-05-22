@@ -8,10 +8,24 @@
         display: flex;
         gap: 40px;
     }
+    .error-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 250px;
+        height: 100px;
+    }
+    .error-box-text{
+        text-align: center;
+        font-size: 16px;
+        color: var(--text-light-color);
+    }
+
     .category-list-box {
         margin: 0;
         padding: 0;
         overflow-y: scroll;
+        height: 100%;
     }
     .category-list-box::-webkit-scrollbar{
         width: 8px;
@@ -30,9 +44,12 @@
         font-size: 18px;
         color: var(--accent-color1);
         text-transform: uppercase;
-        white-space: nowrap;
+       // white-space: nowrap;
+        margin-right: 7px;
     }
-
+    .category-list{
+        margin-right: 7px;
+    }
     .category-list-item {
         line-height: 1.33;
         letter-spacing: -0.02em;
@@ -48,24 +65,11 @@
         text-transform: uppercase;
 
     }
-
     .books-box {
         max-width: 1002px;
         width: 100%;
     }
-    .best-books-list {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        row-gap: 40px;
-   }
-    .category-books-list {
-        display: flex;
-        flex-direction:column;
-        width: 100%;
-        column-gap: 24px;
-        row-gap: 40px;
-    }
+
     .best-book-container {
         display: flex;
         flex-direction: column;
@@ -73,9 +77,10 @@
     .best-book-container:not(:last-child) {
         margin-bottom: 40px;
     }
-
     .img-book {
         border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
     } 
 
     .list-books {
@@ -85,7 +90,6 @@
         font-weight: 700;
         letter-spacing: -0.04em;
         margin-bottom: 40px;
-
         color: var(--text-dark-color);
     }
 
@@ -196,7 +200,6 @@
         transform: translateY(100%);
     }
 
-
     // Стилі оверлея при ховері на книгу________________________________________________________________________________
     .img-owerlay {
         position: relative;
@@ -256,7 +259,6 @@
         
         color: var(--text-light-color);
     }
-
 
     // Стилві для Support Ukraine
     .support-ukraine-container {
@@ -331,7 +333,6 @@
     transition: all ease 1s;
     }
 
-
     .shoping-wrapper {
     display: flex;
     flex-direction: column;
@@ -352,7 +353,6 @@
     background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
     box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
     }
-
 
     .scroll-up-btn, .scroll-down-btn {
     margin-top: 16px;
@@ -381,7 +381,6 @@
     }
 
 //}
-
 
 // ------ mobile styles
 //{
@@ -460,6 +459,9 @@
         .support-ukraine-title {
             font-size: 28px;
         }
+        .category-list-item {
+            white-space: nowrap;
+        }
     }
     @media screen and (min-width: 375px) and (max-width: 767.8px) {
         .img-book {
@@ -491,9 +493,11 @@
         .category-list-box {
             height: 228px;
         }
+        .title-theme-book{
+            line-height: 1.19;
+        }
     }
 //}
-
 
 // ------ tablet styles
 //{
@@ -506,12 +510,7 @@
             flex-wrap: wrap;
             gap: 24px;
         }
-       .category-books-list {
-         flex-direction:row;
-      }
-       .item-book{
-          flex-basic: calc((100% - 50px) / 3);
-      } 
+    
         .list-books.category {
             gap: 40px 24px;
             margin-bottom: 0;
@@ -519,7 +518,7 @@
     
         .title-theme-book {
             font-size: 48px;
-            line-height: 1;
+            line-height: 1.08;
         }
     
         .theme-book {
@@ -547,7 +546,9 @@
             margin-bottom: 20px;
             flex-basis: calc((100% - 48px) / 3);
         }
-
+        .category-books-list .item-book{
+            flex-basis: calc((100% - 50px ) / 3);
+        }
         .support-ukraine-container {
             height: 472px;
             //max-width: 335px;
@@ -569,7 +570,6 @@
     }
 
 //}
-
 
 // ------ desktop styles
 //{
@@ -595,7 +595,12 @@
             margin-bottom: 32px;
             flex-basis: calc((100% - 96px) / 5);
         }
-
+        .category-books-list{
+            column-gap: 24px;
+        }
+        .category-books-list .item-book{
+            flex-basis: calc((100% - 96px ) / 5);
+        }
         .support-ukraine-container {
             height: 490px;
             width: 356px;
