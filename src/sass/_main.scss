@@ -78,7 +78,6 @@
     .category-books-list .item-book{
         flex-basis: 100%;
     }
-
     .best-book-container {
         display: flex;
         flex-direction: column;
@@ -211,7 +210,6 @@
         transform: translateY(100%);
     }
 
-
     // Стилі оверлея при ховері на книгу________________________________________________________________________________
     .img-owerlay {
         position: relative;
@@ -271,7 +269,6 @@
         
         color: var(--text-light-color);
     }
-
 
     // Стилві для Support Ukraine
     .support-ukraine-container {
@@ -346,7 +343,6 @@
     transition: all ease 1s;
     }
 
-
     .shoping-wrapper {
     display: flex;
     flex-direction: column;
@@ -367,7 +363,6 @@
     background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
     box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
     }
-
 
     .scroll-up-btn, .scroll-down-btn {
     margin-top: 16px;
@@ -396,7 +391,6 @@
     }
 
 //}
-
 
 // ------ mobile styles
 //{
@@ -515,7 +509,6 @@
     }
 //}
 
-
 // ------ tablet styles
 //{
     @media screen and (min-width: 768px) {
@@ -527,11 +520,7 @@
             flex-wrap: wrap;
             gap: 24px;
         }
-        .list-books.category {
-            gap: 40px 24px;
-            margin-bottom: 0;
-        }
-    
+   
         .title-theme-book {
             font-size: 48px;
             line-height: 1.08;
@@ -586,7 +575,6 @@
     }
 
 //}
-
 
 // ------ desktop styles
 //{
