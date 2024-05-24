@@ -1,4 +1,4 @@
-export default loaderHTML = `<div class="loader">
+const loaderHTML = `<div class="loader">
 
                             <div class="inner">
 
@@ -40,3 +40,5 @@ export default loaderHTML = `<div class="loader">
                             </ul>  
 
                             </div>`
+
+export default loaderHTML;
