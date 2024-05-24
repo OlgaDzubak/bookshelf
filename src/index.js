@@ -11,6 +11,3 @@ const homeLinkEl = document.querySelector('.js-nav-homelink');
 const mobileHomeLinkEl = document.querySelector('.js-mobile-nav-homelink');
 homeLinkEl.classList.toggle('selected');
 mobileHomeLinkEl.classList.toggle('mobile-selected');
-
-
-

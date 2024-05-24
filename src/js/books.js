@@ -19,13 +19,14 @@ window.addEventListener('scroll', scrollTracker);
 
 
 showCategoryList();  
-scrollUp(); 
 
 // ФУНКЦІЇ виводу даних на сайт ----------------------------------------------------------------------------------
 
         // Відправлення запиту і формування списку під час завантаження сторінки 
     async function showCategoryList() {
-
+        
+        scrollUp();
+        
         //створюємо заголовок All categories і відразу натискаємо на нього, щоб визвати завантаження Best Sellers Books
         itemAllCategories = document.createElement("h3");
         itemAllCategories.textContent = "All categories"
@@ -53,6 +54,7 @@ scrollUp();
 
         //видаляємо loader після виконання запиту
         loader1.remove(); 
+        
     };
 
         // Обробка події натискання категорії в меню категорій книжок (відправлення запиту і формування списку книг категорії)
@@ -80,9 +82,9 @@ scrollUp();
                 booksBox.innerHTML="";
                 const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
 
-                // if (!firstLoading) { 
-                //     scrollToBooksBox();
-                // }
+                if (!firstLoading) { 
+                    scrollToBooksBox();
+                }
 
                 const loader2 = createLoader(booksBoxTitle);
 
@@ -108,11 +110,11 @@ scrollUp();
                         bestBooksList.innerHTML = createBestSellersBooksMarcup(data, 5);
                     }
 
-                    // if (!firstLoading) {
-                    //     scrollToBooksBox();
-                    // }else {
-                    //     firstLoading = false;
-                    // }
+                    if (!firstLoading) {
+                        scrollToBooksBox();
+                    }else {
+                        firstLoading = false;
+                    }
                 }
             } else {
                          
@@ -120,7 +122,7 @@ scrollUp();
                 
                 const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
 
-//                scrollToBooksBox();
+                scrollToBooksBox();
 
                 const loader2 = createLoader(booksBoxTitle);
                 
@@ -144,7 +146,7 @@ scrollUp();
                     } else {
                         categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
                     }
-//                    scrollToBooksBox();
+                    scrollToBooksBox();
 
                 }
             }
@@ -314,14 +316,13 @@ scrollUp();
 
         // Функція скролу на початок сторінки
     function scrollUp() {
-        
+        // console.log("я в scrollUp", window.scrollY);
+        // window.scrollY = 0;
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
-        console.log(window.scrollY);
-
-        //scrollUpBtn.classList.add('is-hidden-btn');        
+       // console.log(window.scrollY);
     }
 
         // Функція показу кнопки повернення на початок сторінки
