@@ -2,6 +2,7 @@ html{
   min-width: 200px;
   overflow-y: scroll;
 }
+
 body {
 font-family: 'DM Sans', sans-serif;
 letter-spacing: 0.02em;
@@ -52,7 +53,17 @@ height: auto;
   pointer-events: none;
 }
 
-
+.visually-hidden{ 
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
 .container{
   display: flex;
@@ -69,12 +80,11 @@ height: auto;
   row-gap: 40px;
 }
 
-
 @media screen and (max-width: 767.8px) {
   .container {
     max-width: 375px;
   }
-  }
+}
 
 @media screen and (min-width: 768px) and (max-width: 1439.8px) {
   .container {
@@ -87,8 +97,7 @@ height: auto;
     margin-left: 0px;
     justify-content: space-between;
 }
-  }
-
+}
 
 @media screen and (min-width: 1440px) {
   .container {
@@ -102,8 +111,3 @@ height: auto;
     row-gap: 86px;
 }
 }
-
-
-
-
-  

@@ -2,72 +2,81 @@
 //{
     .main{
         padding-top: 40px;
-        padding-bottom: 80px;
+        padding-bottom: 40px;
     }
     .main .container{
         display: flex;
         gap: 40px;
+        min-height: calc(100vh - 237px);   
     }
-    .error-box{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 250px;
-        height: 100px;
-    }
-    .error-box-text{
-        text-align: center;
-        font-size: 16px;
-        color: var(--text-light-color);
-    }
-
     .category-list-box {
+        position: relative;
         margin: 0;
         padding: 0;
         overflow-y: scroll;
+        overflow-x: auto;
         height: 100%;
     }
-    .category-list-box::-webkit-scrollbar{
+    .category-list-box::-webkit-scrollbar{   
         width: 8px;
+        height: 8px;
         background-color: var(--scrollbar-light-color);
     }
+
     .category-list-box::-webkit-scrollbar-thumb {
         background-color: var(--scrollbar-light-color);
         border-radius: 12em;
     }
-
     .category-list-box-not-empty::-webkit-scrollbar{
         background-color: transparent ;
     }
 
-    #category-list-title {
-        font-size: 18px;
-        color: var(--accent-color1);
-        text-transform: uppercase;
-       // white-space: nowrap;
-        margin-right: 7px;
-    }
     .category-list{
-        margin-right: 7px;
+        margin-right: 20px;
     }
     .category-list-item {
+        font-weight: normal;
         line-height: 1.33;
         letter-spacing: -0.02em;
         color: rgba(17, 17, 17, 0.6);
         cursor: pointer;
-        margin-bottom: 24px;
+      //  white-space: nowrap;
     }
     .category-list-item:hover,
     .category-list-item:focus{
-        font-size: 16.9px;
-        letter-spacing: -0.07em;
+        font-weight: 700;
         color: var(--accent-color1);
         text-transform: uppercase;
-
+        transition: var(--transition2);
     }
+    .category-list-item.active{
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--accent-color1);
+    }
+
     .books-box {
         max-width: 1002px;
         width: 100%;
+        height: 100%;
+    }
+    .error-box{
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .category-list-box .error-box{
+        top:25%;
+    }
+    .books-box .error-box{
+        top:25%;
+    }
+    .error-box-text{
+        font-size: 16px;
+        line-height: 1.24;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: var(--text-light-color);
     }
     .category-books-list{
         display: flex;
@@ -78,6 +87,7 @@
     .category-books-list .item-book{
         flex-basis: 100%;
     }
+
     .best-book-container {
         display: flex;
         flex-direction: column;
@@ -85,28 +95,27 @@
     .best-book-container:not(:last-child) {
         margin-bottom: 40px;
     }
+    
     .img-book {
-        border-radius: 8px;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
+        border-radius: 8px;
     } 
-
     .list-books {
         list-style: none;
         letter-spacing: -0.04em;
     }
-
     .title-theme-book {
         font-weight: 700;
         letter-spacing: -0.04em;
+        line-height: 1.08;
         margin-bottom: 40px;
         color: var(--text-dark-color);
     }
-
     .last-word-color{
         color: var(--accent-color1);
     }
-
     .theme-book {
         margin-bottom: 18px;
         
@@ -116,26 +125,22 @@
         text-transform: uppercase;
         color: var(--text-light-color); 
     }
-
     .title-book {
         margin-bottom: 4px;
-
         font-weight: 700;
         font-size: 16px;
         line-height: 0.9;
+        letter-spacing: -0.04em;
         text-transform: uppercase;
         color: var(--text-dark-color);
     }
-
-    .author {
-        font-family: var(--main-font), sans-serif;
+    .title-author {
         font-style: italic;
-        font-weight: 400;
         font-size: 12px;
         line-height: 14px;
+        letter-spacing: -0.04em;
         color: var(--text-light-color)
     }
-
     .button-more {
         padding: 14px 28px;
 
@@ -154,7 +159,6 @@
 
         transition: background-color var(--transition), color var(--transition);
     }
-
     .button-more:hover {
         background-color: var(--accent-color1);
         color: var(--accent-color3);
@@ -163,7 +167,7 @@
     // ScrollUp style_____________________________________________________
     .btn-up-scroll {
         position: fixed;
-        bottom: 80px;
+        bottom: 90px;
         right: 60px;
         display: flex;
         align-items: center;
@@ -198,6 +202,8 @@
         height: 24px;
         transform: translateY(50%);
         pointer-events: none;
+        fill: white;
+        stroke: white;
     }
     .btn-up-scroll:hover::before,
     .btn-up-scroll:focus::before {
@@ -271,7 +277,7 @@
     }
 
     // Стилві для Support Ukraine
-    .support-ukraine-container {
+    .support-ukraine-box {
         padding-top: 24px;  
         padding-bottom: 20px;
         border-radius: 16px;
@@ -327,7 +333,7 @@
     display: block;
     object-fit: contain;
     }
-    .support-ukraine-container-slider {
+    .support-ukraine-box-slider {
         max-width: 159px;
         height: 292px;
         margin-top: 40px;
@@ -351,7 +357,7 @@
     .shoping-top {
     flex-grow: 1;
     }
-    .support-ukraine-container-shoping{
+    .support-ukraine-box-shoping{
     min-width: 335px;
     max-height: 490px;
 
@@ -389,17 +395,16 @@
     .scroll-up-icon {
     fill: var(--accent-color1);
     }
-
 //}
 
 // ------ mobile styles
 //{
     @media screen and (max-width: 249.8px) {
-        .support-ukraine-container {
+        .support-ukraine-box {
           padding-left: 25px;
           padding-right: 25px;
         }
-        .support-ukraine-container-slider {
+        .support-ukraine-box-slider {
           margin-top: 20px;
         }
         .category-list-item {
@@ -410,7 +415,7 @@
         }
     }
     @media screen and (min-width: 250px) {
-        .support-ukraine-container {
+        .support-ukraine-box {
             padding-left: 40px;
             padding-right: 40px;
         }
@@ -436,10 +441,6 @@
         .books-box {
             text-align: center;
         }
-        .img-book {
-            height: 256px;
-            width: 180px;
-        }
         .best-book-container{
             align-items: center;
         }
@@ -460,7 +461,7 @@
             margin-top: 8px;
             align-self: center;
         }
-        .support-ukraine-container{
+        .support-ukraine-box{
             justify-content: center;
         }
 
@@ -474,24 +475,16 @@
         }
     }
     @media screen and (min-width: 375px) and (max-width: 767.8px) {
-        .img-book {
-            width: 335px;
-            height: 485px;
-        }
-    
+   
         .list-books {
             margin-bottom: 8px;
         }
-    
         .item-book:not(:last-child) {
             margin-bottom: 40px;
         }
-    
         .title-theme-book {
             font-size: 32px;
-            line-height: 0.8;
         }
-    
         .theme-book {
             line-height: 0.8;
         }
@@ -500,11 +493,16 @@
         .main .container{
             row-gap: 40px;
         }
+        .category-list-item {
+            margin-bottom: 24px;
+        }
+
         .category-list-box {
             height: 228px;
         }
-        .title-theme-book{
-            line-height: 1.19;
+        .img-book {
+            width: 335px;
+            //height: 485px;
         }
     }
 //}
@@ -520,10 +518,8 @@
             flex-wrap: wrap;
             gap: 24px;
         }
-   
         .title-theme-book {
             font-size: 48px;
-            line-height: 1.08;
         }
     
         .theme-book {
@@ -531,8 +527,9 @@
         }
         .category-list-item {
             margin-bottom: 32px;
+            height: 24px;
         }
-        .support-ukraine-container {
+        .support-ukraine-box {
             width: 335px;
         }
     }
@@ -541,11 +538,14 @@
         .category-list-box {
             width: 337px;
             height: 472px;
-            margin-right: 31px;
+            //margin-right: 31px;
+        }
+        .category-list{
+            width: 309px
         }
         .img-book {
             width: 218px;
-            height: 316px;
+           // height: 316px;
         }
         .list-books {
             margin-bottom: 20px;
@@ -554,7 +554,7 @@
         .category-books-list .item-book{
             flex-basis: calc((100% - 50px ) / 3);
         }
-        .support-ukraine-container {
+        .support-ukraine-box {
             height: 472px;
             //max-width: 335px;
         }
@@ -564,33 +564,33 @@
     }
 
     @media screen and (max-width: 1439.8px) {
-
         .books-box {
             margin-left: auto;
             margin-right: auto;
         }
-        .support-ukraine-container-shoping{
+        .support-ukraine-box-shoping{
             display: none;
-          }
+        }
     }
-
 //}
 
 // ------ desktop styles
 //{
     @media screen and (min-width: 1440px) {
         .category-list-box {
+            width: 356px;
             height: 416px;
+        }
+        .category-list{
+            width: 300px; //328px;
         }
         .books-box {
             margin-left: auto;
         }
-    
         .img-book {
-            height: 256px;
             width: 180px;
+            //height: 256px;
         }
-    
         .list-books {
             margin-bottom: 32px;
             flex-basis: calc((100% - 96px) / 5);
@@ -601,7 +601,7 @@
         .category-books-list .item-book{
             flex-basis: calc((100% - 96px ) / 5);
         }
-        .support-ukraine-container {
+        .support-ukraine-box {
             height: 490px;
             width: 356px;
             padding-bottom: 24px;

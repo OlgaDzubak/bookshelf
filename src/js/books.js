@@ -1,36 +1,176 @@
 import { booksAPI } from './booksAPI';
-import {shortTitle, lastBlueWord} from './help_functions';
-
+import {shortTitle, createLoader, createBooksBoxTitle, changeActiveItem} from './help_functions';
 const fetchBooks = new booksAPI();
 
 const categoryListBox = document.querySelector(".category-list-box");
-const categoryList = categoryListBox.querySelector(".category-list");
-const itemAllCategories = categoryListBox.querySelector("#category-list-title");
-const loader1 =categoryListBox.querySelector(".loader");
-
+categoryListBox.addEventListener('click', showBooksOfCategory);
 const booksBox = document.querySelector(".books-box");
-const booksBoxTitle = booksBox.querySelector(".title-theme-book");
-const booksList = booksBox.querySelector(".list");
-const loader2 = document.querySelector(".books-box .loader");
-const btnScroll = booksBox.querySelector('.btn-up-scroll');     
+const scrollUpBtn = document.querySelector('.btn-up-scroll');
 
-let abortCtrl1, abortCtrl2, abortCtrl3;                         
+let categoryList, itemAllCategories, abortCtrl1;
+let firstLoading = true;
 
-showCategoryList();                                             
+scrollUpBtn.addEventListener('click', ()=>{
+    scrollUp(); 
+    scrollUpBtn.classList.add('is-hidden-btn');
+});
 
-categoryListBox.addEventListener('click', showBooksOfCategory);  // слухач на меню категорій книжок
-itemAllCategories.click();                                       // клікаємо на пункт All Categories, щоб завантажити best sellers books
-booksList.addEventListener('click', seeMore);                    // слухач на кнопку seeMore з блоку Best Sellers Books
-btnScroll.addEventListener('click', scrollUp);                   // слухач на кнопку скролу на початок сторінки
-window.addEventListener('scroll', scrollTracker);                // слухач на подію скролу сторінки щоб своєчасно показати кнопку повернення на початок сторінки
+window.addEventListener('scroll', scrollTracker);
 
 
-// функції завантаження даних з бекенду -------------------------------------------------------------------------
+showCategoryList();  
+scrollUp(); 
+
+// ФУНКЦІЇ виводу даних на сайт ----------------------------------------------------------------------------------
+
+        // Відправлення запиту і формування списку під час завантаження сторінки 
+    async function showCategoryList() {
+
+        //створюємо заголовок All categories і відразу натискаємо на нього, щоб визвати завантаження Best Sellers Books
+        itemAllCategories = document.createElement("h3");
+        itemAllCategories.textContent = "All categories"
+        itemAllCategories.classList.add("category-list-item", "active");
+        itemAllCategories.setAttribute("id","all-categories-item");
+        categoryListBox.prepend(itemAllCategories);
+        itemAllCategories.click();
+
+        //створюємо loader
+        const loader1 = createLoader(itemAllCategories);
+        
+        //завантажуємо з сервера список категорій книжок
+        const data = await fetchCategoryList();
+
+        //якщо отримали непусті дані, то малюємо розмітку
+        if (data.length) {
+
+            categoryList = document.createElement("ul");
+            itemAllCategories.after(categoryList);
+            
+            categoryList.classList.add("category-list");
+            categoryList.innerHTML = createCategoryListMarkup(data);
+            categoryListBox.classList.add("category-list-box-not-empty");
+        }
+
+        //видаляємо loader після виконання запиту
+        loader1.remove(); 
+    };
+
+        // Обробка події натискання категорії в меню категорій книжок (відправлення запиту і формування списку книг категорії)
+    async function showBooksOfCategory({target}){
+        
+        //відміна попереднього запиту best-books або category-books
+        if (abortCtrl1) {
+            abortCtrl1.abort();
+            console.log("abort previous books fetch");
+        }
+
+        if ((!target.classList.contains('category-list-item')) && (!target.classList.contains('js-btn-more'))){
+            return;
+        } else {
+
+            // переносимо клас .active на обрану категорію
+            changeActiveItem(itemAllCategories, categoryList, target);
+
+            //формуємо категорію в потрібному форматі для запиту на сервер
+            const category = target.id.split(" ").join("%20");
+            
+            //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії
+            if (category === 'all-categories-item') {
+
+                booksBox.innerHTML="";
+                const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
+
+                // if (!firstLoading) { 
+                //     scrollToBooksBox();
+                // }
+
+                const loader2 = createLoader(booksBoxTitle);
+
+                abortCtrl1 = new AbortController();
+                const data = await fetchBestSellersBooks(abortCtrl1);
+        
+                loader2.remove();
+        
+                if (data.length) {
+        
+                    const bestBooksList = document.createElement("ul");
+                    bestBooksList.classList.add("list","best-books-list");
+                    booksBoxTitle.after(bestBooksList);
+                    bestBooksList.addEventListener('click', seeMore);
+        
+                    const pageWidth = document.documentElement.scrollWidth;
+        
+                    if (pageWidth < 768) {
+                        bestBooksList.innerHTML = createBestSellersBooksMarcup(data, 1);
+                    } else if (pageWidth < 1440 && pageWidth >= 768) {
+                        bestBooksList.innerHTML = createBestSellersBooksMarcup(data, 3);
+                    } else {
+                        bestBooksList.innerHTML = createBestSellersBooksMarcup(data, 5);
+                    }
+
+                    // if (!firstLoading) {
+                    //     scrollToBooksBox();
+                    // }else {
+                    //     firstLoading = false;
+                    // }
+                }
+            } else {
+                         
+                booksBox.innerHTML="";
+                
+                const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
+
+//                scrollToBooksBox();
+
+                const loader2 = createLoader(booksBoxTitle);
+                
+                abortCtrl1 = new AbortController();
+                const data  = await fetchBooksOfCategory(category, abortCtrl1);
+                
+                loader2.remove();
+
+                if (data.length) {
+
+                    const categoryBooksList = document.createElement("ul");
+                    booksBoxTitle.after(categoryBooksList);
+                    categoryBooksList.classList.add("list", "category-books-list");
+
+                    const pageWidth = document.documentElement.scrollWidth;
+
+                    if (pageWidth < 768) {
+                        categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
+                    } else if (pageWidth < 1440 && pageWidth >= 768) {
+                        categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
+                    } else {
+                        categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
+                    }
+//                    scrollToBooksBox();
+
+                }
+            }
+        }
+    }
+
+        //Обробка події натискання кнопки seeMore
+    async function seeMore(event) {
+    
+        event.preventDefault();
+            
+        const { target } = event;
+                
+        if(!target.classList.contains('js-btn-more')) { return; }
+
+        showBooksOfCategory(event);
+    }
+    
+
+
+// ФУНКЦІЇ завантаження даних з бекенду -------------------------------------------------------------------------
         
         // Функція запиту на отримання назв категорій від бекенду
-    async function fetchCategoryList(abortCtrl1) {
+    async function fetchCategoryList() {
         try {
-            const { data } = await fetchBooks.getCategoryList(abortCtrl1);
+            const { data } = await fetchBooks.getCategoryList();
             if (!data.length) { 
                 return Notify.failure("Can't find list of categories on the server. Please reload the page!"); 
             }
@@ -38,52 +178,65 @@ window.addEventListener('scroll', scrollTracker);                // слухач
         }
         catch (error) {
             if (error.code !== 'ERR_CANCELED'){
+                
                 console.error(error);
-                categoryList.innerHTML = `<li class="error-box">
-                                            <p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>
-                                          </li>`;
+
+                const errorBox = document.createElement("div");
+                itemAllCategories.after(errorBox);
+                errorBox.classList.add("error-box");
+                errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
             }
            return [];
         } 
     }
         // Функція запиту на отримання списку найкращіх книжок від бекенду
-    async function fetchBestSellersBooks(abortCtrl2) {
+    async function fetchBestSellersBooks(abortCtrl1) {
 
         try {
-            const { data } = await fetchBooks.getTopBooks(abortCtrl2);
+            const { data } = await fetchBooks.getTopBooks(abortCtrl1);
             if (!data.length) { return Notify.failure("Can't find best sellers books on the server. Please reload the page!"); }
             return data;
         }
         catch (error){
             if (error.code !== 'ERR_CANCELED'){
+
                 console.error(error);
-                booksList.innerHTML = `<li class="error-box">
-                                            <p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>
-                                       </li>`;
+
+                const errorBox = document.createElement("div");
+                booksBox.append(errorBox);
+                errorBox.classList.add("error-box");
+                errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+
             }
             return [];
         }
     }
         // Функція запиту на отримання списку книг однієї категорії від бекенду
-    async function fetchBooksOfCategory(category, abortCtrl3) {
+    async function fetchBooksOfCategory(category, abortCtrl1) {
         try {
 
-            const { data } = await fetchBooks.getBooksByCategory(category, abortCtrl3);
+            const { data } = await fetchBooks.getBooksByCategory(category, abortCtrl1);
             if (!data.length) { return Notify.failure("Can't find books of category <" + category + "> on the server. Please reload the page!"); }
             return data;
         }
         catch (error) {
             if (error.code !== 'ERR_CANCELED'){
+
                 console.error(error);
-                booksList.innerHTML =  `<li class="error-box">
-                                            <p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>
-                                        </li>`;
+
+                const errorBox = document.createElement("div");
+                booksBox.append(errorBox);
+                errorBox.classList.add("error-box");
+                errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+
             }
             return [];
         } 
     }
 
-// функції формування розмітки -----------------------------------------------------------------------------------
+
+
+// ФУНКЦІЇ формування розмітки -----------------------------------------------------------------------------------
 
         // розмітка списку категорій
     function createCategoryListMarkup(data) {
@@ -92,7 +245,7 @@ window.addEventListener('scroll', scrollTracker);                // слухач
 
         data.forEach(category => {
             const categoryLink = `  <li id="${category.list_name}" class="category-list-item"> 
-                                        ${category.list_name}
+                                       ${category.list_name}
                                     </li> `;
             categoryListHTML += categoryLink;
         });
@@ -115,7 +268,7 @@ window.addEventListener('scroll', scrollTracker);                // слухач
                         </div>
                     </div>
                     <p class="title-book">${shortTitle(title, 17)}</p>
-                    <p class="author">${shortTitle(author, 34)}</p>
+                    <p class="title-author">${shortTitle(author, 34)}</p>
                 </li>`).join('');
 
                 return `<li class="best-book-container">${category}
@@ -156,166 +309,56 @@ window.addEventListener('scroll', scrollTracker);                // слухач
     }
 
 
-// функції виводу даних на сайт ----------------------------------------------------------------------------------
 
-        // Відправлення запиту і формування списку під час завантаження сторінки 
-    async function showCategoryList() {
-        scrollUp();
-        if (abortCtrl1) {
-            abortCtrl1.abort();
-            console.log("abort showCategoryList");
-        } 
+// ФУНКЦІЇ Допоміжні --------------------------------------------------------------------------------------------
 
-        loader1.classList.remove('loader-non-active');
-        
-        abortCtrl1 = new AbortController();
-        const data = await fetchCategoryList(abortCtrl1);
-
-        if (data.length) {
-            categoryList.innerHTML = createCategoryListMarkup(data);
-            categoryListBox.classList.add("category-list-box-not-empty");
-        }
-
-        loader1.classList.add('loader-non-active');
-    };
-        // Відправлення запиту і формування списку best sellers books 
-    async function showBestSellersBooks(){
-        
-        if (abortCtrl2) {
-            abortCtrl2.abort();
-            console.log("abort showBestSellersBooks");
-        } 
-        
-        booksBoxTitle.innerHTML = `${lastBlueWord("Best Sellers Books")}`;
-        booksList.innerHTML=""
-        booksList.classList.remove("category-books-list");
-        booksList.classList.add("best-books-list");
-
-        loader2.classList.toggle("loader-non-active");
-        abortCtrl2 = new AbortController();
-
-        const data = await fetchBestSellersBooks(abortCtrl2);
-
-        if (data.length) {
-            
-            const pageWidth = document.documentElement.scrollWidth;
-
-            if (pageWidth < 768) {
-                booksList.innerHTML = createBestSellersBooksMarcup(data, 1);
-            } else if (pageWidth < 1440 && pageWidth >= 768) {
-                booksList.innerHTML = createBestSellersBooksMarcup(data, 3);
-            } else {
-                booksList.innerHTML = createBestSellersBooksMarcup(data, 5);
-            }
-            
-        }
-
-        loader2.classList.toggle('loader-non-active');
-    }
-        // Відправлення запиту і формування списку книг однієї категорії 
-    async function showBooksOfCategory({target}){
-
-        if ((!target.classList.contains('category-list-item')) && (!target.classList.contains('js-btn-more'))){
-            return;
-        } else {
-            
-            const category = target.id.split(" ").join("%20");
-            
-            if (category === 'category-list-title') {
-              //  scrollToTitle();
-                showBestSellersBooks();
-               // scrollToTitle();
-
-            } else {
-                          
-                if (abortCtrl3) {
-                    abortCtrl3.abort();
-                    console.log("abort showBooksOfCategory");
-                }
-
-                booksBoxTitle.innerHTML = `${lastBlueWord(target.id)}`;
-                booksList.innerHTML=""
-                
-                scrollToTitle();
-
-                booksList.classList.remove("best-books-list");
-                booksList.classList.add("category-books-list");
-
-                loader2.classList.toggle('loader-non-active');
-                
-                abortCtrl3 = new AbortController();
-                const data  = await fetchBooksOfCategory(category, abortCtrl3);
-
-                if (data.length) {
-
-                    const pageWidth = document.documentElement.scrollWidth;
-                    if (pageWidth < 768) {
-                        booksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
-                    } else if (pageWidth < 1440 && pageWidth >= 768) {
-                        booksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
-                    } else {
-                        booksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
-                    }
-
-                }
-
-                loader2.classList.toggle('loader-non-active');
-            
-                scrollToTitle();
-            }
-            
-        }
-        
-    }
-
-
-// функції для кнопки see more та скролу на початок сторінки -----------------------------------------------------
-
-        //Функція для кнопки seeMore cписку книг однієї категорії
-    async function seeMore(event) {
-        
-        event.preventDefault();
-            
-        const { target } = event;
-                
-        try {
-            if(!target.classList.contains('js-btn-more')) { 
-                return;
-            } else {
-                showBooksOfCategory(event);
-                scrollUp();
-            }
-        } catch (error) {
-
-            console.error(error);
-            Notify.failure('Sorry, there was a server error, please reload the page');
-
-        }
-    }
         // Функція скролу на початок сторінки
     function scrollUp() {
+        
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
-        })
+        });
+        console.log(window.scrollY);
 
-        btnScroll.classList.add('is-hidden-btn')
+        //scrollUpBtn.classList.add('is-hidden-btn');        
     }
+
         // Функція показу кнопки повернення на початок сторінки
     function scrollTracker() {
         const offset = window.scrollY || window.pageYOffSet;
         const highDocument = document.documentElement.clientHeight;
         if (offset > highDocument) {
-            btnScroll.classList.remove('is-hidden-btn');
+            scrollUpBtn.classList.remove('is-hidden-btn');
         } else {
-            btnScroll.classList.add('is-hidden-btn');
+            scrollUpBtn.classList.add('is-hidden-btn');
         }
     }
 
-    function scrollToTitle(){
-        window.scroll({
-            top: booksBoxTitle.offsetTop ,
-            left: 0,
-            behavior: "smooth",
-          });
+        // Функція скролу до заголовку списку книжок
+    function scrollToBooksBox(){
+
+        titleTopY = booksBox.offsetTop;
+        docHeight = document.documentElement.offsetHeight;
+        windowHeight = document.documentElement.clientHeight;
+        docWidth =  document.documentElement.offsetWidth;
+        docCurrentScrollY = window.scrollY;
+
+        switch (docWidth >= 1440) {
+            case true :
+                if (docCurrentScrollY > 0) { 
+                    window.scroll({top: booksBox.offsetTop - 112 , left: 0, behavior: "smooth",});
+                }
+                break;
+            case false :
+                if ((docHeight - titleTopY) < windowHeight){
+                    window.scroll({top: docHeight , left: 0, behavior: "smooth",});                    
+                }else if (titleTopY + 180 > windowHeight) {
+                    window.scroll({top: booksBox.offsetTop - 90 , left: 0, behavior: "smooth",});
+                }
+                break;
+            default:
+                break;
+        }
+
     }

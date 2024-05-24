@@ -4,8 +4,10 @@
 @import './header';
 @import './main';
 @import './footer';
+@import './modal_windows/autorization_modal_window';
+@import './modal_windows/about_us_modal_window';
+@import './modal_windows/book_modal_window';
 @import './isChangeTheme';
-@import './autorization_modal_window';
 
 // Стилі для блоку shopping_list на сторінці shopping_list_page
 .book_card {
@@ -55,7 +57,7 @@
   font-size: 32px;
   line-height: 1.1875;
   letter-spacing: -0.04em;
-  //margin-bottom: 40px;
+  margin-bottom: 40px;
   color: var(--text-dark-color);
 }
 
@@ -660,7 +662,6 @@
   display: none;;
 }
 .empty-shopping_booklist{
-  display: block;
   max-width:265px;
   height: 248px;
   padding-left: 13.5px;
@@ -668,7 +669,6 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 120px;
 }
 .empty-shopping-box-text{
   text-align: center;
@@ -686,7 +686,6 @@
   .empty-shopping_booklist{
     max-width: 349px;
     height: 309px;
-    margin-top: 140px;
   }
   .empty-shopping-box-text{
     font-size: 18px;

@@ -1,3 +1,5 @@
+import loaderHTML from './loader';
+
 // Функція що скорочує рядок string до довжини value та додає три крапки в кінці
 function shortTitle(string, value) {
   if(string.length > Number(value)){
@@ -34,4 +36,43 @@ function lastBlueWord(string) {
     return `${firstWord.join(' ')} <span class="last-word-color">${arrWord.join('')}</span>`
 }
 
-export {shortTitle, lastBlueWord};
+//Функція створює та повертає loader, який додає в документ після елементу elementAfter
+function createLoader(elementAfter){
+        const loader = document.createElement("div");
+        loader.classList.add("loader-box");
+        loader.innerHTML = loaderHTML;
+        elementAfter.after(loader);
+        return loader;
+}
+
+//Функція перезаписує клас .active в меню list, включаючи елемент headerElement
+function changeActiveItem(headerElement, list, checkedElement){
+
+  if ((headerElement.innerText === checkedElement.innerText) && (!headerElement.classList.contains("active"))){ 
+    headerElement.classList.add("active");
+  } else if ((headerElement.innerText != checkedElement.innerText) && (headerElement.classList.contains("active"))) {
+    headerElement.classList.remove("active");
+  }
+
+  if (list){
+    Array.from(list.children).forEach((item) => { 
+      if ((item.innerText != checkedElement.innerText) && item.classList.contains("active")) {
+          item.classList.remove("active");
+      } else if (item.innerText === checkedElement.innerText) {
+          item.classList.add("active");
+      }
+    });
+  }
+}
+
+//Функція створює заголовок h2 в контейнері box з текстом titleStr і робить останє столово блакитним
+function createBooksBoxTitle(box, titleStr){
+  const title = document.createElement("h2");
+  title.classList.add("title-theme-book");
+  title.innerHTML = `${lastBlueWord(titleStr)}`;
+  box.prepend(title);
+  return title;
+}
+
+
+export {shortTitle, lastBlueWord, createLoader, changeActiveItem,  createBooksBoxTitle};

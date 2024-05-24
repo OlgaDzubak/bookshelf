@@ -3,16 +3,15 @@
   .loader{
     position: relative;
     width: max-content;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 25%;
     --duration: 6.8s;
     --color1:var(--accent-color1);
     --color2:var(--accent-color2);
-  }
-
-  .loader-non-active{
-    display: none;
   }
 
   .loader .text{
@@ -80,7 +79,7 @@
   .loader ul li {
     position: absolute;
     left: 18px;
-    top: 0px;  
+    top: 45px;  
     width: 28px;
     height: 2px;
     border-radius: 2px;
@@ -174,420 +173,420 @@
 
   @-webkit-keyframes page-0 {
     4% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     13%, 54% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     63% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-0 {
     4% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     13%, 54% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     63% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-1 {
     5.86% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     14.74%, 55.86% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     64.74% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-1 {
     5.86% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     14.74%, 55.86% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     64.74% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-2 {
     7.72% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     16.48%, 57.72% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     66.48% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-2 {
     7.72% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     16.48%, 57.72% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     66.48% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-3 {
     9.58% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     18.22%, 59.58% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     68.22% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-3 {
     9.58% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     18.22%, 59.58% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     68.22% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-4 {
     11.44% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     19.96%, 61.44% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     69.96% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-4 {
     11.44% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     19.96%, 61.44% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     69.96% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-5 {
     13.3% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     21.7%, 63.3% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     71.7% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-5 {
     13.3% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     21.7%, 63.3% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     71.7% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-6 {
     15.16% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     23.44%, 65.16% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     73.44% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-6 {
     15.16% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     23.44%, 65.16% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     73.44% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-7 {
     17.02% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     25.18%, 67.02% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     75.18% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-7 {
     17.02% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     25.18%, 67.02% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     75.18% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-8 {
     18.88% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     26.92%, 68.88% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     76.92% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-8 {
     18.88% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     26.92%, 68.88% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     76.92% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-9 {
     20.74% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     28.66%, 70.74% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     78.66% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-9 {
     20.74% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     28.66%, 70.74% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     78.66% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-10 {
     22.6% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     30.4%, 72.6% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     80.4% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-10 {
     22.6% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     30.4%, 72.6% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     80.4% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-11 {
     24.46% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     32.14%, 74.46% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     82.14% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-11 {
     24.46% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     32.14%, 74.46% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     82.14% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-12 {
     26.32% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     33.88%, 76.32% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     83.88% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-12 {
     26.32% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     33.88%, 76.32% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     83.88% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-13 {
     28.18% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     35.62%, 78.18% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     85.62% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-13 {
     28.18% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     35.62%, 78.18% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     85.62% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-14 {
     30.04% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     37.36%, 80.04% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     87.36% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-14 {
     30.04% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     37.36%, 80.04% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     87.36% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-15 {
     31.9% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     39.1%, 81.9% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     89.1% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-15 {
     31.9% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     39.1%, 81.9% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     89.1% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-16 {
     33.76% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     40.84%, 83.76% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     90.84% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-16 {
     33.76% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     40.84%, 83.76% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     90.84% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-17 {
     35.62% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     42.58%, 85.62% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     92.58% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-17 {
     35.62% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     42.58%, 85.62% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     92.58% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @-webkit-keyframes page-18 {
     37.48% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     44.32%, 87.48% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     94.32% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
   @keyframes page-18 {
     37.48% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
     44.32%, 87.48% {
-      transform: rotateZ(180deg) translateX(-15px);
+      transform: rotateZ(180deg)  translateX(-15px);
     }
     94.32% {
-      transform: rotateZ(0deg) translateX(-15px);
+      transform: rotateZ(0deg)  translateX(-15px);
     }
   }
 //}

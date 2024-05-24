@@ -118,8 +118,8 @@
         bottom: 0;
         background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
         box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
-        -webkit-transition: 400ms;
-        transition: 400ms;
+        -webkit-transition: var(--transition);;
+        transition: var(--transition);
     }
     .slider:before {
         position: absolute;
@@ -130,8 +130,8 @@
         bottom: 1px;
         top: 1px;
         background-color: var(--accent-color3);
-        -webkit-transition: 400ms;
-        transition: 400ms;
+        -webkit-transition: var(--transition);
+        transition: var(--transition);
     }
     input:checked+.slider,
     input:checked+.slider {
@@ -272,7 +272,7 @@
         background-size: contain;
         // transform: translateY(0%);
 
-        transition: 300ms linear;
+        transition: var(--transition);
     }
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -379,7 +379,7 @@
         text-transform: uppercase;
         color: var(--accent-color3);
         border-radius: 36px;
-        transition: 400ms linear;
+        transition: var(--transition);
     }
     .shopping-link-mobile:hover,
     .home-link-mobile:hover,
@@ -504,7 +504,7 @@
     
             color: var(--accent-color3);
             border: 1.5px solid #111111;
-            border-radius: 18px;
+            border-radius: 36px;
             transition: background-color var(--transition);
         }
         .user-login:hover,

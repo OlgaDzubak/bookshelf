@@ -21,7 +21,7 @@ const bucketCard = [
     img: bucketTrash,
   },
 ];
-
+const shoppingBooksBox = document.querySelector('.shopping-wrapper');
 const shoppingListDiv = document.querySelector('.shopping_booklist');
 shoppingListDiv.addEventListener('click', removeBook);
 
@@ -52,6 +52,8 @@ createShoppingList();
     const shoppingBook = [];
 
     if (!response.length) {
+      shoppingListDiv.remove();
+      paginationList.remove();      
       emptyShoppingBooklistBox.classList.remove = "non-active";
       emptyShoppingBooklistBox.classList.add = "active";
       return;
@@ -154,7 +156,6 @@ createShoppingList();
       return await createShoppingList();
     }
   }
-
   // Пагінація усі функції
   
     // Функція яка відмображає три елемента масиву відповідно до сторінки

@@ -1,5 +1,5 @@
 import './js/isChangeTheme';
- import './js/support_ukraine';
+import './js/support_ukraine';
 import './js/books';
 import './js/autorization_modal_window';
 import './js/book_modal_window';

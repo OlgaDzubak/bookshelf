@@ -5,7 +5,7 @@
 @import './main';
 @import './loader';
 @import './footer';
-@import './autorization_modal_window';
-@import './isChangeTheme'; 
-@import './modal_window_book';
-
+@import './modal_windows/autorization_modal_window';
+@import './modal_windows/about_us_modal_window';
+@import './modal_windows/book_modal_window';
+@import './isChangeTheme';
