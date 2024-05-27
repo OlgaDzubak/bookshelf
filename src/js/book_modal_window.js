@@ -1,8 +1,8 @@
 import { booksAPI } from './booksAPI';
-import { countShoppingBook } from './header';
+import { displayOrdredAmountInShoppingBag } from './help_functions';
 
 const books = new booksAPI;
-let book_Id;
+let book_Id, abortCtrl1;
 const divContainerEl = document.querySelector('.books-box');
 const divBackEl = document.querySelector('.back');
 const btnCloseModal = document.querySelector('.btn-modal-close');
@@ -46,14 +46,23 @@ function onReadId(event) {
 }
 
 async function createModalWindow(book_Id) {
+
+    if (abortCtrl1) {
+        abortCtrl1.abort();
+        console.log("abort previous book fetch");
+    }
+
     objScroll.disabledScroll();
+
     document.addEventListener("keydown", event => {
         if (event.key === 'Escape') {
             onCloseModal();
         }
     }, {once: true} );
+
     try {
-        const respons = await books.getBookById(book_Id);
+        abortCtrl1 = new AbortController;
+        const respons = await books.getBookById(book_Id, abortCtrl1);
         const { author, book_image, description, title, buy_links } = respons.data;
         const randerBox = document.querySelector('.book-img');
         const nameBookEl = document.querySelector('#name-book');
@@ -118,7 +127,7 @@ function addLocalStorage() {
     }
     arrLs.push(book_Id);
     localStorage.setItem('orderedBookID', JSON.stringify(arrLs));
-    countShoppingBook(arrLs)
+    displayOrdredAmountInShoppingBag(arrLs)
 };
 
 function removeLocalStorage() {
@@ -131,6 +140,6 @@ function removeLocalStorage() {
     arrLs.splice(i, 1);
     localStorage.removeItem('orderedBookID')
     localStorage.setItem('orderedBookID', JSON.stringify(arrLs));
-    countShoppingBook(arrLs)
+    displayOrdredAmountInShoppingBag(arrLs)
 };
 

@@ -30,12 +30,12 @@ body.dark .burger-logo {
 
 body.dark .shopping-link:hover,
 body.dark .shopping-link:focus,
-body.dark .shopping-link:hover .shopping-bag-icon,
 body.dark .shopping-link:focus .shopping-bag-icon,
 body.dark .home-link:hover,
 body.dark .home-link:focus {
     color: var(--text-dark-color);
     fill: var(--text-dark-color);
+    stroke: var(--text-dark-color);
 }
 
 

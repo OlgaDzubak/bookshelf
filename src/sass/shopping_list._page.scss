@@ -4,6 +4,7 @@
 @import './header';
 @import './main';
 @import './footer';
+@import './loader';
 @import './modal_windows/autorization_modal_window';
 @import './modal_windows/about_us_modal_window';
 @import './modal_windows/book_modal_window';
@@ -626,7 +627,8 @@
   color: white;
 }
 
-.closer-btn {
+.closer-btn,
+.bucket-btn {
   position: absolute;
   width: 34px;
   height: 34px;
@@ -643,7 +645,8 @@
   transition: background-color var(--transition);
 }
 
-.closer-btn:hover {
+.closer-btn:hover,
+.bucket-btn:hover {
   background-color: #f42b2b;
 }
 
@@ -694,7 +697,7 @@
 }
 
 @media screen and (max-width: 1439.8px){
-  .support-ukraine-container{
+  .support-ukraine-box{
     display: none;
   }
 }

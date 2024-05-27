@@ -148,7 +148,7 @@
     .shopping-link{
         position: relative;
     }
-    .count-shopping-list{
+    .ordered-amount-box{
     position: absolute;
     bottom: 0;
     right: 8px;
@@ -161,7 +161,7 @@
     height: 17px;
     padding: 2px;
     }
-    .count-length{
+    .ordered-amount{
         color: var(--accent-color3);
         font-size: 10px;
         display: inline-flex;

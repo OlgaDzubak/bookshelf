@@ -1,3 +1,4 @@
+import './js/header';
 import './js/isChangeTheme';
 import './js/support_ukraine';
 import './js/books';

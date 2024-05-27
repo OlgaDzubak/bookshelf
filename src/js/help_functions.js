@@ -1,5 +1,17 @@
 import loaderHTML from './loader';
 
+// Функція відображає в купівельному кошику кількість замовлень
+function displayOrdredAmountInShoppingBag(arr) {
+  const ordredAmountBox = document.querySelector('.ordered-amount-box');
+  if (!arr.length) {
+      return ordredAmountBox.style.display = "none";
+  } else {
+      ordredAmountBox.style.display = "block"
+      ordredAmountBox.firstElementChild.textContent = arr.length;
+      return;
+  }
+}
+
 // Функція що скорочує рядок string до довжини value та додає три крапки в кінці
 function shortTitle(string, value) {
   if(string.length > Number(value)){
@@ -75,4 +87,4 @@ function createBooksBoxTitle(box, titleStr){
 }
 
 
-export {shortTitle, lastBlueWord, createLoader, changeActiveItem,  createBooksBoxTitle};
+export {displayOrdredAmountInShoppingBag, shortTitle, lastBlueWord, createLoader, changeActiveItem,  createBooksBoxTitle};

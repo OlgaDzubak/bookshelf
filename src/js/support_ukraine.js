@@ -12,6 +12,7 @@ const fundsMarkup = createFundsMarkup(supportItems);
 
 galleryItemsContainer.insertAdjacentHTML('beforeend', fundsMarkup);
 
+
 function createFundsMarkup(supportItems) {
   return supportItems
     .map(({ title, url, img, id }) => {

@@ -17,7 +17,6 @@ scrollUpBtn.addEventListener('click', ()=>{
 
 window.addEventListener('scroll', scrollTracker);
 
-
 showCategoryList();  
 
 // ФУНКЦІЇ виводу даних на сайт ----------------------------------------------------------------------------------
