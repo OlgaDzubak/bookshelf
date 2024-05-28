@@ -11,21 +11,26 @@
 @import './isChangeTheme';
 
 // Стилі для блоку shopping_list на сторінці shopping_list_page
-.book_card {
+.book-card {
   position: relative;
   display: flex;
   padding: 14px;
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
   width: 335px;
+  z-index: 100;
 }
+.book-card.non-active{
+  display: none;
+}
+
 
 .image-bucket {
   pointer-events: none;
 }
 
 @media screen and (min-width: 768px) {
-  .book_card {
+  .book-card {
     position: relative;
     display: flex;
     padding: 14px;
@@ -36,7 +41,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .book_card {
+  .book-card {
     position: relative;
     display: flex;
     padding: 14px;
@@ -261,7 +266,7 @@
   width: 100%;
 }
 
-.book_card {
+.book-card {
   display: flex;
   padding: 14px;
   border: 2px solid rgba(79, 46, 232, 0.4);

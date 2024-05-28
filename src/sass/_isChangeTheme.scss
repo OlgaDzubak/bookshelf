@@ -21,7 +21,7 @@ body.dark .header {
 body.dark .logo-link,
 body.dark .home-link,
 body.dark .shopping-link,
-body.dark .shopping-bag-icon,
+body.dark .shopping-link .shopping-bag-icon,
 body.dark .burger-logo {
     color: var(--accent-color3);
     fill: var(--accent-color3);
@@ -30,14 +30,22 @@ body.dark .burger-logo {
 
 body.dark .shopping-link:hover,
 body.dark .shopping-link:focus,
+body.dark .shopping-link:hover .shopping-bag-icon,
 body.dark .shopping-link:focus .shopping-bag-icon,
 body.dark .home-link:hover,
-body.dark .home-link:focus {
+body.dark .home-link:focus{
+    color: var(--text-dark-color);
+    fill: var(--text-dark-color);
+    stroke: var(--text-dark-color);
+
+}
+body.dark .home-link.selected, 
+body.dark .shopping-link.selected,
+body.dark .shopping-link.selected .shopping-bag-icon {
     color: var(--text-dark-color);
     fill: var(--text-dark-color);
     stroke: var(--text-dark-color);
 }
-
 
 //-------------------- list_of_categories---------------------//
 

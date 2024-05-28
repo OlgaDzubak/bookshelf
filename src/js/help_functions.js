@@ -87,4 +87,62 @@ function createBooksBoxTitle(box, titleStr){
 }
 
 
-export {displayOrdredAmountInShoppingBag, shortTitle, lastBlueWord, createLoader, changeActiveItem,  createBooksBoxTitle};
+// Функція скролу до заголовку списку книжок
+function scrollToBoxTop(box){
+
+  titleTopY = box.offsetTop;
+  docHeight = document.documentElement.offsetHeight;
+  windowHeight = document.documentElement.clientHeight;
+  docWidth =  document.documentElement.offsetWidth;
+  docCurrentScrollY = window.scrollY;
+
+  switch (docWidth >= 1440) {
+      case true :
+          if (docCurrentScrollY > 0) { 
+              window.scroll({top: box.offsetTop - 112 , left: 0, behavior: "smooth",});
+          }
+          break;
+      case false :
+          if ((docHeight - titleTopY) < windowHeight){
+              window.scroll({top: docHeight , left: 0, behavior: "smooth",});                    
+          }else if (titleTopY + 180 > windowHeight) {
+              window.scroll({top: box.offsetTop - 90 , left: 0, behavior: "smooth",});
+          }
+          break;
+      default:
+          break;
+  }
+
+}
+
+// Функція скролу на початок сторінки
+function scrollUp() {
+  window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+  });
+}
+
+
+// Функція показу кнопки повернення на початок сторінки
+function scrollTracker(scrollUpBtn) {
+  const offset = window.scrollY || window.pageYOffSet;
+  const highDocument = document.documentElement.clientHeight;
+  if (offset > highDocument) {
+      scrollUpBtn.classList.remove('is-hidden-btn');
+  } else {
+      scrollUpBtn.classList.add('is-hidden-btn');
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+export {  displayOrdredAmountInShoppingBag, 
+          shortTitle, 
+          lastBlueWord, 
+          createLoader, 
+          changeActiveItem,  
+          createBooksBoxTitle, 
+          scrollToBoxTop,
+          scrollUp,
+          scrollTracker
+        };

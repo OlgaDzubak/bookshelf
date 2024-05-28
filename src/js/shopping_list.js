@@ -1,4 +1,5 @@
 import { booksAPI } from './booksAPI';
+import {scrollToBoxTop} from './help_functions';
 import amazon from '/src/images/svg/amazon_icon.svg';
 import appleBook from '/src/images/svg/ibooks_icon.svg';
 import bucketTrash from '/src/images/png/trash-03.png';
@@ -10,7 +11,7 @@ import stackOfBooks_desktop_1x from '/src/images/shopping_list/stack_of_books_de
 import stackOfBooks_desktop_2x from '/src/images/shopping_list/stack_of_books_desktop@2x.png';
 
 
-import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag } from './help_functions';
+import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollToBoxTop } from './help_functions';
 const fetchBooks = new booksAPI();
 
 const photoItemsOne = [
@@ -75,29 +76,33 @@ async function createShoppingList(activePage) {
       shoppingBooks = [];
       data.forEach((item) => shoppingBooks.push(item.data));
 
-      if (shoppingBooks.length > booksOnPage) {
+      if (shoppingBooks.length >= booksOnPage) {
 
-        shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks.slice(0, booksOnPage ));
+        shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks, 1, booksOnPage); //createShoppingBooksMarcup(shoppingBooks.slice(0, booksOnPage ));
 
         const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage);
 
         if (pagesCount > 1 ) {
+
           paginationBox = document.createElement("div");
           paginationBox.classList.add("shopping_booklist_pagination");
           paginationBox.innerHTML = createPaginationMarkup(pagesCount, currentPage);
           shoppingBooksBox.append(paginationBox);
+
           paginationBox.addEventListener('click', (event)=>{
             clickedButton = event.target;
             if (!clickedButton.classList.contains("active")){
               const page = Number(clickedButton.textContent);
               setPaginationPage(paginationBox, page);
-              shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (page-1), booksOnPage * page));
+              shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (page-1) + 1, booksOnPage * page) ;//createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (page-1), booksOnPage * page));
+              scrollToBoxTop(shoppingBooksBox);
+
             }
           });
         }
 
       }else {
-        shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks);
+        shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks, 1, booksOnPage);
       }
     }
 }
@@ -119,9 +124,10 @@ async function fetchOrderedBooks(arr, abortCtrl) {
 }
 
   // Функція створення розмітки ShoppingBooks
-function createShoppingBooksMarcup(dataArray) {
-  const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }) =>
-                                    ` <li class="book_card">
+function createShoppingBooksMarcup(dataArray, startShownItem_idx, lastShownItem_idx) {
+  const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
+                            
+                            return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx-1) && (idx <= lastShownItem_idx-1)) ? '' : 'non-active' }">
 
                                         <div class="book-image-div">
                                           <img class="book-image" src='${book_image}' alt='${title}'>
@@ -158,27 +164,36 @@ function createShoppingBooksMarcup(dataArray) {
                                           </ul>
                                         </div>
 
-                                      </li>`).join('\n');
-  return markup;
+                                      </li>`;
+                            }).join('\n');
+    return markup;
 }
+
   // Функція видалення книжки зі списку Shopping list
 function deleteBook({target}){
   if (target.classList.contains("bucket-btn")){
     
+    //Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray
     const bookIdDelete_idx = orderedBooksIdArray.indexOf(target.dataset.id);
 
+    //вираховуємо яка сторінка буде активною після видалення книжки поточна або попередня
     if (((bookIdDelete_idx + 1) === orderedBooksIdArray.length) && (shoppingBooks.length % booksOnPage === 1)) {
-      currentPage = currentPage -1;
+      currentPage = currentPage - 1;
     }
 
+    //видаляємо id книги та інформацію по книзі з масивів orderedBooksIdArray та shoppingBooks
     orderedBooksIdArray.splice(bookIdDelete_idx, 1);
     shoppingBooks = shoppingBooks.filter(item => item._id != target.dataset.id);
- 
+    
+    //Перезаписуємо сховище
     localStorage.removeItem(LOCALSTORAGE_KEY);
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(orderedBooksIdArray));
 
-    shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (currentPage-1) , booksOnPage * currentPage));
+    deleteBookItemFromMarkUp(shoppingBookList, target.dataset.id)
+  
+    //shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (currentPage-1) , booksOnPage * currentPage));
     
+    //Перезаписуємо пагінацію
     const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage);
     const pagination = document.querySelector(".shopping_booklist_pagination");
     if (pagination){
@@ -189,7 +204,8 @@ function deleteBook({target}){
       }
     }
 
-    displayOrdredAmountInShoppingBag(orderedBooksIdArray);
+    //Перезаписуємо кількість замовлених книжок в кошику після видалення книжки
+    setTimeout(()=>{displayOrdredAmountInShoppingBag(orderedBooksIdArray)},1000);
   }
 }
 
@@ -248,3 +264,32 @@ function createEmptyShoppingBooklistBox(){
                                         </div>`
   shoppingBooksBox.append(emptyShoppingBooklistBox);
 }
+
+
+
+function deleteBookItemFromMarkUp(list, itemId){ 
+
+        let isSuccess;
+
+        const deletedItem_idx = [...list.children].findIndex((item)=>(item.getAttribute('data-id') === itemId));
+        if (deletedItem_idx != -1) { 
+          const delItem = list.children[deletedItem_idx];
+          delItem.style.transitionProperty = "transform";
+          delItem.style.transition = '1200ms linear';
+          delItem.style.transform = `translateX(${document.documentElement.clientWidth -  delItem.offsetLeft}px`;
+
+          setTimeout(()=>{ 
+            
+            list.children[deletedItem_idx].remove();
+                       
+            const nextIdx =  [...list.children].findIndex((item, idx) => ((idx > deletedItem_idx-1) && item.classList.contains("non-active")));
+            if (nextIdx != -1) {
+              list.children[nextIdx].classList.remove("non-active");
+            }else if (deletedItem_idx-1 % booksOnPage === 0){
+                // дописати код
+        
+            }
+          },2000);
+          
+        } 
+  }

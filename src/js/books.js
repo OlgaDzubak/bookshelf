@@ -1,5 +1,12 @@
 import { booksAPI } from './booksAPI';
-import {shortTitle, createLoader, createBooksBoxTitle, changeActiveItem} from './help_functions';
+import { shortTitle, 
+         createLoader, 
+         createBooksBoxTitle, 
+         changeActiveItem, 
+         scrollToBoxTop, 
+         scrollUp,
+         scrollTracker } from './help_functions';
+
 const fetchBooks = new booksAPI();
 
 const categoryListBox = document.querySelector(".category-list-box");
@@ -15,7 +22,7 @@ scrollUpBtn.addEventListener('click', ()=>{
     scrollUpBtn.classList.add('is-hidden-btn');
 });
 
-window.addEventListener('scroll', scrollTracker);
+window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
 showCategoryList();  
 
@@ -82,7 +89,7 @@ showCategoryList();
                 const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
 
                 if (!firstLoading) { 
-                    scrollToBooksBox();
+                    scrollToBoxTop(booksBox);
                 }
 
                 const loader2 = createLoader(booksBoxTitle);
@@ -110,7 +117,7 @@ showCategoryList();
                     }
 
                     if (!firstLoading) {
-                        scrollToBooksBox();
+                        scrollToBoxTop(booksBox);
                     }else {
                         firstLoading = false;
                     }
@@ -121,7 +128,7 @@ showCategoryList();
                 
                 const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
 
-                scrollToBooksBox();
+                scrollToBoxTop(booksBox);
 
                 const loader2 = createLoader(booksBoxTitle);
                 
@@ -145,7 +152,7 @@ showCategoryList();
                     } else {
                         categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
                     }
-                    scrollToBooksBox();
+                    scrollToBoxTop(booksBox);
 
                 }
             }
@@ -307,58 +314,4 @@ showCategoryList();
                             <p class="off-books-text">Sorry, there are no books in this category, please choose another category</p>
                         </li>`
         }
-    }
-
-
-
-// ФУНКЦІЇ Допоміжні --------------------------------------------------------------------------------------------
-
-        // Функція скролу на початок сторінки
-    function scrollUp() {
-        // console.log("я в scrollUp", window.scrollY);
-        // window.scrollY = 0;
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-       // console.log(window.scrollY);
-    }
-
-        // Функція показу кнопки повернення на початок сторінки
-    function scrollTracker() {
-        const offset = window.scrollY || window.pageYOffSet;
-        const highDocument = document.documentElement.clientHeight;
-        if (offset > highDocument) {
-            scrollUpBtn.classList.remove('is-hidden-btn');
-        } else {
-            scrollUpBtn.classList.add('is-hidden-btn');
-        }
-    }
-
-        // Функція скролу до заголовку списку книжок
-    function scrollToBooksBox(){
-
-        titleTopY = booksBox.offsetTop;
-        docHeight = document.documentElement.offsetHeight;
-        windowHeight = document.documentElement.clientHeight;
-        docWidth =  document.documentElement.offsetWidth;
-        docCurrentScrollY = window.scrollY;
-
-        switch (docWidth >= 1440) {
-            case true :
-                if (docCurrentScrollY > 0) { 
-                    window.scroll({top: booksBox.offsetTop - 112 , left: 0, behavior: "smooth",});
-                }
-                break;
-            case false :
-                if ((docHeight - titleTopY) < windowHeight){
-                    window.scroll({top: docHeight , left: 0, behavior: "smooth",});                    
-                }else if (titleTopY + 180 > windowHeight) {
-                    window.scroll({top: booksBox.offsetTop - 90 , left: 0, behavior: "smooth",});
-                }
-                break;
-            default:
-                break;
-        }
-
     }
