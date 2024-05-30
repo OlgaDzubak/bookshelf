@@ -90,7 +90,7 @@ async function createShoppingList(activePage) {
           shoppingBooksBox.append(paginationBox);
 
           paginationBox.addEventListener('click', (event)=>{
-            clickedButton = event.target;
+            const clickedButton = event.target;
             if (!clickedButton.classList.contains("active")){
               const page = Number(clickedButton.textContent);
               setPaginationPage(paginationBox, page);
