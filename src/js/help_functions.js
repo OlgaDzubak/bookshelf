@@ -90,11 +90,11 @@ function createBooksBoxTitle(box, titleStr){
 // Функція скролу до заголовку списку книжок
 function scrollToBoxTop(box){
 
-  titleTopY = box.offsetTop;
-  docHeight = document.documentElement.offsetHeight;
-  windowHeight = document.documentElement.clientHeight;
-  docWidth =  document.documentElement.offsetWidth;
-  docCurrentScrollY = window.scrollY;
+  const titleTopY = box.offsetTop;
+  const docHeight = document.documentElement.offsetHeight;
+  const windowHeight = document.documentElement.clientHeight;
+  const docWidth =  document.documentElement.offsetWidth;
+  const docCurrentScrollY = window.scrollY;
 
   switch (docWidth >= 1440) {
       case true :
