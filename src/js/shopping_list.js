@@ -36,7 +36,7 @@ const LOCALSTORAGE_KEY = 'orderedBookID';
 let orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
 let shoppingBooks = [];
 const booksOnPage = 3;
-let shoppingBookList;
+let books_ul;
 let paginationBox;
 let currentPage = 1;
 let abortCtrl1;
@@ -45,7 +45,7 @@ let abortCtrl1;
 if (orderedBooksIdArray.length) {
   createShoppingList(currentPage);
 }  else {
-  createEmptyShoppingBooklistBox();
+  createEmptyBooksBox();
 }
 
 
@@ -68,17 +68,17 @@ async function createShoppingList(activePage) {
 
     if (data.length){
 
-      shoppingBookList = document.createElement("ul");
-      shoppingBookList.classList.add("list","shopping_booklist");
-      shoppingBooksBoxTitle.after(shoppingBookList);
-      shoppingBookList.addEventListener('click', deleteBook);
+      books_ul = document.createElement("ul");
+      books_ul.classList.add("list","shopping_booklist");
+      shoppingBooksBoxTitle.after(books_ul);
+      books_ul.addEventListener('click', deleteBook);
 
       shoppingBooks = [];
       data.forEach((item) => shoppingBooks.push(item.data));
 
       if (shoppingBooks.length >= booksOnPage) {
 
-        shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks, 1, booksOnPage); //createShoppingBooksMarcup(shoppingBooks.slice(0, booksOnPage ));
+        books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, 0, booksOnPage-1);
 
         const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage);
 
@@ -94,15 +94,14 @@ async function createShoppingList(activePage) {
             if (!clickedButton.classList.contains("active")){
               const page = Number(clickedButton.textContent);
               setPaginationPage(paginationBox, page);
-              shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (page-1) + 1, booksOnPage * page) ;//createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (page-1), booksOnPage * page));
+              books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (page-1), booksOnPage * page-1) ; //createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (page-1), booksOnPage * page));
               scrollToBoxTop(shoppingBooksBox);
-
             }
           });
         }
 
       }else {
-        shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks, 1, booksOnPage);
+        books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, 0, booksOnPage-1);
       }
     }
 }
@@ -127,7 +126,7 @@ async function fetchOrderedBooks(arr, abortCtrl) {
 function createShoppingBooksMarcup(dataArray, startShownItem_idx, lastShownItem_idx) {
   const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
                             
-                            return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx-1) && (idx <= lastShownItem_idx-1)) ? '' : 'non-active' }">
+                            return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
 
                                         <div class="book-image-div">
                                           <img class="book-image" src='${book_image}' alt='${title}'>
@@ -166,20 +165,20 @@ function createShoppingBooksMarcup(dataArray, startShownItem_idx, lastShownItem_
 
                                       </li>`;
                             }).join('\n');
-    return markup;
+  return markup;
 }
 
   // Функція видалення книжки зі списку Shopping list
 function deleteBook({target}){
+
   if (target.classList.contains("bucket-btn")){
     
+    //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
+    const btns = document.querySelectorAll(".bucket-btn");
+    btns.forEach(btn=>btn.setAttribute("disabled",""));
+
     //Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray
     const bookIdDelete_idx = orderedBooksIdArray.indexOf(target.dataset.id);
-
-    //вираховуємо яка сторінка буде активною після видалення книжки поточна або попередня
-    if (((bookIdDelete_idx + 1) === orderedBooksIdArray.length) && (shoppingBooks.length % booksOnPage === 1)) {
-      currentPage = currentPage - 1;
-    }
 
     //видаляємо id книги та інформацію по книзі з масивів orderedBooksIdArray та shoppingBooks
     orderedBooksIdArray.splice(bookIdDelete_idx, 1);
@@ -188,24 +187,92 @@ function deleteBook({target}){
     //Перезаписуємо сховище
     localStorage.removeItem(LOCALSTORAGE_KEY);
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(orderedBooksIdArray));
-
-    deleteBookItemFromMarkUp(shoppingBookList, target.dataset.id)
-  
-    //shoppingBookList.innerHTML = createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (currentPage-1) , booksOnPage * currentPage));
     
-    //Перезаписуємо пагінацію
-    const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage);
-    const pagination = document.querySelector(".shopping_booklist_pagination");
-    if (pagination){
-      if (pagesCount > 1){
-        pagination.innerHTML = createPaginationMarkup(pagesCount, currentPage);
-      }else{
-        pagination.remove();
-      }
-    }
+    // зміщуємо елемент, що видаляться, вправо за межі екрану
+    const delItem = books_ul.children[bookIdDelete_idx];
+    delItem.classList.add("shift-right");
 
-    //Перезаписуємо кількість замовлених книжок в кошику після видалення книжки
-    setTimeout(()=>{displayOrdredAmountInShoppingBag(orderedBooksIdArray)},1000);
+    //вираховуємо який номер на сторінці має єлемент, що видаляється (від 0 до booksOnPage-1)
+    const numberOnPage = bookIdDelete_idx - booksOnPage* Math.trunc((bookIdDelete_idx) / booksOnPage);
+    
+    //зміщуємо вгору всі елементи, що стоять на сторінці за елементом, який видаляється. 
+    //Ставимо відтермінування setTimeout для того щоб зміщення вгору відбулося після зміщення вправо елемента delItem
+    const time = 600;
+    setTimeout(()=>{ 
+      if (bookIdDelete_idx+1 < books_ul.children.length){
+        
+        //визначаэмо діапазон індексів елементів, які треба змістити вгору
+        const from_idx= bookIdDelete_idx+1;
+        const to_idx= (bookIdDelete_idx+(booksOnPage-1-numberOnPage) >= (books_ul.children.length-1)) ? books_ul.children.length-1 : bookIdDelete_idx+(booksOnPage-1-numberOnPage);
+        
+        for (let i = from_idx; i <= to_idx; i++){
+          let books_li = books_ul.children[i];
+          books_li.classList.add("shift-up");
+          // books_li.style.transitionProperty = "transform";
+          // books_li.style.transition = '1000ms linear';
+          // books_li.style.transform = `translateY(${-(books_li.clientHeight + 20)}px`;
+        }
+      }
+    }, time);
+
+    //фізично видаляємо елемент delItem зі списку list, скасовуємо стилі зміщення, та відображаємо на поточній сторінці перший елемент з наступної сторінки
+    setTimeout(()=>{ 
+
+      //фізично видаляємо елемент зі списку list 
+      books_ul.children[bookIdDelete_idx].remove();
+
+      //активуємо всі кнопки bucket-btn
+      btns.forEach(btn=>btn.removeAttribute("disabled"));
+
+      //якщо після видалення елементу список list залишився пустим, то виводимо елемент Emptybooks_ulBox
+      if (books_ul.children.length ===0){
+        createEmptyBooksBox();
+      }
+      
+      // скасовуємо стилі зміщення в елементів списку
+      [...books_ul.children].forEach((li)=>{
+        li.classList.remove("shift-right");
+        li.classList.remove("shift-up");
+      });
+
+      //показуємо наступний елемент, що йде за останнім видимим елементом на сторінці
+      const nextIdx =  [...books_ul.children].findIndex((li, idx) => ((idx > bookIdDelete_idx-1) && li.classList.contains("non-active")));
+      if (nextIdx != -1) {
+        books_ul.children[nextIdx].classList.remove("non-active");
+      }
+
+      console.dir(books_ul.children.length);
+
+    }, 2*time);
+    
+    setTimeout(()=>{
+
+      //Перезаписуємо кількість замовлених книжок в кошику після видалення книжки
+      displayOrdredAmountInShoppingBag(orderedBooksIdArray);
+
+      //вираховуємо яка сторінка буде активною після видалення книжки поточна або попередня
+      if ((bookIdDelete_idx === orderedBooksIdArray.length) && (shoppingBooks.length % booksOnPage === 0)) {
+        
+        const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage);
+        currentPage = currentPage - 1;
+
+        console.log("bookIdDelete_idx=",bookIdDelete_idx, "currentPage=", currentPage, "pagesCount=", pagesCount);
+
+        books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (currentPage-1) , booksOnPage * currentPage - 1);
+      
+        //Перезаписуємо пагінацію
+        const pagination = document.querySelector(".shopping_booklist_pagination");
+        console.dir(pagination);
+        if (pagination){
+          if (pagesCount > 1){
+            pagination.innerHTML = createPaginationMarkup(pagesCount, currentPage);
+          }else{
+            pagination.remove();
+          }
+        }
+      }
+
+    }, 3*time);
   }
 }
 
@@ -237,11 +304,11 @@ function setPaginationPage(paginationList, page) {
 }
 
   //Функція додає до shoppingBooksBox контейнер з картинкою коли список замовлених книжок пустий
-function createEmptyShoppingBooklistBox(){
+function createEmptyBooksBox(){
 
-  const emptyShoppingBooklistBox = document.createElement("div");
-  emptyShoppingBooklistBox.classList.add("empty-shopping_booklist");
-  emptyShoppingBooklistBox.innerHTML = `<p class="empty-shopping-box-text">This page is empty, add some books and proceed to order.</p>
+  const emptybooks_ulBox = document.createElement("div");
+  emptybooks_ulBox.classList.add("empty-shopping_booklist");
+  emptybooks_ulBox.innerHTML = `<p class="empty-shopping-box-text">This page is empty, add some books and proceed to order.</p>
                                         <div class="empty-shopping-box-picturebox">
                                           <picture>
                                             <source
@@ -262,34 +329,5 @@ function createEmptyShoppingBooklistBox(){
                                             >
                                           </picture>
                                         </div>`
-  shoppingBooksBox.append(emptyShoppingBooklistBox);
+  shoppingBooksBox.append(emptybooks_ulBox);
 }
-
-
-
-function deleteBookItemFromMarkUp(list, itemId){ 
-
-        let isSuccess;
-
-        const deletedItem_idx = [...list.children].findIndex((item)=>(item.getAttribute('data-id') === itemId));
-        if (deletedItem_idx != -1) { 
-          const delItem = list.children[deletedItem_idx];
-          delItem.style.transitionProperty = "transform";
-          delItem.style.transition = '1200ms linear';
-          delItem.style.transform = `translateX(${document.documentElement.clientWidth -  delItem.offsetLeft}px`;
-
-          setTimeout(()=>{ 
-            
-            list.children[deletedItem_idx].remove();
-                       
-            const nextIdx =  [...list.children].findIndex((item, idx) => ((idx > deletedItem_idx-1) && item.classList.contains("non-active")));
-            if (nextIdx != -1) {
-              list.children[nextIdx].classList.remove("non-active");
-            }else if (deletedItem_idx-1 % booksOnPage === 0){
-                // дописати код
-        
-            }
-          },2000);
-          
-        } 
-  }

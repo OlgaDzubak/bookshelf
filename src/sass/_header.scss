@@ -509,7 +509,7 @@
         }
         .user-login:hover,
         .user-login:focus {
-            background-color: #37209d;
+            background-color: var(--accent-color1-hf);
         }
         .icon-arrow-right {
             stroke: var(--accent-color2);

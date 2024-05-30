@@ -11,9 +11,11 @@
     --text-white-color: #ffffff;
 
     --accent-color1: #4F2EE8;
+    --accent-color1-hf: #37209d;
     --accent-color2: #EAC645;
     --accent-color3: #FFFFFF;
-    
+    --accent-color4-hf: #a1a1a1;
+
     --scrollbar-light-color: #E0E0E0;
     --scrollbar-dark-color: #1f1d1d;
 
@@ -21,4 +23,6 @@
 
     --transition: 500ms cubic-bezier(0.4, 0, 0.2, 1); 
     --transition2: 300ms cubic-bezier(0.4, 0, 0.2, 1); 
-}
+    --transition-shift-right: transform 600ms linear;
+    --transition-shift-up: transform 600ms linear;
+    }
