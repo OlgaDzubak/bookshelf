@@ -208,18 +208,18 @@ function deleteBook({target}){
         for (let i = from_idx; i <= to_idx; i++){
           let books_li = books_ul.children[i];
           books_li.classList.add("shift-up");
-          // books_li.style.transitionProperty = "transform";
-          // books_li.style.transition = '1000ms linear';
-          // books_li.style.transform = `translateY(${-(books_li.clientHeight + 20)}px`;
         }
       }
     }, time);
 
-    //фізично видаляємо елемент delItem зі списку list, скасовуємо стилі зміщення, та відображаємо на поточній сторінці перший елемент з наступної сторінки
+    //фізично видаляємо елемент delItem зі списку list, скасовуємо стилі зміщення, відображаємо на поточній сторінці перший елемент з наступної сторінки, та перемалбовуємо пагінацію
     setTimeout(()=>{ 
 
       //фізично видаляємо елемент зі списку list 
       books_ul.children[bookIdDelete_idx].remove();
+
+      //Перезаписуємо кількість замовлених книжок в кошику після видалення книжки
+      displayOrdredAmountInShoppingBag(orderedBooksIdArray);
 
       //активуємо всі кнопки bucket-btn
       btns.forEach(btn=>btn.removeAttribute("disabled"));
@@ -235,44 +235,29 @@ function deleteBook({target}){
         li.classList.remove("shift-up");
       });
 
-      //показуємо наступний елемент, що йде за останнім видимим елементом на сторінці
+      //шукаємо наступний елемент, що йде за останнім видимим елементом на сторінці
       const nextIdx =  [...books_ul.children].findIndex((li, idx) => ((idx > bookIdDelete_idx-1) && li.classList.contains("non-active")));
+      const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage)
+
       if (nextIdx != -1) {
-        books_ul.children[nextIdx].classList.remove("non-active");
+        books_ul.children[nextIdx].classList.remove("non-active");                                                     //якщо наступний елемент є то показуємо його
+      }else if((bookIdDelete_idx === orderedBooksIdArray.length) && (shoppingBooks.length % booksOnPage === 0)) {      //якщо наступного елемента немає і на поточній сторінці не залишилося книжок, то переходимо на попередню сторінку
+        currentPage = currentPage - 1;                                                                                 // запом'ятовуємо номер активної сторінки
+        books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (currentPage-1) , booksOnPage * currentPage - 1); // відображаємо книжки активної сторінки
       }
 
-      console.dir(books_ul.children.length);
-
-    }, 2*time);
-    
-    setTimeout(()=>{
-
-      //Перезаписуємо кількість замовлених книжок в кошику після видалення книжки
-      displayOrdredAmountInShoppingBag(orderedBooksIdArray);
-
-      //вираховуємо яка сторінка буде активною після видалення книжки поточна або попередня
-      if ((bookIdDelete_idx === orderedBooksIdArray.length) && (shoppingBooks.length % booksOnPage === 0)) {
-        
-        const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage);
-        currentPage = currentPage - 1;
-
-        console.log("bookIdDelete_idx=",bookIdDelete_idx, "currentPage=", currentPage, "pagesCount=", pagesCount);
-
-        books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (currentPage-1) , booksOnPage * currentPage - 1);
-      
-        //Перезаписуємо пагінацію
-        const pagination = document.querySelector(".shopping_booklist_pagination");
-        console.dir(pagination);
-        if (pagination){
-          if (pagesCount > 1){
-            pagination.innerHTML = createPaginationMarkup(pagesCount, currentPage);
-          }else{
-            pagination.remove();
-          }
+      //Перезаписуємо пагінацію
+      const paginationBox = document.querySelector(".shopping_booklist_pagination");
+      if (paginationBox){
+        if (pagesCount > 1){
+          paginationBox.innerHTML = createPaginationMarkup(pagesCount, currentPage);
+        }else{
+          paginationBox.remove();
         }
       }
-
-    }, 3*time);
+      
+    }, 2*time);   
+    
   }
 }
 
@@ -291,14 +276,16 @@ function createPaginationMarkup(pagesCount, activePage){
 
   //Додає клас активної сторінки
 function setPaginationPage(paginationList, page) {
-  for (const button of paginationList.children) {
-    if (Number(button.textContent) === page) {
-      button.classList.add('active');
-      currentPage = page;
-    }
+  if (paginationList){
+    for (const button of paginationList.children) {
+      if (Number(button.textContent) === page) {
+        button.classList.add('active');
+        currentPage = page;
+      }
 
-    if (Number(button.textContent) !== page) {
-      button.classList.remove('active');
+      if (Number(button.textContent) !== page) {
+        button.classList.remove('active');
+      }
     }
   }
 }
