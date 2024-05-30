@@ -90,12 +90,14 @@ async function createShoppingList(activePage) {
           shoppingBooksBox.append(paginationBox);
 
           paginationBox.addEventListener('click', (event)=>{
+            if (event.target.classList.contains("btn-two")){
             const clickedButton = event.target;
-            if (!clickedButton.classList.contains("active")){
-              const page = Number(clickedButton.textContent);
-              setPaginationPage(paginationBox, page);
-              books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (page-1), booksOnPage * page-1) ; //createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (page-1), booksOnPage * page));
-              scrollToBoxTop(shoppingBooksBox);
+              if (!clickedButton.classList.contains("active")){
+                const page = Number(clickedButton.textContent);
+                setPaginationPage(paginationBox, page);
+                books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (page-1), booksOnPage * page-1) ; //createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (page-1), booksOnPage * page));
+                scrollToBoxTop(shoppingBooksBox);
+              }
             }
           });
         }
