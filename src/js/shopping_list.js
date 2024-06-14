@@ -1,7 +1,7 @@
 import { booksAPI } from './booksAPI';
 import {scrollToBoxTop, shortTitle} from './help_functions';
-import {createPagination, 
-        deletePage, 
+import {createPagination,
+        deleteLastPaginationPage, 
         setPaginationPage, 
         shiftPageLeft, 
         shiftPageRight, 
@@ -34,6 +34,7 @@ let shoppingBooks = [];
 const booksOnPage = 3;
 let paginationBox, books_ul;
 let currentPage = 1;
+let pagesCount;
 let visiblePagesCount, abortCtrl1;
 
 const pageWidth = document.documentElement.scrollWidth;
@@ -78,8 +79,10 @@ async function createShoppingList() {
 
       books_ul.innerHTML =  showPage(shoppingBooks, 1, booksOnPage);
 
+      pagesCount = Math.ceil(shoppingBooks.length / booksOnPage);
+
       //стиворюємо пагінацію, якщо сторінок більше за 1
-      if (shoppingBooks.length - booksOnPage > 1 ) {
+      if (pagesCount > 1 ) {
 
         paginationBox = createPagination(shoppingBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
         shoppingBooksBox.append(paginationBox);
@@ -212,30 +215,32 @@ function deleteBook({target}){
       btns.forEach(btn=>btn.removeAttribute("disabled"));
 
       //якщо після видалення елементу список list залишився пустим, то виводимо елемент Emptybooks_ulBox
-      if (books_ul.children.length === 0){
-        paginationBox.remove();
-        createEmptyBooksBox();
-      }
       
-      // скасовуємо стилі зміщення в елементів списку
-      [...books_ul.children].forEach((li)=>{
-        li.classList.remove("shift-right");
-        li.classList.remove("shift-up");
-      });
+      if (books_ul.children.length === 0){
+        createEmptyBooksBox();
+      }else{
+      
+        // скасовуємо стилі зміщення в елементів списку
+        [...books_ul.children].forEach((li)=>{
+          li.classList.remove("shift-right");
+          li.classList.remove("shift-up");
+        });
 
-      //шукаємо наступний елемент, що йде за останнім видимим елементом на сторінці
-      const nextIdx =  [...books_ul.children].findIndex((li, idx) => ((idx > bookIdDelete_idx-1) && li.classList.contains("non-active")));
-      const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage)
+        //шукаємо наступний елемент, що йде за останнім видимим елементом на сторінці
+        const nextIdx =  [...books_ul.children].findIndex((li, idx) => ((idx > bookIdDelete_idx-1) && li.classList.contains("non-active")));
 
-      if (nextIdx != -1) {
-        books_ul.children[nextIdx].classList.remove("non-active");                                                     //якщо наступний елемент є то показуємо його
-      }else if((bookIdDelete_idx === orderedBooksIdArray.length) && (shoppingBooks.length % booksOnPage === 0)) {      //якщо наступного елемента немає і на поточній сторінці не залишилося книжок, то переходимо на попередню сторінку
-        console.log("currentPage=",currentPage);
-        currentPage = deletePage(paginationBox, currentPage, currentPage - 1);
-        console.log("currentPage=",currentPage);
-        books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);                                                     // відображаємо книжки активної сторінки
+        if (nextIdx != -1) {
+          books_ul.children[nextIdx].classList.remove("non-active");                                                     //якщо наступний елемент є то показуємо його
+        }
+        if (Math.ceil(shoppingBooks.length / booksOnPage) < pagesCount){
+          currentPage = deleteLastPaginationPage(paginationBox);
+          pagesCount = pagesCount-1;
+          if (pagesCount < 2){
+            paginationBox.remove();
+          }
+        }
+          books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);                                        // відображаємо книжки активної сторінки
       }
-     
     }, 2*time);   
     
   }

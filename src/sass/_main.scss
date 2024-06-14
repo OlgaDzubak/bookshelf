@@ -97,7 +97,7 @@
     }
     
     .img-book {
-        height: auto;
+       // height: auto;
         margin-left: auto;
         margin-right: auto;
         border-radius: 8px;
@@ -502,6 +502,7 @@
         }
         .img-book {
             width: 335px;
+            height: 485px;
         }
     }
 //}
@@ -544,6 +545,7 @@
         }
         .img-book {
             width: 218px;
+            height: 316px;
         }
         .list-books {
             margin-bottom: 20px;

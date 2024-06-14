@@ -51,8 +51,11 @@
   .book-image-div{
     border-radius: 8px;
     overflow: hidden;
+    border-radius: 8px;
   }
-
+  .book-image{
+    width: 100%;
+  }
   .book-card-content-div{
     display: flex;
     flex-direction: column;
@@ -299,10 +302,6 @@
       width: 100px;
       height:142px;
     }
-    .book-image{
-    width: 100%;
-    }
-
     .book-category {
       margin-bottom: 8px;
     }
@@ -364,13 +363,8 @@
       width: 116px;
       height:165px;
     }
-    .book-image {
-      width: 116px;
-      height: 165px;
-      border-radius: 8px;
-    }
     .book-description {
-      max-width: 508px;
+      width: 508px;
       height: 53px;
       margin-bottom: 48px;
     }
@@ -387,7 +381,6 @@
       column-gap: 16px;
       align-items: center;
       justify-content: center;
-
     }
     .marketplacer_li_one{
       display:flex;
@@ -457,22 +450,8 @@
     }
   }
   @media screen and (min-width: 1440px){
-    .book-card {
-      padding: 24px;
-      column-gap: 24px;
-    }
-    .book-image-div {
-      width: 100px;
-      height:142px;
-    }
     .book-description {
       width: 808px;
-    }
-    .book-image-div {
-      margin-right: 24px;
-    }
-    .market_placers_list {
-      gap: 16px;
     }
   }
 //}

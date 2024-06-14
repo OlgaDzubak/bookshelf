@@ -82,7 +82,7 @@ return paginationMarkup;
 
 // Додає клас активної сторінки та управляю активацією та дезактивацією кнопок зі стрілками та трикрапками
 function setPaginationPage(paginationList, page) {
-    if (paginationList){
+    if (paginationList && page>0){
     
         const allPagesBtns = paginationList.querySelectorAll(".number-btn");
         let visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
@@ -98,7 +98,7 @@ function setPaginationPage(paginationList, page) {
         //Обробка кнопок з цифрами сторінок
         for (const button of allPagesBtns) {
             
-            if (Number(button.textContent) === page && !button.classList.contains('active')){
+            if (Number(button.textContent) === page){
 
             button.classList.add('active');
             button.focus();
@@ -155,7 +155,6 @@ function setPaginationPage(paginationList, page) {
             leftThreeDots.classList.remove('visually-hidden');
         }
     }
-
 
     return page;
 };
@@ -263,16 +262,36 @@ function nextPageGroupRight(paginationList){
 
 }
 
-//Видалення сторінки deletedPage з пагінації та встановлення активної сторінки setPage
-function deletePage(paginationList, deletedPage, setPage){
+//Видалення jcnfyymj] сторінки з пагінації
+function deleteLastPaginationPage(paginationList){
 
-    deletedItem = [...paginationList.querySelectorAll(".number-btn")].find(item => Number(item.textContent) === deletedPage);
+    const pages = paginationList.querySelectorAll(".number-btn");
+    const activePageNumber = Number(paginationList.querySelector(".number-btn.active").textContent);
+    const pLen = pages.length;
 
-    if (deletedItem){
-        deletedItem.remove();
-        return setPaginationPage(paginationList, setPage);
+    let firstVisibleBtn_idx = 0;
+
+    if (pages){
+        let lastPage = pages[pLen-1];
+        const lastPageNumber= Number(lastPage.textContent);
+
+        if (!lastPage.classList.contains('visually-hidden')){
+            firstVisibleBtn_idx = [...pages].findIndex(item=>!item.classList.contains('visually-hidden'));
+        }    
+        
+        lastPage.remove();
+
+        if (firstVisibleBtn_idx >= 1){ 
+            pages[firstVisibleBtn_idx-1].classList.remove('visually-hidden'); 
+        }
+        
+        if (pLen > 1 && activePageNumber === lastPageNumber) {
+                return setPaginationPage(paginationList, Number(pages[pLen-2].textContent)); 
+        }else{
+            return setPaginationPage(paginationList, activePageNumber); 
+        }
     }
-    return deletedPage;
+    return 0;
 }
 
 
@@ -283,5 +302,5 @@ export {createPagination,
         shiftPageRight,
         nextPageGroupLeft,
         nextPageGroupRight,
-        deletePage
+        deleteLastPaginationPage
        }
