@@ -1,9 +1,9 @@
 
-  <div class="back is-hidden">
+  <div class="book-backdrop is-hidden">
 
-    <div class="modal-container modal-light">
+    <div class="modal-container">
 
-      <button type="button" class="btn-modal-close modal-text-light">
+      <button type="button" class="btn-modal-close">
         <svg class="icon-x" width="24px" height="24px">
           <use xlink:href='/src/images/svg/sprite.svg#x-close-icon'></use>
         </svg>
@@ -15,35 +15,24 @@
 
         <div class="book-info">
           
-          <p class="modal-name-book modal-text-light" id="name-book"></p>
+          <p class="modal-name-book" id="name-book"></p>
           <p class="modal-author-book" id="author"></p>
-          <p class="modal-description-book modal-text-light" id="description"></p>
+          <p class="modal-description-book" id="description"></p>
 
           <ul class="list-link-market">
 
             <li class="item-link-market">
               <a href="#" class="link-market" id="amazon">
-                <!-- <img src="/src/images/png/amazon.png" alt="Logo Amazon"> -->
                 <svg class="icon-link" width="62px" height="20px">
-                  <use xlink:href='./images/svg/sprite.svg#amazon-icon'></use>
+                  <use xlink:href='./images/svg/amazon_icon.svg'></use>
                 </svg>
               </a>
             </li>
 
             <li class="item-link-market">
               <a href="#" class="link-market" id="apple">
-                <!-- <img src="/src/images/png/apple-books.png" alt="Logo Apple"> -->
                 <svg class="icon-link" width="62px" height="20px">
-                  <use xlink:href='./images/svg/sprite.svg#amazon-icon'></use>
-                </svg>
-              </a>
-            </li>
-
-            <li class="item-link-market">
-              <a href="#" class="link-market" id="barnes">
-                <!-- <img src="/src/images/png/barnes-and-noble.png" alt="Logo Barnes and Noble"> -->
-                <svg class="icon-link" width="62px" height="20px">
-                  <use xlink:href='./images/svg/sprite.svg#ibooks_icon'></use>
+                  <use xlink:href='./images/svg/ibooks_icon.svg'></use>
                 </svg>
               </a>
             </li>
@@ -57,8 +46,10 @@
       <div class="btn-box">
         <button type="button" class="btn-shopping is-hidden add modal-text-light">ADD TO SHOPPING LIST</button>
         <button type="button" class="btn-shopping is-hidden remove modal-text-light">REMOVE FROM THE SHOPPING LIST</button>
-        <p class="modal-message is-hidden message-light">Сongratulations! You have added the book to the shopping list. To delete, press
-          the button “Remove from the shopping list”.</p>
+        <p class="modal-message is-hidden">
+          Сongratulations! You have added the book to the shopping list. 
+          To delete, press the button “Remove from the shopping list”.
+        </p>
       </div>
 
     </div>

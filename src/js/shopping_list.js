@@ -1,7 +1,14 @@
 import { booksAPI } from './booksAPI';
-import {scrollToBoxTop} from './help_functions';
+import {scrollToBoxTop, shortTitle} from './help_functions';
+import {createPagination, 
+        deletePage, 
+        setPaginationPage, 
+        shiftPageLeft, 
+        shiftPageRight, 
+        nextPageGroupLeft, 
+        nextPageGroupRight} from './pagination'
 import amazon from '/src/images/svg/amazon_icon.svg';
-import appleBook from '/src/images/svg/ibooks_icon.svg';
+import appleBook from '/src/images/svg/ibooks.svg';
 import bucketTrash from '/src/images/png/trash-03.png';
 import stackOfBooks_mobile_1x from '/src/images/shopping_list/stack_of_books_mobile@1x.png';
 import stackOfBooks_mobile_2x from '/src/images/shopping_list/stack_of_books_mobile@2x.png';
@@ -9,21 +16,10 @@ import stackOfBooks_tablet_1x from '/src/images/shopping_list/stack_of_books_tab
 import stackOfBooks_tablet_2x from '/src/images/shopping_list/stack_of_books_tablet@2x.png';
 import stackOfBooks_desktop_1x from '/src/images/shopping_list/stack_of_books_desktop@1x.png';
 import stackOfBooks_desktop_2x from '/src/images/shopping_list/stack_of_books_desktop@2x.png';
-
-
 import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollToBoxTop } from './help_functions';
+
 const fetchBooks = new booksAPI();
 
-const photoItemsOne = [
-  {
-    img: amazon,
-  },
-];
-const photoItemsTwo = [
-  {
-    img: appleBook,
-  },
-];
 const bucketCard = [
   {
     img: bucketTrash,
@@ -36,11 +32,16 @@ const LOCALSTORAGE_KEY = 'orderedBookID';
 let orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
 let shoppingBooks = [];
 const booksOnPage = 3;
-let books_ul;
-let paginationBox;
+let paginationBox, books_ul;
 let currentPage = 1;
-let abortCtrl1;
+let visiblePagesCount, abortCtrl1;
 
+const pageWidth = document.documentElement.scrollWidth;
+if (pageWidth < 768) {
+  visiblePagesCount = 2;
+} else if (pageWidth >= 768){
+  visiblePagesCount = 3
+}
 
 if (orderedBooksIdArray.length) {
   createShoppingList(currentPage);
@@ -48,11 +49,10 @@ if (orderedBooksIdArray.length) {
   createEmptyBooksBox();
 }
 
-
 // ФУНКЦІЇ -----------------------------------------------------------------------------------------------------
 
   // Центральна функція, робить перевірки, запит та відмальовує
-async function createShoppingList(activePage) {
+async function createShoppingList() {
 
     if (abortCtrl1) {
       abortCtrl1.abort();
@@ -76,34 +76,16 @@ async function createShoppingList(activePage) {
       shoppingBooks = [];
       data.forEach((item) => shoppingBooks.push(item.data));
 
-      if (shoppingBooks.length >= booksOnPage) {
+      books_ul.innerHTML =  showPage(shoppingBooks, 1, booksOnPage);
 
-        books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, 0, booksOnPage-1);
+      //стиворюємо пагінацію, якщо сторінок більше за 1
+      if (shoppingBooks.length - booksOnPage > 1 ) {
 
-        const pagesCount = Math.ceil(shoppingBooks.length / booksOnPage);
+        paginationBox = createPagination(shoppingBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+        shoppingBooksBox.append(paginationBox);
+        currentPage = setPaginationPage(paginationBox, 1);
+        paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
 
-        if (pagesCount > 1 ) {
-
-          paginationBox = document.createElement("div");
-          paginationBox.classList.add("shopping_booklist_pagination");
-          paginationBox.innerHTML = createPaginationMarkup(pagesCount, currentPage);
-          shoppingBooksBox.append(paginationBox);
-
-          paginationBox.addEventListener('click', (event)=>{
-            if (event.target.classList.contains("btn-two")){
-            const clickedButton = event.target;
-              if (!clickedButton.classList.contains("active")){
-                const page = Number(clickedButton.textContent);
-                setPaginationPage(paginationBox, page);
-                books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (page-1), booksOnPage * page-1) ; //createShoppingBooksMarcup(shoppingBooks.slice(booksOnPage * (page-1), booksOnPage * page));
-                scrollToBoxTop(shoppingBooksBox);
-              }
-            }
-          });
-        }
-
-      }else {
-        books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, 0, booksOnPage-1);
       }
     }
 }
@@ -125,7 +107,11 @@ async function fetchOrderedBooks(arr, abortCtrl) {
 }
 
   // Функція створення розмітки ShoppingBooks
-function createShoppingBooksMarcup(dataArray, startShownItem_idx, lastShownItem_idx) {
+function showPage(dataArray, page, itemsOnPage) {
+  
+  const startShownItem_idx = (page - 1)* itemsOnPage;
+  const lastShownItem_idx = startShownItem_idx + (itemsOnPage-1); 
+
   const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
                             
                             return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
@@ -134,37 +120,36 @@ function createShoppingBooksMarcup(dataArray, startShownItem_idx, lastShownItem_
                                           <img class="book-image" src='${book_image}' alt='${title}'>
                                         </div>
 
-                                        <div class="book_information">
-                                          <p class="book-title">${title}</p>
-                                          <p class="book-category">${list_name}</p>
-                                          <p class="book-description">${description ? description : 'No description'}</p>
-                                          <p class="book-author">${author}</p>
-                                        </div>
+                                        <div class="book-card-content-div">
 
-                                        <div class="closer">
+                                          <div class="book_information">
+                                            <p class="book-title">${title}</p>
+                                            <p class="book-category">${list_name}</p>
+                                            <p class="book-description">${description}</p>
+                                            <p class="book-author">${author}</p>
+                                          </div>
+                                          
                                           <button data-id="${_id}" class="bucket-btn">
-                                            <img class="image-bucket" src="${bucketCard[0].img}" alt="amazon">
+                                            <img src="${bucketCard[0].img}" alt="amazon">
                                           </button>
-                                        </div>
-                                      
-                                        <div class="market_places_div">
+                                        
                                           <ul class="market_placers_list list">
                                       
                                             <li class="marketplacer_li_one">
                                               <a href="${buy_links[0].url}" class="marketplacer_li_link link">
-                                                <img class="image-market" src="${photoItemsOne[0].img}" alt="amazon">  
+                                                <img class="image-market" src="${amazon}" alt="amazon">  
                                               </a>
                                             </li>
                                       
                                             <li class="marketplacer_li_two">
                                               <a href="${buy_links[1].url}" class="marketplacer_li_link link">
-                                                <img src="${photoItemsTwo[0].img}" alt="apple-books">      
+                                                <img class="image-market" src="${appleBook}" alt="apple-books">      
                                               </a>
                                             </li>
                                       
                                           </ul>
-                                        </div>
 
+                                        </div>
                                       </li>`;
                             }).join('\n');
   return markup;
@@ -227,7 +212,8 @@ function deleteBook({target}){
       btns.forEach(btn=>btn.removeAttribute("disabled"));
 
       //якщо після видалення елементу список list залишився пустим, то виводимо елемент Emptybooks_ulBox
-      if (books_ul.children.length ===0){
+      if (books_ul.children.length === 0){
+        paginationBox.remove();
         createEmptyBooksBox();
       }
       
@@ -244,51 +230,14 @@ function deleteBook({target}){
       if (nextIdx != -1) {
         books_ul.children[nextIdx].classList.remove("non-active");                                                     //якщо наступний елемент є то показуємо його
       }else if((bookIdDelete_idx === orderedBooksIdArray.length) && (shoppingBooks.length % booksOnPage === 0)) {      //якщо наступного елемента немає і на поточній сторінці не залишилося книжок, то переходимо на попередню сторінку
-        currentPage = currentPage - 1;                                                                                 // запом'ятовуємо номер активної сторінки
-        books_ul.innerHTML = createShoppingBooksMarcup(shoppingBooks, booksOnPage * (currentPage-1) , booksOnPage * currentPage - 1); // відображаємо книжки активної сторінки
+        console.log("currentPage=",currentPage);
+        currentPage = deletePage(paginationBox, currentPage, currentPage - 1);
+        console.log("currentPage=",currentPage);
+        books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);                                                     // відображаємо книжки активної сторінки
       }
-
-      //Перезаписуємо пагінацію
-      const paginationBox = document.querySelector(".shopping_booklist_pagination");
-      if (paginationBox){
-        if (pagesCount > 1){
-          paginationBox.innerHTML = createPaginationMarkup(pagesCount, currentPage);
-        }else{
-          paginationBox.remove();
-        }
-      }
-      
+     
     }, 2*time);   
     
-  }
-}
-
-  // Функція яка повертає розмітку пагінації
-function createPaginationMarkup(pagesCount, activePage){
-  let paginationMarkup = "";
-  for (let i=1; i<=pagesCount; i++ ){
-       if (i === activePage ) { 
-        paginationMarkup = paginationMarkup + `<button type="button" class="btn-two active">${i}</button>`;
-      } else{
-        paginationMarkup = paginationMarkup + `<button type="button" class="btn-two">${i}</button>`;
-      }
-  } 
-  return paginationMarkup;
-};
-
-  //Додає клас активної сторінки
-function setPaginationPage(paginationList, page) {
-  if (paginationList){
-    for (const button of paginationList.children) {
-      if (Number(button.textContent) === page) {
-        button.classList.add('active');
-        currentPage = page;
-      }
-
-      if (Number(button.textContent) !== page) {
-        button.classList.remove('active');
-      }
-    }
   }
 }
 
@@ -298,25 +247,58 @@ function createEmptyBooksBox(){
   const emptybooks_ulBox = document.createElement("div");
   emptybooks_ulBox.classList.add("empty-shopping_booklist");
   emptybooks_ulBox.innerHTML = `<p class="empty-shopping-box-text">This page is empty, add some books and proceed to order.</p>
-                                        <div class="empty-shopping-box-picturebox">
-                                          <picture>
-                                            <source
-                                              srcset="${stackOfBooks_mobile_1x} 1x, ${stackOfBooks_mobile_2x} 2x"
-                                              media="(max-width: 767.9px)"
-                                            >
-                                            <source
-                                            srcset="${stackOfBooks_tablet_1x} 1x, ${stackOfBooks_tablet_2x} 2x"
-                                              media="(min-width: 768px) and (max-width: 1439.8px)"
-                                            >
-                                            <source
-                                            srcset="${stackOfBooks_desktop_1x} 1x, ${stackOfBooks_desktop_2x} 2x"
-                                              media="(min-width: 1440px)"
-                                            >
-                                            <img 
-                                              src=${stackOfBooks_desktop_1x}
-                                              alt="stack of books" 
-                                            >
-                                          </picture>
-                                        </div>`
+                                <div class="empty-shopping-box-picturebox">
+                                  <picture>
+                                    <source
+                                      srcset="${stackOfBooks_mobile_1x} 1x, ${stackOfBooks_mobile_2x} 2x"
+                                      media="(max-width: 767.9px)"
+                                    >
+                                    <source
+                                    srcset="${stackOfBooks_tablet_1x} 1x, ${stackOfBooks_tablet_2x} 2x"
+                                      media="(min-width: 768px) and (max-width: 1439.8px)"
+                                    >
+                                    <source
+                                    srcset="${stackOfBooks_desktop_1x} 1x, ${stackOfBooks_desktop_2x} 2x"
+                                      media="(min-width: 1440px)"
+                                    >
+                                    <img 
+                                      src=${stackOfBooks_desktop_1x}
+                                      alt="stack of books" 
+                                    >
+                                  </picture>
+                                </div>`
   shoppingBooksBox.append(emptybooks_ulBox);
+}
+
+  // Обробка події натискання на кнопки пагінації
+function onPaginationClick(paginationBox, target){
+    
+  if (target.classList.contains("left-double-arrow-btn") || target.classList.contains("left-double-arrow-svg")) {
+    currentPage = nextPageGroupLeft(paginationBox, currentPage, visiblePagesCount);
+    books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
+    
+  }else if (target.classList.contains("left-arrow-btn") || target.classList.contains("left-arrow-svg")) {
+    currentPage= setPaginationPage(paginationBox, currentPage-1, visiblePagesCount);
+    books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
+
+  }else if (target.classList.contains("left-three-dots-btn") || target.classList.contains("left-three-dots-svg")) {
+      currentPage=shiftPageLeft(paginationBox, 2);
+      books_ul.innerHTML=showPage(shoppingBooks, currentPage, booksOnPage);
+  }else if (target.classList.contains("number-btn") && (!target.classList.contains("active"))){
+    currentPage = setPaginationPage(paginationBox, Number(target.textContent));
+    books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
+  
+  }else if (target.classList.contains("right-three-dots-btn") || target.classList.contains("right-three-dots-svg")) {
+      currentPage=shiftPageRight(paginationBox, 2);
+      books_ul.innerHTML=showPage(shoppingBooks, currentPage, booksOnPage);
+  }else if (target.classList.contains("right-arrow-btn") || target.classList.contains("right-arrow-svg")) {
+      // currentPage = shiftPageRight(paginationBox, 1);
+    currentPage = setPaginationPage(paginationBox, currentPage+1);
+    books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
+  }else if (target.classList.contains("right-double-arrow-btn") || target.classList.contains("right-double-arrow-svg")) {
+    currentPage = nextPageGroupRight(paginationBox, currentPage, visiblePagesCount);
+    books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
+    
+  }
+
 }

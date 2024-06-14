@@ -1,0 +1,5 @@
+<svg id="three-dots" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
+    <ellipse rx="1.5" ry="1.5" transform="translate(4 16.516716)"/>
+    <ellipse rx="1.5" ry="1.5" transform="translate(18 16.516716)"/>
+    <ellipse rx="1.5" ry="1.5" transform="translate(11 16.516716)"/>
+</svg>

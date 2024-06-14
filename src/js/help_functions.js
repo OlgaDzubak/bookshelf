@@ -145,4 +145,4 @@ export {  displayOrdredAmountInShoppingBag,
           scrollToBoxTop,
           scrollUp,
           scrollTracker
-        };
+       };

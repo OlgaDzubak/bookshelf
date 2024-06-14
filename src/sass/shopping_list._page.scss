@@ -10,674 +10,197 @@
 @import './modal_windows/book_modal_window';
 @import './isChangeTheme';
 
-// Стилі для блоку shopping_list на сторінці shopping_list_page
-.book-card {
-  position: relative;
-  display: flex;
-  padding: 14px;
-  border: 2px solid rgba(79, 46, 232, 0.4);
-  border-radius: 16px;
-  width: 335px;
-  z-index: 100;
-}
-.book-card.non-active{
-  display: none;
-}
-.book-card.shift-right{
-  transition: var(--transition-shift-right);
-  transform : translateX(100vw);
-}
-.book-card.shift-up{
-  transition: var(--transition-shift-up);
-  transform : translateY(calc(-100% - 20px));
-}
 
-.image-bucket {
-  pointer-events: none;
-}
+// SHOPPING LIST ------ common styles
+//{
+  .shopping-wrapper {
+    width: 100%;
+  }
+  .shopping_list_title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.1875;
+    letter-spacing: -0.04em;
+    color: var(--text-dark-color);
+  }
+  .shopping_booklist {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
 
-@media screen and (min-width: 768px) {
   .book-card {
+    width: 100%;
     position: relative;
     display: flex;
-    padding: 14px;
     border: 2px solid rgba(79, 46, 232, 0.4);
-    border-radius: 16px;
-    width: 704px;
+    z-index: 100;
   }
-}
-
-@media screen and (min-width: 1440px) {
-  .book-card {
-    position: relative;
-    display: flex;
-    padding: 14px;
-    border: 2px solid rgba(79, 46, 232, 0.4);
-    border-radius: 16px;
-    width: 996px;
+  .book-card.non-active{
+    display: none;
   }
-}
-
-.shopping_booklist {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.shopping_list_title {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.1875;
-  letter-spacing: -0.04em;
-  margin-bottom: 40px;
-  color: var(--text-dark-color);
-}
-
-.shopping_list_title_span {
-  color: var(--accent-color1);
-}
-
-.book-title {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.125;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: var(--text-dark-color);
-  margin-bottom: 4px;
-}
-
-.book-category {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.167;
-  letter-spacing: 0.03em;
-  color: var(--text-light-color);
-  margin-bottom: 14px;
-}
-
-.book-description {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.128;
-  letter-spacing: -0.04em;
-  // width: 193px;
-  height: 68px;
-  color: var(--text-dark-color);
-  margin-bottom: 38px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 193px;
-  /* Задайте власну ширину */
-  height: 60px;
-}
-
-@media screen and (min-width: 768px) {
-  .book-description {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.128;
-    letter-spacing: -0.04em;
-    // width: 193px;
-    height: 68px;
-    color: var(--text-dark-color);
-    margin-bottom: 38px;
-    white-space: nowrap;
+  .book-card.shift-right{
+    transition: var(--transition-shift-right);
+    transform : translateX(100vw);
+  }
+  .book-card.shift-up{
+    transition: var(--transition-shift-up);
+    transform : translateY(calc(-100% - 20px));
+  }
+  .book-image-div{
+    border-radius: 8px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    width: 508px;
-    /* Задайте власну ширину */
-    height: 53px;
   }
-}
 
-@media screen and (min-width: 1440px) {
-  .book-description {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.128;
-    letter-spacing: -0.04em;
-    height: 68px;
-    color: var(--text-dark-color);
-    margin-bottom: 38px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 808px;
-    /* Задайте власну ширину */
-    height: 53px;
-  }
-}
-
-.book-author {
-  font-style: italic;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: -0.04em;
-  color: var(--text-light-color);
-}
-
-.book-image-div {
-  margin-right: 14px;
-}
-
-@media screen and (min-width: 768px) {
-  .book-image-div {
-    margin-right: 24px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .book-image-div {
-    margin-right: 24px;
-  }
-}
-
-.book-image {
-  width: 116px;
-  height: 165px;
-  border-radius: 8px;
-}
-
-.market_places_div {
-  height: 16px;
-}
-
-.market_placers_list {
-  display: flex;
-  position: absolute;
-  top: 162px;
-  right: 24px;
-  gap: 8px;
-  width: 80px;
-  height: 16px;
-}
-
-@media screen and (min-width: 768px) {
-  .market_placers_list {
+  .book-card-content-div{
     display: flex;
-    position: absolute;
-    top: 150px;
-    right: 24px;
-    gap: 16px;
-    width: 140px;
-    height: 30px;
+    flex-direction: column;
   }
-}
-
-@media screen and (min-width: 1440px) {
-  .market_placers_list {
-    display: flex;
-    position: absolute;
-    top: 150px;
-    right: 24px;
-    gap: 16px;
-    width: 140px;
-    height: 30px;
-  }
-}
-
-.marketplacer_li_two {
-  margin-top: 4px;
-}
-
-@media screen and (min-width: 768px) {
-  .marketplacer_li_two {
-    margin-top: 9px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .marketplacer_li_two {
-    margin-top: 9px;
-  }
-}
-
-.marketplacer-icon-svg {
-  //width: 24px;
-  height: 16px;
-}
-
-// Стилі для блоку shopping_list на сторінці shopping_list_page
-.shopping-list-container {
-  max-width: 335px;
-  // margin: 0 auto;
-  // padding-left: 20px;
-  // padding-right: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .shopping-list-container {
-    max-width: 704px;
-    // margin: 0 auto;
-    // padding: 0px;
-    // padding-left: 40px;
-    // padding-right: 40px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .shopping-list-container {
-    max-width: 1158px;
-    padding-right: 24px;
-    padding-left: 24px;
-  }
-}
-
-.shopping-wrapper {
-  //padding-left: 40px;
-  //padding-top: 40px;
-  width: 100%;
-}
-
-.book-card {
-  display: flex;
-  padding: 14px;
-  border: 2px solid rgba(79, 46, 232, 0.4);
-  border-radius: 16px;
-}
-
-.shopping_booklist {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.shopping_list_title {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.1875;
-  letter-spacing: -0.04em;
-  // margin-bottom: 40px;
-  color: var(--text-dark-color);
-}
-
-.shopping_list_title_span {
-  color: var(--accent-color1);
-}
-
-.book-title {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.125;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: var(--text-dark-color);
-  margin-bottom: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 144px;
-  /* Задайте власну ширину */
-  height: 20px;
-}
-
-@media screen and (min-width: 768px) {
   .book-title {
+    margin-bottom: 4px;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.125;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    color: var(--text-dark-color);
-    margin-bottom: 4px;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%;
-    /* Задайте власну ширину */
-    height: 20px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-}
+  .book-author {
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.04em;
+    color: var(--text-light-color);
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .book-category {
+    font-size: 12px;
+    line-height: 1.167;
+    letter-spacing: 0.03em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--text-light-color);
+  }
+  .book-description {
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: var(--text-dark-color);
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 
-@media screen and (min-width: 1440px) {
-  .book-title {
+  .bucket-btn {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+
+    background-color: var(--accent-color1);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color var(--transition);
+  }
+  .bucket-btn:hover {
+    background-color: #f42b2b;
+  }
+  .bucket-btn:disabled{
+    background-color: var(--accent-color1);
+  }
+  .bucket-btn img{
+    pointer-events: none;
+  }
+
+  .market_placers_list {
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }
+
+  .shopping_booklist_pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .pgn-btn {
+    padding: 11px 11px 11px 11px ;
+    width: 38px;
+    height: 38px;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 1.125;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    color: var(--text-dark-color);
-    margin-bottom: 4px;
+    font-size: 18px;
+    background: none;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    --pgn-fill-color: var(--logo-theme-light);
+  }
+  .pgn-btn:hover,
+  .pgn-btn:focus {
+    background-color: var(--accent-color2);
+  }
+  .pgn-btn.active {
+    color: var(--accent-color3);
+    background-color: var(--text-dark-color);
+  }
+  .pgn-btn:disabled{
+    background-color: var(--text-dark-color);
+    --pgn-fill-color: var(--text-light-color);
+  }
+  .pgn-btn.visually-hidden{ 
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
     white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
     overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    /* Задайте власну ширину */
-    height: 20px;
   }
-}
-
-.book-category {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.167;
-  letter-spacing: 0.03em;
-  color: var(--text-light-color);
-  margin-bottom: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 165px;
-  /* Задайте власну ширину */
-  height: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .book-category {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.167;
-    letter-spacing: 0.03em;
-    color: var(--text-light-color);
-    margin-bottom: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    /* Задайте власну ширину */
-    height: 20px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .book-category {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.167;
-    letter-spacing: 0.03em;
-    color: var(--text-light-color);
-    margin-bottom: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    /* Задайте власну ширину */
-    height: 20px;
-  }
-}
-
-.book-author {
-  font-style: italic;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: -0.04em;
-  color: var(--text-light-color);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 97px;
-  /* Задайте власну ширину */
-  height: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .book-author {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: -0.04em;
-    color: var(--text-light-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    /* Задайте власну ширину */
-    height: 20px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .book-author {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: -0.04em;
-    color: var(--text-light-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    /* Задайте власну ширину */
-    height: 20px;
-  }
-}
-
-.market_places_div {
-  height: 16px;
-}
-
-.market_placers_list {
-  display: flex;
-}
-
-.marketplacer-icon-svg {
-  //width: 24px;
-  height: 16px;
-}
-
-.shopping_booklist_pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.btn {
-  width: 38px;
-  height: 38px;
-  margin-right: 10px;
-  border-radius: 50%;
-  border: 1px solid #000000;
-}
-
-@media screen and (min-width: 768px) {
-  .btn {
-    margin-right: 24px;
-  }
-}
-
-.btn:first-child {
-  margin-right: 5px;
-}
-
-.btn:hover {
-  background-color: #111111;
-  color: #b4afaf;
-}
-
-.btn:focus {
-  background-color: #111111;
-  color: #b4afaf;
-}
-
-.btn-two {
-  width: 38px;
-  height: 38px;
-  background: none;
-  margin-right: 5px;
-  border: 1px solid #000000;
-  border-radius: 100px;
-}
-
-@media screen and (min-width: 768px) {
-  .btn-two {
+  .left-double-arrow-btn{
     margin-right: 8px;
   }
-}
-
-@media screen and (min-width: 1024px) {
-  .btn-two {
-    margin-right: 8px;
+  .right-double-arrow-btn{
+    margin-left: 8px;
   }
-}
-
-.btn-two :last-child {
-  margin: 0px;
-  padding: 0px;
-}
-
-.btn-two:hover {
-  background-color: #111111;
-  color: #b4afaf;
-}
-
-.btn-two:focus {
-  background-color: #111111;
-  color: #b4afaf;
-}
-
-.none {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .none {
-    display: block;
+  .three-dots-btn{
+    margin-left: 0px;
+    margin-right: 0px;
   }
-}
-
-@media screen and (min-width: 1024px) {
-  .none {
-    display: block;
+  .left-double-arrow-svg,
+  .left-arrow-svg,
+  .right-double-arrow-svg,
+  .right-arrow-svg,
+  .three-dots-svg{
+    width: 11px;
+    height: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-}
 
-.btn-many {
-  width: 38px;
-  height: 38px;
-  border: 1px solid #000000;
-  border-radius: 100px;
-}
-
-.btn-many:hover {
-  background-color: #111111;
-  color: #b4afaf;
-}
-
-.btn-many:focus {
-  background-color: #111111;
-  color: #b4afaf;
-}
-
-.btn-three {
-  width: 38px;
-  height: 38px;
-  margin-left: 10px;
-  border: 1px solid #000000;
-  border-radius: 100px;
-}
-
-@media screen and (min-width: 768px) {
-  .btn-three {
-    margin-left: 24px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .btn-three {
-    margin-left: 24px;
-  }
-}
-
-.btn-three:last-child {
-  margin-left: 5px;
-}
-
-.btn-three:hover {
-  background-color: #eac645;
-}
-
-.btn-three:focus {
-  background-color: #eac645;
-}
-
-.p-page {
-  color: rgba(0, 0, 0, 0.6);
-  width: 320px;
-  text-align: center;
-}
-
-.null-page {
-  margin-top: 110px;
-  margin-bottom: 157px;
-}
-
-@media screen and (min-width: 768px) {
-  .null-page {
-    margin-top: 110px;
-    margin-left: 180px;
-    margin-bottom: 157px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .null-page {
-    margin-top: 110px;
-    margin-left: 265px;
-    margin-bottom: 157px;
-  }
-}
-
-.closer {
-  position: absolute;
-  width: 34px;
-  height: 34px;
-  top: 24px;
-  right: 24px;
-  cursor: pointer;
-
-  background-color: #4f2ee8;
-  border: none;
-  border-radius: 20px;
-  color: white;
-}
-
-//.closer-btn,
-.bucket-btn{
-  position: absolute;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-
-  background-color: var(--accent-color1);
-  border: none;
-  border-radius: 20px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: background-color var(--transition);
-}
-//.closer-btn:hover,
-.bucket-btn:hover {
-  background-color: #f42b2b;
-}
-.bucket-btn:disabled{
-  background-color: var(--accent-color1);
-}
-
-.marketplacer_li_link {
-  mix-blend-mode: luminosity;
-}
-
-.btn-two.active {
-  color: var(--accent-color3);
-  background-color: var(--accent-color2);
-}
-
-
-
-.empty-shopping_booklist .non-active{
-  display: none;;
-}
 .empty-shopping_booklist{
   max-width:265px;
   height: 248px;
@@ -693,25 +216,263 @@
   line-height: 1.29;
   letter-spacing: -0.02em;
   margin-bottom: 14px;
-  color: rgba(0, 0, 0, 0.6);
+  color:  rgba(0, 0, 0, 0.6);
 }
-.empty-shopping-box-picturebox{
-  width: 100%;
-}
+//}
 
-@media screen and (min-width: 768px){
-  .empty-shopping_booklist{
-    max-width: 349px;
-    height: 309px;
+// SHOPPING LIST ------ mobile styles
+//{
+  @media screen and (max-width: 299.8px){
+    .book-card {
+      flex-direction: column;
+    }
+    .book-image-div{
+      margin-bottom: 8px;
+    }
+    .book-title{
+      width: 100%;
+      font-size: 14px;
+    }
+    .book-category {
+      width: 100%;
+    }
+    .book-description {
+      font-size: 13.5px;
+    }
+    .bucket-btn {
+      width: 30px;
+      height: 30px;
+    }
   }
-  .empty-shopping-box-text{
-    font-size: 18px;
-    line-height: 133%;
-  }
-}
+  @media screen and (min-width: 300px) and  (max-width: 319.8px){
+    .book-title{
+      width: 105px;
+      font-size: 13px;
+    }
+    .book-category {
+      width: 105px;
+    }
+    .book-description {
+      font-size: 13.5px;
+    }
 
-@media screen and (max-width: 1439.8px){
-  .support-ukraine-box{
-    display: none;
   }
-}
+  @media screen and (min-width: 320px) and (max-width: 359.8px){
+    .book-title{
+      width: 120px;
+    }
+    .book-category {
+      width: 120px;
+    }
+  }
+  @media screen and(max-width: 359.8px){
+    .book-author{
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .book-description {
+      margin-bottom: 8px;
+    }
+  }
+  @media screen and (min-width: 360px) and (max-width: 767.9px) {
+    .book-title{
+      width: 144px;
+    }
+    .book-category {
+      width: 144px;  
+    }
+    .book-description {
+      margin-bottom: 29px;
+    }
+  }
+  @media screen and (min-width: 300px) and (max-width: 767.9px) {
+    .book-card-content-div{
+      width: 193px;
+    }
+  }
+  @media screen and (max-width: 767.8px) {
+    .book-card {
+      padding: 14px;
+      column-gap: 14px;
+    }
+    .book-image-div{
+      width: 100px;
+      height:142px;
+    }
+    .book-image{
+    width: 100%;
+    }
+
+    .book-category {
+      margin-bottom: 8px;
+    }
+    .book-description {
+      height: 53px;
+    }
+    .book-author{
+      width: 120px;
+    }
+    .bucket-btn {
+      top: 14px;
+      right: 14px;
+    }
+
+    .market_placers_list {
+      bottom: 14px;
+      right: 14px;
+      column-gap: 8px;
+    }
+    .marketplacer_li_one{
+      width: 32px;
+      height: 11px;
+    }
+    .marketplacer_li_two{
+      width: 16px;
+      height: 16px;
+    }
+
+    .left-arrow-btn{
+      margin-right: 14px;
+    }
+    .right-arrow-btn{
+      margin-left: 14px;
+    }
+    .pgn-btn {
+      padding: 9px 9px 9px 9px ;
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+    }
+    .number-btn{
+      margin-right: 5px;
+    }
+    .left-three-dots-btn:not(.visually-hidden){
+      margin-right: 5px;
+    }
+
+  }
+//}
+
+// SHOPPING LIST ------ tablet styles
+//{
+  @media screen and (min-width: 768px) {
+    .book-card {
+      padding: 24px;
+      column-gap: 24px;
+    }
+    .book-image-div {
+      width: 116px;
+      height:165px;
+    }
+    .book-image {
+      width: 116px;
+      height: 165px;
+      border-radius: 8px;
+    }
+    .book-description {
+      max-width: 508px;
+      height: 53px;
+      margin-bottom: 48px;
+    }
+    .book-category {
+      margin-bottom: 14px;
+    }
+    .bucket-btn {
+      top: 24px;
+      right: 24px;
+    }
+    .market_placers_list {
+      bottom: 24px;
+      right: 24px;
+      column-gap: 16px;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .marketplacer_li_one{
+      display:flex;
+      width: 48px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+    }
+    .marketplacer_li_two{
+      width: 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-market{
+      width: 48px;
+      height: auto;
+    }
+
+
+    .left-arrow-btn{
+      margin-right: 24px;
+    }
+    .right-arrow-btn{
+      margin-left: 24px;
+    }
+    .number-btn:first-child{
+      margin-left: 10px;
+    }
+    .number-btn:not(:last-child):not(.visually-hidden){
+      margin-right: 10px;
+    }
+    .left-three-dots-btn:not(.visually-hidden){
+      margin-right: 10px;
+    }
+
+    .empty-shopping_booklist{
+      max-width: 349px;
+      height: 309px;
+    }
+    .empty-shopping-box-text{
+      font-size: 18px;
+      line-height: 133%;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1439.8px){
+    .book-card {
+      padding: 24px;
+      column-gap: 24px;
+    }
+  }
+  @media screen and (max-width: 1439.8px){
+    .support-ukraine-box{
+      display: none;
+    }
+  }
+//}
+
+// SHOPPING LIST ------ desktop styles
+//{
+  @media screen and (min-width: 1024px) {
+    .btn-two {
+      margin-right: 8px;
+    }
+    .none {
+      display: block;
+    }
+  }
+  @media screen and (min-width: 1440px){
+    .book-card {
+      padding: 24px;
+      column-gap: 24px;
+    }
+    .book-image-div {
+      width: 100px;
+      height:142px;
+    }
+    .book-description {
+      width: 808px;
+    }
+    .book-image-div {
+      margin-right: 24px;
+    }
+    .market_placers_list {
+      gap: 16px;
+    }
+  }
+//}

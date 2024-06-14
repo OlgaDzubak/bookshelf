@@ -4,7 +4,7 @@ import { displayOrdredAmountInShoppingBag } from './help_functions';
 const books = new booksAPI;
 let book_Id, abortCtrl1;
 const divContainerEl = document.querySelector('.books-box');
-const divBackEl = document.querySelector('.back');
+const divBackdropEl = document.querySelector('.book-backdrop');
 const btnCloseModal = document.querySelector('.btn-modal-close');
 const btnAddEl = document.querySelector('.add');
 const btnRemoveEl = document.querySelector('.remove');
@@ -31,9 +31,10 @@ divContainerEl.addEventListener('click', onReadId);
 function onReadId(event) {
     
     if (event.target.classList[0] === 'img-book' || event.target.classList[0] === 'owerlay') {
-        book_Id = event.target.parentElement.parentElement.dataset.id;
         
+        book_Id = event.target.parentElement.parentElement.dataset.id;
         createModalWindow(book_Id);
+        
     } else if (event.target.classList[0] === 'owerlay-content') {
         book_Id = event.target.parentElement.parentElement.parentElement.dataset.id;
         
@@ -61,43 +62,44 @@ async function createModalWindow(book_Id) {
     }, {once: true} );
 
     try {
+
         abortCtrl1 = new AbortController;
-        const respons = await books.getBookById(book_Id, abortCtrl1);
-        const { author, book_image, description, title, buy_links } = respons.data;
-        const randerBox = document.querySelector('.book-img');
+        const response = await books.getBookById(book_Id, abortCtrl1);
+        const { author, book_image, description, title, buy_links } = response.data;
+        const imageBox = document.querySelector('.book-img');
         const nameBookEl = document.querySelector('#name-book');
         const authorEl = document.querySelector('#author');
         const descriptionEl = document.querySelector('#description');
         const amazonEl = document.querySelector('#amazon');
         const appleEl = document.querySelector('#apple');
-        const barnesEl = document.querySelector('#barnes');
-        randerBox.innerHTML = '';
-        const randerModal = `<img src="${book_image}" alt="${book_image}" class="img-modal">`
+
         nameBookEl.textContent = title;
         authorEl.textContent = author;
+
         if (description === '') {
             descriptionEl.textContent = 'No description';
         } else {
-            descriptionEl.textContent = description
+            descriptionEl.textContent = description;
         }
-        
+
         amazonEl.attributes[0].value = buy_links[0].url;
         appleEl.attributes[0].value = buy_links[1].url;
-        barnesEl.attributes[0].value = buy_links[2].url;
+        
+        imageBox.innerHTML = `<img src="${book_image}" alt="${book_image}" class="img-modal">`;
 
-        randerBox.innerHTML = randerModal;
-        divBackEl.classList.toggle('is-hidden');
-        const dataJson = localStorage.getItem('orderedBookID');
-        const arrLs = JSON.parse(dataJson);
-        if (arrLs === null || !arrLs.includes(book_Id)) {
+        divBackdropEl.classList.toggle('is-hidden');
+        const orderedBookID_arr = JSON.parse(localStorage.getItem('orderedBookID'));
+
+        if (orderedBookID_arr === null || !orderedBookID_arr.includes(book_Id)) {
             btnAddEl.classList.remove('is-hidden');
         } else {
             btnRemoveEl.classList.remove('is-hidden');
             textEl.classList.remove('is-hidden');
         }
+
     } catch (error) {
         console.error(error);
-        Notify.failure('Sorry, there was a server error, please reload the page');
+       // Notify.failure('Sorry, there was a server error, please reload the page');
     }
     
 };
@@ -106,7 +108,7 @@ btnCloseModal.addEventListener('click', onCloseModal);
 
 function onCloseModal() {
     objScroll.enabledScroll();
-    divBackEl.classList.toggle('is-hidden');
+    divBackdropEl.classList.toggle('is-hidden');
     btnRemoveEl.classList.add('is-hidden');
     btnAddEl.classList.add('is-hidden');
     textEl.classList.add('is-hidden');
