@@ -270,7 +270,7 @@ showCategoryList();
                 let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) => 
                 `<li class="item-book" data-id="${_id}">
                     <div class="img-owerlay">
-                        <img src="${book_image}" alt="${title}" class="img-book">
+                        <img src="${book_image}" alt="${title}" class="img-book" loading="auto">
                         <div class="owerlay">
                             <p class="owerlay-content">quick view</p>
                         </div>
@@ -298,7 +298,7 @@ showCategoryList();
             const markup = data.map(({_id, book_image, author, title}) => 
             `<li class="item-book" data-id="${_id}">  
                 <div class="img-owerlay">
-                    <img src="${book_image}" alt="${title}" class="img-book">
+                    <img src="${book_image}" alt="${title}" class="img-book loading="auto"">
                     <div class="owerlay">
                         <p class="owerlay-content">quick view</p>
                     </div>

@@ -1,10 +1,13 @@
 import { booksAPI } from './booksAPI';
 import { displayOrdredAmountInShoppingBag } from './help_functions';
+import amazon from '/src/images/svg/amazon_icon.svg';
+import appleBook from '/src/images/svg/ibooks.svg';
 
 const books = new booksAPI;
 let book_Id, abortCtrl1;
+
 const divContainerEl = document.querySelector('.books-box');
-const divBackdropEl = document.querySelector('.book-backdrop');
+const divBackdropEl = document.querySelector('.book-modal-backdrop');
 const btnCloseModal = document.querySelector('.btn-modal-close');
 const btnAddEl = document.querySelector('.add');
 const btnRemoveEl = document.querySelector('.remove');
@@ -15,8 +18,8 @@ const objScroll = {
     disabledScroll() {
         objScroll.scrollPosition = window.scrollY;
         document.body.classList.add('block-scroll');
-
-        document.body.style.cssText = `top: -${objScroll.scrollPosition}px;`
+        console.log(objScroll.scrollPosition);
+        document.body.style.cssText = `top: -${objScroll.scrollPosition}px;`;
     },
 
     enabledScroll() {
@@ -28,20 +31,21 @@ const objScroll = {
 
 divContainerEl.addEventListener('click', onReadId);
 
-function onReadId(event) {
+function onReadId({target, currentTarget}) {
     
-    if (event.target.classList[0] === 'img-book' || event.target.classList[0] === 'owerlay') {
-        
-        book_Id = event.target.parentElement.parentElement.dataset.id;
+    if (target.classList.contains('img-book') || target.classList.contains('owerlay')) {
+
+        book_Id = target.parentElement.parentElement.dataset.id;
         createModalWindow(book_Id);
         
-    } else if (event.target.classList[0] === 'owerlay-content') {
-        book_Id = event.target.parentElement.parentElement.parentElement.dataset.id;
-        
+    } else if (target.classList.contains('owerlay-content')) {
+
+        book_Id = target.parentElement.parentElement.parentElement.dataset.id;
         createModalWindow(book_Id);
-    } else if (event.target.classList[0] === 'title-book' || event.target.classList[0] === 'author') {
-        book_Id = event.target.parentElement.dataset.id;
-        
+
+    } else if (target.classList.contains('title-book') || target.classList.contains('author')) {
+
+        book_Id = target.parentElement.dataset.id;
         createModalWindow(book_Id);
     }
 }
@@ -66,13 +70,12 @@ async function createModalWindow(book_Id) {
         abortCtrl1 = new AbortController;
         const response = await books.getBookById(book_Id, abortCtrl1);
         const { author, book_image, description, title, buy_links } = response.data;
-        const imageBox = document.querySelector('.book-img');
+        const imageBox = document.querySelector('.book-img-div');
         const nameBookEl = document.querySelector('#name-book');
         const authorEl = document.querySelector('#author');
         const descriptionEl = document.querySelector('#description');
-        const amazonEl = document.querySelector('#amazon');
-        const appleEl = document.querySelector('#apple');
-
+        const marketPlEl = document.querySelector('.market_placers_list');
+     
         nameBookEl.textContent = title;
         authorEl.textContent = author;
 
@@ -81,11 +84,19 @@ async function createModalWindow(book_Id) {
         } else {
             descriptionEl.textContent = description;
         }
-
-        amazonEl.attributes[0].value = buy_links[0].url;
-        appleEl.attributes[0].value = buy_links[1].url;
         
-        imageBox.innerHTML = `<img src="${book_image}" alt="${book_image}" class="img-modal">`;
+        imageBox.innerHTML =   `<img src="${book_image}" alt="${book_image}" class="book-img-modal" loading="auto">`;
+        marketPlEl.innerHTML = `<li class="marketplacer_li marketplacer_li_one">
+                                    <a href="${buy_links[0].url}" class="marketplacer_li_link link">
+                                    <img class="image-market" src="${amazon}" alt="amazon">  
+                                    </a>
+                                </li>
+
+                                <li class="marketplacer_li marketplacer_li_two">
+                                    <a href="${buy_links[1].url}" class="marketplacer_li_link link">
+                                    <img class="image-market" src="${appleBook}" alt="apple-books">      
+                                    </a>
+                                </li>`
 
         divBackdropEl.classList.toggle('is-hidden');
         const orderedBookID_arr = JSON.parse(localStorage.getItem('orderedBookID'));
@@ -98,8 +109,15 @@ async function createModalWindow(book_Id) {
         }
 
     } catch (error) {
-        console.error(error);
-       // Notify.failure('Sorry, there was a server error, please reload the page');
+        if (error.code !== 'ERR_CANCELED'){
+            console.error("тут");    
+            console.error(error);
+
+            const errorBox =  document.querySelector(".book-modal-container").createElement("div");
+            btnCloseModal.after(errorBox);
+            errorBox.classList.add("error-box");
+            errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+        }
     }
     
 };
@@ -144,4 +162,3 @@ function removeLocalStorage() {
     localStorage.setItem('orderedBookID', JSON.stringify(arrLs));
     displayOrdredAmountInShoppingBag(arrLs)
 };
-

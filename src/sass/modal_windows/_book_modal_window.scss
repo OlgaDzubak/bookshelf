@@ -5,10 +5,9 @@
         position: fixed;
         top: 0;
         left: 0;
-        height: 100vh;
         width: 100vw;
     }
-    .book-backdrop {
+    .book-modal-backdrop {
         position: fixed;
         top: 0;
         left: 0;
@@ -19,28 +18,24 @@
         padding: 20px;
     }
 
-    .modal-container {
+    .book-modal-container {
         border: 2px solid #111111;
         border-radius: 18px;
-        padding: 40px 24px;
-        max-height: 100vh;
         background-color: var(--light-theme-background);
     }
-    .is-hidden {
-        display: none;
-    }
-
+  
     .btn-modal-close {
-        background-color: transparent;
-        border: none;
-        padding: 6px;
         position: absolute;
         top: 12px;
         right: 12px;
+        width: 24px;
+        height: 24px;
+        padding: 0px;
         display: flex;
-        /* align-content: center; */
         justify-content: center;
         cursor: pointer;
+        background-color: transparent;
+        border: none;
     }
     .btn-modal-close:focus,
     .btn-modal-close:hover {
@@ -48,38 +43,26 @@
     }
     .icon-x {
         display: inline-block;
-        /* width: 1em;
-        height: 1em; */
         stroke-width: 0;
         stroke: currentColor;
         fill: currentColor;
     }
 
-    .rander-modal {
+    .image-and-content-div {
         display: flex;
-        flex-direction: column;
     }
-
+    .book-img-div{
+        border-radius: 8px;
+    }
+    .book-img-modal{
+        width: 100%;
+        height: 100%;
+    }
 
     .book-info {
         display: flex;
         flex-direction: column;
     }
-
-    .img-modal {
-        /* display: block; */
-        /* width: 100%; */
-        /* max-width: 287px; */
-        /* height: 408px; */
-        max-height: 408px;
-        /* max-width: 287px; */
-        border-radius: 8px;
-        margin-left: auto;
-        margin-right: auto;
-        object-fit: cover;
-    }
-
-
     .modal-name-book {
         font-style: normal;
         font-weight: 700;
@@ -90,7 +73,6 @@
         margin-top: 14px;
 
     }
-
     .modal-author-book {
 
         font-style: italic;
@@ -101,37 +83,41 @@
         color: #B4AFAF;
         margin-top: 4px;
     }
-
     .modal-description-book {
+        padding-right: 10px;
         max-height: 90px;
         max-width: 287px;
-        font-style: normal;
-        font-weight: 400;
         font-size: 14px;
-        line-height: 18px;
+        line-height: 1.28;
         letter-spacing: -0.04em;
         color: #111111;
         margin-top: 18px;
+        margin-bottom: 20px;
         overflow-y: auto;
     }
 
-    .list-link-market {
+    .market_placers_list {
+        height: 36px;
         display: flex;
-        list-style: none;
-        margin-top: 14px;
-        gap: 20px;
         align-items: center;
+        column-gap: 20px;
     }
-
-    .link-market {
-        mix-blend-mode: luminosity;
-
+    .marketplacer_li{
+        height: 100%;
     }
-
-    .link-market:focus,
-    .link-market:hover {
-        mix-blend-mode: normal;
-        filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+   .marketplacer_li_link{
+        height: 100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .marketplacer_li_one .image-market{
+        width: 48px;
+        height: 19px;
+    }
+    .marketplacer_li_two .image-market{
+        width: 32px;
+        height: 32px;
     }
 
     .btn-box {
@@ -139,35 +125,20 @@
         flex-direction: column;
         align-items: center
     }
-
     .btn-shopping {
-        /* display: block; */
-        cursor: pointer;
-        box-sizing: border-box;
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 14px 28px;
-        gap: 10px;
-        border: 2px solid #4F2EE8;
-        border-radius: 40px;
-        background-color: transparent;
+        width: 100%;        
         margin-top: 40px;
-        width: 100%;
-
-        font-style: normal;
         font-weight: 700;
-        font-size: 12px;
-        line-height: 18px;
-        letter-spacing: -0.01em;
         text-transform: uppercase;
-        color: #111111;
+        cursor: pointer;
+        border: 2px solid var(--accent-color1);
+        border-radius: 40px;
+        color: var(--text-dark-color);
     }
-
     .btn-shopping:hover {
         color: #FFFFFF;
         background: #4F2EE8;
     }
-
     .btn-shopping:focus {
         color: #FFFFFF;
         background: #4F2EE8;
@@ -175,12 +146,6 @@
     }
 
     .modal-message {
-        max-width: 242px;
-        font-family: var(--main-font), sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 12px;
         text-align: center;
         letter-spacing: -0.04em;
         color: rgba(17, 17, 17, 0.5);
@@ -192,55 +157,77 @@
 
 // BOOK MODAL WINDOW ----- Mobile styles
 //{
-    @media screen and (max-width: 578.9px) {
-        .modal-container {
+    @media screen and (max-width: 767.9px) {
+        .book-modal-container {
             position: relative;
+            padding: 40px 24px;
             margin-left: auto;
             margin-right: auto;
             max-width: 335px;
             width: 100%;
         }
-    }   
+        .image-and-content-div {
+            flex-direction: column;
+        }
+        .book-img-div {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .modal-message {
+            max-width: 242px;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+        .btn-shopping {
+            padding: 14px 23px;
+            font-size: 14px;
+            line-height: 1.29;
+            letter-spacing: -0.04em;
+        }
+    }  
+    @media screen and (max-width: 270px) {
+        .btn-shopping {
+            font-size: 12px;
+        }
+    }
 //}
-
 
 
 // BOOK MODAL WINDOW ----- Tablet styles
 //{
-    @media screen and (min-width: 579px) {
-        .img-modal {
-            max-height: 281px;
-        }
-        .btn-shopping {
-            font-size: 14px;
-        }
-        .rander-modal {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-        }
-        .modal-container {
+    @media screen and (min-width: 767.9px) {
+        .book-modal-container {
             position: absolute;
+            padding: 40px 40px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            /* background-color: rgb(255, 255, 255); */
             display: flex;
             flex-direction: column;
         }
+        .image-and-content-div {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+        }
+        .book-img-div {
+            width: 192px;
+            height: 281px;
+        }
+        .modal-description-book{
+            min-width: 283px;
+        }
+        .modal-message {
+            width: 324px;
+            font-size: 12px;
+            line-height: 1.17;
+        }
+        .btn-shopping {
+            padding: 20px 100px;
+            font-size: 18px;
+            line-height: 1.33;
+            letter-spacing: -0.049em;            
+        }
     }
-    
 //}
-
-
-// BOOK MODAL WINDOW ----- Desktop styles
-//{
-
-//}
-
-
-
-    
-    
-
-

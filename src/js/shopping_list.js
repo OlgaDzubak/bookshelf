@@ -1,5 +1,5 @@
 import { booksAPI } from './booksAPI';
-import {scrollToBoxTop, shortTitle} from './help_functions';
+import {scrollToBoxTop, scrollUp} from './help_functions';
 import {createPagination,
         deleteLastPaginationPage, 
         setPaginationPage, 
@@ -43,6 +43,8 @@ if (pageWidth < 768) {
 } else if (pageWidth >= 768){
   visiblePagesCount = 3
 }
+
+scrollUp();
 
 if (orderedBooksIdArray.length) {
   createShoppingList(currentPage);
@@ -128,7 +130,7 @@ function showPage(dataArray, page, itemsOnPage) {
                                           <div class="book_information">
                                             <p class="book-title">${title}</p>
                                             <p class="book-category">${list_name}</p>
-                                            <p class="book-description">${description}</p>
+                                            <p class="book-description">${description ? description : 'No description'}</p>
                                             <p class="book-author">${author}</p>
                                           </div>
                                           
