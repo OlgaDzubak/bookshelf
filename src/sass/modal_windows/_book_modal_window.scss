@@ -11,13 +11,12 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-color: rgba(17, 17, 17, 0.4);
         z-index: 100;
-        padding: 20px;
+        padding: 40px;
     }
-
     .book-modal-container {
         border: 2px solid #111111;
         border-radius: 18px;
@@ -119,6 +118,14 @@
         width: 32px;
         height: 32px;
     }
+
+    #path1{
+        fill: #a7a7a7;
+    }
+    #path2{
+        fill: #202020;
+    }
+
 
     .btn-box {
         display: flex;

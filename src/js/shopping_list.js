@@ -1,5 +1,4 @@
 import { booksAPI } from './booksAPI';
-import {scrollToBoxTop, scrollUp} from './help_functions';
 import {createPagination,
         deleteLastPaginationPage, 
         setPaginationPage, 
@@ -16,7 +15,7 @@ import stackOfBooks_tablet_1x from '/src/images/shopping_list/stack_of_books_tab
 import stackOfBooks_tablet_2x from '/src/images/shopping_list/stack_of_books_tablet@2x.png';
 import stackOfBooks_desktop_1x from '/src/images/shopping_list/stack_of_books_desktop@1x.png';
 import stackOfBooks_desktop_2x from '/src/images/shopping_list/stack_of_books_desktop@2x.png';
-import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollToBoxTop } from './help_functions';
+import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp} from './help_functions';
 
 const fetchBooks = new booksAPI();
 
@@ -44,13 +43,14 @@ if (pageWidth < 768) {
   visiblePagesCount = 3
 }
 
-scrollUp();
-
 if (orderedBooksIdArray.length) {
   createShoppingList(currentPage);
-}  else {
+ } else {
   createEmptyBooksBox();
 }
+
+
+
 
 // ФУНКЦІЇ -----------------------------------------------------------------------------------------------------
 
@@ -93,6 +93,7 @@ async function createShoppingList() {
 
       }
     }
+    scrollUp();
 }
 
   // Функція формування та відправлення запиту
@@ -217,7 +218,6 @@ function deleteBook({target}){
       btns.forEach(btn=>btn.removeAttribute("disabled"));
 
       //якщо після видалення елементу список list залишився пустим, то виводимо елемент Emptybooks_ulBox
-      
       if (books_ul.children.length === 0){
         createEmptyBooksBox();
       }else{

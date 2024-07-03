@@ -31,10 +31,9 @@ const objScroll = {
 
 divContainerEl.addEventListener('click', onReadId);
 
-function onReadId({target, currentTarget}) {
-    
+function onReadId({target}) {
+    console.dir(target);
     if (target.classList.contains('img-book') || target.classList.contains('owerlay')) {
-
         book_Id = target.parentElement.parentElement.dataset.id;
         createModalWindow(book_Id);
         
@@ -126,7 +125,7 @@ btnCloseModal.addEventListener('click', onCloseModal);
 
 function onCloseModal() {
     objScroll.enabledScroll();
-    divBackdropEl.classList.toggle('is-hidden');
+    divBackdropEl.classList.add('is-hidden');
     btnRemoveEl.classList.add('is-hidden');
     btnAddEl.classList.add('is-hidden');
     textEl.classList.add('is-hidden');

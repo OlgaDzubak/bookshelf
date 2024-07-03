@@ -95,18 +95,18 @@ function scrollToBoxTop(box){
   const windowHeight = document.documentElement.clientHeight;
   const docWidth =  document.documentElement.offsetWidth;
   const docCurrentScrollY = window.scrollY;
-
+  
   switch (docWidth >= 1440) {
       case true :
           if (docCurrentScrollY > 0) { 
-              window.scroll({top: box.offsetTop - 112 , left: 0, behavior: "smooth",});
+              window.scroll({top: titleTopY - 112 , left: 0, behavior: "smooth",});
           }
           break;
       case false :
           if ((docHeight - titleTopY) < windowHeight){
               window.scroll({top: docHeight , left: 0, behavior: "smooth",});                    
           }else if (titleTopY + 180 > windowHeight) {
-              window.scroll({top: box.offsetTop - 90 , left: 0, behavior: "smooth",});
+              window.scroll({top: titleTopY - 90 , left: 0, behavior: "smooth",});
           }
           break;
       default:
@@ -119,7 +119,7 @@ function scrollToBoxTop(box){
 function scrollUp() {
   window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
   });
 }
 

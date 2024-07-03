@@ -190,7 +190,21 @@ body.dark {
 
 //----------- book modal window --------------------//
 //{
-    body.dark .modal-container{
+    body.dark .book-modal-container{
         background-color: var(--dark-theme-background);
+        border-color: var(--text-white-color);
+    }
+    body.dark .modal-name-book,
+    body.dark .modal-author-book,
+    body.dark .modal-description-book,
+    body.dark .modal-message{
+        color: var(--text-white-color);
+    }
+    body.dark .modal-message{
+        color: var(--text-white-color-fifty);
+    }
+    body.dark .btn-shopping {
+        background-color: var(--dark-theme-background);
+        color: var(--text-white-color);
     }
 //}

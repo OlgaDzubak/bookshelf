@@ -27,7 +27,7 @@ paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn">
                     </button>` +
     
                     `<button type="button" class="pgn-btn three-dots-btn left-three-dots-btn visually-hidden">
-                        <svg class="three-dots left-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
+                        <svg class="three-dots-svg left-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
                         <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
                         <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
                         <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(11 16.516716)"/>
@@ -36,9 +36,9 @@ paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn">
 
 for (let i=1; i<=pagesCount; i++ ){
     if (i<=visibleBtnCount){
-    paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn">${i}</button>`;
+        paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn">${i}</button>`;
     }else{
-    paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn visually-hidden">${i}</button>`;
+        paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn visually-hidden">${i}</button>`;
     }
 }
 
@@ -46,7 +46,7 @@ if (pagesCount > visibleBtnCount)  {
 
             paginationMarkup = paginationMarkup +
                         `<button type="button" class="pgn-btn three-dots-btn right-three-dots-btn">
-                        <svg class="three-dots right-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
+                        <svg class="three-dots-svg right-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
                             <ellipse class="right-three-dots-svg ellipse" rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
                             <ellipse class="right-three-dots-svg ellipse" rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
                             <ellipse class="right-three-dots-svg ellipse" rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(11 16.516716)"/>
@@ -55,7 +55,7 @@ if (pagesCount > visibleBtnCount)  {
 }else{
             paginationMarkup = paginationMarkup +
             `<button type="button" class="right-three-dots-btn visually-hidden">
-            <svg class="three-dots right-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
+            <svg class="three-dots-svg right-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
                 <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
                 <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
                 <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(11 16.516716)"/>
@@ -101,22 +101,27 @@ function setPaginationPage(paginationList, page) {
             if (Number(button.textContent) === page){
 
             button.classList.add('active');
-            button.focus();
+        //   button.focus();
 
             if (button.classList.contains('visually-hidden')){
 
                 if (button.textContent <= visiblePagesBtns[0].textContent){ 
-                visiblePagesBtns[visibleBtnCount-1].classList.add('visually-hidden');
-                rightThreeDots.classList.remove('visually-hidden');
+                    visiblePagesBtns[visibleBtnCount-1].setAttribute("disabled","");
+                    visiblePagesBtns[visibleBtnCount-1].classList.add('visually-hidden');
+                    rightThreeDots.removeAttribute("disabled","");
+                    rightThreeDots.classList.remove('visually-hidden');
                 } else {
-                visiblePagesBtns[0].classList.add('visually-hidden');
-                leftThreeDots.classList.remove('visually-hidden');
+                    visiblePagesBtns[0].setAttribute("disabled","");
+                    visiblePagesBtns[0].classList.add('visually-hidden');
+                    leftThreeDots.removeAttribute("disabled","");
+                    leftThreeDots.classList.remove('visually-hidden');
                 
                 if (Number(button.textContent) === allPagesBtns.length){
+                    rightThreeDots.setAttribute("disabled","");
                     rightThreeDots.classList.add('visually-hidden');
                 }
                 }
-
+                button.removeAttribute("disabled","");
                 button.classList.remove('visually-hidden');
             }
 
@@ -141,17 +146,21 @@ function setPaginationPage(paginationList, page) {
     
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent)  === allPagesBtns.length) {
             rightDoubleArrowBtn.setAttribute('disabled',"");
+            rightThreeDots.setAttribute('disabled',"");
             rightThreeDots.classList.add('visually-hidden');
         }else{
             rightDoubleArrowBtn.removeAttribute('disabled',"");
+            rightThreeDots.removeAttribute('disabled',"");
             rightThreeDots.classList.remove('visually-hidden');
         }
         
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {
             leftDoubleArrowBtn.setAttribute('disabled',"");
+            leftThreeDots.setAttribute('disabled',"");
             leftThreeDots.classList.add('visually-hidden');
         }else{
             leftDoubleArrowBtn.removeAttribute('disabled',"");
+            leftThreeDots.removeAttribute('disabled',"");
             leftThreeDots.classList.remove('visually-hidden');
         }
     }
@@ -262,7 +271,7 @@ function nextPageGroupRight(paginationList){
 
 }
 
-//Видалення jcnfyymj] сторінки з пагінації
+//Видалення останньої сторінки з пагінації
 function deleteLastPaginationPage(paginationList){
 
     const pages = paginationList.querySelectorAll(".number-btn");
