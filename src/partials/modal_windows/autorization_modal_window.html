@@ -1,61 +1,77 @@
-    <div class="backdrop is-hidden">
+    <div class="autorization-modal-backdrop is-hidden">
       <div class="modal">
         <form class="modalForm">
           
           <!-- button close -->
           <button class="close-button" type="button" title="Close button">
-            <svg class="close-icon" width="10" hight="10">
-              <use href="/src/images/svg/sprite.svg#close_icon">a</use>
+            <svg class="icon-x">
+              <use href="/src/images/svg/sprite.svg#x-close-icon">a</use>
             </svg>
           </button>
 
-          <!-- name -->
-          <div class="modalForm-field margin-name">
-            <label class="modalForm-label" for="name">
-              <input
-                class="modalForm-input"
-                type="name"
-                name="name"
-                id="name"
-                placeholder="NAME"
-              />
-            </label>
-          </div>
-
-          <!-- email -->
-          <div class="modalForm-field margin-email">
-            <label class="modalForm-label" for="email">
-              <div class="modalForm-inputWrap">
-                <input
-                  class="modalForm-input"
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="EMAIL"
-                />
-                <svg class="modalForm-icon email" width="18" height="18">
-                  <use href="/src/images/svg/sprite.svg#mail_icon"></use>
-                </svg>
+          <ul class="modalForm-fields-list list">
+            <!-- name -->
+            <li class="modalForm-field margin-name">
+              <label class="modalForm-label" for="name">
+                <div class="modalForm-inputWrap">
+                  <input
+                    class="modalForm-input"
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="NAME"
+                    minlength="3"
+                    maxlength="20"
+                    required
+                  />
+                  <svg class="modalForm-icon name">
+                    <use href="/src/images/svg/sprite.svg#name_icon"></use>
+                  </svg>
               </div>
-            </label>
-          </div>
+              </label>
+            </li>
 
-          <!-- password -->
-          <div class="modalForm-field margin-password">
-            <label class="modalForm-label" for="password">
-              <div class="modalForm-inputWrap">
-                <input
-                  class="modalForm-input"
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="PASSWORD"
-                /><svg class="modalForm-icon password" width="18" height="18">
-                  <use href="/src/images/svg/sprite.svg#password_icon"></use>
-                </svg>
-              </div>
-            </label>
-          </div>
+            <!-- email -->
+            <li class="modalForm-field margin-email">
+              <label class="modalForm-label" for="email">
+                <div class="modalForm-inputWrap">
+                  <input
+                    class="modalForm-input"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="EMAIL"
+                    pattern="[a-A][z-Z][0-9]@[a-A][z-Z][0-9]"
+                    title="example@mail.com"
+                  />
+                  <svg class="modalForm-icon email">
+                    <use href="/src/images/svg/sprite.svg#mail_icon"></use>
+                  </svg>
+                </div>
+              </label>
+            </li>
+
+            <!-- password -->
+            <li class="modalForm-field margin-password">
+              <label class="modalForm-label" for="password">
+                <div class="modalForm-inputWrap">
+                  <input
+                    class="modalForm-input"
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="PASSWORD"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                    required
+                  /><svg class="modalForm-icon password">
+                    <use href="/src/images/svg/sprite.svg#password_icon"></use>
+                  </svg>
+                </div>
+              </label>
+            </li>
+
+          </ul>
 
           <!-- button -->
           <div class="modalWrapper-btn">
@@ -63,10 +79,10 @@
             <button class="btnSingUp" type="submit">SING UP</button>
 
             <!-- links -->
-            <div class="modalLink-wrapper">
-              <a class="modalLink link-sing-up current" href="">SING UP</a>
-              <a class="modalLink" href="">SING IN</a>
-            </div>
+            <ul class="modalLink-wrapper list">
+              <li><a class="modalLink link-sing-up current" href="">SING UP</a></li>
+              <li><a class="modalLink" href="">SING IN</a></li>              
+            </ul>
 
           </div>
 

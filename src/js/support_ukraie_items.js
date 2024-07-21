@@ -1,12 +1,12 @@
-import saveTheChildren from '/src/images/svg/safe_children_icon.svg';
-import projectHope from '/src/images/svg/project_hope_icon.svg';
-import internationalMedicalCorps from '/src/images/svg/international_medical_corp_icon.svg';
-import razom from '/src/images/svg/razom_icon.svg';
-import actionAgainstHunger from '/src/images/svg/action_against_unger_icon.svg';
-import serhiyPrytulaFoundation from '/src/images/svg/cherity_foundation_prytula_icon.svg';
-import united24 from '/src/images/svg/united24_icon.svg';
-import medicinsSansFrontieres from '/src/images/svg/medicines_sans_frontiers_icon.svg';
-import worldVision from '/src/images/svg/world-vision_icon.svg';
+import saveTheChildren from '/src/images/svg/support-ukraine/safe_children_icon.svg';
+import projectHope from '/src/images/svg/support-ukraine/project_hope_icon.svg';
+import internationalMedicalCorps from '/src/images/svg/support-ukraine/international_medical_corp_icon.svg';
+import razom from '/src/images/svg/support-ukraine/razom_icon.svg';
+import actionAgainstHunger from '/src/images/svg/support-ukraine/action_against_unger_icon.svg';
+import serhiyPrytulaFoundation from '/src/images/svg/support-ukraine/cherity_foundation_prytula_icon.svg';
+import united24 from '/src/images/svg/support-ukraine/united24_icon.svg';
+import medicinsSansFrontieres from '/src/images/svg/support-ukraine/medicines_sans_frontiers_icon.svg';
+import worldVision from '/src/images/svg/support-ukraine/world-vision_icon.svg';
 
 export const supportItems = [
   {

@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 const openBtn = document.querySelector('.jsOpenBtn');
 const openBtnMobile = document.querySelector('.jsOpenBtn-mobile');
 
-const backdrop = document.querySelector('.backdrop');
+const backdrop = document.querySelector('.autorization-modal-backdrop');
 const closeBtn = document.querySelector('.close-button');
 const modalForm = document.querySelector('.modalForm');
 
@@ -14,12 +14,12 @@ closeBtn.addEventListener('click', onCloseModal);
 function onOpenModal() {
   window.addEventListener('keydown', onEscKeyDown);
   backdrop.classList.remove('is-hidden');
-  document.body.classList.add('modalNonScroll');
+  document.body.classList.add('block-scroll');
 }
 function onCloseModal() {
   window.removeEventListener('keydown', onEscKeyDown);
   backdrop.classList.add('is-hidden');
-  document.body.classList.remove('modalNonScroll');
+  document.body.classList.remove('block-scroll');
 }
 
 modalForm.addEventListener('submit', onFormSubmit);

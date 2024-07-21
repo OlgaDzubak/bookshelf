@@ -179,9 +179,7 @@
 //{
     @media screen and (max-width: 189.8px){
         .header .container{
-            flex-direction: column;
-            justify-content: center;
-            row-gap: 5px;
+            column-gap: 15px;
         }
         .logo-link {
             font-size: 14px;

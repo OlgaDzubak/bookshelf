@@ -1,232 +1,287 @@
-.modalNonScroll {
-  overflow: hidden;
-}
 
-.backdrop {
-  position: fixed;
-  padding: 214px 20px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--accent-color1);;
-  z-index: 999;
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modal {
-  padding-top: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
-  min-height: 384px;
-  min-width: 335px;
-  background-color: #f6f6f6;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-
-  border-radius: 18px;
-
-  @media screen and (min-width: 768px) {
-    min-width: 579px;
-    padding-top: 80px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 40px;
-  }
-}
-
-.close-button {
-  position: absolute;
-  background-color: transparent;
-  border-color: transparent;
-  width: 20px;
-  height: 20px;
-  top: 14px;
-  right: 14px;
-  cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    top: 24px;
-    right: 24px;
-  }
-}
-
-.close-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-
-  @media screen and (min-width: 768px) {
-    width: 14px;
-    height: 14px;
-  }
-}
-
-.modalForm-field {
-  margin-bottom: 24px;
-}
-
-@media screen and (min-width: 768px) {
-  .modalForm-field {
-    margin-bottom: 0;
+// BOOK MODAL WINDOW ----- Common styles
+//{
+  .block-scroll {
+    overflow: hidden;
   }
 
-  .margin-name {
-    margin-bottom: 28px;
-  }
-
-  .margin-email {
-    margin-bottom: 28px;
-  }
-
-  .margin-password {
-    margin-bottom: 40px;
-  }
-}
-
-.modalForm-inputWrap {
-  position: relative;
-}
-
-.modalForm-input {
-  width: 100%;
-  padding: 16px 24px 16px;
-  border: 2px solid var(--text-dark-color);
-  background-color: transparent;
-  border-radius: 40px;
-  color: var(--text-dark-color);
-  font-size: 16px;
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    border: 2px solid var(--accent-color1);
-    outline: none;
-    border-color: var(--accent-color1);
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 20px 40px 20px;
-    font-size: 18px;
-  }
-}
-
-.modalForm-input::placeholder {
-  font-size: 16px;
-  color: var(--text-dark-color);
-
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-  }
-}
-
-.modalForm-icon {
-  position: absolute;
-  top: 16px;
-  right: 24px;
-
-  @media screen and (min-width: 768px) {
-    top: 22px;
-    right: 34px;
-  }
-}
-
-.modalForm-icon.email {
-  @media screen and (min-width: 768px) {
-    width: 23px;
-    height: 18px;
-  }
-}
-
-.modalForm-icon.password {
-  @media screen and (min-width: 768px) {
-    width: 21px;
-    height: 21px;
-  }
-}
-
-.modalWrapper-btn {
-  display: block;
-}
-
-.btnSingUp {
-  display: block;
-  border-radius: 40px;
-  width: 100%;
-  padding: 16px 0;
-  margin-bottom: 14px;
-  font-size: 16px;
-  color: var(--logo-theme-dark);
-  background-color: var(--dark-theme-background);
-  cursor: pointer;
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    background-color: var(--accent-color1);
-    border: 2px solid var(--text-dark-color);
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
-    font-size: 18px;
-  }
-}
-
-.modalLink-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.modalLink {
-  position: relative;
-  font-size: 14px;
-  text-decoration: none;
-  color: rgba(17, 17, 17, 0.5);
-
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    color: var(--accent-color1);
-  }
-
-  cursor: pointer;
-  &.current {
-    color: var(--accent-color1);
-  }
-
-  &.current::after {
-    position: absolute;
-    content: '';
+  .autorization-modal-backdrop {
+    position: fixed;
+    top: 0;
     left: 0;
-    bottom: -1px;
+    padding: 70px 40px 40px 40px;
     width: 100%;
-    height: 1px;
-    background: var(--accent-color1);
-    // border-radius: 1px;
+    height: 100%;    
+    background-color: var(--accent-color1);
+    z-index: 999;
+  }
+  .autorization-modal-backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 
+  .modal {
+    padding: 80px 40px 40px 40px;
+    z-index: 1000;
+    background-color: var(--light-theme-background);
+    border-radius: 18px;  
+  }
+
+  .close-button {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .icon-x {
+    width: 100%;
+    height: 100%;
+    stroke: var(--text-dark-color);
+  }
+  .icon-x:hover,
+  .icon-x:focus{
+    stroke: var(--accent-color1);
+  }
+
+  .modalForm-fields-list{
+    display: flex;
+    flex-direction: column;
+  }
+  .modalForm-inputWrap {
+    position: relative;
+    --auth-icon-color: var(--auth-icon-color1); 
+  }
+
+  .modalForm-input {
+    width: 100%;
+    font-weight: 700;
+    line-height: 1;
+    border: 2px solid var(--text-dark-color);
+    background-color: transparent;
+    border-radius: 40px;
+    color: var(--text-dark-color);
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .modalForm-input:focus {
+      border: 2px solid var(--accent-color1);
+      outline: none;
+      border-color: var(--accent-color1);
+      color: var(--accent-color1);
+    }
+  .modalForm-input:focus+ .modalForm-icon{
+      --auth-icon-color: var(--auth-icon-color2);
+    }
+
+  .modalForm-input::placeholder {
+    color: currentColor;
+  }
+  .modalForm-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px; 
+  }
+
+  .modalWrapper-btn {
+    display: block;
+  }
+  .btnSingUp {
+    display: block;
+    border-radius: 40px;
+    width: 100%;
+    padding: 16px 0;
+    // margin-bottom: 14px;
+    font-size: 16px;
+    color: var(--logo-theme-dark);
+    background-color: var(--dark-theme-background);
+    cursor: pointer;
+  
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  
+    &:hover,
+    &:focus {
+      background-color: var(--accent-color1);
+      border: 2px solid var(--text-dark-color);
+    }
+  }
+  .modalLink-wrapper {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+  }
+  .modalLink {
+    position: relative;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    color: var(--light-theme-fifty);
+
+    &:hover,
+    &:focus {
+      color: var(--accent-color1);
+    }
+    &.current {
+      color: var(--accent-color1);
+    }
+    &.current::after {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      content: '';
+      left: 0;
+      bottom: -1px;
+      background: var(--accent-color1);
+    }
+  }
+//}
+
+
+// BOOK MODAL WINDOW ----- Mobile styles
+//{
+  @media screen and (max-width: 767.8px) {
+    .autorization-modal-backdrop {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .modal {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      max-width: 335px;
+      width: 100%;
+      padding: 40px 20px;
+      transform: translate(-50%, -50%);
+    }
+    .close-button {
+      width: 20px;
+      height: 20px;
+    }
+    .modalForm-fields-list{
+      row-gap: 24px;
+    }
+    .modalForm-input {
+      padding: 16px 24px;
+      font-size: 16px;
+    }  
+    .modalForm-input::placeholder {
+      font-size: 16px;
+    }
+    .modalForm-icon {
+      right: 24px;
+    }
+    .modalForm-icon.name {
+      width:  13px;
+      height: 18px;
+    }
+    .modalForm-icon.email {
+      width:  15px;
+      height: 12px;
+    }
+    .modalForm-icon.password {
+      width:  13.5px;
+      height: 13.5px;
+    }
+    .modalWrapper-btn {
+      margin-top: 24px;
+    }
+    .btnSingUp {
+      font-size: 16px;
+    }
+    .modalLink-wrapper {
+      margin-top: 34px;
+    }
+    .modalLink {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: 270px) {
+    .modalForm-input {
+      padding: 14px 16px;
+      font-size: 12px;
+    } 
+    .modalForm-input::placeholder {
+      font-size: 12px;
+    }
+    .modalForm-icon {
+      right: 16px;
+    }
+    .btnSingUp {
+      padding: 14px 0;
+      font-size: 12px;
+    }
+    .modalLink {
+      font-size: 10px;
+    }
+}
+//}
+
+
+// BOOK MODAL WINDOW ----- Tablet styles
+//{  
   @media screen and (min-width: 768px) {
-    font-size: 18px;
+    .modal {
+      position: absolute;
+      top: calc((100% + 70px)/2);
+      left: 50%;
+      width: 579px;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+    }
+    .modalForm-fields-list{
+      row-gap: 28px;
+    }
+    .close-button {
+      width: 28px;
+      height: 28px;
+    }
+    .modalForm-input {
+        padding: 20px 40px 20px;
+        font-size: 18px;
+    }
+    .modalForm-input::placeholder {
+        font-size: 18px;
+    }
+    .modalForm-icon {
+      right: 34px;
+    }
+    .modalForm-icon.name {
+      width: 13px;
+      height: 18px;
+    }
+    .modalForm-icon.email {
+      width: 23px;
+      height: 18px;
+    }
+    .modalForm-icon.password {
+      width: 21px;
+      height: 21px;
+    }
+    .modalWrapper-btn {
+      margin-top: 40px;
+    }
+    .btnSingUp {
+      font-size: 18px;
+    }
+    .modalLink-wrapper {
+      margin-top: 20px;
+    }
+    .modalLink {
+      font-size: 18px;
+    }
   }
-}
-
-.link-sing-up {
-  margin-right: 20px;
-}
+//}

@@ -140,6 +140,19 @@
     display: flex;
     align-items: center;
   }
+  .marketplacer_li_link:hover{
+    scale: 1.1;
+    transition: scale var(--transition);
+  }
+
+  #amazon-icon{
+    width: 48px;
+    height: 19px;
+  }
+  #apple-ibooks{
+    width: 28px;
+    height: 27px;
+  }
 
   .shopping_booklist_pagination {
     display: flex;
@@ -159,6 +172,7 @@
     background: none;
     border: 1px solid #000000;
     border-radius: 50%;
+    color: var(--text-dark-color);
     --pgn-fill-color: var(--logo-theme-light);
   }
   .pgn-btn:hover,

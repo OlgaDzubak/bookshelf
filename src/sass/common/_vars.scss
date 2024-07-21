@@ -5,7 +5,9 @@
     
     --dark-theme-background:#202024;
     --light-theme-background:#F6F6F6; 
-        
+    --light-theme-fifty:rgba(17, 17, 17, 0.5);
+
+
     --text-dark-color: #111111;
     --text-light-color: #B4AFAF;
     --text-white-color: #ffffff;
@@ -16,6 +18,13 @@
     --accent-color2: #EAC645;
     --accent-color3: #FFFFFF;
     --accent-color4-hf: #a1a1a1;
+
+    --auth-icon-color1: var(--text-dark-color);
+    --auth-icon-color2: var(--accent-color1);
+    --auth-icon-color3: var(--text-white-color);
+
+    --amazon-path1-color: #909090;
+    --amazon-path2-color: var(--text-dark-color);;
 
     --scrollbar-light-color: #E0E0E0;
     --scrollbar-dark-color: #1f1d1d;

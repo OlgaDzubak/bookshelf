@@ -114,15 +114,26 @@ body.dark {
     body.dark .close-button {
         color: var(--accent-color3)}
 
-    body.dark .modalForm-input {
-        
-            border: 2px solid var(--text-white-color);
-            background-color: transparent;
-            color: var(--text-white-color);
+    body.dark .modalForm-inputWrap{
+        --auth-icon-color: var(--auth-icon-color3);  
     }
+    body.dark .modalForm-input {
+        border: 2px solid var(--text-white-color);
+        background-color: transparent;
+        color: var(--text-white-color);
+    }
+    body.dark .modalForm-input:focus {
+        border: 2px solid var(--accent-color1);
+        outline: none;
+        border-color: var(--accent-color1);
+        color: var(--accent-color1);
+      }
+    body.dark.modalForm-input:focus+ .modalForm-icon{
+        --auth-icon-color: var(--auth-icon-color2);
+      }
 
     body.dark .modalForm-input::placeholder {
-                color: var(--text-white-color);
+        color: currentColor;
     }
 
     body.dark .close-icon,
@@ -140,8 +151,9 @@ body.dark {
         background-color: var(--accent-color3);
         &:hover,
         &:focus {
-        background-color: var(--accent-color1);
-        border: 2px solid var(--text-dark-color);
+            background-color: var(--accent-color1);
+            border: 2px solid var(--text-dark-color);
+            color: var(--text-white-color);
         }
     }
 
@@ -156,10 +168,7 @@ body.dark {
 
 //----------- shopping_list ------------------------//
 //{
-    body.dark .shopping_list_title {
-        color: var(--accent-color3);
-    }
-
+    body.dark .shopping_list_title,
     body.dark .book-title {
         color: var(--accent-color3);
     }
@@ -168,13 +177,33 @@ body.dark {
         color: var(--text-white-color);
     }
 
-    body.dark .btn-two,
-    body.dark .btn-many
-    {
-        color: var(--text-white-color);
-        background-color: black;
-        border-radius: 1px solid var(--accent-color3);
+    body.dark #amazon-icon{
+        --amazon-path1-color: var(--text-white-color);
+        --amazon-path2-color: var(--text-white-color);
     }
+
+    body.dark .pgn-btn{
+        color: var(--text-white-color);
+        border: 1px solid var(--text-white-color);
+        --pgn-fill-color: var(--text-white-color);
+    }
+    body.dark .pgn-btn:hover,
+    body.dark .pgn-btn:focus {
+        color: var(--text-dark-color);
+        background-color: var(--accent-color2);
+        border: 1px solid var(--text-dark-color);
+        --pgn-fill-color: var(--text-dark-color);
+    }
+    body.dark .pgn-btn.active {
+        color: var(--text-dark-color);
+        background-color: var(--text-white-color);
+    }
+    body.dark .pgn-btn:disabled{
+        border: 1px solid var(--text-dark-color);
+        background-color: var(--text-dark-color);
+        --pgn-fill-color: var(--text-light-color);
+    }
+
     body.dark .empty-shopping-box-text{
         color: rgba(255, 255, 255, 0.6);
     }
@@ -194,17 +223,41 @@ body.dark {
         background-color: var(--dark-theme-background);
         border-color: var(--text-white-color);
     }
+    
+    body.dark .icon-x {
+        stroke: var(--text-white-color);
+        fill: var(--text-white-color);
+    }
+    body.dark .icon-x:hover,
+    body.dark .icon-x:focus {
+        stroke: var(--accent-color1);
+        fill: var(--accent-color1);
+    }
+
     body.dark .modal-name-book,
-    body.dark .modal-author-book,
-    body.dark .modal-description-book,
-    body.dark .modal-message{
+    body.dark .modal-description-book{
         color: var(--text-white-color);
+    }
+    body.dark .modal-author-book{
+        color: var(--text-light-color);
     }
     body.dark .modal-message{
         color: var(--text-white-color-fifty);
     }
+    
     body.dark .btn-shopping {
         background-color: var(--dark-theme-background);
         color: var(--text-white-color);
+        border: 2px solid var(--accent-color1);
+    }
+    body.dark .btn-shopping:focus,
+    body.dark .btn-shopping:hover {
+        color: var(--text-white-color);
+        background-color: var(--accent-color1);
+    }
+
+    body.dark .marketplacer_li_one .marketplacer_li_link{
+        --amazon-icon-path1-color: var(--accent-color1);
+        --amazon-icon-path2-color: var(--accent-color1);
     }
 //}
