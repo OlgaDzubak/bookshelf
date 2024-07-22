@@ -1,91 +1,96 @@
-    <div class="autorization-modal-backdrop is-hidden">
-      <div class="modal">
-        <form class="modalForm">
-          
-          <!-- button close -->
-          <button class="close-button" type="button" title="Close button">
-            <svg class="icon-x">
-              <use href="/src/images/svg/sprite.svg#x-close-icon">a</use>
-            </svg>
-          </button>
+<div class="autorization-modal-backdrop is-hidden">
+  
+  <div class="modal">
 
-          <ul class="modalForm-fields-list list">
-            <!-- name -->
-            <li class="modalForm-field margin-name">
-              <label class="modalForm-label" for="name">
-                <div class="modalForm-inputWrap">
-                  <input
-                    class="modalForm-input"
-                    type="name"
-                    name="name"
-                    id="name"
-                    placeholder="NAME"
-                    minlength="3"
-                    maxlength="20"
-                    required
-                  />
-                  <svg class="modalForm-icon name">
-                    <use href="/src/images/svg/sprite.svg#name_icon"></use>
-                  </svg>
-              </div>
-              </label>
-            </li>
+    <form class="modalForm">
+      
+      <!-- close button -->
+      <button class="close-button" type="button" title="Close button">
+        <svg class="icon-x">
+          <use href="/src/images/svg/sprite.svg#x-close-icon">a</use>
+        </svg>
+      </button>
 
-            <!-- email -->
-            <li class="modalForm-field margin-email">
-              <label class="modalForm-label" for="email">
-                <div class="modalForm-inputWrap">
-                  <input
-                    class="modalForm-input"
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="EMAIL"
-                    pattern="[a-A][z-Z][0-9]@[a-A][z-Z][0-9]"
-                    title="example@mail.com"
-                  />
-                  <svg class="modalForm-icon email">
-                    <use href="/src/images/svg/sprite.svg#mail_icon"></use>
-                  </svg>
-                </div>
-              </label>
-            </li>
-
-            <!-- password -->
-            <li class="modalForm-field margin-password">
-              <label class="modalForm-label" for="password">
-                <div class="modalForm-inputWrap">
-                  <input
-                    class="modalForm-input"
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="PASSWORD"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                    required
-                  /><svg class="modalForm-icon password">
-                    <use href="/src/images/svg/sprite.svg#password_icon"></use>
-                  </svg>
-                </div>
-              </label>
-            </li>
-
-          </ul>
-
-          <!-- button -->
-          <div class="modalWrapper-btn">
-
-            <button class="btnSingUp" type="submit">SING UP</button>
-
-            <!-- links -->
-            <ul class="modalLink-wrapper list">
-              <li><a class="modalLink link-sing-up current" href="">SING UP</a></li>
-              <li><a class="modalLink" href="">SING IN</a></li>              
-            </ul>
-
+      <ul class="modalForm-fields-list list">
+        
+        <!-- name -->
+        <li class="modalForm-field li-name">
+          <label class="modalForm-label" for="name">
+            <div class="modalForm-inputWrap">
+              <input
+                class="modalForm-input"
+                type="name"
+                name="name"
+                id="name"
+                placeholder="NAME"
+                minlength="3"
+                maxlength="20"
+                required
+              />
+              <svg class="modalForm-icon name">
+                <use href="/src/images/svg/sprite.svg#name_icon"></use>
+              </svg>
           </div>
+          </label>
+        </li>
 
-        </form>
+        <!-- email -->
+        <li class="modalForm-field li-email">
+          <label class="modalForm-label" for="email">
+            <div class="modalForm-inputWrap">
+              <input
+                class="modalForm-input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="EMAIL"
+                pattern="[a-A][z-Z][0-9]@[a-A][z-Z][0-9]"
+                title="example@mail.com"
+                required
+              />
+              <svg class="modalForm-icon email">
+                <use href="/src/images/svg/sprite.svg#mail_icon"></use>
+              </svg>
+            </div>
+          </label>
+        </li>
+
+        <!-- password -->
+        <li class="modalForm-field li-password">
+          <label class="modalForm-label" for="password">
+            <div class="modalForm-inputWrap">
+              <input
+                class="modalForm-input"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="PASSWORD"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                required
+              /><svg class="modalForm-icon password">
+                <use href="/src/images/svg/sprite.svg#password_icon"></use>
+              </svg>
+            </div>
+          </label>
+        </li>
+
+      </ul>
+
+      <!-- buttons -->
+      <div class="modalWrapper-btn">
+
+        <button class="submitBtn" type="submit">SING UP</button>
+
+        <ul class="btn-signUpIn-ul list">
+          <li><button type="button" class="btn-sign-up current">SIGN UP</button></li>
+          <li><button type="button" class="btn-sign-in">SIGN IN</button></li>              
+        </ul>
+
       </div>
-    </div>
+
+    </form>
+
+  </div>
+
+</div>

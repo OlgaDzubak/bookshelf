@@ -20,7 +20,7 @@
     pointer-events: none;
   }
 
-  .modal {
+  .modal{
     padding: 80px 40px 40px 40px;
     z-index: 1000;
     background-color: var(--light-theme-background);
@@ -76,10 +76,10 @@
       outline: none;
       border-color: var(--accent-color1);
       color: var(--accent-color1);
-    }
+  }
   .modalForm-input:focus+ .modalForm-icon{
       --auth-icon-color: var(--auth-icon-color2);
-    }
+  }
 
   .modalForm-input::placeholder {
     color: currentColor;
@@ -94,13 +94,13 @@
   .modalWrapper-btn {
     display: block;
   }
-  .btnSingUp {
+  .submitBtn{
     display: block;
     border-radius: 40px;
     width: 100%;
     padding: 16px 0;
-    // margin-bottom: 14px;
     font-size: 16px;
+    font-weight: 700;
     color: var(--logo-theme-dark);
     background-color: var(--dark-theme-background);
     cursor: pointer;
@@ -114,19 +114,22 @@
       border: 2px solid var(--text-dark-color);
     }
   }
-  .modalLink-wrapper {
+  .btn-signUpIn-ul {
     display: flex;
     justify-content: center;
     column-gap: 20px;
   }
-  .modalLink {
+  .btn-sign-up,
+  .btn-sign-in {
     position: relative;
+    padding: 0;
     font-weight: 700;
     font-size: 14px;
     white-space: nowrap;
-    text-decoration: none;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     color: var(--light-theme-fifty);
 
@@ -157,7 +160,7 @@
       padding-left: 20px;
       padding-right: 20px;
     }
-    .modal {
+    .modal{
       position: relative;
       top: 50%;
       left: 50%;
@@ -174,7 +177,7 @@
       row-gap: 24px;
     }
     .modalForm-input {
-      padding: 16px 24px;
+      padding: 16px 50px 16px 24px;
       font-size: 16px;
     }  
     .modalForm-input::placeholder {
@@ -198,19 +201,18 @@
     .modalWrapper-btn {
       margin-top: 24px;
     }
-    .btnSingUp {
+    .submitBtn {
       font-size: 16px;
     }
-    .modalLink-wrapper {
+    .btn-signUpIn-ul {
       margin-top: 34px;
-    }
-    .modalLink {
       font-size: 14px;
+      line-height: 1.28;
     }
   }
   @media screen and (max-width: 270px) {
     .modalForm-input {
-      padding: 14px 16px;
+      padding: 14px 40px 14px 16px; 
       font-size: 12px;
     } 
     .modalForm-input::placeholder {
@@ -219,12 +221,13 @@
     .modalForm-icon {
       right: 16px;
     }
-    .btnSingUp {
+    .submitBtn{
       padding: 14px 0;
       font-size: 12px;
     }
-    .modalLink {
+    .btn-signUpIn-ul {
       font-size: 10px;
+      line-height: 1.28;
     }
 }
 //}
@@ -250,7 +253,7 @@
       height: 28px;
     }
     .modalForm-input {
-        padding: 20px 40px 20px;
+        padding: 20px 70px 20px 40px;
         font-size: 18px;
     }
     .modalForm-input::placeholder {
@@ -274,14 +277,13 @@
     .modalWrapper-btn {
       margin-top: 40px;
     }
-    .btnSingUp {
+    .submitBtn {
       font-size: 18px;
     }
-    .modalLink-wrapper {
+    .btn-signUpIn-ul {
       margin-top: 20px;
-    }
-    .modalLink {
       font-size: 18px;
+      line-height: 1.33;
     }
   }
 //}
