@@ -73,7 +73,7 @@
     }
     .modal-description-book {
         padding-right: 10px;
-        max-height: 90px;
+        max-height: 70px;
         max-width: 287px;
         font-size: 14px;
         line-height: 1.28;
@@ -81,12 +81,12 @@
         color: #111111;
         margin-top: 18px;
         margin-bottom: 20px;
-        overflow-y:scroll;
+        overflow-y: auto;
     }
     .modal-description-book::-webkit-scrollbar{   
         width: 4px;
         height: 4px;
-        background-color: var(--scrollbar-light-color);
+        background-color: transparent;
     }
     .modal-description-book::-webkit-scrollbar-thumb {
         background-color: var(--scrollbar-light-color);
