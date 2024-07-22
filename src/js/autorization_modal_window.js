@@ -54,7 +54,7 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
       }
     }
 
-
+    
     modalForm.reset();
   }
 
@@ -65,12 +65,14 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
   signUpBtn.addEventListener('click', onsignUpBtnClick);
   signInBtn.addEventListener('click', onsignInBtnClick);
   function onsignUpBtnClick(){
+    modalForm.reset();
     name.classList.remove("is-hidden");
     submitBtn.textContent = "SIGN UP"
     signUpBtn.classList.add("current");
     signInBtn.classList.remove("current");  
   }
   function onsignInBtnClick(){
+    modalForm.reset();
     name.classList.add("is-hidden");
     submitBtn.textContent = "SIGN IN"
     signUpBtn.classList.remove("current");
