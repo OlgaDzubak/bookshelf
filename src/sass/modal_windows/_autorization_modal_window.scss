@@ -212,11 +212,11 @@
   }
   @media screen and (max-width: 270px) {
     .modalForm-input {
-      padding: 14px 40px 14px 16px; 
+      padding: 14px 30px 14px 16px; 
       font-size: 12px;
     } 
     .modalForm-input::placeholder {
-      font-size: 12px;
+      font-size: 10px;
     }
     .modalForm-icon {
       right: 16px;
@@ -253,7 +253,7 @@
       height: 28px;
     }
     .modalForm-input {
-        padding: 20px 60px 20px 40px;
+        padding: 20px 70px 20px 40px;
         font-size: 18px;
     }
     .modalForm-input::placeholder {
