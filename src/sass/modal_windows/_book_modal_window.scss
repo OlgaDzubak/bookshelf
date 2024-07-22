@@ -117,10 +117,11 @@
         display: flex;
         flex-direction: column;
         align-items: center
+        margin-top: 40px;
     }
     .btn-shopping {
         width: 100%;        
-        margin-top: 40px;
+        //margin-top: 40px;
         font-weight: 700;
         text-transform: uppercase;
         cursor: pointer;
