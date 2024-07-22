@@ -35,7 +35,7 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
   function onFormSubmit(e) {
     e.preventDefault();
     if (submitBtn.textContent === "SIGN UP"){
-      
+
       const inputName = modalForm.elements.name.value;
       const inputEmail = modalForm.elements.email.value;
       const inputPassword = modalForm.elements.password.value;
@@ -44,7 +44,19 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
         return Notiflix.Notify.failure('Please fill in all fields!');
       }
 
+      // Перевірка пароля та email (зв'язок з бекендом. В даному проекті не буде реалізовуватися)
+      // -----------  
+      // -----------
+      // -----------
 
+      Notiflix.Notify.success('Successfull autorization!');
+      onCloseModal;
+      const authBtn = document.querySelector('.authBtn');
+      const authBtnName = authBtn.querySelector('.authBtn-name');
+      openBtn.classList.add("is-hidden");
+      authBtn.classList.remove("is-hidden");
+      authBtnName.textContent = inputEmail;
+      
     }else{
       const inputEmail = modalForm.elements.email.value;
       const inputPassword = modalForm.elements.password.value;
@@ -52,9 +64,13 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
       if (inputEmail === '' || inputPassword === '') {
         return Notiflix.Notify.failure('Please fill in all fields!');
       }
+      onCloseModal;
+      const authBtn = document.querySelector('.authBtn');
+      const authBtnName = authBtn.querySelector('.authBtn-name');
+      openBtn.classList.add("is-hidden");
+      authBtn.classList.remove("is-hidden");
+      authBtnName.textContent = inputEmail;
     }
-
-    
     modalForm.reset();
   }
 
