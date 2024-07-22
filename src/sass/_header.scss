@@ -34,7 +34,11 @@
         display: flex;
         align-items: center;
     }
-
+    .mobile-nav-list{
+      display:flex;
+      flex-direction: column;
+      row-gap:16px;
+    }
     .mobile-home-link {
         padding: 8px 16px;
         display: inline-flex;
