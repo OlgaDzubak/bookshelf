@@ -35,44 +35,15 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
   modalForm.addEventListener('submit', onFormSubmit);
   function onFormSubmit(e) {
     e.preventDefault();
-    if (submitBtn.textContent === "SIGN UP"){
-
-      const inputName = modalForm.elements.name.value;
-      const inputEmail = modalForm.elements.email.value;
-      const inputPassword = modalForm.elements.password.value;
+    const inputEmail = modalForm.elements.email.value;
+    Notiflix.Notify.success('Successfull autorization!');
+    onCloseModal();
+    const authBtn = document.querySelector('.auth-btn');
+    const authBtnName = authBtn.querySelector('.login-p');
+    openBtn.classList.add("is-hidden");
+    authBtn.classList.remove("is-hidden");
+    authBtnName.textContent = inputEmail;
     
-      if (inputName === '' || inputEmail === '' || inputPassword === '') {
-        return Notiflix.Notify.failure('Please fill in all fields!');
-      }
-
-      // Перевірка пароля та email (зв'язок з бекендом. В даному проекті не буде реалізовуватися)
-      // -----------  
-      // -----------
-      // -----------
-
-      Notiflix.Notify.success('Successfull autorization!');
-      onCloseModal();
-      const authBtn = document.querySelector('.auth-btn');
-      const authBtnName = authBtn.querySelector('.login-p');
-      openBtn.classList.add("is-hidden");
-      authBtn.classList.remove("is-hidden");
-      authBtnName.textContent = inputEmail;
-      
-    }else{
-      const inputEmail = modalForm.elements.email.value;
-      const inputPassword = modalForm.elements.password.value;
-    
-      if (inputEmail === '' || inputPassword === '') {
-        return Notiflix.Notify.failure('Please fill in all fields!');
-      }
-      onCloseModal(authBtn);
-      const authBtn = document.querySelector('.auth-btn');
-      const authBtnName = authBtn.querySelector('.login-p');
-      console.dir(authBtn);
-      openBtn.classList.add("is-hidden");
-      authBtn.classList.remove("is-hidden");
-      authBtnName.textContent = inputEmail;
-    }
     modalForm.reset();
   }
 
@@ -80,21 +51,21 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
   const signUpBtn = document.querySelector('.btn-sign-up');
   const signInBtn = document.querySelector('.btn-sign-in');
   const name = document.querySelector('.li-name');
-  signUpBtn.addEventListener('click', onsignUpBtnClick);
-  signInBtn.addEventListener('click', onsignInBtnClick);
-  function onsignUpBtnClick(){
+  signUpBtn.addEventListener('click', onSignUpBtnClick);
+  signInBtn.addEventListener('click', onSignInBtnClick);
+  function onSignUpBtnClick(){
     modalForm.reset();
     name.classList.remove("is-hidden");
-    submitBtn.textContent = "SIGN UP"
+    submitBtn.textContent = "SIGN UP";
     signUpBtn.classList.add("current");
     signInBtn.classList.remove("current");  
   }
-  function onsignInBtnClick(){
+  function onSignInBtnClick(){
     modalForm.reset();
     name.classList.add("is-hidden");
-    submitBtn.textContent = "SIGN IN"
-    signUpBtn.classList.remove("current");
+    submitBtn.textContent = "SIGN IN";
     signInBtn.classList.add("current");
+    signUpBtn.classList.remove("current");    
   }
 
 
