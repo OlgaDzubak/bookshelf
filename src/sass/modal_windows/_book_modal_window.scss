@@ -208,8 +208,6 @@
     @media screen and (min-width: 767.9px) {
         .book-modal-container {
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             width: 579px;
             padding: 40px 40px;
             display: flex;
@@ -252,13 +250,16 @@
 
     @media screen and (min-width: 767.9px) and (max-height: 599.8px) {
         .book-modal-container {
-            top: 80px;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,-80px);
         }
     }
     @media screen and (min-width: 767.9px) and (min-height: 600px) {
         .book-modal-container {
             top: calc((100% + 70px)/2);
-            transform: translateY(-50%);
+            left: 50%;
+            transform: translate(-50%,-50%);
         }
   }
 //}
