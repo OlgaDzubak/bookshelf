@@ -285,7 +285,7 @@
     }
   }
 
-@media screen and (min-width: 768px) and (max-height: 399.8px){
+@media screen and (min-width: 768px) and (max-height: 599.8px){
     .autorization-modal-backdrop {
     padding-top: 20px;
   }
@@ -295,7 +295,7 @@
       transform: translateX(-50%);
     }
 }
-@media screen and (min-width: 768px) and (min-height: 400px){
+@media screen and (min-width: 768px) and (min-height: 600px){
     .modal {
       top: calc((100% + 70px)/2);
       left: 50%;
