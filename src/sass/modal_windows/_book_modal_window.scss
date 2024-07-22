@@ -83,6 +83,15 @@
         margin-bottom: 20px;
         overflow-y:scroll;
     }
+    .modal-description-book::-webkit-scrollbar{   
+        width: 4px;
+        height: 4px;
+        background-color: var(--scrollbar-light-color);
+    }
+    .modal-description-book::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-light-color);
+        border-radius: 12em;
+    }
 
     .market_placers_list {
         height: 36px;
