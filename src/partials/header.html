@@ -43,6 +43,7 @@
     </div>
     
     <div class="switch-burger-login">
+
         <label class="switch">
             <input type="checkbox"  name="theme" id="theme-switch-toggle" aria-label="Переключить между тёмной и светлой темой" />
             <span class="slider round"></span>
@@ -58,18 +59,26 @@
         <button class="user-login link jsOpenBtn">Sign up<svg class="icon-arrow-right" width="20" height="20">
             <use href="/src/images/svg/sprite.svg#arrow-narrow-right-icon"></use></svg>
         </button>
+
+        <!-- розмітка після логування -->
+        <button class="auth-btn is-hidden">
+
+            <div  class="icon-user-div">
+                <svg class="icon-user">
+                    <use href="/src/images/svg/sprite.svg#name_icon"></use>
+                </svg>
+            </div>
+
+            <p class="login-p">Login</p>
+            
+            <div  class="auth-triangle-icon-div">
+                <svg class="auth-triangle-icon">
+                    <use href="/src/images/svg/sprite.svg#auth-triangle"></use>
+                </svg>
+            </div>
+        </button>
+
     </div>
 
-    <!-- розмітка після логування -->
-    <!-- <div class="icon-user-wrapper">
-       <svg class="icon-user" width="19" height="19">
-        <use href="./img/svg/sprite.svg#icon-user"></use>
-       </svg>
-     </div>
-      Stephen
-    <svg class="icon-registration-triangle" width="23" height="26">
-      <use href="./img/svg/sprite.svg#icon-registration-triangle"></use>
-    </svg>
-    </button> -->
   </div>
 </header>

@@ -21,6 +21,7 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
     window.removeEventListener('keydown', onEscKeyDown);
     backdrop.classList.add('is-hidden');
     document.body.classList.remove('block-scroll');
+    modalForm.reset();
   }
   function onEscKeyDown(e) {
     if (e.code === 'Escape') {
@@ -50,9 +51,9 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
       // -----------
 
       Notiflix.Notify.success('Successfull autorization!');
-      onCloseModal;
-      const authBtn = document.querySelector('.authBtn');
-      const authBtnName = authBtn.querySelector('.authBtn-name');
+      onCloseModal();
+      const authBtn = document.querySelector('.auth-btn');
+      const authBtnName = authBtn.querySelector('.login-p');
       openBtn.classList.add("is-hidden");
       authBtn.classList.remove("is-hidden");
       authBtnName.textContent = inputEmail;
@@ -64,9 +65,10 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
       if (inputEmail === '' || inputPassword === '') {
         return Notiflix.Notify.failure('Please fill in all fields!');
       }
-      onCloseModal;
-      const authBtn = document.querySelector('.authBtn');
-      const authBtnName = authBtn.querySelector('.authBtn-name');
+      onCloseModal(authBtn);
+      const authBtn = document.querySelector('.auth-btn');
+      const authBtnName = authBtn.querySelector('.login-p');
+      console.dir(authBtn);
       openBtn.classList.add("is-hidden");
       authBtn.classList.remove("is-hidden");
       authBtnName.textContent = inputEmail;
