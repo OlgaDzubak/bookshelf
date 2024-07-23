@@ -212,10 +212,20 @@
         --auth-icon-color: var(--auth-icon-color2);
     }
     .login-p{
-        font-weight: 700;
-        font-size: 22px;
-        line-height: 1.32;
+        max-width: 150px;
         margin-right: 4px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.32;
+        overflow-x: auto;
+    }
+    .login-p::-webkit-scrollbar{   
+        width: 0.1px;
+        height: 0.1px;
+        background-color: transparent;
+    }
+    .login-p::-webkit-scrollbar-thumb {
+         background-color: transparent;
     }
     .auth-triangle-icon-div{
         width: 23px;
