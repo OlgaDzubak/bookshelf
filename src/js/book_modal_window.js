@@ -1,8 +1,8 @@
-import { booksAPI } from './booksAPI';
+import { bookshelf_API } from './API';
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 
 
-const books = new booksAPI;
+const api = new bookshelf_API;
 let book_Id, abortCtrl1;
 
 const divContainerEl = document.querySelector('.books-box');
@@ -17,7 +17,6 @@ const objScroll = {
     disabledScroll() {
         objScroll.scrollPosition = window.scrollY;
         document.body.classList.add('block-scroll');
-        console.log(objScroll.scrollPosition);
         document.body.style.cssText = `top: -${objScroll.scrollPosition}px;`;
     },
 
@@ -31,7 +30,6 @@ const objScroll = {
 divContainerEl.addEventListener('click', onReadId);
 
 function onReadId({target}) {
-    console.dir(target);
     if (target.classList.contains('img-book') || target.classList.contains('owerlay')) {
         book_Id = target.parentElement.parentElement.dataset.id;
         createModalWindow(book_Id);
@@ -66,7 +64,7 @@ async function createModalWindow(book_Id) {
     try {
 
         abortCtrl1 = new AbortController;
-        const response = await books.getBookById(book_Id, abortCtrl1);
+        const response = await api.getBookById(book_Id, abortCtrl1);
         const { author, book_image, description, title, buy_links } = response.data;
         const imageBox = document.querySelector('.book-img-div');
         const nameBookEl = document.querySelector('#name-book');
@@ -121,7 +119,6 @@ async function createModalWindow(book_Id) {
 
     } catch (error) {
         if (error.code !== 'ERR_CANCELED'){
-            console.error("тут");    
             console.error(error);
 
             const errorBox =  document.querySelector(".book-modal-container").createElement("div");

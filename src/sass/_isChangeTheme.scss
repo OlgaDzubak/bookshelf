@@ -122,15 +122,30 @@ body.dark {
         background-color: transparent;
         color: var(--text-white-color);
     }
+
+    
+    body.dark input:-webkit-autofill,
+    body.dark input:-webkit-autofill:hover,
+    body.dark input:-webkit-autofill:focus,
+    body.dark textarea:-webkit-autofill,
+    body.dark textarea:-webkit-autofill:hover,
+    body.dark textarea:-webkit-autofill:focus,
+    body.dark select:-webkit-autofill,
+    body.dark select:-webkit-autofill:hover,
+    body.dark select:-webkit-autofill:focus {
+        -webkit-text-fill-color: var(--text-white-color);
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
     body.dark .modalForm-input:focus {
         border: 2px solid var(--accent-color1);
         outline: none;
         border-color: var(--accent-color1);
-        color: var(--accent-color1);
-      }
+        color: var(--text-white-color);
+    }
     body.dark.modalForm-input:focus+ .modalForm-icon{
         --auth-icon-color: var(--auth-icon-color2);
-      }
+    }
 
     body.dark .modalForm-input::placeholder {
         color: currentColor;

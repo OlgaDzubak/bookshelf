@@ -46,6 +46,7 @@
                 pattern="[a-A][z-Z][0-9]@[a-A][z-Z][0-9]"
                 title="example@mail.com"
                 required
+                autofocus
               />
               <svg class="modalForm-icon email">
                 <use href="/src/images/svg/sprite.svg#mail_icon"></use>
@@ -66,6 +67,7 @@
                 placeholder="PASSWORD"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                autocomplete="off"
                 required
               /><svg class="modalForm-icon password">
                 <use href="/src/images/svg/sprite.svg#password_icon"></use>
@@ -79,7 +81,7 @@
       <!-- buttons -->
       <div class="modalWrapper-btn">
 
-        <button class="submitBtn" type="submit">SING UP</button>
+        <button class="submitBtn" type="submit">SIGN UP</button>
 
         <ul class="btn-signUpIn-ul list">
           <li><button type="button" class="btn-sign-up current">SIGN UP</button></li>

@@ -2,7 +2,7 @@
 //{
     .main{
         padding-top: 40px;
-        padding-bottom: 40px;
+        padding-bottom: 100px;
     }
     .main .container{
         display: flex;
@@ -168,7 +168,7 @@
     .btn-up-scroll {
         position: fixed;
         bottom: 90px;
-        right: 60px;
+        right: 74px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -515,7 +515,7 @@
         }
         .list-books{
             display: flex;
-            flex-wrap: wrap;
+            //flex-wrap: wrap;
             gap: 24px;
         }
         .title-theme-book {
@@ -595,6 +595,8 @@
             margin-bottom: 32px;
             flex-basis: calc((100% - 96px) / 5);
         }
+
+
         .category-books-list{
             column-gap: 24px;
         }

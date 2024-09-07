@@ -135,6 +135,14 @@ function scrollTracker(scrollUpBtn) {
   }
 }
 
+function getCookie(cookieName){
+  if (document.cookie){
+    const cookies = document.cookie.split(";");
+    const ck = cookies.find((cookie)=> cookie.includes(cookieName));
+    return ck.split("=")[1];
+  }
+}
+
 //-------------------------------------------------------------------------------------------------------------------
 export {  displayOrdredAmountInShoppingBag, 
           shortTitle, 
@@ -144,5 +152,6 @@ export {  displayOrdredAmountInShoppingBag,
           createBooksBoxTitle, 
           scrollToBoxTop,
           scrollUp,
-          scrollTracker
+          scrollTracker,
+          getCookie,
        };

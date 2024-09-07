@@ -1,4 +1,4 @@
-import { booksAPI } from './booksAPI';
+import { bookshelf_API } from './API';
 import { shortTitle, 
          createLoader, 
          createBooksBoxTitle, 
@@ -7,15 +7,25 @@ import { shortTitle,
          scrollUp,
          scrollTracker } from './help_functions';
 
-const fetchBooks = new booksAPI();
+const api = new bookshelf_API();
 
 const categoryListBox = document.querySelector(".category-list-box");
 categoryListBox.addEventListener('click', showBooksOfCategory);
 const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
 
-let categoryList, itemAllCategories, abortCtrl1;
+let categoryList, itemAllCategories, abortCtrl1, per_page;
 let firstLoading = true;
+
+const pageWidth = document.documentElement.scrollWidth; 
+
+if (pageWidth < 768) {
+    per_page = 1;
+} else if (pageWidth < 1440 && pageWidth >= 768) {
+    per_page = 3;
+} else {
+    per_page = 5;
+}
 
 scrollUpBtn.addEventListener('click', ()=>{
     scrollUp(); 
@@ -74,89 +84,82 @@ showCategoryList();
 
         if ((!target.classList.contains('category-list-item')) && (!target.classList.contains('js-btn-more'))){
             return;
-        } else {
+        } 
+        //else {
 
-            // переносимо клас .active на обрану категорію
-            changeActiveItem(itemAllCategories, categoryList, target);
+        // переносимо клас .active на обрану категорію
+        changeActiveItem(itemAllCategories, categoryList, target);
 
-            //формуємо категорію в потрібному форматі для запиту на сервер
-            const category = target.id.split(" ").join("%20");
-            
-            //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії
-            if (category === 'all-categories-item') {
-
-                booksBox.innerHTML="";
-                const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
-
-                if (!firstLoading) { 
-                    scrollToBoxTop(booksBox);
-                }
-
-                const loader2 = createLoader(booksBoxTitle);
-
-                abortCtrl1 = new AbortController();
-                const data = await fetchBestSellersBooks(abortCtrl1);
+        //формуємо категорію в потрібному форматі для запиту на сервер
+        const category = target.id.split(" ").join("%20");
         
-                loader2.remove();
-        
-                if (data.length) {
-        
-                    const bestBooksList = document.createElement("ul");
-                    bestBooksList.classList.add("list","best-books-list");
-                    booksBoxTitle.after(bestBooksList);
-                    bestBooksList.addEventListener('click', seeMore);
-        
-                    const pageWidth = document.documentElement.scrollWidth;
-        
-                    if (pageWidth < 768) {
-                        bestBooksList.innerHTML = createBestSellersBooksMarcup(data, 1);
-                    } else if (pageWidth < 1440 && pageWidth >= 768) {
-                        bestBooksList.innerHTML = createBestSellersBooksMarcup(data, 3);
-                    } else {
-                        bestBooksList.innerHTML = createBestSellersBooksMarcup(data, 5);
-                    }
+        //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії
+        if (category === 'all-categories-item') {
 
-                    if (!firstLoading) {
-                        scrollToBoxTop(booksBox);
-                    }else {
-                        firstLoading = false;
-                    }
-                }
-            } else {
-                         
-                booksBox.innerHTML="";
-                
-                const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
+            booksBox.innerHTML="";
+            const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
 
+            if (!firstLoading) { 
                 scrollToBoxTop(booksBox);
+            }
 
-                const loader2 = createLoader(booksBoxTitle);
-                
-                abortCtrl1 = new AbortController();
-                const data  = await fetchBooksOfCategory(category, abortCtrl1);
-                
-                loader2.remove();
+            const loader2 = createLoader(booksBoxTitle);
 
-                if (data.length) {
+            abortCtrl1 = new AbortController();
+            const data = await fetchBestSellersBooks(abortCtrl1);
+    
+            loader2.remove();
+    
+            if (data.length) {
+    
+                const bestBooksList = document.createElement("ul");
+                bestBooksList.classList.add("list","best-books-list");
+                booksBoxTitle.after(bestBooksList);
+                bestBooksList.addEventListener('click', seeMore);
 
-                    const categoryBooksList = document.createElement("ul");
-                    booksBoxTitle.after(categoryBooksList);
-                    categoryBooksList.classList.add("list", "category-books-list");
+                bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
 
-                    const pageWidth = document.documentElement.scrollWidth;
-
-                    if (pageWidth < 768) {
-                        categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
-                    } else if (pageWidth < 1440 && pageWidth >= 768) {
-                        categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
-                    } else {
-                        categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
-                    }
+                if (!firstLoading) {
                     scrollToBoxTop(booksBox);
-
+                }else {
+                    firstLoading = false;
                 }
             }
+        } else {
+                        
+            booksBox.innerHTML="";
+            
+            const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
+
+            scrollToBoxTop(booksBox);
+
+            const loader2 = createLoader(booksBoxTitle);
+            
+            abortCtrl1 = new AbortController();
+            const data  = await fetchBooksOfCategory(category, abortCtrl1);
+            
+            loader2.remove();
+
+            if (data.length) {
+
+                const categoryBooksList = document.createElement("ul");
+                booksBoxTitle.after(categoryBooksList);
+                categoryBooksList.classList.add("list", "category-books-list");
+
+                const pageWidth = document.documentElement.scrollWidth;
+
+                if (pageWidth < 768) {
+                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
+                } else if (pageWidth < 1440 && pageWidth >= 768) {
+                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
+                } else {
+                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
+                }
+                scrollToBoxTop(booksBox);
+
+            }
         }
+       //}
     }
 
         //Обробка події натискання кнопки seeMore
@@ -178,7 +181,7 @@ showCategoryList();
         // Функція запиту на отримання назв категорій від бекенду
     async function fetchCategoryList() {
         try {
-            const { data } = await fetchBooks.getCategoryList();
+            const {data} = await api.getBookCategories();
             if (!data.length) { 
                 return Notify.failure("Can't find list of categories on the server. Please reload the page!"); 
             }
@@ -201,7 +204,7 @@ showCategoryList();
     async function fetchBestSellersBooks(abortCtrl1) {
 
         try {
-            const { data } = await fetchBooks.getTopBooks(abortCtrl1);
+            const { data } = await api.getTopBooks(per_page, abortCtrl1);
             if (!data.length) { return Notify.failure("Can't find best sellers books on the server. Please reload the page!"); }
             return data;
         }
@@ -223,7 +226,7 @@ showCategoryList();
     async function fetchBooksOfCategory(category, abortCtrl1) {
         try {
 
-            const { data } = await fetchBooks.getBooksByCategory(category, abortCtrl1);
+            const { data } = await api.getBooksOfCategory(per_page, category, abortCtrl1);
             if (!data.length) { return Notify.failure("Can't find books of category <" + category + "> on the server. Please reload the page!"); }
             return data;
         }
@@ -252,19 +255,20 @@ showCategoryList();
         let categoryListHTML = "";
 
         data.forEach(category => {
-            const categoryLink = `  <li id="${category.list_name}" class="category-list-item"> 
-                                       ${category.list_name}
+            const categoryLink = `  <li id="${category}" class="category-list-item"> 
+                                       ${category}
                                     </li> `;
             categoryListHTML += categoryLink;
         });
 
         return categoryListHTML;
     };
+
         // розмітка best sellers books
     function createBestSellersBooksMarcup(data, querty) {
 
-        const markup = data.map(({list_name, books}) => {
-            const category = `<p class="theme-book">${list_name}</p>`;
+        const markup = data.map(({category, books}) => {
+            const categoryName = `<p class="theme-book">${category}</p>`;
 
             if (books.length) {
                 let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) => 
@@ -279,9 +283,9 @@ showCategoryList();
                     <p class="title-author">${shortTitle(author, 34)}</p>
                 </li>`).join('');
 
-                return `<li class="best-book-container">${category}
+                return `<li class="best-book-container">${categoryName}
                             <ul class="list-books">${booksOfCategory}</ul>
-                            <button type="button" class="button-more js-btn-more" id="${list_name}">See more</button>
+                            <button type="button" class="button-more js-btn-more" id="${category}">See more</button>
                         </li>`
             } else {
                 return `<li class="off-books best-book-container">${category}
