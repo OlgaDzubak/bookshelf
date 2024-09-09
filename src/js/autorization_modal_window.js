@@ -94,13 +94,13 @@ async function singIn({email, password}){
     const data = await api.signIn({email, password}, abortCtrl2);
     if (data.user) {
 
-      //const cookies =  response.headers.get('Set-Cookie');
-
-      //document.cookie = `bookshelfAccessToken=${cookies.accessToken}; secure;`;
-     // document.cookie = `bookshelfRefreshToken=${cookies.refreshToken}; secure;`;
+      document.cookie = `bookshelfAccessToken=${data.accessToken}; secure;`;
       
       onCloseModal();
   
+      const navigation = document.querySelector('.navigation');
+      navigation.classList.remove("is-hidden");
+
       const authBtn = document.querySelector('.auth-btn');
       authBtn.classList.remove("is-hidden");
       

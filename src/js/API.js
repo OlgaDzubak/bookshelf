@@ -34,12 +34,10 @@ export class bookshelf_API {
       }
     } 
 
-    refreshUser(accessToken, abortCtrl){
-
+    async refreshUser(accessToken, abortCtrl){
       try{
         this.setAuthHeader(accessToken);
-        const {data} = axios.get(`${this.#BASE_URL}users/current`, {signal: abortCtrl.signal});    
-        // console.log(data);
+        const {data} = await axios.get(`${this.#BASE_URL}users/current`, {signal: abortCtrl.signal});    
         return data;   
       }catch(error){
         return error.message;

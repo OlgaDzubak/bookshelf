@@ -143,6 +143,7 @@ function getCookie(cookieName){
   }
 }
 
+
 //-------------------------------------------------------------------------------------------------------------------
 export {  displayOrdredAmountInShoppingBag, 
           shortTitle, 

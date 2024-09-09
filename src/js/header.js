@@ -7,47 +7,62 @@ const api = new bookshelf_API();
 
 let abortCtrl;
 
-const openBtn = document.querySelector('.jsOpenBtn');
-const authBtn = document.querySelector('.auth-btn');
-const authBtnName = authBtn.querySelector('.login-p');
+showHeader();
 
 
-const accessToken = getCookie("bookshelfAccessToken");         // зчитуємо accessToken з кукі
-console.log("accessToken=", accessToken);
 
-if (accessToken){                                              // якщо токен є то оновимо дані юзера
+async function showHeader(){
 
-  if (abortCtrl) {
-    abortCtrl.abort();
-    console.log("abort previous refreshUser");
-  }
-
-    abortCtrl = new AbortController();
-    const user = api.refreshUser(accessToken, abortCtrl);     // отримуэмо дані про юзера з сервера
-    console.log("user=", user);
-
-    if (user){                                                // якщо юзер є то формуємо вигляд хедера
-
-        openBtn.classList.add("is-hidden");
-        authBtn.classList.remove("is-hidden");
-        authBtnName.textContent = user.email;
+    const accessToken = getCookie("bookshelfAccessToken");         // зчитуємо accessToken з кукі
     
-        if (user.shopping_list.length > 0){
-            displayOrdredAmountInShoppingBag(user.shopping_list);
-        }
-
+    if (!accessToken){ 
+        headerNotAuthorised();
     }else{
-        openBtn.classList.remove("is-hidden");
-        authBtn.classList.add("is-hidden");
+        if (abortCtrl) {
+            abortCtrl.abort();
+            console.log("abort previous refreshUser");
+        }
+        
+        try{
+            abortCtrl = new AbortController();
+            const {user} = await api.refreshUser(accessToken, abortCtrl);     // отримуэмо дані про юзера з сервера
+            if (user){
+                headerAuthorised(user);
+            }else{
+                throw new Error("Not authorized");
+            }
+        }catch(error){
+            document.cookie = 'bookshelfAccessToken=; max-age=-1;';
+            headerNotAuthorised();
+        }
     }
-}else{
-    openBtn.classList.remove("is-hidden");
-    authBtn.classList.add("is-hidden");
 }
 
+function headerNotAuthorised(){
 
+    const navigation = document.querySelector('.navigation');
+    const openBtn = document.querySelector('.jsOpenBtn');
+    const authBtn = document.querySelector('.auth-btn');
 
-const shoppingList =  JSON.parse(localStorage.getItem("bookshelf_shoppinglist")) || [];
+    openBtn.classList.remove("is-hidden");
+    authBtn.classList.add("is-hidden");
+    navigation.classList.add("is-hidden");
 
+}
 
+function headerAuthorised(user){
 
+    const navigation = document.querySelector('.navigation');
+    const openBtn = document.querySelector('.jsOpenBtn');
+    const authBtn = document.querySelector('.auth-btn');
+    const authBtnName= authBtn.querySelector('.login-p');
+
+    authBtnName.textContent = user.name;
+    openBtn.classList.add("is-hidden");
+    authBtn.classList.remove("is-hidden");
+    navigation.classList.remove("is-hidden");
+
+    if (user.shopping_list.length > 0){
+        displayOrdredAmountInShoppingBag(user.shopping_list);
+    }
+}
