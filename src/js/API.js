@@ -30,6 +30,7 @@ export class bookshelf_API {
 
     async signIn(credentials, abortCtrl){
       try{
+        axios.defaults.withCredentials = true;
         const {data} = await axios.post(`${this.#BASE_URL}auth/signin`, credentials, {signal: abortCtrl.signal});
         return data;
       }catch(error){
