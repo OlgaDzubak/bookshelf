@@ -78,6 +78,7 @@ async function createShoppingList() {
         const data = [];
 
         await orderedBooksIdList.map((bookId) => {
+          console.log(bookId);
           const book = api.getBookById(bookId);
 
           if (book){

@@ -15,8 +15,6 @@ async function showHeader(){
 
     const accessToken = getCookie("bookshelfAccessToken");         // зчитуємо accessToken з кукі
     
-    console.log("accessToken=",accessToken);
-
     if (!accessToken){ 
         headerNotAuthorised();
     }else{
