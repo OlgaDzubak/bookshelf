@@ -43,7 +43,7 @@ if (pageWidth < 768) {
 
 
 //дістаємо з бази книги. що замовлені користувачем
-const orderedBooksIdArray = localStorage.getItem("bookshelf_orderedbooks");
+//const orderedBooksIdArray = localStorage.getItem("bookshelf_orderedbooks");
 
 if (orderedBooksIdArray.length) {
   createShoppingList();

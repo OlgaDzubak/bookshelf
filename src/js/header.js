@@ -15,6 +15,8 @@ async function showHeader(){
 
     const accessToken = getCookie("bookshelfAccessToken");         // зчитуємо accessToken з кукі
     
+    console.log("accessToken=",accessToken);
+
     if (!accessToken){ 
         headerNotAuthorised();
     }else{
@@ -27,7 +29,7 @@ async function showHeader(){
             abortCtrl = new AbortController();
             const {user} = await api.refreshUser(accessToken, abortCtrl);     // отримуэмо дані про юзера з сервера
             if (user){
-                headerAuthorised(user);
+                headerAuthorised(user);                
             }else{
                 throw new Error("Not authorized");
             }
@@ -48,6 +50,7 @@ function headerNotAuthorised(){
     authBtn.classList.add("is-hidden");
     navigation.classList.add("is-hidden");
 
+    localStorage.removeItem("bookshelf_orderedbooks");
 }
 
 function headerAuthorised(user){
@@ -60,9 +63,10 @@ function headerAuthorised(user){
     authBtnName.textContent = user.name;
     openBtn.classList.add("is-hidden");
     authBtn.classList.remove("is-hidden");
-    navigation.classList.remove("is-hidden");
+    navigation.classList.remove("is-hidden");    
 
     if (user.shopping_list.length > 0){
         displayOrdredAmountInShoppingBag(user.shopping_list);
+        localStorage.setItem("bookshelf_orderedbooks",JSON.stringify(user.shopping_list));
     }
 }
