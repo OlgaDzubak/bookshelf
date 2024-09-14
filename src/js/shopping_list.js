@@ -65,36 +65,55 @@ async function createShoppingList() {
 
     try{
 
-      const loader1 = createLoader(shoppingBooksBoxTitle);
+      const orderedBooksIdList = JSON.parse(localStorage.getItem("bookshelf_orderedbooks"));
       
-      abortCtrl1 = new AbortController();
-      const {data} = await api.getShoppingList(abortCtrl1);
+      //  const {data} = await api.getShoppingList(abortCtrl1);
       
-      loader1.remove();
-      
-      if (data.length){
+      if (orderedBooksIdList){
+
+        const loader1 = createLoader(shoppingBooksBoxTitle);
         
-        books_ul = document.createElement("ul");
-        books_ul.classList.add("list","shopping_booklist");
-        shoppingBooksBoxTitle.after(books_ul);
-        books_ul.addEventListener('click', deleteBook);
+        abortCtrl1 = new AbortController();
 
-        books_ul.innerHTML =   showPage(data, 1, booksOnPage);
-        pagesCount = Math.ceil(data.length / booksOnPage); 
+        const data = [];
 
-        //стиворюємо пагінацію, якщо сторінок більше за 1
-        if (pagesCount > 1 ) {
+        await orderedBooksIdList.map((bookId) => {
+          const book = api.getBookById(bookId);
 
-          paginationBox = createPagination(data.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
-          shoppingBooksBox.append(paginationBox);
-          currentPage = setPaginationPage(paginationBox, 1);
-          paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
+          if (book){
+            data.push(book);
+          }
+
+        });
+              
+        loader1.remove();
+        
+        if (data.length){
+          
+          books_ul = document.createElement("ul");
+          books_ul.classList.add("list","shopping_booklist");
+          shoppingBooksBoxTitle.after(books_ul);
+          books_ul.addEventListener('click', deleteBook);
+
+          books_ul.innerHTML =   showPage(data, 1, booksOnPage);
+          pagesCount = Math.ceil(data.length / booksOnPage); 
+
+          //стиворюємо пагінацію, якщо сторінок більше за 1
+          if (pagesCount > 1 ) {
+
+            paginationBox = createPagination(data.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+            shoppingBooksBox.append(paginationBox);
+            currentPage = setPaginationPage(paginationBox, 1);
+            paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
+
+          }
 
         }
 
-      }
+        scrollUp();
+      }else{
 
-      scrollUp();
+      }
 
     }catch(error){
       const errorBox = document.createElement("div");
