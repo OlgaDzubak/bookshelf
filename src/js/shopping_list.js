@@ -78,7 +78,7 @@ async function createShoppingList() {
         orderedBooksIdList.map((bookId) => {
 
           abortCtrl1 = new AbortController();
-          const book = api.getBookById(bookId, abortCtrl1);
+          const {data : book} = api.getBookById(bookId, abortCtrl1);
 
           if (book){
             data.push(book);
