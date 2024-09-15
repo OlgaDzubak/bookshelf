@@ -66,7 +66,7 @@ async function createShoppingList() {
       loader1.remove();
 
       if (data){
-
+        console.log("data=",data);
         if (data.length === 0){
           createEmptyBooksBox();
         }else{
@@ -96,7 +96,7 @@ async function createShoppingList() {
       }
 
     }catch(error){
-      console.log(error);
+      console.log("error=",error);
       if (error === 401){
 
 
