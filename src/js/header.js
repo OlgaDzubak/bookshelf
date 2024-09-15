@@ -30,7 +30,7 @@ async function showHeader(){
                 if (user.accessToken != accessToken){
                     let date = new Date(Date.now() + (3 * 60 * 1000));
                     date = date.toUTCString();          
-                    document.cookie = `bookshelfAccessToken=${user.accessToken}; expires=${date},  ;secure;`;
+                    document.cookie = `bookshelfAccessToken=${user.accessToken}; expires=${date}; secure;`;
                 }
                 headerAuthorised(user);                
             }else{
