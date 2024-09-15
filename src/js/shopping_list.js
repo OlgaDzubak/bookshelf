@@ -51,6 +51,8 @@ if (!orderedBooksIdString){
 
   const orderedBooksIdArray = JSON.parse(orderedBooksIdString);
 
+  console.log("orderedBooksIdArray=",orderedBooksIdArray);
+
   if (orderedBooksIdArray.length > 0) {
     
     if (abortCtrl1) {      
