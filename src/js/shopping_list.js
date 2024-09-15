@@ -58,15 +58,20 @@ async function createShoppingList() {
 
     try{
 
+      const accessToken = getCookie("bookshelfAccessToken");         // зчитуємо accessToken з кукі
+      if (!accessToken){
+        throw new Error("Request failed with status code 401");
+      }
+
       const loader1 = createLoader(shoppingBooksBoxTitle);
-      
+
       abortCtrl1 = new AbortController();
       const {data} = await api.getShoppingList(abortCtrl1);
       
       loader1.remove();
 
       if (data){
-        console.log("data=",data);
+        
         if (data.length === 0){
           createEmptyBooksBox();
         }else{
