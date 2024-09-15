@@ -79,23 +79,24 @@ async function createShoppingList(orderedBooksIdList) {
 
   const loader1 = createLoader(shoppingBooksBoxTitle);
   const orderedBooks = [];
-
-  await orderedBooksIdList.forEach((bookId) => {
-    console.log("bookId=", bookId);
-    try{
+  
+  try{
+    await orderedBooksIdList.forEach((bookId) => {
+      
+      console.log("bookId=", bookId);
+    
       abortCtrl1 = new AbortController();
-      const data = api.getBookById(bookId, abortCtrl1);
+      const {data} = api.getBookById(bookId, abortCtrl1);
       console.log(data);
       if (data){
         console.log(data);
         orderedBooks.push(data);
       }
-    }catch(error){
-      console.log(error.message);
-    }
 
-  });
-
+    });
+}catch(error){
+  console.log(error.message);
+}
   loader1.remove();
 
   if (orderedBooks.length > 0){
