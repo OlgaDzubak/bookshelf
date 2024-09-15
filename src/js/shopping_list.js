@@ -122,7 +122,7 @@ async function createShoppingList(orderedBooksIdList) {
 
   scrollUp();
 
-  }
+}
   
   // catch(error){
   //   const errorBox = document.createElement("div");
@@ -131,7 +131,7 @@ async function createShoppingList(orderedBooksIdList) {
   //   errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
   // }
 
-}
+
 
   // Функція створення розмітки ShoppingBooks
 function showPage(dataArray, page, itemsOnPage) {
