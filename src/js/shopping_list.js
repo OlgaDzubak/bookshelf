@@ -91,21 +91,19 @@ async function createShoppingList() {
         }
 
         scrollUp();
-      }else{
-        throw new Error("Sorry, there was a server error, please reload the page!!!");
       }
 
     }catch(error){
-      console.log("error=",error);
-      if (error === 401){
+      if (error.response.stutus === 401){
 
-
+        const logoLink = document.querySelector('.logo-link');
+        logoLink.click();
 
       }else{
         const errorBox = document.createElement("div");
         shoppingBooksBox.append(errorBox);
         errorBox.classList.add("error-box");
-        errorBox.innerHTML = `<p class="error-box-text">${error.message}</p>`;
+        errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
       }
     }
 
