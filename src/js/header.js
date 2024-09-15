@@ -27,10 +27,10 @@ async function showHeader(){
             abortCtrl = new AbortController();
             const {user} = await api.refreshUser(accessToken, abortCtrl);     // отримуэмо дані про юзера з сервера
             if (user){
-                if (user.accessToken != JSON.parse(localStorage.getItem("bookshelfAccessToken"))){
+                if (user.accessToken != accessToken){
                     let date = new Date(Date.now() + (3 * 60 * 1000));
                     date = date.toUTCString();          
-                    document.cookie = `bookshelfAccessToken=${data.accessToken}; expires=${date},  ;secure;`;
+                    document.cookie = `bookshelfAccessToken=${user.accessToken}; expires=${date},  ;secure;`;
                 }
                 headerAuthorised(user);                
             }else{
