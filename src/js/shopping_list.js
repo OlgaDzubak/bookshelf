@@ -42,73 +42,21 @@ if (pageWidth < 768) {
 
 
 
-//дістаємо з бази книги. що замовлені користувачем
+//дістаємо з бази книги, що замовлені користувачем
 const orderedBooksIdString = localStorage.getItem("bookshelf_orderedbooks");
+console.log("orderedBooksIdString=", orderedBooksIdString);
 
 if (!orderedBooksIdString){
+
 
 }else{  
 
   const orderedBooksIdArray = JSON.parse(orderedBooksIdString);
 
-  console.log("orderedBooksIdArray=",orderedBooksIdArray);
-
   if (orderedBooksIdArray.length > 0) {
-    
-    if (abortCtrl1) {      
-      abortCtrl1.abort();
-      console.log("abort previous fetch");
-    }
-
-    try{
-
-      const loader1 = createLoader(shoppingBooksBoxTitle);
-
-      const orderedBooks = [];
-
-      orderedBooksIdArray.map((bookId) => {
-
-        abortCtrl1 = new AbortController();
-        const {data} = api.getBookById(bookId, abortCtrl1);
-        if (data){
-          console.log(data);
-          orderedBooks.push(data);
-        }
-      });
-      loader1.remove();
-
-      if (orderedBooks.length > 0){
-        
-        books_ul = document.createElement("ul");
-        books_ul.classList.add("list","shopping_booklist");
-        shoppingBooksBoxTitle.after(books_ul);
-        books_ul.addEventListener('click', deleteBook);
-
-        books_ul.innerHTML =   showPage(orderedBooks, 1, booksOnPage);
-        pagesCount = Math.ceil(orderedBooks.length / booksOnPage); 
-
-        //стиворюємо пагінацію, якщо сторінок більше за 1
-        if (pagesCount > 1 ) {
-
-          paginationBox = createPagination(orderedBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
-          shoppingBooksBox.append(paginationBox);
-          currentPage = setPaginationPage(paginationBox, 1);
-          paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
-
-        }
-
-      }
-
-      scrollUp();
-
-    }catch(error){
-      const errorBox = document.createElement("div");
-      shoppingBooksBox.append(errorBox);
-      errorBox.classList.add("error-box");
-      errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
-    }
-
-   } else {
+    createShoppingList(orderedBooksIdArray);
+  }
+  else {
     createEmptyBooksBox();
   }
 
@@ -120,74 +68,66 @@ if (!orderedBooksIdString){
 // ФУНКЦІЇ -----------------------------------------------------------------------------------------------------
 
   // Центральна функція, робить перевірки, запит та відмальовує
-// async function createShoppingList(orderedBooksIdList) {
+async function createShoppingList(orderedBooksIdList) {
+  
+  console.log("orderedBooksIdList=",orderedBooksIdList);
 
-//     if (abortCtrl1) {      
-//       abortCtrl1.abort();
-//       console.log("abort previous fetch");
-//     }
+  if (abortCtrl1) {      
+    abortCtrl1.abort();
+    console.log("abort previous fetch");
+  }
 
-//     try{
+  try{
 
-//      // const orderedBooksIdList = JSON.parse(localStorage.getItem("bookshelf_orderedbooks"));
+    const loader1 = createLoader(shoppingBooksBoxTitle);
+
+    const orderedBooks = [];
+
+    await orderedBooksIdList.map((bookId) => {
+
+      abortCtrl1 = new AbortController();
+      const {data} = api.getBookById(bookId, abortCtrl1);
+      if (data){
+        console.log(data);
+        orderedBooks.push(data);
+      }
+
+    });
+
+    loader1.remove();
+
+    if (orderedBooks.length > 0){
       
-//       //  const {data} = await api.getShoppingList(abortCtrl1);
-      
-//       if (orderedBooksIdList){
+      books_ul = document.createElement("ul");
+      books_ul.classList.add("list","shopping_booklist");
+      shoppingBooksBoxTitle.after(books_ul);
+      books_ul.addEventListener('click', deleteBook);
 
-//         const loader1 = createLoader(shoppingBooksBoxTitle);
-        
-//         const orderedBooks = [];
+      books_ul.innerHTML =   showPage(orderedBooks, 1, booksOnPage);
+      pagesCount = Math.ceil(orderedBooks.length / booksOnPage); 
 
-//         await orderedBooksIdList.map((bookId) => {
+      //стиворюємо пагінацію, якщо сторінок більше за 1
+      if (pagesCount > 1 ) {
 
-//           abortCtrl1 = new AbortController();
-//           const {data} = api.getBookById(bookId, abortCtrl1);
+        paginationBox = createPagination(orderedBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+        shoppingBooksBox.append(paginationBox);
+        currentPage = setPaginationPage(paginationBox, 1);
+        paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
 
-//           if (data){
-//             orderedBooks.push(data);
-//           }
+      }
 
-//           console.log(orderedBooks);
+    }
 
-//         });
-              
-//         loader1.remove();
-        
-//         if (orderedBooks.length){
-          
-//           books_ul = document.createElement("ul");
-//           books_ul.classList.add("list","shopping_booklist");
-//           shoppingBooksBoxTitle.after(books_ul);
-//           books_ul.addEventListener('click', deleteBook);
+    scrollUp();
 
-//           books_ul.innerHTML =   showPage(orderedBooks, 1, booksOnPage);
-//           pagesCount = Math.ceil(orderedBooks.length / booksOnPage); 
+  }catch(error){
+    const errorBox = document.createElement("div");
+    shoppingBooksBox.append(errorBox);
+    errorBox.classList.add("error-box");
+    errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+  }
 
-//           //стиворюємо пагінацію, якщо сторінок більше за 1
-//           if (pagesCount > 1 ) {
-
-//             paginationBox = createPagination(orderedBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
-//             shoppingBooksBox.append(paginationBox);
-//             currentPage = setPaginationPage(paginationBox, 1);
-//             paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
-
-//           }
-
-//         }
-
-//         scrollUp();
-//       }else{
-
-//       }
-
-//     }catch(error){
-//       const errorBox = document.createElement("div");
-//       shoppingBooksBox.append(errorBox);
-//       errorBox.classList.add("error-box");
-//       errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
-//     }
-// }
+}
 
   // Функція створення розмітки ShoppingBooks
 function showPage(dataArray, page, itemsOnPage) {
