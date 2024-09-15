@@ -76,6 +76,8 @@ export class bookshelf_API {
     
     getShoppingList(abortCtrl){ 
       this.setAuthHeader(getCookie("bookshelfAccessToken"));
-      return axios.get(`${this.#BASE_URL}books/shoppinglist`, {signal: abortCtrl.signal});
+      const response = axios.get(`${this.#BASE_URL}books/shoppinglist`, {signal: abortCtrl.signal});
+
+      return response;
     }
 }
