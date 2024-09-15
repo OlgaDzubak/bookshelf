@@ -68,6 +68,8 @@ if (!orderedBooksIdString){
 
         abortCtrl1 = new AbortController();
         const {data} = api.getBookById(bookId, abortCtrl1);
+        
+        console.log(data);
 
         if (data){
           orderedBooks.push(data);
