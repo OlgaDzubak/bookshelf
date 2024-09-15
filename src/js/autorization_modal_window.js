@@ -94,7 +94,7 @@ async function singIn({email, password}){
     const data = await api.signIn({email, password}, abortCtrl2);
     if (data.user) {
 
-      document.cookie = `bookshelfAccessToken=${data.accessToken}; expires: ${new Date(Date.now() + (3 * 60 * 1000))},  ;secure;`;
+      document.cookie = `bookshelfAccessToken=${data.accessToken}; expires=${new Date(Date.now() + (3 * 60 * 1000))},  ;secure;`;
       
       onCloseModal();
   
