@@ -40,16 +40,9 @@ if (pageWidth < 768) {
   visiblePagesCount = 3
 }
 
-
-
 //дістаємо з бази книги. що замовлені користувачем
-const orderedBooksIdArray = localStorage.getItem("bookshelf_orderedbooks");
+createShoppingList();
 
-if (orderedBooksIdArray.length) {
-  createShoppingList();
-} else {
-  createEmptyBooksBox();
-}
 
 
 
@@ -65,72 +58,49 @@ async function createShoppingList() {
 
     try{
 
-      //const orderedBooksIdList = JSON.parse(localStorage.getItem("bookshelf_orderedbooks"));
-      
       const loader1 = createLoader(shoppingBooksBoxTitle);
       
       const {data} = await api.getShoppingList(abortCtrl1);
       
-      if (!data){
-        createEmptyBooksBox();
-      }
-
       loader1.remove();
 
-      // if (orderedBooksIdList){
+      if (data){
 
-      //   const loader1 = createLoader(shoppingBooksBoxTitle);
-        
-      //   const data = [];
-
-      //   orderedBooksIdList.map((bookId) => {
-
-      //     abortCtrl1 = new AbortController();
-      //     const {data} = api.getBookById(bookId, abortCtrl1);
-
-      //     if (book){
-      //       data.push(book);
-      //     }
-
-      //     console.log(data);
-
-      //   });
-              
-      //   loader1.remove();
-        
-      //   if (data.length){
+        if (data.length === 0){
+          createEmptyBooksBox();
+        }else{
           
-      //     books_ul = document.createElement("ul");
-      //     books_ul.classList.add("list","shopping_booklist");
-      //     shoppingBooksBoxTitle.after(books_ul);
-      //     books_ul.addEventListener('click', deleteBook);
+          books_ul = document.createElement("ul");
+          books_ul.classList.add("list","shopping_booklist");
+          shoppingBooksBoxTitle.after(books_ul);
+          books_ul.addEventListener('click', deleteBook);
 
-      //     books_ul.innerHTML =   showPage(data, 1, booksOnPage);
-      //     pagesCount = Math.ceil(data.length / booksOnPage); 
+          books_ul.innerHTML =   showPage(data, 1, booksOnPage);
+          pagesCount = Math.ceil(data.length / booksOnPage); 
 
-      //     //стиворюємо пагінацію, якщо сторінок більше за 1
-      //     if (pagesCount > 1 ) {
+          //стиворюємо пагінацію, якщо сторінок більше за 1
+          if (pagesCount > 1 ) {
 
-      //       paginationBox = createPagination(data.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
-      //       shoppingBooksBox.append(paginationBox);
-      //       currentPage = setPaginationPage(paginationBox, 1);
-      //       paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
+            paginationBox = createPagination(data.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+            shoppingBooksBox.append(paginationBox);
+            currentPage = setPaginationPage(paginationBox, 1);
+            paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
 
-      //     }
+          }
+        }
 
-      //   }
-
-      //   scrollUp();
-      // }else{
-
-      // }
+        scrollUp();
+      }else{
+        throw new Error("Sorry, there was a server error, please reload the page!!!");
+      }
 
     }catch(error){
       const errorBox = document.createElement("div");
       shoppingBooksBox.append(errorBox);
       errorBox.classList.add("error-box");
-      errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+      errorBox.innerHTML = `<p class="error-box-text">${error.message}</p>`;
     }
+
 }
 
   // Функція створення розмітки ShoppingBooks
