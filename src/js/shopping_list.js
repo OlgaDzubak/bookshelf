@@ -80,8 +80,8 @@ async function createShoppingList(orderedBooksIdList) {
   const loader1 = createLoader(shoppingBooksBoxTitle);
   const orderedBooks = [];
 
-  orderedBooksIdList.forEach((bookId) => {
-
+  await orderedBooksIdList.forEach((bookId) => {
+    console.log("bookId=", bookId);
     try{
       abortCtrl1 = new AbortController();
       const data = api.getBookById(bookId, abortCtrl1);
