@@ -42,97 +42,96 @@ if (pageWidth < 768) {
 
 
 
-//дістаємо з бази книги, що замовлені користувачем
-const orderedBooksIdString = localStorage.getItem("bookshelf_orderedbooks");
-console.log("orderedBooksIdString=", orderedBooksIdString);
+//дістаємо з бази книги. що замовлені користувачем
+const orderedBooksIdArray = localStorage.getItem("bookshelf_orderedbooks");
 
-if (!orderedBooksIdString){
-
-
-}else{  
-
-  const orderedBooksIdArray = JSON.parse(orderedBooksIdString);
-
-  if (orderedBooksIdArray.length > 0) {
-    createShoppingList(orderedBooksIdArray);
-  }
-  else {
-    createEmptyBooksBox();
-  }
-
+if (orderedBooksIdArray.length) {
+  createShoppingList();
+} else {
+  createEmptyBooksBox();
 }
-
 
 
 
 // ФУНКЦІЇ -----------------------------------------------------------------------------------------------------
 
   // Центральна функція, робить перевірки, запит та відмальовує
-async function createShoppingList(orderedBooksIdList) {
-  
-  console.log("orderedBooksIdList=",orderedBooksIdList);
+async function createShoppingList() {
 
-  if (abortCtrl1) {      
-    abortCtrl1.abort();
-    console.log("abort previous fetch");
-  }
-
-  const loader1 = createLoader(shoppingBooksBoxTitle);
-  const orderedBooks = [];
-  
-  try{
-    await orderedBooksIdList.forEach((bookId) => {
-      
-      console.log("bookId=", bookId);
-    
-      abortCtrl1 = new AbortController();
-      const {data} = api.getBookById(bookId, abortCtrl1);
-      console.log(data);
-      if (data){
-        console.log(data);
-        orderedBooks.push(data);
-      }
-
-    });
-}catch(error){
-  console.log(error.message);
-}
-  loader1.remove();
-
-  if (orderedBooks.length > 0){
-    
-    books_ul = document.createElement("ul");
-    books_ul.classList.add("list","shopping_booklist");
-    shoppingBooksBoxTitle.after(books_ul);
-    books_ul.addEventListener('click', deleteBook);
-
-    books_ul.innerHTML =   showPage(orderedBooks, 1, booksOnPage);
-    pagesCount = Math.ceil(orderedBooks.length / booksOnPage); 
-
-    //стиворюємо пагінацію, якщо сторінок більше за 1
-    if (pagesCount > 1 ) {
-
-      paginationBox = createPagination(orderedBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
-      shoppingBooksBox.append(paginationBox);
-      currentPage = setPaginationPage(paginationBox, 1);
-      paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
-
+    if (abortCtrl1) {      
+      abortCtrl1.abort();
+      console.log("abort previous fetch");
     }
 
-  }
+    try{
 
-  scrollUp();
+      //const orderedBooksIdList = JSON.parse(localStorage.getItem("bookshelf_orderedbooks"));
+      
+      const loader1 = createLoader(shoppingBooksBoxTitle);
+      
+      const {data} = await api.getShoppingList(abortCtrl1);
+      
+      if (!data){
+        createEmptyBooksBox();
+      }
 
+      loader1.remove();
+
+      // if (orderedBooksIdList){
+
+      //   const loader1 = createLoader(shoppingBooksBoxTitle);
+        
+      //   const data = [];
+
+      //   orderedBooksIdList.map((bookId) => {
+
+      //     abortCtrl1 = new AbortController();
+      //     const {data} = api.getBookById(bookId, abortCtrl1);
+
+      //     if (book){
+      //       data.push(book);
+      //     }
+
+      //     console.log(data);
+
+      //   });
+              
+      //   loader1.remove();
+        
+      //   if (data.length){
+          
+      //     books_ul = document.createElement("ul");
+      //     books_ul.classList.add("list","shopping_booklist");
+      //     shoppingBooksBoxTitle.after(books_ul);
+      //     books_ul.addEventListener('click', deleteBook);
+
+      //     books_ul.innerHTML =   showPage(data, 1, booksOnPage);
+      //     pagesCount = Math.ceil(data.length / booksOnPage); 
+
+      //     //стиворюємо пагінацію, якщо сторінок більше за 1
+      //     if (pagesCount > 1 ) {
+
+      //       paginationBox = createPagination(data.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+      //       shoppingBooksBox.append(paginationBox);
+      //       currentPage = setPaginationPage(paginationBox, 1);
+      //       paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
+
+      //     }
+
+      //   }
+
+      //   scrollUp();
+      // }else{
+
+      // }
+
+    }catch(error){
+      const errorBox = document.createElement("div");
+      shoppingBooksBox.append(errorBox);
+      errorBox.classList.add("error-box");
+      errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+    }
 }
-  
-  // catch(error){
-  //   const errorBox = document.createElement("div");
-  //   shoppingBooksBox.append(errorBox);
-  //   errorBox.classList.add("error-box");
-  //   errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
-  // }
-
-
 
   // Функція створення розмітки ShoppingBooks
 function showPage(dataArray, page, itemsOnPage) {
