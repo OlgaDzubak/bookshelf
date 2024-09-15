@@ -64,7 +64,7 @@ if (!orderedBooksIdString){
 
       const orderedBooks = [];
 
-      await orderedBooksIdArray.map((bookId) => {
+      orderedBooksIdArray.map((bookId) => {
 
         abortCtrl1 = new AbortController();
         const {data} = api.getBookById(bookId, abortCtrl1);
