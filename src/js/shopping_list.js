@@ -83,13 +83,14 @@ async function createShoppingList(orderedBooksIdList) {
 
     const orderedBooks = [];
 
-    await orderedBooksIdList.map((bookId) => {
+    await orderedBooksIdList.forEach((bookId) => {
 
       abortCtrl1 = new AbortController();
-      const {data} = api.getBookById(bookId, abortCtrl1);
-      if (data){
-        console.log(data);
-        orderedBooks.push(data);
+      const res = api.getBookById(bookId, abortCtrl1);
+      console.log(res);
+      if (res.data){
+        console.log(res.data);
+        orderedBooks.push(res.data);
       }
 
     });
