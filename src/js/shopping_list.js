@@ -96,11 +96,16 @@ async function createShoppingList() {
       }
 
     }catch(error){
-      console.log(error);
-      const errorBox = document.createElement("div");
-      shoppingBooksBox.append(errorBox);
-      errorBox.classList.add("error-box");
-      errorBox.innerHTML = `<p class="error-box-text">${error.message}</p>`;
+      if (error.status === 401){
+
+
+        
+      }else{
+        const errorBox = document.createElement("div");
+        shoppingBooksBox.append(errorBox);
+        errorBox.classList.add("error-box");
+        errorBox.innerHTML = `<p class="error-box-text">${error.message}</p>`;
+      }
     }
 
 }
