@@ -71,8 +71,8 @@ export class bookshelf_API {
     async getBookById(book_Id, abortCtrl) { 
       //this.setAuthHeader(getCookie("bookshelfAccessToken"));
       try {
-        const res = await axios.get(`${this.#BASE_URL}books/${book_Id}`, {signal: abortCtrl.signal});
-        return res;
+        const {data} = await axios.get(`${this.#BASE_URL}books/${book_Id}`, {signal: abortCtrl.signal});
+        return data;
       }catch(error){
         return error.message;
       }

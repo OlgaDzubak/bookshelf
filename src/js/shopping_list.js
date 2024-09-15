@@ -77,56 +77,59 @@ async function createShoppingList(orderedBooksIdList) {
     console.log("abort previous fetch");
   }
 
-  try{
+  const loader1 = createLoader(shoppingBooksBoxTitle);
+  const orderedBooks = [];
 
-    const loader1 = createLoader(shoppingBooksBoxTitle);
+  orderedBooksIdList.forEach((bookId) => {
 
-    const orderedBooks = [];
-
-    await orderedBooksIdList.forEach((bookId) => {
-
+    try{
       abortCtrl1 = new AbortController();
-      const res = api.getBookById(bookId, abortCtrl1);
-      console.log(res);
-      if (res.data){
-        console.log(res.data);
-        orderedBooks.push(res.data);
+      const data = api.getBookById(bookId, abortCtrl1);
+      console.log(data);
+      if (data){
+        console.log(data);
+        orderedBooks.push(data);
       }
+    }catch(error){
+      console.log(error.message);
+    }
 
-    });
+  });
 
-    loader1.remove();
+  loader1.remove();
 
-    if (orderedBooks.length > 0){
-      
-      books_ul = document.createElement("ul");
-      books_ul.classList.add("list","shopping_booklist");
-      shoppingBooksBoxTitle.after(books_ul);
-      books_ul.addEventListener('click', deleteBook);
+  if (orderedBooks.length > 0){
+    
+    books_ul = document.createElement("ul");
+    books_ul.classList.add("list","shopping_booklist");
+    shoppingBooksBoxTitle.after(books_ul);
+    books_ul.addEventListener('click', deleteBook);
 
-      books_ul.innerHTML =   showPage(orderedBooks, 1, booksOnPage);
-      pagesCount = Math.ceil(orderedBooks.length / booksOnPage); 
+    books_ul.innerHTML =   showPage(orderedBooks, 1, booksOnPage);
+    pagesCount = Math.ceil(orderedBooks.length / booksOnPage); 
 
-      //стиворюємо пагінацію, якщо сторінок більше за 1
-      if (pagesCount > 1 ) {
+    //стиворюємо пагінацію, якщо сторінок більше за 1
+    if (pagesCount > 1 ) {
 
-        paginationBox = createPagination(orderedBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
-        shoppingBooksBox.append(paginationBox);
-        currentPage = setPaginationPage(paginationBox, 1);
-        paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
-
-      }
+      paginationBox = createPagination(orderedBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+      shoppingBooksBox.append(paginationBox);
+      currentPage = setPaginationPage(paginationBox, 1);
+      paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
 
     }
 
-    scrollUp();
-
-  }catch(error){
-    const errorBox = document.createElement("div");
-    shoppingBooksBox.append(errorBox);
-    errorBox.classList.add("error-box");
-    errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
   }
+
+  scrollUp();
+
+  }
+  
+  // catch(error){
+  //   const errorBox = document.createElement("div");
+  //   shoppingBooksBox.append(errorBox);
+  //   errorBox.classList.add("error-box");
+  //   errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+  // }
 
 }
 
