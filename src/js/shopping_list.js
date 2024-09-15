@@ -94,7 +94,7 @@ async function createShoppingList() {
       }
 
     }catch(error){
-      if (error.response.stutus === 401){
+      if (error.response.status === 401){
 
         const logoLink = document.querySelector('.logo-link');
         logoLink.click();
