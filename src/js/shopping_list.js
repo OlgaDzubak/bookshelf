@@ -96,6 +96,7 @@ async function createShoppingList() {
       }
 
     }catch(error){
+      console.log(error);
       const errorBox = document.createElement("div");
       shoppingBooksBox.append(errorBox);
       errorBox.classList.add("error-box");
