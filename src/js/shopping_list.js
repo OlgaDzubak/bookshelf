@@ -73,37 +73,37 @@ async function createShoppingList() {
 
         const loader1 = createLoader(shoppingBooksBoxTitle);
         
-        const data = [];
+        const orderedBooks = [];
 
-        orderedBooksIdList.map((bookId) => {
+        await orderedBooksIdList.map((bookId) => {
 
           abortCtrl1 = new AbortController();
           const {data} = api.getBookById(bookId, abortCtrl1);
 
-          if (book){
-            data.push(book);
+          if (data){
+            orderedBooks.push(data);
           }
 
-          console.log(data);
+          console.log(orderedBooks);
 
         });
               
         loader1.remove();
         
-        if (data.length){
+        if (orderedBooks.length){
           
           books_ul = document.createElement("ul");
           books_ul.classList.add("list","shopping_booklist");
           shoppingBooksBoxTitle.after(books_ul);
           books_ul.addEventListener('click', deleteBook);
 
-          books_ul.innerHTML =   showPage(data, 1, booksOnPage);
-          pagesCount = Math.ceil(data.length / booksOnPage); 
+          books_ul.innerHTML =   showPage(orderedBooks, 1, booksOnPage);
+          pagesCount = Math.ceil(orderedBooks.length / booksOnPage); 
 
           //стиворюємо пагінацію, якщо сторінок більше за 1
           if (pagesCount > 1 ) {
 
-            paginationBox = createPagination(data.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+            paginationBox = createPagination(orderedBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
             shoppingBooksBox.append(paginationBox);
             currentPage = setPaginationPage(paginationBox, 1);
             paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});

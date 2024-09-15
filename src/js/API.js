@@ -68,10 +68,9 @@ export class bookshelf_API {
       return axios.get(`${this.#BASE_URL}books/category?q=${category}&per_page=${per_page}`, {signal: abortCtrl.signal})
     }
 
-    async getBookById(book_Id, abortCtrl) { 
+    getBookById(book_Id, abortCtrl) { 
       this.setAuthHeader(getCookie("bookshelfAccessToken"));
-      const {data} = axios.get(`${this.#BASE_URL}books/${book_Id}`, {signal: abortCtrl.signal});
-      return data;
+      return axios.get(`${this.#BASE_URL}books/${book_Id}`, {signal: abortCtrl.signal});
     }
     
     getShoppingList(abortCtrl){ 
