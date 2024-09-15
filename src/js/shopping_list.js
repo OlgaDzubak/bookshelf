@@ -68,20 +68,14 @@ if (!orderedBooksIdString){
 
         abortCtrl1 = new AbortController();
         const {data} = api.getBookById(bookId, abortCtrl1);
-        
-        console.log(data);
-
         if (data){
+          console.log(data);
           orderedBooks.push(data);
         }
-
-        console.log(orderedBooks);
-
       });
-            
       loader1.remove();
 
-      if (orderedBooks.length){
+      if (orderedBooks.length > 0){
         
         books_ul = document.createElement("ul");
         books_ul.classList.add("list","shopping_booklist");
