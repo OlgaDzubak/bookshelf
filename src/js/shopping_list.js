@@ -96,8 +96,8 @@ async function createShoppingList() {
       }
 
     }catch(error){
-      console.log(error.status);
-      if (error.status === 401){
+      console.log(error);
+      if (error === 401){
 
 
 
