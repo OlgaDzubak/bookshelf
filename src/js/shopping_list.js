@@ -101,7 +101,7 @@ async function createShoppingList() {
     }catch(error){
       if (error.message === "Request failed with status code 401"){
         const logoLink = document.querySelector('.logo-link');
-        logoLink.click();
+      //  logoLink.click();
       }else{
         const errorBox = document.createElement("div");
         shoppingBooksBox.append(errorBox);
