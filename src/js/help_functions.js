@@ -136,6 +136,7 @@ function scrollTracker(scrollUpBtn) {
 }
 
 function getCookie(cookieName){
+  console.log(document.cookie);
   if (document.cookie){
     const cookies = document.cookie.split(";");
     const ck = cookies.find((cookie)=> cookie.includes(cookieName));
