@@ -10,8 +10,6 @@ export class bookshelf_API {
     setAuthHeader = (token) => { 
       axios.defaults.headers.common.Authorization = `Bearer ${token}`; 
       axios.defaults.withCredentials = true;
-      // axios.defaults.headers.common[Access-Control-Allow-Origin] = 'https://olgadzubak.github.io/bookshelf';
-      // axios.defaults.headers.common[Access-Control-Allow-Credentials] = true;
     }
     
     clearAuthHeader = () => { 
@@ -21,7 +19,7 @@ export class bookshelf_API {
     signUp (credentials, abortCtrl){
       try{
         const {data} = axios.post(`${this.#BASE_URL}auth/signup`, credentials, {signal: abortCtrl.signal});
-        this.setAuthHeader(data.token);
+        this.setAuthHeader(data.accessToken);
         return data;
       }catch(error){
         return error.message;
@@ -38,10 +36,11 @@ export class bookshelf_API {
       }
     } 
 
-    async refreshUser(accessToken, abortCtrl){
+    async refreshUser(abortCtrl){
       try{
+        const accessToken = getCookie(accessToken);
         this.setAuthHeader(accessToken);
-        const {data} = await axios.get(`${this.#BASE_URL}users/current`, {signal: abortCtrl.signal});    
+        const {data} = await axios.get(`${this.#BASE_URL}users/current`, {signal: abortCtrl.signal});  
         return data;   
       }catch(error){
         return error.message;
@@ -74,10 +73,13 @@ export class bookshelf_API {
     }
 
     
-    getShoppingList(abortCtrl){ 
-      this.setAuthHeader(getCookie("bookshelfAccessToken"));
+    getShoppingList(abortCtrl){
+
+      const accessToken = getCookie(accessToken);
+      this.setAuthHeader(accessToken);
       const response = axios.get(`${this.#BASE_URL}books/shoppinglist`, {signal: abortCtrl.signal});
 
       return response;
+      
     }
 }

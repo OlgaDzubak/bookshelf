@@ -1,43 +1,38 @@
 
-import {displayOrdredAmountInShoppingBag } from './help_functions';
+import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
-import { getCookie } from './help_functions';
 
 const api = new bookshelf_API();
-
 let abortCtrl;
 
 showHeader();
 
 
-
 async function showHeader(){
 
-    const accessToken = getCookie("bookshelfAccessToken");         // зчитуємо accessToken з кукі
-
     if (!accessToken){ 
-        headerNotAuthorised();
-    }else{
+        headerNotAuthorised();                                            // Якшо accessToken в кукі немає, то малюємо хедер без авторизації
+    }else{                                                                // Якшо accessToken в кукі є, то спробуємо оновити інформацію про юзера
+
         if (abortCtrl) {
             abortCtrl.abort();
             console.log("abort previous refreshUser");
         }
         
         try{
+
             abortCtrl = new AbortController();
-            const {user} = await api.refreshUser(accessToken, abortCtrl);     // отримуэмо дані про юзера з сервера
-            if (user){
-                if (user.accessToken != accessToken){
-                    let date = new Date(Date.now() + (3 * 60 * 1000));
-                    date = date.toUTCString();          
-                    document.cookie = `bookshelfAccessToken=${user.accessToken}; expires=${date}; secure;`;
-                }
+            const {user} = await api.refreshUser(currentAccessToken, abortCtrl);     // отримуємо дані про юзера та його accessToken з сервера
+
+            if (user){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
                 headerAuthorised(user);                
-            }else{
+            }else{ 
                 throw new Error("Not authorized");
             }
+
         }catch(error){
-            document.cookie = 'bookshelfAccessToken=; max-age=-1;';
+            document.cookie = 'accessToken=;  max-age=-1;';
+            document.cookie = 'refreshToken=; max-age=-1;';
             headerNotAuthorised();
         }
     }

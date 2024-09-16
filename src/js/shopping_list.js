@@ -81,7 +81,7 @@ async function createShoppingList() {
           shoppingBooksBoxTitle.after(books_ul);
           books_ul.addEventListener('click', deleteBook);
 
-          books_ul.innerHTML =   showPage(data, 1, booksOnPage);
+          books_ul.innerHTML = showPage(data, 1, booksOnPage);
           pagesCount = Math.ceil(data.length / booksOnPage); 
 
           //стиворюємо пагінацію, якщо сторінок більше за 1
