@@ -1,14 +1,19 @@
 
-import { displayOrdredAmountInShoppingBag } from './help_functions';
+import {displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
+import { getCookie } from './help_functions';
 
 const api = new bookshelf_API();
+
 let abortCtrl;
 
 showHeader();
 
 
+
 async function showHeader(){
+
+    const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
     if (!accessToken){ 
         headerNotAuthorised();                                            // Якшо accessToken в кукі немає, то малюємо хедер без авторизації
