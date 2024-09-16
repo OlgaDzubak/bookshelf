@@ -14,7 +14,8 @@ showHeader();
 async function showHeader(){
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
-
+    console.log(accessToken);
+    
     if (!accessToken){ 
         headerNotAuthorised();                                            // Якшо accessToken в кукі немає, то малюємо хедер без авторизації
     }else{                                                                // Якшо accessToken в кукі є, то спробуємо оновити інформацію про юзера
