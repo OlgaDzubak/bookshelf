@@ -94,10 +94,9 @@ async function singIn({email, password}){
     const data = await api.signIn({email, password}, abortCtrl2);
     if (data.user) {
 
-      let date = new Date(Date.now() + (3 * 60 * 1000));
-      date = date.toUTCString();
-
-      document.cookie = `bookshelfAccessToken=${data.accessToken}; expires=${date},  ;secure;`;
+      // let date = new Date(Date.now() + (3 * 60 * 1000));
+      // date = date.toUTCString();
+      //document.cookie = `bookshelfAccessToken=${data.accessToken}; expires=${date},  ;secure;`;
       
       onCloseModal();
   
