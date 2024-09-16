@@ -58,7 +58,7 @@ async function createShoppingList() {
 
     try{
 
-      const accessToken = getCookie("bookshelfAccessToken");         // зчитуємо accessToken з кукі
+      const accessToken = getCookie("accessToken");         // зчитуємо accessToken з кукі
       if (!accessToken){
         throw new Error("Request failed with status code 401");
       }
