@@ -96,7 +96,7 @@ async function singIn({email, password}){
 
       let date = new Date(Date.now() + (3 * 60 * 1000));
       date = date.toUTCString();
-      document.cookie = `accessToken=${data.accessToken}; expires=${date},  ;secure;`;
+      document.cookie = `accessToken=${data.accessToken}; expires=${date} ;secure`;
       
       onCloseModal();
   
