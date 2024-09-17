@@ -43,8 +43,9 @@ export class bookshelf_API {
     } 
 
     async refreshUser(abortCtrl){
+      console.log("refreshUser");
       try{
-        const accessToken = getCookie(accessToken);
+        const accessToken = getCookie("accessToken");
         this.setAuthHeader(accessToken);
         const {data} = await axios.get(`${this.#BASE_URL}users/current`, {signal: abortCtrl.signal});  
 
