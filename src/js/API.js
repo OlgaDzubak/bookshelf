@@ -30,6 +30,12 @@ export class bookshelf_API {
       try{
         axios.defaults.withCredentials = true;
         const {data} = await axios.post(`${this.#BASE_URL}auth/signin`, credentials, {signal: abortCtrl.signal});
+
+        // записуємо в кукі accessToken, отриманий з сервера
+        let date = new Date(Date.now() + (3 * 60 * 1000));
+        date = date.toUTCString();
+        document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;          
+        
         return data;
       }catch(error){
         return error.message;
@@ -41,6 +47,16 @@ export class bookshelf_API {
         const accessToken = getCookie(accessToken);
         this.setAuthHeader(accessToken);
         const {data} = await axios.get(`${this.#BASE_URL}users/current`, {signal: abortCtrl.signal});  
+
+        
+        if (data.accessToken != accessToken){                      // перевіряємо отриманий з сервера accessToken, якщо він відрізняється від того що є в кукі, то перезаписуємо кукі
+          
+          let date = new Date(Date.now() + (3 * 60 * 1000));
+          date = date.toUTCString();
+          document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
+          
+        }
+          
         return data;   
       }catch(error){
         return error.message;
