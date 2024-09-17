@@ -28,7 +28,7 @@ async function showHeader(){
         try{
 
             abortCtrl = new AbortController();
-            const {user} = await api.refreshUser(currentAccessToken, abortCtrl);     // отримуємо дані про юзера та його accessToken з сервера
+            const {user} = await api.refreshUser(accessToken, abortCtrl);            // отримуємо дані про юзера та його accessToken з сервера
 
             if (user){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
                 headerAuthorised(user);                
@@ -38,7 +38,6 @@ async function showHeader(){
 
         }catch(error){
             document.cookie = 'accessToken=;  max-age=-1;';
-            document.cookie = 'refreshToken=; max-age=-1;';
             headerNotAuthorised();
         }
     }
