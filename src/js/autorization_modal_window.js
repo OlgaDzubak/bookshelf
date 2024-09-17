@@ -92,12 +92,9 @@ async function singIn({email, password}){
 
     abortCtrl2 = new AbortController();
     const data = await api.signIn({email, password}, abortCtrl2);
+    
     if (data.user) {
 
-      let date = new Date(Date.now() + (3 * 60 * 1000));
-      date = date.toUTCString();
-      document.cookie = `accessToken=${data.accessToken}; expires=${date} ;secure`;
-      
       onCloseModal();
   
       const navigation = document.querySelector('.navigation');
