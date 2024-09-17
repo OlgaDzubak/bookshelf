@@ -67,7 +67,7 @@ async function singUp({name, email, password}){
 
     if (data.accessToken) {
       
-      document.cookie(`bookshelfAccessToken-${data.accessToken}`);
+      document.cookie(`accessToken-${data.accessToken}`);
 
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1300});
       setTimeout(()=>{onSignInBtnClick()}, 2000);
@@ -94,9 +94,9 @@ async function singIn({email, password}){
     const data = await api.signIn({email, password}, abortCtrl2);
     if (data.user) {
 
-      // let date = new Date(Date.now() + (3 * 60 * 1000));
-      // date = date.toUTCString();
-      //document.cookie = `bookshelfAccessToken=${data.accessToken}; expires=${date},  ;secure;`;
+      let date = new Date(Date.now() + (3 * 60 * 1000));
+      date = date.toUTCString();
+      document.cookie = `accessToken=${data.accessToken}; expires=${date},  ;secure;`;
       
       onCloseModal();
   
