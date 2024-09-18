@@ -44,7 +44,6 @@ async function showHeader(){
 
         }catch(error){
             document.cookie = 'accessToken=;  max-age=-1;';
-            document.cookie = 'refreshToken=;  max-age=-1;';
             headerNotAuthorised();
         }
     }
