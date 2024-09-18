@@ -71,8 +71,14 @@ async function createShoppingList() {
       loader1.remove();
 
       if (data){
+
+        if (data.accessToken != accessToken){
+          let date = new Date(Date.now() + (3 * 60 * 1000));
+          date = date.toUTCString();
+          document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
+        }
         
-        if (data.length === 0){
+        if (data.books.length === 0){
           createEmptyBooksBox();
         }else{
           
@@ -101,7 +107,7 @@ async function createShoppingList() {
     }catch(error){
       if (error.message === "Request failed with status code 401"){
         const logoLink = document.querySelector('.logo-link');
-      //  logoLink.click();
+        logoLink.click();
       }else{
         const errorBox = document.createElement("div");
         shoppingBooksBox.append(errorBox);
