@@ -71,14 +71,16 @@ async function createShoppingList() {
       loader1.remove();
 
       if (data){
-
-        if (data.accessToken != accessToken){
+        
+        const {accessToken: newAccessToken, books} = data;
+        
+        if (newAccessToken != accessToken){
           let date = new Date(Date.now() + (3 * 60 * 1000));
           date = date.toUTCString();
-          document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
+          document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
         }
         
-        if (data.books.length === 0){
+        if (books.length === 0){
           createEmptyBooksBox();
         }else{
           
@@ -87,20 +89,19 @@ async function createShoppingList() {
           shoppingBooksBoxTitle.after(books_ul);
           books_ul.addEventListener('click', deleteBook);
 
-          books_ul.innerHTML = showPage(data, 1, booksOnPage);
-          pagesCount = Math.ceil(data.length / booksOnPage); 
+          books_ul.innerHTML = showPage(books, 1, booksOnPage);
+          pagesCount = Math.ceil(books.length / booksOnPage); 
 
           //стиворюємо пагінацію, якщо сторінок більше за 1
           if (pagesCount > 1 ) {
 
-            paginationBox = createPagination(data.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+            paginationBox = createPagination(books.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
             shoppingBooksBox.append(paginationBox);
             currentPage = setPaginationPage(paginationBox, 1);
             paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
 
           }
         }
-
         scrollUp();
       }
 
