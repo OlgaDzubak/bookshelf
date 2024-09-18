@@ -14,10 +14,8 @@ showHeader();
 async function showHeader(){
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
-    console.log("showHeader accessToken= ", accessToken);
-  
+
     if (!accessToken){ 
-        console.log("headerNotAuthorised() !accessToken");
         headerNotAuthorised();                                            // Якшо accessToken в кукі немає, то малюємо хедер без авторизації
     }else{                                                                // Якшо accessToken в кукі є, то спробуємо оновити інформацію про юзера
 
@@ -29,9 +27,16 @@ async function showHeader(){
         try{
 
             abortCtrl = new AbortController();
-            const {user} = await api.refreshUser(abortCtrl);              // отримуємо дані про юзера та його accessToken з сервера
+            const {accessToken:newAccessToken, user} = await api.refreshUser(accessToken, abortCtrl);              // отримуємо дані про юзера та його accessToken з сервера
 
-            if (user){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
+            if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
+
+               if (newAccessToken != accessToken){
+                  let date = new Date(Date.now() + (3 * 60 * 1000));
+                  date = date.toUTCString();
+                  document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
+               }
+                
                 headerAuthorised(user);                
             }else{ 
                 throw new Error("Not authorized");
