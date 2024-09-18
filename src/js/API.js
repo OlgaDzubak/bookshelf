@@ -32,7 +32,7 @@ export class bookshelf_API {
         const {data} = await axios.post(`${this.#BASE_URL}auth/signin`, credentials, {signal: abortCtrl.signal});
 
         // записуємо в кукі accessToken, отриманий з сервера
-        let date = new Date(Date.now() + (3 * 60 * 1000));
+        let date = new Date(Date.now() + (24 * 60* 60 * 1000));
         date = date.toUTCString();
         document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;          
         
