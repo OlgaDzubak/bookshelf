@@ -75,7 +75,7 @@ async function createShoppingList() {
         const {accessToken: newAccessToken, books} = data;
         
         if (newAccessToken != accessToken){
-          let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
+          let date = new Date(Date.now() + (3 * 60 * 1000));//(24 * 60 * 60 * 1000));
           date = date.toUTCString();
           document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
         }
