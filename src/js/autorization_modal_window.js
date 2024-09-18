@@ -91,9 +91,9 @@ async function singIn({email, password}){
   try{
 
     abortCtrl2 = new AbortController();
-    const data = await api.signIn({email, password}, abortCtrl2);
+    const {user} = await api.signIn({email, password}, abortCtrl2);
     
-    if (data.user) {
+    if (user) {
 
       onCloseModal();
   
@@ -104,12 +104,12 @@ async function singIn({email, password}){
       authBtn.classList.remove("is-hidden");
       
       const authBtnName = authBtn.querySelector('.login-p');
-      authBtnName.textContent = data.user.name;
+      authBtnName.textContent = user.name;
       
       openBtn.classList.add("is-hidden");
 
-      localStorage.setItem("bookshelf_orderedbooks", JSON.stringify(data.user["shopping_list"]));
-      displayOrdredAmountInShoppingBag(data.user["shopping_list"]);
+      localStorage.setItem("bookshelf_orderedbooks", JSON.stringify(user["shopping_list"]));
+      displayOrdredAmountInShoppingBag(user["shopping_list"]);
 
       Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1300});
 

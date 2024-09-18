@@ -73,7 +73,7 @@ async function createShoppingList() {
       if (data){
         
         const {accessToken: newAccessToken, books} = data;
-        console.log("newAccessToken=",newAccessToken);
+        
         if (newAccessToken != accessToken){
           let date = new Date(Date.now() + (3 * 60 * 1000));//(24 * 60 * 60 * 1000));
           date = date.toUTCString();
