@@ -95,35 +95,35 @@ showCategoryList();
         //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії
          if (category === 'all-categories-item') {
 
-        //     booksBox.innerHTML="";
-        //     const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
+            booksBox.innerHTML="";
+            const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
 
-        //     if (!firstLoading) { 
-        //         scrollToBoxTop(booksBox);
-        //     }
+            if (!firstLoading) { 
+                scrollToBoxTop(booksBox);
+            }
 
-        //     const loader2 = createLoader(booksBoxTitle);
+            const loader2 = createLoader(booksBoxTitle);
 
-        //     abortCtrl1 = new AbortController();
-        //     const data = await fetchBestSellersBooks(abortCtrl1);
+            abortCtrl1 = new AbortController();
+            const data = await fetchBestSellersBooks(abortCtrl1);
     
-        //     loader2.remove();
+            loader2.remove();
     
-            //if (data.length) {
+            if (data.length) {
     
-            //     const bestBooksList = document.createElement("ul");
-            //     bestBooksList.classList.add("list","best-books-list");
-            //     booksBoxTitle.after(bestBooksList);
-            //     bestBooksList.addEventListener('click', seeMore);
+                const bestBooksList = document.createElement("ul");
+                bestBooksList.classList.add("list","best-books-list");
+                booksBoxTitle.after(bestBooksList);
+                bestBooksList.addEventListener('click', seeMore);
 
-            //     bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
+                bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
 
-            //     if (!firstLoading) {
-            //         scrollToBoxTop(booksBox);
-            //     }else {
-            //         firstLoading = false;
-            //     }
-            // }
+                if (!firstLoading) {
+                    scrollToBoxTop(booksBox);
+                }else {
+                    firstLoading = false;
+                }
+            }
         } 
         else {
                         
