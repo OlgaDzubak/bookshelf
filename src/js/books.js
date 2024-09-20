@@ -85,8 +85,7 @@ showCategoryList();
         if ((!target.classList.contains('category-list-item')) && (!target.classList.contains('js-btn-more'))){
             return;
         } 
-        //else {
-
+        
         // переносимо клас .active на обрану категорію
         changeActiveItem(itemAllCategories, categoryList, target);
 
@@ -105,61 +104,61 @@ showCategoryList();
 
             const loader2 = createLoader(booksBoxTitle);
 
-         //   abortCtrl1 = new AbortController();
-            const data = [];//await fetchBestSellersBooks(abortCtrl1);
-    
-            loader2.remove();
-    
-            if (data.length) {
-    
-                const bestBooksList = document.createElement("ul");
-                bestBooksList.classList.add("list","best-books-list");
-                booksBoxTitle.after(bestBooksList);
-                bestBooksList.addEventListener('click', seeMore);
-
-                bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
-
-                if (!firstLoading) {
-                    scrollToBoxTop(booksBox);
-                }else {
-                    firstLoading = false;
-                }
-            }
-        } else {
-                        
-            booksBox.innerHTML="";
-            
-            const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
-
-            scrollToBoxTop(booksBox);
-
-            const loader2 = createLoader(booksBoxTitle);
-            
             abortCtrl1 = new AbortController();
-            const data  = await fetchBooksOfCategory(category, abortCtrl1);
-            
+            const data = await fetchBestSellersBooks(abortCtrl1);
+    
             loader2.remove();
+    
+            //if (data.length) {
+    
+            //     const bestBooksList = document.createElement("ul");
+            //     bestBooksList.classList.add("list","best-books-list");
+            //     booksBoxTitle.after(bestBooksList);
+            //     bestBooksList.addEventListener('click', seeMore);
 
-            if (data.length) {
+            //     bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
 
-                const categoryBooksList = document.createElement("ul");
-                booksBoxTitle.after(categoryBooksList);
-                categoryBooksList.classList.add("list", "category-books-list");
+            //     if (!firstLoading) {
+            //         scrollToBoxTop(booksBox);
+            //     }else {
+            //         firstLoading = false;
+            //     }
+            // }
+        } 
+        //else {
+                        
+            // booksBox.innerHTML="";
+            
+            // const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
 
-                const pageWidth = document.documentElement.scrollWidth;
+            // scrollToBoxTop(booksBox);
 
-                if (pageWidth < 768) {
-                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
-                } else if (pageWidth < 1440 && pageWidth >= 768) {
-                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
-                } else {
-                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
-                }
-                scrollToBoxTop(booksBox);
+            // const loader2 = createLoader(booksBoxTitle);
+            
+            // abortCtrl1 = new AbortController();
+            // const data  = await fetchBooksOfCategory(category, abortCtrl1);
+            
+            // loader2.remove();
 
-            }
-        }
-       //}
+            // if (data.length) {
+
+            //     const categoryBooksList = document.createElement("ul");
+            //     booksBoxTitle.after(categoryBooksList);
+            //     categoryBooksList.classList.add("list", "category-books-list");
+
+            //     const pageWidth = document.documentElement.scrollWidth;
+
+            //     if (pageWidth < 768) {
+            //         categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
+            //     } else if (pageWidth < 1440 && pageWidth >= 768) {
+            //         categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
+            //     } else {
+            //         categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
+            //     }
+            //     scrollToBoxTop(booksBox);
+
+            // }
+        //}
     }
 
         //Обробка події натискання кнопки seeMore
