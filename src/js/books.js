@@ -93,21 +93,21 @@ showCategoryList();
         const category = target.id.split(" ").join("%20");
         
         //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії
-        if (category === 'all-categories-item') {
+        // if (category === 'all-categories-item') {
 
-            booksBox.innerHTML="";
-            const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
+        //     booksBox.innerHTML="";
+        //     const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
 
-            if (!firstLoading) { 
-                scrollToBoxTop(booksBox);
-            }
+        //     if (!firstLoading) { 
+        //         scrollToBoxTop(booksBox);
+        //     }
 
-            const loader2 = createLoader(booksBoxTitle);
+        //     const loader2 = createLoader(booksBoxTitle);
 
-            abortCtrl1 = new AbortController();
-            const data = await fetchBestSellersBooks(abortCtrl1);
+        //     abortCtrl1 = new AbortController();
+        //     const data = await fetchBestSellersBooks(abortCtrl1);
     
-            loader2.remove();
+        //     loader2.remove();
     
             //if (data.length) {
     
@@ -124,7 +124,7 @@ showCategoryList();
             //         firstLoading = false;
             //     }
             // }
-        } 
+        //} 
         //else {
                         
             // booksBox.innerHTML="";
