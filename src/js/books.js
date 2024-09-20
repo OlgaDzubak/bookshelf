@@ -106,7 +106,7 @@ showCategoryList();
             const loader2 = createLoader(booksBoxTitle);
 
          //   abortCtrl1 = new AbortController();
-         //   const data = await fetchBestSellersBooks(abortCtrl1);
+            const data = [];//await fetchBestSellersBooks(abortCtrl1);
     
             loader2.remove();
     
