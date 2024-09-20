@@ -7,15 +7,15 @@ import { shortTitle,
          scrollUp,
          scrollTracker } from './help_functions';
 
-import emptyImgMobile_1x  from '/src/images/png/empty-img-mobile@1x.png';
-import emptyImgMobile_2x  from '/src/images/png/empty-img-mobile@2x.png';
-import emptyImgMobile_3x  from '/src/images/png/empty-img-mobile@3x.png';
-import emptyImgMobile_1x  from '/src/images/png/empty-img-tablet@1x.png';
+import emptyImgMobile_1x  from '/src/images/png/empty-img-mobile@1x.jpg';
+import emptyImgMobile_2x  from '/src/images/png/empty-img-mobile@2x.jpg';
+import emptyImgMobile_3x  from '/src/images/png/empty-img-mobile@3x.jpg';
+import emptyImgMobile_1x  from '/src/images/png/empty-img-tablet@1x.jpg';
 import emptyImgMobile_2x  from '/src/images/png/empty-img-tablet@2x.png';
-import emptyImgMobile_3x  from '/src/images/png/empty-img-tablet@3x.png';
-import emptyImgDesktop_1x  from '/src/images/png/empty-img-desktop@1x.png';
-import emptyImgDesktop_2x  from '/src/images/png/empty-img-desktop@2x.png';
-import emptyImgDesktop_3x  from '/src/images/png/empty-img-desktop@3x.png';
+import emptyImgMobile_3x  from '/src/images/png/empty-img-tablet@3x.jpg';
+import emptyImgDesktop_1x  from '/src/images/png/empty-img-desktop@1x.jpg';
+import emptyImgDesktop_2x  from '/src/images/png/empty-img-desktop@2x.jpg';
+import emptyImgDesktop_3x  from '/src/images/png/empty-img-desktop@3x.jpg';
 
 const api = new bookshelf_API();
 
