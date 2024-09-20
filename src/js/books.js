@@ -116,7 +116,7 @@ showCategoryList();
                 booksBoxTitle.after(bestBooksList);
                 bestBooksList.addEventListener('click', seeMore);
 
-                bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
+                //bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
 
                 if (!firstLoading) {
                     scrollToBoxTop(booksBox);
