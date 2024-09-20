@@ -49,7 +49,7 @@ showCategoryList();
         itemAllCategories.classList.add("category-list-item", "active");
         itemAllCategories.setAttribute("id","all-categories-item");
         categoryListBox.prepend(itemAllCategories);
-        itemAllCategories.click();
+       //itemAllCategories.click();
 
         //створюємо loader
         const loader1 = createLoader(itemAllCategories);
