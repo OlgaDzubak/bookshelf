@@ -116,7 +116,7 @@ showCategoryList();
                 booksBoxTitle.after(bestBooksList);
                 bestBooksList.addEventListener('click', seeMore);
 
-                //bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
+                bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
 
                 if (!firstLoading) {
                     scrollToBoxTop(booksBox);
@@ -127,37 +127,37 @@ showCategoryList();
         } 
         else {
                         
-            // booksBox.innerHTML="";
+            booksBox.innerHTML="";
             
-            // const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
+            const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
 
-            // scrollToBoxTop(booksBox);
+            scrollToBoxTop(booksBox);
 
-            // const loader2 = createLoader(booksBoxTitle);
+            const loader2 = createLoader(booksBoxTitle);
             
-            // abortCtrl1 = new AbortController();
-            // const data  = await fetchBooksOfCategory(category, abortCtrl1);
+            abortCtrl1 = new AbortController();
+            const data  = await fetchBooksOfCategory(category, abortCtrl1);
             
-            // loader2.remove();
+            loader2.remove();
 
-            // if (data.length) {
+            if (data.length) {
 
-            //     const categoryBooksList = document.createElement("ul");
-            //     booksBoxTitle.after(categoryBooksList);
-            //     categoryBooksList.classList.add("list", "category-books-list");
+                const categoryBooksList = document.createElement("ul");
+                booksBoxTitle.after(categoryBooksList);
+                categoryBooksList.classList.add("list", "category-books-list");
 
-            //     const pageWidth = document.documentElement.scrollWidth;
+                const pageWidth = document.documentElement.scrollWidth;
 
-            //     if (pageWidth < 768) {
-            //         categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
-            //     } else if (pageWidth < 1440 && pageWidth >= 768) {
-            //         categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
-            //     } else {
-            //         categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
-            //     }
-            //     scrollToBoxTop(booksBox);
+                if (pageWidth < 768) {
+                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 1);
+                } else if (pageWidth < 1440 && pageWidth >= 768) {
+                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 3);
+                } else {
+                    categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
+                }
+                scrollToBoxTop(booksBox);
 
-            // }
+            }
         }
     }
 
