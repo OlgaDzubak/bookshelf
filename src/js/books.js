@@ -275,17 +275,7 @@ showCategoryList();
 
         // розмітка best sellers books
     function createBestSellersBooksMarcup(data, querty) {
-
-        const markup = data.map(({category, books}) => {
-            const categoryName = `<p class="theme-book">${category}</p>`;
-
-            if (books.length) {
-                let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) => 
-                `<li class="item-book" data-id="${_id}">
-                    <div class="img-owerlay">
-                        <img src="${book_image}" alt="${title}" class="img-book" loading="auto">
-
-                //ПОПРАВИТИ КОД ПІД ЗАГЛУШКУ КАРТИНКИ
+ //ПОПРАВИТИ КОД ПІД ЗАГЛУШКУ КАРТИНКИ
                 // <picture>
                 // <source
                 // srcset="${emptyImgMobile_1x } 1x, ${ emptyImgMobile_2x } 2x, ${ emptyImgMobile_3x } 3x "
@@ -306,12 +296,14 @@ showCategoryList();
                 // loading="auto"
                 // >
                 // </picture>
+        const markup = data.map(({category, books}) => {
+            const categoryName = `<p class="theme-book">${category}</p>`;
 
-
-
-
-
-                        
+            if (books.length) {
+                let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) => 
+                `<li class="item-book" data-id="${_id}">
+                    <div class="img-owerlay">
+                        <img src="${book_image}" alt="${title}" class="img-book" loading="auto">
                         <div class="owerlay">
                             <p class="owerlay-content">quick view</p>
                         </div>
