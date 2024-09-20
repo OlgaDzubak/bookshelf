@@ -7,6 +7,16 @@ import { shortTitle,
          scrollUp,
          scrollTracker } from './help_functions';
 
+import emptyImgMobile_1x  from '/src/images/png/empty-img-mobile@1x.png';
+import emptyImgMobile_2x  from '/src/images/png/empty-img-mobile@2x.png';
+import emptyImgMobile_3x  from '/src/images/png/empty-img-mobile@3x.png';
+import emptyImgMobile_1x  from '/src/images/png/empty-img-tablet@1x.png';
+import emptyImgMobile_2x  from '/src/images/png/empty-img-tablet@2x.png';
+import emptyImgMobile_3x  from '/src/images/png/empty-img-tablet@3x.png';
+import emptyImgDesktop_1x  from '/src/images/png/empty-img-desktop@1x.png';
+import emptyImgDesktop_2x  from '/src/images/png/empty-img-desktop@2x.png';
+import emptyImgDesktop_3x  from '/src/images/png/empty-img-desktop@3x.png';
+
 const api = new bookshelf_API();
 
 const categoryListBox = document.querySelector(".category-list-box");
@@ -274,6 +284,34 @@ showCategoryList();
                 `<li class="item-book" data-id="${_id}">
                     <div class="img-owerlay">
                         <img src="${book_image}" alt="${title}" class="img-book" loading="auto">
+
+                //ПОПРАВИТИ КОД ПІД ЗАГЛУШКУ КАРТИНКИ
+                // <picture>
+                // <source
+                // srcset="${emptyImgMobile_1x } 1x, ${ emptyImgMobile_2x } 2x, ${ emptyImgMobile_3x } 3x "
+                // media="(max-width: 767.9px)"
+                // >
+                // <source
+                // srcset="${emptyImgTablet_1x } 1x, ${ emptyImgTablet_2x } 2x, ${ emptyImgTablet_3x } 3x "
+                // media="(min-width: 768px) and (max-width: 1439.8px)"
+                // >
+                // <source
+                // srcset="${emptyImgDesktop_1x } 1x, ${ emptyImgDesktop_2x } 2x, ${ emptyImgDesktop_3x } 3x "
+                // media="(min-width: 1440px)"
+                // >
+                // <img 
+                // src=${ emptyImgDesktop_3x }
+                // alt= ${title}
+                // class="img-book 
+                // loading="auto"
+                // >
+                // </picture>
+
+
+
+
+
+                        
                         <div class="owerlay">
                             <p class="owerlay-content">quick view</p>
                         </div>
@@ -301,6 +339,7 @@ showCategoryList();
             const markup = data.map(({_id, book_image, author, title}) => 
             `<li class="item-book" data-id="${_id}">  
                 <div class="img-owerlay">
+                
                     <img src="${book_image}" alt="${title}" class="img-book loading="auto"">
                     <div class="owerlay">
                         <p class="owerlay-content">quick view</p>
