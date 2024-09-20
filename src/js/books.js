@@ -93,7 +93,7 @@ showCategoryList();
         const category = target.id.split(" ").join("%20");
         
         //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії
-        // if (category === 'all-categories-item') {
+         if (category === 'all-categories-item') {
 
         //     booksBox.innerHTML="";
         //     const booksBoxTitle = createBooksBoxTitle(booksBox, "Best Sellers Books");
@@ -124,8 +124,8 @@ showCategoryList();
             //         firstLoading = false;
             //     }
             // }
-        //} 
-        //else {
+        } 
+        else {
                         
             // booksBox.innerHTML="";
             
@@ -158,7 +158,7 @@ showCategoryList();
             //     scrollToBoxTop(booksBox);
 
             // }
-        //}
+        }
     }
 
         //Обробка події натискання кнопки seeMore
