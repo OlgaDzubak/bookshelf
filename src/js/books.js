@@ -49,7 +49,7 @@ showCategoryList();
         itemAllCategories.classList.add("category-list-item", "active");
         itemAllCategories.setAttribute("id","all-categories-item");
         categoryListBox.prepend(itemAllCategories);
-       //itemAllCategories.click();
+        itemAllCategories.click();
 
         //створюємо loader
         const loader1 = createLoader(itemAllCategories);
@@ -105,8 +105,8 @@ showCategoryList();
 
             const loader2 = createLoader(booksBoxTitle);
 
-            abortCtrl1 = new AbortController();
-            const data = await fetchBestSellersBooks(abortCtrl1);
+         //   abortCtrl1 = new AbortController();
+         //   const data = await fetchBestSellersBooks(abortCtrl1);
     
             loader2.remove();
     
