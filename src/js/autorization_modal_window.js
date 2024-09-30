@@ -1,6 +1,6 @@
 import { bookshelf_API } from './API';
 import { Notify } from 'notiflix';
-import {displayOrdredAmountInShoppingBag } from './help_functions';
+import {displayOrdredAmountInShoppingBag, createLoader } from './help_functions';
 
 const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2;
