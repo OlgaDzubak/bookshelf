@@ -15,17 +15,17 @@ import stackOfBooks_tablet_2x from '/src/images/shopping_list/stack_of_books_tab
 import stackOfBooks_desktop_1x from '/src/images/shopping_list/stack_of_books_desktop@1x.png';
 import stackOfBooks_desktop_2x from '/src/images/shopping_list/stack_of_books_desktop@2x.png';
 
-import noBookImage_mobile_1x from '/src/images/shopping_list/empty-img-mobile@1x.png';
-import noBookImage_mobile_2x from '/src/images/shopping_list/empty-img-mobile@2x.png';
-import noBookImage_mobile_3x from '/src/images/shopping_list/empty-img-mobile@3x.png';
+import noBookImage_mobile_1x from '/src/images/shopping_list/empty-img-mobile@1x.jpg';
+import noBookImage_mobile_2x from '/src/images/shopping_list/empty-img-mobile@2x.jpg';
+import noBookImage_mobile_3x from '/src/images/shopping_list/empty-img-mobile@3x.jpg';
 
-import noBookImage_tablet_1x from '/src/images/shopping_list/empty-img-tablet@1x.png';
-import noBookImage_tablet_2x from '/src/images/shopping_list/empty-img-tablet@2x.png';
-import noBookImage_tablet_3x from '/src/images/shopping_list/empty-img-tablet@3x.png';
+import noBookImage_tablet_1x from '/src/images/shopping_list/empty-img-tablet@1x.jpg';
+import noBookImage_tablet_2x from '/src/images/shopping_list/empty-img-tablet@2x.jpg';
+import noBookImage_tablet_3x from '/src/images/shopping_list/empty-img-tablet@3x.jpg';
 
-import noBookImage_desktop_1x from '/src/images/shopping_list/empty-img-desktop@1x.png';
-import noBookImage_desktop_2x from '/src/images/shopping_list/empty-img-desktop@2x.png';
-import noBookImage_desktop_3x from '/src/images/shopping_list/empty-img-desktop@3x.png';
+import noBookImage_desktop_1x from '/src/images/shopping_list/empty-img-desktop@1x.jpg';
+import noBookImage_desktop_2x from '/src/images/shopping_list/empty-img-desktop@2x.jpg';
+import noBookImage_desktop_3x from '/src/images/shopping_list/empty-img-desktop@3x.jpg';
 
 import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp, getCookie} from './help_functions';
 
