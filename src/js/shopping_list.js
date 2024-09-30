@@ -140,34 +140,35 @@ function showPage(dataArray, page, itemsOnPage) {
   const lastShownItem_idx = startShownItem_idx + (itemsOnPage-1); 
 
   const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
-                            
+                            let bookImage_markup;
+                            bookImage_markup = book_image 
+                                                ? `<img class="book-image" src='${book_image}' alt='${title}'>`
+                                                : `<picture>
+                                                    <source
+                                                      srcset="${empty-img-mobile_1x} 1x, ${empty-img-mobile_2x} 2x, ${empty-img-mobile_3x} 3x"
+                                                      media="(max-width: 767.9px)"
+                                                    >
+                                                    <source
+                                                      srcset="${empty-img-tablet_1x} 1x, ${empty-img-tablet_2x} 2x, ${empty-img-tablet_3x} 3x"
+                                                      media="(min-width: 768px) and (max-width: 1439.8px)"
+                                                    >
+                                                    <source
+                                                      srcset="${empty-img-desktop_1x} 1x, ${empty-img-desktop_2x} 2x, ${empty-img-desktop_3x} 3x"
+                                                      media="(min-width: 1440px)"
+                                                    >
+                                              
+                                                    <img 
+                                                      class="book-image" 
+                                                      src='${empty-img-mobile_3x}' 
+                                                      alt='${title}'
+                                                    >
+                                                 </picture>`;
+    
+    
                             return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
 
                                         <div class="book-image-div">
-                                          ${
-                                            book_image
-                                            ?  <img class="book-image" src='${book_image}' alt='${title}'>
-                                            :  <picture>
-                                                  <source
-                                                    srcset="${empty-img-mobile_1x} 1x, ${empty-img-mobile_2x} 2x, ${empty-img-mobile_3x} 3x"
-                                                    media="(max-width: 767.9px)"
-                                                  >
-                                                  <source
-                                                    srcset="${empty-img-tablet_1x} 1x, ${empty-img-tablet_2x} 2x, ${empty-img-tablet_3x} 3x"
-                                                    media="(min-width: 768px) and (max-width: 1439.8px)"
-                                                  >
-                                                  <source
-                                                    srcset="${empty-img-desktop_1x} 1x, ${empty-img-desktop_2x} 2x, ${empty-img-desktop_3x} 3x"
-                                                    media="(min-width: 1440px)"
-                                                  >
-                                            
-                                                  <img 
-                                                    class="book-image" 
-                                                    src='${empty-img-mobile_3x}' 
-                                                    alt='${title}'
-                                                  >
-                                               </picture>
-                                           }   
+                                          ${bookImage_markup}
                                         </div>
 
                                         <div class="book-card-content-div">
