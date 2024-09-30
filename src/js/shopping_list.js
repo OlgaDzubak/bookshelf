@@ -147,7 +147,7 @@ function showPage(dataArray, page, itemsOnPage) {
                                           ${
                                             book_image
                                             ?  <img class="book-image" src='${book_image}' alt='${title}'>
-                                            :  <picture class="book-image">
+                                            :  <picture>
                                                   <source
                                                     srcset="${empty-img-mobile_1x} 1x, ${empty-img-mobile_2x} 2x, ${empty-img-mobile_3x} 3x"
                                                     media="(max-width: 767.9px)"
