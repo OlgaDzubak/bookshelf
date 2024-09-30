@@ -90,8 +90,14 @@ async function singIn({email, password}){
 
   try{
 
+    //створюємо loader
+    const loader1 = createLoader(modalForm);
+
     abortCtrl2 = new AbortController();
     const {user} = await api.signIn({email, password}, abortCtrl2);
+    
+    //видаляємо loader після виконання запиту
+    loader1.remove(); 
     
     if (user) {
 
