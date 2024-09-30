@@ -7,12 +7,26 @@ import {createPagination,
         nextPageGroupLeft, 
         nextPageGroupRight} from './pagination'
 import bucketTrash from '/src/images/png/trash-03.png';
+
 import stackOfBooks_mobile_1x from '/src/images/shopping_list/stack_of_books_mobile@1x.png';
 import stackOfBooks_mobile_2x from '/src/images/shopping_list/stack_of_books_mobile@2x.png';
 import stackOfBooks_tablet_1x from '/src/images/shopping_list/stack_of_books_tablet@1x.png';
 import stackOfBooks_tablet_2x from '/src/images/shopping_list/stack_of_books_tablet@2x.png';
 import stackOfBooks_desktop_1x from '/src/images/shopping_list/stack_of_books_desktop@1x.png';
 import stackOfBooks_desktop_2x from '/src/images/shopping_list/stack_of_books_desktop@2x.png';
+
+import noBookImage_mobile_1x from '/src/images/shopping_list/empty-img-mobile@1x.png';
+import noBookImage_mobile_2x from '/src/images/shopping_list/empty-img-mobile@2x.png';
+import noBookImage_mobile_3x from '/src/images/shopping_list/empty-img-mobile@3x.png';
+
+import noBookImage_tablet_1x from '/src/images/shopping_list/empty-img-tablet@1x.png';
+import noBookImage_tablet_2x from '/src/images/shopping_list/empty-img-tablet@2x.png';
+import noBookImage_tablet_3x from '/src/images/shopping_list/empty-img-tablet@3x.png';
+
+import noBookImage_desktop_1x from '/src/images/shopping_list/empty-img-desktop@1x.png';
+import noBookImage_desktop_2x from '/src/images/shopping_list/empty-img-desktop@2x.png';
+import noBookImage_desktop_3x from '/src/images/shopping_list/empty-img-desktop@3x.png';
+
 import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp, getCookie} from './help_functions';
 
 const api = new bookshelf_API();
@@ -130,7 +144,30 @@ function showPage(dataArray, page, itemsOnPage) {
                             return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
 
                                         <div class="book-image-div">
-                                          <img class="book-image" src='${book_image}' alt='${title}'>
+                                          ${
+                                            book_image
+                                            ?  <img class="book-image" src='${book_image}' alt='${title}'>
+                                            :  <picture class="book-image">
+                                                  <source
+                                                    srcset="${empty-img-mobile_1x} 1x, ${empty-img-mobile_2x} 2x, ${empty-img-mobile_3x} 3x"
+                                                    media="(max-width: 767.9px)"
+                                                  >
+                                                  <source
+                                                    srcset="${empty-img-tablet_1x} 1x, ${empty-img-tablet_2x} 2x, ${empty-img-tablet_3x} 3x"
+                                                    media="(min-width: 768px) and (max-width: 1439.8px)"
+                                                  >
+                                                  <source
+                                                    srcset="${empty-img-desktop_1x} 1x, ${empty-img-desktop_2x} 2x, ${empty-img-desktop_3x} 3x"
+                                                    media="(min-width: 1440px)"
+                                                  >
+                                            
+                                                  <img 
+                                                    class="book-image" 
+                                                    src='${empty-img-mobile_3x}' 
+                                                    alt='${title}'
+                                                  >
+                                               </picture>
+                                           }   
                                         </div>
 
                                         <div class="book-card-content-div">
