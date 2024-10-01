@@ -146,7 +146,7 @@ btnRemoveEl.addEventListener('click', removeFromShoppingList);
 
 
 async function addToShoppingList() {
-    console.log(addToShoppingList); 
+    console.log("addToShoppingList"); 
     if (abortCtrl1) {      
         abortCtrl1.abort();
         console.log("abort previous fetch");
