@@ -182,7 +182,7 @@ async function addToShoppingList() {
             logoLink.click();
           }else{
             const errorBox = document.createElement("div");
-            shoppingBooksBox.append(errorBox);
+            divBackdropEl.append(errorBox);
             errorBox.classList.add("error-box");
             errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
           }
