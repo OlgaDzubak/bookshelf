@@ -108,7 +108,7 @@ async function createModalWindow(book_Id) {
                                 </li>`
 
         divBackdropEl.classList.toggle('is-hidden');
-        const orderedBookID_arr = JSON.parse(localStorage.getItem('orderedBookID'));
+        const orderedBookID_arr = JSON.parse(localStorage.getItem('bookshelf_orderedbooks'));
 
         if (orderedBookID_arr === null || !orderedBookID_arr.includes(book_Id)) {
             btnAddEl.classList.remove('is-hidden');
