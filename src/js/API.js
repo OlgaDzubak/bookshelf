@@ -87,10 +87,10 @@ export class bookshelf_API {
       
     }
 
-    addToShoppingList(accessToken, bookId ,abortCtrl){
+    async addToShoppingList(accessToken, bookId ,abortCtrl){
       console.log("accessToken=", accessToken);
       this.setAuthHeader(accessToken);
-      const response = axios.post(`${this.#BASE_URL}books/shoppinglist/add/:${bookId}`, {signal: abortCtrl.signal});
+      const response = await axios.post(`${this.#BASE_URL}books/shoppinglist/add/:${bookId}`, {signal: abortCtrl.signal});
 
       return response;
     }
