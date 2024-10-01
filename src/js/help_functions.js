@@ -143,6 +143,16 @@ function getCookie(cookieName){
   }
 }
 
+function rewriteAccessToken(newAccessToken){
+  const currentAccessToken = getCookie("accessToken");
+          
+  if (newAccessToken != currentAccessToken){
+    let date = new Date(Date.now() + (3 * 60 * 1000));//(24 * 60 * 60 * 1000));
+    date = date.toUTCString();
+    document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
+  }
+}
+
 
 //-------------------------------------------------------------------------------------------------------------------
 export {  displayOrdredAmountInShoppingBag, 
@@ -155,4 +165,5 @@ export {  displayOrdredAmountInShoppingBag,
           scrollUp,
           scrollTracker,
           getCookie,
+          rewriteAccessToken,
        };

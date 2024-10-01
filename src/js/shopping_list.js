@@ -27,7 +27,7 @@ import noBookImage_desktop_1x from '/src/images/png/empty-img-desktop@1x.jpg';
 import noBookImage_desktop_2x from '/src/images/png/empty-img-desktop@2x.jpg';
 import noBookImage_desktop_3x from '/src/images/png/empty-img-desktop@3x.jpg';
 
-import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp, getCookie} from './help_functions';
+import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp, getCookie, rewriteAccessToken} from './help_functions';
 
 const api = new bookshelf_API();
 
@@ -85,14 +85,10 @@ async function createShoppingList() {
       loader1.remove();
 
       if (data){
-        
+       
         const {accessToken: newAccessToken, books} = data;
         
-        if (newAccessToken != accessToken){
-          let date = new Date(Date.now() + (3 * 60 * 1000));//(24 * 60 * 60 * 1000));
-          date = date.toUTCString();
-          document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
-        }
+        rewriteAccessToken(newAccessToken);   // перевіряємо якщо ми отримали новий ток ен доступу то перезаписуємо його в кукі
         
         if (books.length === 0){
           createEmptyBooksBox();

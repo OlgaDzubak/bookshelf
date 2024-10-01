@@ -86,4 +86,14 @@ export class bookshelf_API {
       return response;
       
     }
+
+    addToShoppingList(accessToken, bookId ,abortCtrl){
+
+      this.setAuthHeader(accessToken);
+      const response = axios.post(`${this.#BASE_URL}books/shoppinglist/add/:${bookId}`, {signal: abortCtrl.signal});
+
+      return response;
+      
+    }
+
 }

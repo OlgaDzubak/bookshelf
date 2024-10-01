@@ -1,5 +1,5 @@
 import { bookshelf_API } from './API';
-import { displayOrdredAmountInShoppingBag } from './help_functions';
+import { displayOrdredAmountInShoppingBag, createLoader, rewriteAccessToken } from './help_functions';
 
 
 const api = new bookshelf_API;
@@ -140,25 +140,59 @@ function onCloseModal() {
     textEl.classList.add('is-hidden');
 }
 
-btnAddEl.addEventListener('click', addLocalStorage);
-btnRemoveEl.addEventListener('click', removeLocalStorage);
+btnAddEl.addEventListener('click', addToShoppingList);
+btnRemoveEl.addEventListener('click', removeFromShoppingList);
 
-function addLocalStorage() {
-    btnAddEl.classList.add('is-hidden');
-    btnRemoveEl.classList.remove('is-hidden');
-    textEl.classList.remove('is-hidden');
-    const dataJson = localStorage.getItem('orderedBookID');
-    let arrLs = JSON.parse(dataJson); //book_Id
-    /* console.log(arrLs) */
-    if (arrLs === null) {
-        arrLs = [];
+
+
+async function addToShoppingList() {
+    console.log(addToShoppingList); 
+    if (abortCtrl1) {      
+        abortCtrl1.abort();
+        console.log("abort previous fetch");
     }
-    arrLs.push(book_Id);
-    localStorage.setItem('orderedBookID', JSON.stringify(arrLs));
-    displayOrdredAmountInShoppingBag(arrLs)
+
+    try{
+    
+        const accessToken = getCookie("accessToken");
+        if (!accessToken){  throw new Error("Request failed with status code 401"); }
+        
+        const loader1 = createLoader(divBackdropEl);
+        abortCtrl1 = new AbortController();
+        const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl1);
+        loader1.remove();
+        
+        if (data){
+            console.log(data);   
+            const {accessToken: newAccessToken, shoppingList} = data.user;
+            
+            rewriteAccessToken(newAccessToken);
+    
+            btnAddEl.classList.add('is-hidden');
+            btnRemoveEl.classList.remove('is-hidden');
+            textEl.classList.remove('is-hidden');
+            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shoppingList))
+        
+            displayOrdredAmountInShoppingBag(shoppingList);    
+        }
+
+    }catch(error){
+        if (error.message === "Request failed with status code 401"){
+            const logoLink = document.querySelector('.logo-link');
+            logoLink.click();
+          }else{
+            const errorBox = document.createElement("div");
+            shoppingBooksBox.append(errorBox);
+            errorBox.classList.add("error-box");
+            errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+          }
+    }
+
+
+
 };
 
-function removeLocalStorage() {
+function removeFromShoppingList() {
     btnAddEl.classList.remove('is-hidden');
     btnRemoveEl.classList.add('is-hidden');
     textEl.classList.add('is-hidden');
