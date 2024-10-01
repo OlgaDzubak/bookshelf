@@ -154,7 +154,7 @@ async function addToShoppingList() {
     }
 
     try{
-    
+        console.log("try"); 
         const accessToken = getCookie("accessToken");
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
         
