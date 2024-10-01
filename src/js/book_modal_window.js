@@ -3,7 +3,7 @@ import { displayOrdredAmountInShoppingBag, createLoader, rewriteAccessToken } fr
 
 
 const api = new bookshelf_API;
-let book_Id, abortCtrl1;
+let book_Id, abortCtrl1, abortCtrl2;
 
 const divContainerEl = document.querySelector('.books-box');
 const divBackdropEl = document.querySelector('.book-modal-backdrop');
@@ -147,7 +147,8 @@ btnRemoveEl.addEventListener('click', removeFromShoppingList);
 
 async function addToShoppingList() {
     console.log("addToShoppingList"); 
-    if (abortCtrl1) {      
+    
+    if (abortCtrl2) {      
         abortCtrl1.abort();
         console.log("abort previous fetch");
     }
@@ -158,8 +159,8 @@ async function addToShoppingList() {
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
         
         const loader1 = createLoader(divBackdropEl);
-        abortCtrl1 = new AbortController();
-        const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl1);
+        abortCtrl2 = new AbortController();
+        const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
         loader1.remove();
         
         if (data){
