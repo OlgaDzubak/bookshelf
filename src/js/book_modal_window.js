@@ -149,7 +149,7 @@ async function addToShoppingList() {
     console.log("addToShoppingList"); 
     
     if (abortCtrl2) {      
-        abortCtrl1.abort();
+        abortCtrl2.abort();
         console.log("abort previous fetch");
     }
 
