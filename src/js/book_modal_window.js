@@ -155,6 +155,7 @@ async function addToShoppingList() {
 
     try{
         const accessToken = getCookie("accessToken");
+        console.log(accessToken);
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
         
         const loader1 = createLoader(divBackdropEl);
