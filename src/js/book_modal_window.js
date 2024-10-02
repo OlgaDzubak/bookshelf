@@ -146,7 +146,7 @@ btnRemoveEl.addEventListener('click', removeFromShoppingList);
 
 
 async function addToShoppingList() {
-    console.log("addToShoppingList"); 
+    
     
     if (abortCtrl2) {      
         abortCtrl2.abort();
@@ -154,6 +154,7 @@ async function addToShoppingList() {
     }
 
     try{
+        console.log("addToShoppingList"); 
         const accessToken = getCookie("accessToken");
         console.log(accessToken);
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
