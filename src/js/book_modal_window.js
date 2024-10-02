@@ -1,5 +1,5 @@
 import { bookshelf_API } from './API';
-import { displayOrdredAmountInShoppingBag, createLoader, rewriteAccessToken } from './help_functions';
+import { displayOrdredAmountInShoppingBag, createLoader, getCookie, rewriteAccessToken } from './help_functions';
 
 
 const api = new bookshelf_API;
