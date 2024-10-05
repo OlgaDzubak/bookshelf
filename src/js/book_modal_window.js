@@ -163,16 +163,12 @@ async function addToShoppingList() {
         const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
         loader1.remove();
         
-        console.log("before rewriteAccessToken"); 
-        console.log("data = ", data); 
         if (data){
 
-            const {accessToken: newAccessToken, shoppingList} = data.user;
-            console.log("newAccessToken = ", newAccessToken); 
-            
+            const {accessToken: newAccessToken, shoppingList} = data;
+
             rewriteAccessToken(newAccessToken);
             
-            console.log("after rewriteAccessToken");
             btnAddEl.classList.add('is-hidden');
             btnRemoveEl.classList.remove('is-hidden');
             textEl.classList.remove('is-hidden');
