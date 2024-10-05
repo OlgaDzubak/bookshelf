@@ -163,6 +163,8 @@ async function addToShoppingList() {
         const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
         loader1.remove();
         
+        console.log("before rewriteAccessToken"); 
+        console.log("data = ", data); 
         if (data){
 
             const {accessToken: newAccessToken, shoppingList} = data.user;
