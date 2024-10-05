@@ -168,7 +168,8 @@ async function addToShoppingList() {
             const {accessToken: newAccessToken, shoppingList} = data.user;
             
             rewriteAccessToken(newAccessToken);
-    
+            
+            console.log("after rewriteAccessToken");
             btnAddEl.classList.add('is-hidden');
             btnRemoveEl.classList.remove('is-hidden');
             textEl.classList.remove('is-hidden');
