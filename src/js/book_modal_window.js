@@ -215,6 +215,7 @@ async function removeFromShoppingList() {
 
         if (data){
             const {accessToken: newAccessToken, shoppingList} = data;
+            console.log("shoppingList=",shoppingList);
 
             rewriteAccessToken(newAccessToken);
 
