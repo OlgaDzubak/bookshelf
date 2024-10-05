@@ -168,6 +168,7 @@ async function addToShoppingList() {
         if (data){
 
             const {accessToken: newAccessToken, shoppingList} = data.user;
+            console.log("newAccessToken = ", newAccessToken); 
             
             rewriteAccessToken(newAccessToken);
             
