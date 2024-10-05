@@ -94,5 +94,14 @@ export class bookshelf_API {
 
       return response;
     }
+
+
+    async removeFromShoppingList(accessToken, bookId ,abortCtrl){
+
+      this.setAuthHeader(accessToken);
+      const response = await axios.delete(`${this.#BASE_URL}books/shoppinglist/remove/${bookId}`, {signal: abortCtrl.signal});
+
+      return response;
+    }
     
 }
