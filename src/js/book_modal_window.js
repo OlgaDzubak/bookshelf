@@ -165,7 +165,7 @@ async function addToShoppingList() {
         
         if (data){
 
-            const {accessToken: newAccessToken, shoppingList} = data;
+            const {accessToken: newAccessToken, shopping_list} = data;
 
             rewriteAccessToken(newAccessToken);
             
@@ -173,9 +173,9 @@ async function addToShoppingList() {
             btnRemoveEl.classList.remove('is-hidden');
             textEl.classList.remove('is-hidden');
 
-            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shoppingList));
+            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shopping_list));
 
-            displayOrdredAmountInShoppingBag(shoppingList);
+            displayOrdredAmountInShoppingBag(shopping_list);
         }
 
     }catch(error){
@@ -214,8 +214,8 @@ async function removeFromShoppingList() {
         loader1.remove();
 
         if (data){
-            const {accessToken: newAccessToken, shoppingList} = data;
-            console.log("shoppingList=",shoppingList);
+            const {accessToken: newAccessToken, shopping_list} = data;
+            console.log("shoppingList=",shopping_list);
 
             rewriteAccessToken(newAccessToken);
 
@@ -223,9 +223,9 @@ async function removeFromShoppingList() {
             btnRemoveEl.classList.add('is-hidden');
             textEl.classList.add('is-hidden');
 
-            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shoppingList));
+            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shopping_list));
 
-            displayOrdredAmountInShoppingBag(shoppingList);
+            displayOrdredAmountInShoppingBag(shopping_list);
         }
 
     }catch(error){
