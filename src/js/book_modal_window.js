@@ -140,10 +140,10 @@ function onCloseModal() {
     textEl.classList.add('is-hidden');
 }
 
+
+
 btnAddEl.addEventListener('click', addToShoppingList);
 btnRemoveEl.addEventListener('click', removeFromShoppingList);
-
-
 
 async function addToShoppingList() {
     
@@ -154,9 +154,8 @@ async function addToShoppingList() {
     }
 
     try{
-        console.log("addToShoppingList"); 
         const accessToken = getCookie("accessToken");
-        console.log(accessToken);
+
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
         
         const loader1 = createLoader(divBackdropEl);
@@ -165,7 +164,7 @@ async function addToShoppingList() {
         loader1.remove();
         
         if (data){
-            console.log(data);   
+
             const {accessToken: newAccessToken, shoppingList} = data.user;
             
             rewriteAccessToken(newAccessToken);
@@ -173,21 +172,24 @@ async function addToShoppingList() {
             btnAddEl.classList.add('is-hidden');
             btnRemoveEl.classList.remove('is-hidden');
             textEl.classList.remove('is-hidden');
-            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shoppingList))
-        
-            displayOrdredAmountInShoppingBag(shoppingList);    
+
+            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shoppingList));
+
+            displayOrdredAmountInShoppingBag(shoppingList);
+        }else{
+
         }
 
     }catch(error){
         if (error.message === "Request failed with status code 401"){
             const logoLink = document.querySelector('.logo-link');
             logoLink.click();
-          }else{
+        }else{
             const errorBox = document.createElement("div");
             divBackdropEl.append(errorBox);
             errorBox.classList.add("error-box");
             errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
-          }
+        }
     }
 
 
