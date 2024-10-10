@@ -218,25 +218,25 @@ function showPage(dataArray, page, itemsOnPage) {
   // Функція видалення книжки зі списку Shopping list
 function deleteBook({target}){
 
-  console.log("target=", target);
-  
   if (target.classList.contains("bucket-btn")){
     
     //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
     const btns = document.querySelectorAll(".bucket-btn");
     btns.forEach(btn=>btn.setAttribute("disabled",""));
 
-    
-    //Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray
-    
     const LOCALSTORAGE_KEY ="bookshelf_orderedbooks"
     const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
     
+    //Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
     const bookIdDelete_idx = orderedBooksIdArray.indexOf(target.dataset.id);
 
     //видаляємо id книги та інформацію по книзі з масивів orderedBooksIdArray та shoppingBooks
     orderedBooksIdArray.splice(bookIdDelete_idx, 1);
     shoppingBooks = shoppingBooks.filter(item => item._id != target.dataset.id);
+   
+    //Видаляємо id книги з shoppinglist користувача в базі
+    //Дописати код !!!
+
     
     //Перезаписуємо сховище    
     localStorage.removeItem(LOCALSTORAGE_KEY);
