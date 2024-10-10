@@ -218,7 +218,7 @@ function showPage(dataArray, page, itemsOnPage) {
   // Функція видалення книжки зі списку Shopping list
 function deleteBook({target}){
 
-  concole.log("target=", target);
+  console.log("target=", target);
   
   if (target.classList.contains("bucket-btn")){
     
