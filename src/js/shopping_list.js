@@ -94,18 +94,20 @@ async function createShoppingList() {
           createEmptyBooksBox();
         }else{
           
+          shoppingBooks = [...books];
+
           books_ul = document.createElement("ul");
           books_ul.classList.add("list","shopping_booklist");
           shoppingBooksBoxTitle.after(books_ul);
           books_ul.addEventListener('click', deleteBook);
 
-          books_ul.innerHTML = showPage(books, 1, booksOnPage);
-          pagesCount = Math.ceil(books.length / booksOnPage); 
+          books_ul.innerHTML = showPage(shoppingBooks, 1, booksOnPage);
+          pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
 
           //стиворюємо пагінацію, якщо сторінок більше за 1
           if (pagesCount > 1 ) {
 
-            paginationBox = createPagination(books.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
+            paginationBox = createPagination(shoppingBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
             shoppingBooksBox.append(paginationBox);
             currentPage = setPaginationPage(paginationBox, 1);
             paginationBox.addEventListener('click', ({target})=>{onPaginationClick(paginationBox, target)});
@@ -117,8 +119,7 @@ async function createShoppingList() {
 
     }catch(error){
       if (error.message === "Request failed with status code 401"){
-        const logoLink = document.querySelector('.logo-link');
-        logoLink.click();
+        document.querySelector('.logo-link').click();
       }else{
         const errorBox = document.createElement("div");
         shoppingBooksBox.append(errorBox);
@@ -325,7 +326,7 @@ async function deleteBook({target}){
             console.log("shoppingBooks =",shoppingBooks);
             console.log("currentPage = ", currentPage);
             console.log("booksOnPage =", booksOnPage);
-            
+
             books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);                                        // відображаємо книжки активної сторінки
           }
         }, 2*time);   
