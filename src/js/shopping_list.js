@@ -216,8 +216,9 @@ function showPage(dataArray, page, itemsOnPage) {
 }
 
   // Функція видалення книжки зі списку Shopping list
-function deleteBook({target}){
+async function deleteBook({target}){
 
+  const book_id =target.dataset.id;
   if (target.classList.contains("bucket-btn")){
     
     //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
@@ -228,19 +229,53 @@ function deleteBook({target}){
     const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
     
     //Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
-    const bookIdDelete_idx = orderedBooksIdArray.indexOf(target.dataset.id);
+    const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);
 
     //видаляємо id книги та інформацію по книзі з масивів orderedBooksIdArray та shoppingBooks
     orderedBooksIdArray.splice(bookIdDelete_idx, 1);
-    shoppingBooks = shoppingBooks.filter(item => item._id != target.dataset.id);
+    shoppingBooks = shoppingBooks.filter(item => item._id != book_id);
    
     //Видаляємо id книги з shoppinglist користувача в базі
-    //Дописати код !!!
+    if (abortCtrl1) {      
+        abortCtrl1.abort();
+        console.log("abort previous fetch");
+    }
 
-    
-    //Перезаписуємо сховище    
-    localStorage.removeItem(LOCALSTORAGE_KEY);
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(orderedBooksIdArray));
+    try{
+        const accessToken = getCookie("accessToken");
+
+        if (!accessToken){  throw new Error("Request failed with status code 401"); }
+
+        const loader1 = createLoader(divBackdropEl);
+        
+        abortCtrl1 = new AbortController();
+        const {data} = await api.removeFromShoppingList(accessToken, book_id, abortCtrl1);
+        
+        loader1.remove();
+
+        if (data){
+            const {accessToken: newAccessToken, shopping_list} = data;
+
+            rewriteAccessToken(newAccessToken);
+            
+            //Перезаписуємо сховище    
+            localStorage.removeItem('bookshelf_orderedbooks');
+            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shopping_list));
+
+            displayOrdredAmountInShoppingBag(shopping_list);
+        }
+
+    }catch(error){
+        if (error.message === "Request failed with status code 401"){
+            document.querySelector('.logo-link').click();
+        }else{
+            const errorBox = document.createElement("div");
+            divBackdropEl.append(errorBox);
+            errorBox.classList.add("error-box");
+            errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+        }
+    }
+
     
     // зміщуємо елемент, що видаляться, вправо за межі екрану
     const delItem = books_ul.children[bookIdDelete_idx];

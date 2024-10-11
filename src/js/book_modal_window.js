@@ -180,8 +180,7 @@ async function addToShoppingList() {
 
     }catch(error){
         if (error.message === "Request failed with status code 401"){
-            const logoLink = document.querySelector('.logo-link');
-            logoLink.click();
+            document.querySelector('.logo-link').click();
         }else{
             const errorBox = document.createElement("div");
             divBackdropEl.append(errorBox);
