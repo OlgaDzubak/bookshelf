@@ -220,14 +220,6 @@ async function deleteBook({target}){
 
   if (target.classList.contains("bucket-btn")){
     
-    const book_id = target.dataset.id;                      // id книги, яку видаляємо
-    const delitedBookContainer = target.parentElement;      // контейнер книги, яку видаляємо 
-    const LOCALSTORAGE_KEY ="bookshelf_orderedbooks"
-    const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираємо з localStorage масив id обраних книжок до видалення
-    const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
-
-    console.log("bookIdDelete_idx=",bookIdDelete_idx);
-
     const btns = document.querySelectorAll(".bucket-btn");  //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
     btns.forEach(btn=>btn.setAttribute("disabled",""));
 
@@ -238,30 +230,101 @@ async function deleteBook({target}){
     }
 
     try{
-        const accessToken = getCookie("accessToken");
 
-        if (!accessToken){  throw new Error("Request failed with status code 401"); }
+      const book_id = target.dataset.id;                      // id книги, яку видаляємо
+      const delitedBookContainer = target.parentElement;      // контейнер книги, яку видаляємо 
+      const LOCALSTORAGE_KEY ="bookshelf_orderedbooks"
+      const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираємо з localStorage масив id обраних книжок до видалення
+      const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
 
-        const loader1 = createLoader(delitedBookContainer);
+      const accessToken = getCookie("accessToken");
+      if (!accessToken){  throw new Error("Request failed with status code 401"); }
+
+      const loader1 = createLoader(delitedBookContainer);
+      
+      abortCtrl1 = new AbortController();
+      const {data} = await api.removeFromShoppingList(accessToken, book_id, abortCtrl1);
+      
+      loader1.remove();
+
+      if (data){
+        const {accessToken: newAccessToken, shopping_list} = data;
+
+        rewriteAccessToken(newAccessToken);
         
-        abortCtrl1 = new AbortController();
-        const {data} = await api.removeFromShoppingList(accessToken, book_id, abortCtrl1);
+        // перезаписуємо localStorage новим масивом id за вичетом id видаленої книги
+        localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));    
+       
+        //  orderedBooksIdArray.splice(bookIdDelete_idx, 1);
+
+        //видаляємо інформацію по книзі з масивe shoppingBooks
+        shoppingBooks = shoppingBooks.filter(item => item._id != book_id);        
+
+        // зміщуємо елемент, що видаляться, вправо за межі екрану
+        const delItem = books_ul.children[bookIdDelete_idx];
+        delItem.classList.add("shift-right");
+
+        //вираховуємо який номер на сторінці має єлемент, що видаляється (від 0 до booksOnPage-1)
+        const numberOnPage = bookIdDelete_idx - booksOnPage* Math.trunc((bookIdDelete_idx) / booksOnPage);
         
-        loader1.remove();
-
-        if (data){
-            const {accessToken: newAccessToken, shopping_list} = data;
-
-            rewriteAccessToken(newAccessToken);
+        //зміщуємо вгору всі елементи, що стоять на сторінці за елементом, який видаляється. 
+        //Ставимо відтермінування setTimeout для того щоб зміщення вгору відбулося після зміщення вправо елемента delItem
+        const time = 600;
+        setTimeout(()=>{ 
+          if (bookIdDelete_idx+1 < books_ul.children.length){
             
-            localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));            // перезаписуємо localStorage новим масивом id за вичетом id видаленої книги
+            //визначаэмо діапазон індексів елементів, які треба змістити вгору
+            const from_idx= bookIdDelete_idx+1;
+            const to_idx= (bookIdDelete_idx+(booksOnPage-1-numberOnPage) >= (books_ul.children.length-1)) ? books_ul.children.length-1 : bookIdDelete_idx+(booksOnPage-1-numberOnPage);
+            
+            for (let i = from_idx; i <= to_idx; i++){
+              let books_li = books_ul.children[i];
+              books_li.classList.add("shift-up");
+            }
+          }
+        }, time);
 
-            //видаляємо id книги та інформацію по книзі з масивів orderedBooksIdArray та shoppingBooks
-            //  orderedBooksIdArray.splice(bookIdDelete_idx, 1);
-            shoppingBooks = shoppingBooks.filter(item => item._id != book_id);
-  
-            displayOrdredAmountInShoppingBag(shopping_list);
-        }
+        //фізично видаляємо елемент delItem зі списку list, скасовуємо стилі зміщення, відображаємо на поточній сторінці перший елемент з наступної сторінки, та перемалбовуємо пагінацію
+        setTimeout(()=>{ 
+
+          //фізично видаляємо елемент зі списку list 
+          books_ul.children[bookIdDelete_idx].remove();
+
+          //Перезаписуємо кількість замовлених книжок в кошику після видалення книжки
+          displayOrdredAmountInShoppingBag(shopping_list);
+
+          //активуємо всі кнопки bucket-btn
+          btns.forEach(btn=>btn.removeAttribute("disabled"));
+
+          //якщо після видалення елементу список list залишився пустим, то виводимо елемент Emptybooks_ulBox
+          if (books_ul.children.length === 0){
+            createEmptyBooksBox();
+          }else{
+          
+            // скасовуємо стилі зміщення в елементів списку
+            [...books_ul.children].forEach((li)=>{
+              li.classList.remove("shift-right");
+              li.classList.remove("shift-up");
+            });
+
+            //шукаємо наступний елемент, що йде за останнім видимим елементом на сторінці
+            const nextIdx =  [...books_ul.children].findIndex((li, idx) => ((idx > bookIdDelete_idx-1) && li.classList.contains("non-active")));
+
+            if (nextIdx != -1) {
+              books_ul.children[nextIdx].classList.remove("non-active");                                                     //якщо наступний елемент є то показуємо його
+            }
+            if (Math.ceil(shoppingBooks.length / booksOnPage) < pagesCount){
+              currentPage = deleteLastPaginationPage(paginationBox);
+              pagesCount = pagesCount-1;
+              if (pagesCount < 2){
+                paginationBox.remove();
+              }
+            }
+              books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);                                        // відображаємо книжки активної сторінки
+          }
+        }, 2*time);   
+                  
+      }
 
     }catch(error){
       if (error.message === "Request failed with status code 401"){
@@ -272,75 +335,8 @@ async function deleteBook({target}){
           errorBox.classList.add("error-box");
           errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
       }
-    }
-
-    
-    // зміщуємо елемент, що видаляться, вправо за межі екрану
-    const delItem = books_ul.children[bookIdDelete_idx];
-    delItem.classList.add("shift-right");
-
-    //вираховуємо який номер на сторінці має єлемент, що видаляється (від 0 до booksOnPage-1)
-    const numberOnPage = bookIdDelete_idx - booksOnPage* Math.trunc((bookIdDelete_idx) / booksOnPage);
-    
-    //зміщуємо вгору всі елементи, що стоять на сторінці за елементом, який видаляється. 
-    //Ставимо відтермінування setTimeout для того щоб зміщення вгору відбулося після зміщення вправо елемента delItem
-    const time = 600;
-    setTimeout(()=>{ 
-      if (bookIdDelete_idx+1 < books_ul.children.length){
-        
-        //визначаэмо діапазон індексів елементів, які треба змістити вгору
-        const from_idx= bookIdDelete_idx+1;
-        const to_idx= (bookIdDelete_idx+(booksOnPage-1-numberOnPage) >= (books_ul.children.length-1)) ? books_ul.children.length-1 : bookIdDelete_idx+(booksOnPage-1-numberOnPage);
-        
-        for (let i = from_idx; i <= to_idx; i++){
-          let books_li = books_ul.children[i];
-          books_li.classList.add("shift-up");
-        }
-      }
-    }, time);
-
-    //фізично видаляємо елемент delItem зі списку list, скасовуємо стилі зміщення, відображаємо на поточній сторінці перший елемент з наступної сторінки, та перемалбовуємо пагінацію
-    setTimeout(()=>{ 
-
-      //фізично видаляємо елемент зі списку list 
-      books_ul.children[bookIdDelete_idx].remove();
-
-      //Перезаписуємо кількість замовлених книжок в кошику після видалення книжки
-      displayOrdredAmountInShoppingBag(orderedBooksIdArray);
-
-      //активуємо всі кнопки bucket-btn
-      btns.forEach(btn=>btn.removeAttribute("disabled"));
-
-      //якщо після видалення елементу список list залишився пустим, то виводимо елемент Emptybooks_ulBox
-      if (books_ul.children.length === 0){
-        createEmptyBooksBox();
-      }else{
-      
-        // скасовуємо стилі зміщення в елементів списку
-        [...books_ul.children].forEach((li)=>{
-          li.classList.remove("shift-right");
-          li.classList.remove("shift-up");
-        });
-
-        //шукаємо наступний елемент, що йде за останнім видимим елементом на сторінці
-        const nextIdx =  [...books_ul.children].findIndex((li, idx) => ((idx > bookIdDelete_idx-1) && li.classList.contains("non-active")));
-
-        if (nextIdx != -1) {
-          books_ul.children[nextIdx].classList.remove("non-active");                                                     //якщо наступний елемент є то показуємо його
-        }
-        if (Math.ceil(shoppingBooks.length / booksOnPage) < pagesCount){
-          currentPage = deleteLastPaginationPage(paginationBox);
-          pagesCount = pagesCount-1;
-          if (pagesCount < 2){
-            paginationBox.remove();
-          }
-        }
-          books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);                                        // відображаємо книжки активної сторінки
-      }
-    }, 2*time);   
-    
+    }    
   }
-
 }
 
   //Функція додає до shoppingBooksBox контейнер з картинкою коли список замовлених книжок пустий
