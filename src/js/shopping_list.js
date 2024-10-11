@@ -241,12 +241,12 @@ async function deleteBook({target}){
       const accessToken = getCookie("accessToken");
       if (!accessToken){  throw new Error("Request failed with status code 401"); }
 
-      const loader1 = createLoader(delitedBookContainer);
+     // const loader1 = createLoader(delitedBookContainer);
       
       abortCtrl1 = new AbortController();
       const {data} = await api.removeFromShoppingList(accessToken, book_id, abortCtrl1);
       
-      loader1.remove();
+    //  loader1.remove();
 
       if (data){
         const {accessToken: newAccessToken, shopping_list} = data;
