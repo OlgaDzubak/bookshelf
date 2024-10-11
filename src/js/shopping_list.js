@@ -87,14 +87,16 @@ async function createShoppingList() {
       if (data){
        
         const {accessToken: newAccessToken, books} = data;
-        
+        console.log(books);
         rewriteAccessToken(newAccessToken);   // перевіряємо якщо ми отримали новий ток ен доступу то перезаписуємо його в кукі
         
         if (books.length === 0){
           createEmptyBooksBox();
         }else{
           
+          
           shoppingBooks = [...books];
+          console.log(shoppingBooks);
 
           books_ul = document.createElement("ul");
           books_ul.classList.add("list","shopping_booklist");
