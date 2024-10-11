@@ -218,7 +218,7 @@ function showPage(dataArray, page, itemsOnPage) {
   // Функція видалення книжки зі списку Shopping list
 async function deleteBook({target}){
 
-  console.log(target);
+  console.dir(target);
   const book_id =target.dataset.id;
 
   if (target.classList.contains("bucket-btn")){
