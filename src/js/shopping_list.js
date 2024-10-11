@@ -259,11 +259,10 @@ async function deleteBook({target}){
         //  orderedBooksIdArray.splice(bookIdDelete_idx, 1);
 
         //видаляємо інформацію по книзі з масивe shoppingBooks
-        console.log("shoppingBooks before=",shoppingBooks);
         shoppingBooks = shoppingBooks.filter(item => item._id != book_id);        
-        console.log("shoppingBooks after=",shoppingBooks);
 
         // зміщуємо елемент, що видаляться, вправо за межі екрану
+        console.log(bookIdDelete_idx);
         const delItem = books_ul.children[bookIdDelete_idx];
         delItem.classList.add("shift-right");
 
@@ -323,10 +322,6 @@ async function deleteBook({target}){
                 paginationBox.remove();
               }
             }
-            console.log("shoppingBooks =",shoppingBooks);
-            console.log("currentPage = ", currentPage);
-            console.log("booksOnPage =", booksOnPage);
-
             books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);                                        // відображаємо книжки активної сторінки
           }
         }, 2*time);   
