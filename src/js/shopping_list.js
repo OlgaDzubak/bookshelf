@@ -133,6 +133,7 @@ async function createShoppingList() {
   // Функція створення розмітки ShoppingBooks
 function showPage(dataArray, page, itemsOnPage) {
   
+  console.log("showPage(dataArray=",dataArray);
   const startShownItem_idx = (page - 1)* itemsOnPage;
   const lastShownItem_idx = startShownItem_idx + (itemsOnPage-1); 
 
