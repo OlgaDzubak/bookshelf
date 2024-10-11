@@ -222,6 +222,10 @@ async function deleteBook({target}){
     
     const book_id = target.dataset.id;                      // id книги, яку видаляємо
     const delitedBookContainer = target.parentElement;      // контейнер книги, яку видаляємо 
+    const LOCALSTORAGE_KEY ="bookshelf_orderedbooks"
+    const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираємо з localStorage масив id обраних книжок до видалення
+    const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
+
 
     const btns = document.querySelectorAll(".bucket-btn");  //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
     btns.forEach(btn=>btn.setAttribute("disabled",""));
@@ -249,18 +253,12 @@ async function deleteBook({target}){
 
             rewriteAccessToken(newAccessToken);
             
-            const LOCALSTORAGE_KEY ="bookshelf_orderedbooks"
-            const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираэмо з localStorage масив id обраних книжок до видалення
-            const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
             localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));            // перезаписуємо localStorage новим масивом id за вичетом id видаленої книги
 
-            
-        
             //видаляємо id книги та інформацію по книзі з масивів orderedBooksIdArray та shoppingBooks
-          //  orderedBooksIdArray.splice(bookIdDelete_idx, 1);
+            //  orderedBooksIdArray.splice(bookIdDelete_idx, 1);
             shoppingBooks = shoppingBooks.filter(item => item._id != book_id);
-            
-
+  
             displayOrdredAmountInShoppingBag(shopping_list);
         }
 
