@@ -393,7 +393,8 @@
     transition-duration: 1000ms;
     }
     .scroll-up-icon {
-    fill: var(--accent-color1);
+        fill: var(--accent-color1);
+        stroke:var(--accent-color1); 
     }
 //}
 
