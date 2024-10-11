@@ -221,11 +221,12 @@ async function deleteBook({target}){
   if (target.classList.contains("bucket-btn")){
     
     const book_id = target.dataset.id;                      // id книги, яку видаляємо
-    const delitedBookContainer = target.parentElement;      // контейнер книги, яку видаляємо, в розмітці (сюди будемо вставляти loader при запиті на сервер)
+    const delitedBookContainer = target.parentElement;      // контейнер книги, яку видаляємо 
 
     const btns = document.querySelectorAll(".bucket-btn");  //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
     btns.forEach(btn=>btn.setAttribute("disabled",""));
-    
+
+    //Видаляємо id книги з shoppinglist користувача в базі даних
     if (abortCtrl1) {      
         abortCtrl1.abort();
         console.log("abort previous fetch");
@@ -233,27 +234,36 @@ async function deleteBook({target}){
 
     try{
         const accessToken = getCookie("accessToken");
+
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
 
         const loader1 = createLoader(delitedBookContainer);
         
         abortCtrl1 = new AbortController();
-        const {data} = await api.removeFromShoppingList(accessToken, book_id, abortCtrl1); //Видаляємо id книги з shoppinglist користувача в базі даних
+        const {data} = await api.removeFromShoppingList(accessToken, book_id, abortCtrl1);
         
         loader1.remove();
 
-        if (data){                                                                          
+        if (data){
+            const {accessToken: newAccessToken, shopping_list} = data;
+
+            rewriteAccessToken(newAccessToken);
             
-            const {accessToken: newAccessToken, shopping_list} = data;                     // Дістаємо accessToken та shopping_list користувача після видалення id книги
+            const LOCALSTORAGE_KEY ="bookshelf_orderedbooks"
+            const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираэмо з localStorage масив id обраних книжок до видалення
+            const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
+            localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));            // перезаписуємо localStorage новим масивом id за вичетом id видаленої книги
 
-            rewriteAccessToken(newAccessToken);                                            // Перезаписуємо accessToken в кукі, якщо він прийшов оновлений 
             
-            localStorage.setItem("bookshelf_orderedbooks", JSON.stringify(shopping_list)); // Перезаписуємо масив id обраних книжок в localStorage  
+        
+            //видаляємо id книги та інформацію по книзі з масивів orderedBooksIdArray та shoppingBooks
+          //  orderedBooksIdArray.splice(bookIdDelete_idx, 1);
+            shoppingBooks = shoppingBooks.filter(item => item._id != book_id);
+            
 
-            shoppingBooks = shoppingBooks.filter(item => item._id != book_id);             // Видаляємо з масиву shoppingBooks дані книги, id якої щойно видалили з shopping_list
-
-            displayOrdredAmountInShoppingBag(shopping_list);                               // Оновлюэмо цифру обраних книжок в кошику 
+            displayOrdredAmountInShoppingBag(shopping_list);
         }
+
     }catch(error){
       if (error.message === "Request failed with status code 401"){
           document.querySelector('.logo-link').click();
