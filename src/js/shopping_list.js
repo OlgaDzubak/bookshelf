@@ -226,6 +226,7 @@ async function deleteBook({target}){
     const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираємо з localStorage масив id обраних книжок до видалення
     const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
 
+    console.log("bookIdDelete_idx=",bookIdDelete_idx);
 
     const btns = document.querySelectorAll(".bucket-btn");  //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
     btns.forEach(btn=>btn.setAttribute("disabled",""));
