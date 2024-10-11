@@ -218,7 +218,9 @@ function showPage(dataArray, page, itemsOnPage) {
   // Функція видалення книжки зі списку Shopping list
 async function deleteBook({target}){
 
+  console.log(target);
   const book_id =target.dataset.id;
+
   if (target.classList.contains("bucket-btn")){
     
     //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
@@ -259,21 +261,21 @@ async function deleteBook({target}){
             rewriteAccessToken(newAccessToken);
             
             //Перезаписуємо сховище    
-            localStorage.removeItem('bookshelf_orderedbooks');
-            localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shopping_list));
+            localStorage.removeItem(LOCALSTORAGE_KEY);
+            localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));
 
             displayOrdredAmountInShoppingBag(shopping_list);
         }
 
     }catch(error){
-        if (error.message === "Request failed with status code 401"){
-            document.querySelector('.logo-link').click();
-        }else{
-            const errorBox = document.createElement("div");
-            divBackdropEl.append(errorBox);
-            errorBox.classList.add("error-box");
-            errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
-        }
+      if (error.message === "Request failed with status code 401"){
+          document.querySelector('.logo-link').click();
+      }else{
+          const errorBox = document.createElement("div");
+          divBackdropEl.append(errorBox);
+          errorBox.classList.add("error-box");
+          errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
+      }
     }
 
     
@@ -342,6 +344,7 @@ async function deleteBook({target}){
     }, 2*time);   
     
   }
+
 }
 
   //Функція додає до shoppingBooksBox контейнер з картинкою коли список замовлених книжок пустий
