@@ -91,6 +91,9 @@ body.dark {
         color: var(--accent-color2);
         text-transform: uppercase;
     }
+    body.dark .category-list-item.active{
+        color: var(--accent-color2);
+    }
 
     body.dark .category-list-box::-webkit-scrollbar{
         background-color: var(--scrollbar-dark-color);
