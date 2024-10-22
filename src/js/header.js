@@ -69,6 +69,8 @@ function headerAuthorised(user){
     const authBtn = document.querySelector('.auth-btn');
     const authBtnName= authBtn.querySelector('.login-p');
 
+    authBtn.addEventListener('click', onAuthBtnClick);
+
     authBtnName.textContent = user.name;
     openBtn.classList.add("is-hidden");
     authBtn.classList.remove("is-hidden");
@@ -78,4 +80,8 @@ function headerAuthorised(user){
         displayOrdredAmountInShoppingBag(user.shopping_list);
         localStorage.setItem("bookshelf_orderedbooks",JSON.stringify(user.shopping_list));
     }
+}
+
+function onAuthBtnClick(){
+    
 }
