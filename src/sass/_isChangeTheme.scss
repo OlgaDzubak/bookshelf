@@ -285,3 +285,11 @@ body.dark {
         --amazon-icon-path2-color: var(--accent-color1);
     }
 //}
+
+
+//----------- user profile window --------------------//
+
+    body.dark .user-profile-container{
+        background-color: var(--dark-theme-background);
+        border-color: 2px solid var(--light-theme-background);
+    }

@@ -21,11 +21,12 @@
     pointer-events: none;
   }
 
-  .modal{
-    padding: 80px 40px 40px 40px;
-    z-index: 1000;
+  .user-profile-container{
+    padding: 84px 40px 84px 40px;
+    z-index: 1100;
     background-color: var(--light-theme-background);
     border-radius: 18px;  
+    border-color: 2px solid var(--dark-theme-background);
   }
 
   .close-button {
