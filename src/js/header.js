@@ -83,5 +83,7 @@ function headerAuthorised(user){
 }
 
 function onAuthBtnClick(){
-    
+    userProfileWindow = document.querySelector(".user-profile-backdrop");
+    userProfileWindow.classList.remove("is-hidden");
+
 }
