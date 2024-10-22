@@ -20,11 +20,13 @@
     //     pointer-events: none;
     //   }
     
-      .modal{
+      .user-profile-container{
         padding: 80px 40px 40px 40px;
         z-index: 1000;
         background-color: var(--light-theme-background);
+        border: 2px solid var(--dark-theme-background);
         border-radius: 18px;  
+
       }
     
       .close-button {
