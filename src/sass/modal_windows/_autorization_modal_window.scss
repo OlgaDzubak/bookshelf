@@ -28,7 +28,7 @@
     border-radius: 18px;  
   }
 
-  .user-profile-closeBtn {
+  .close-button {
     position: absolute;
     top: 14px;
     right: 14px;
@@ -52,16 +52,16 @@
     stroke: var(--accent-color1);
   }
 
-  .user-profile-form-fields-list{
+  .modalForm-fields-list{
     display: flex;
     flex-direction: column;
   }
-  .user-profile-form-inputWrap {
+  .modalForm-inputWrap {
     position: relative;
     --auth-icon-color: var(--auth-icon-color1); 
   }
 
-  .user-profile-form-input {
+  .modalForm-input {
     width: 100%;
     font-weight: 700;
     line-height: 1;
@@ -86,25 +86,25 @@
       transition: background-color 5000s ease-in-out 0s;
   }
 
-  .user-profile-form-input:focus {
+  .modalForm-input:focus {
       border: 2px solid var(--accent-color1);
       outline: none;
       border-color: var(--accent-color1);
       color: var(--text-dark-color); 
   }
-  .user-profile-form-input:focus+ .modalForm-icon{
+  .modalForm-input:focus+ .modalForm-icon{
       --auth-icon-color: var(--auth-icon-color2);
   }
 
-  .user-profile-form-input::selection{
+  .modalForm-input::selection{
     color: currentColor;
     background-color: var(--accent-color2);
   }
 
-  .user-profile-form-input::placeholder {
+  .modalForm-input::placeholder {
     color: currentColor;
   }
-  .user-profile-form-icon {
+  .modalForm-icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
