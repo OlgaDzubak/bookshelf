@@ -1,30 +1,21 @@
 // USER PROFILE MODAL WINDOW ----- Common styles
 //{
-    // .block-scroll {
-    //     overflow: hidden;
-    //   }
-    
-      .user-profile-backdrop {
-        position: relative;
-        top: 0;
-        right: 0;
-        padding: 70px 40px 40px 40px;
-        width: 400px;
-        height: 400px;    
-        background-color: var(--accent-color1);
-        z-index: 1002;
-      }
-      .user-profile-backdrop.is-hidden {
-        opacity: 0;
-        pointer-events: none;
-      }
-    
-      .user-profile-container{
-        padding: 80px 40px 40px 40px;
+      .user-profile-modal{
+        padding: 84px 40px 840x 40px;
         z-index: 1003;
         background-color: var(--light-theme-background);
         border: 2px solid var(--dark-theme-background);
         border-radius: 18px;  
+
+        position: relative;
+        top: 10%;
+        right: 0%;
+        max-width: 479px;
+        width: 100%;
+      }
+      .user-profile-modal.is-hidden{
+        opacity: 0;
+        pointer-events: none;
       }
     
       .close-button {
@@ -105,145 +96,24 @@
         transform: translateY(-50%);
         margin-left: 20px; 
       }
-    
-      .modalWrapper-btn {
-        display: block;
-      }
-      .submitBtn{
-        display: block;
-        border-radius: 40px;
-        width: 100%;
-        padding: 16px 0;
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--logo-theme-dark);
-        background-color: var(--dark-theme-background);
-        cursor: pointer;
-        border: none;
-      
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      
-        &:hover,
-        &:focus {
-          background-color: var(--accent-color1);
-        }
-      }
-      .btn-signUpIn-ul {
-        display: flex;
-        justify-content: center;
-        column-gap: 20px;
-      }
-      .btn-sign-up,
-      .btn-sign-in {
-        position: relative;
-        padding: 0;
-        font-weight: 700;
-        font-size: 14px;
-        white-space: nowrap;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        color: var(--light-theme-fifty);
-    
-        &:hover,
-        &:focus {
-          color: var(--accent-color1);
-        }
-        &.current {
-          color: var(--accent-color1);
-        }
-        &.current::after {
-          position: absolute;
-          width: 100%;
-          height: 1px;
-          content: '';
-          left: 0;
-          bottom: -1px;
-          background: var(--accent-color1);
-        }
-      }
+
+
     //}
     
     
     // USER PROFILE MODAL WINDOW ----- Mobile styles
     //{
       @media screen and (max-width: 767.8px) {
-        .autorization-modal-backdrop {
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-        .modal{
-          position: relative;
-          top: 50%;
-          left: 50%;
-          max-width: 335px;
-          width: 100%;
-          padding: 40px 20px;
-          transform: translate(-50%, -50%);
-        }
-        .close-button {
-          width: 20px;
-          height: 20px;
-        }
-        .modalForm-fields-list{
-          row-gap: 24px;
-        }
-        .modalForm-input {
-          padding: 16px 40px 16px 24px;
-          font-size: 16px;
-        }  
-        .modalForm-input::placeholder {
-          font-size: 16px;
-        }
-        .modalForm-icon {
-          right: 24px;
-        }
-        .modalForm-icon.name {
+        .user-profile-icon.name {
           width:  13px;
           height: 18px;
         }
-        .modalForm-icon.email {
-          width:  15px;
-          height: 12px;
-        }
-        .modalForm-icon.password {
-          width:  13.5px;
-          height: 13.5px;
-        }
-        .modalWrapper-btn {
-          margin-top: 24px;
-        }
-        .submitBtn {
-          font-size: 16px;
-        }
-        .btn-signUpIn-ul {
-          margin-top: 34px;
-          font-size: 14px;
-          line-height: 1.28;
-        }
       }
       @media screen and (max-width: 270px) {
-        .modalForm-input {
-          padding: 14px 35px 14px 16px; 
-          font-size: 12px;
-        } 
-        .modalForm-input::placeholder {
-          font-size: 11px;
-        }
-        .modalForm-icon {
+        .user-profile-icon {
           right: 16px;
         }
-        .submitBtn{
-          padding: 14px 0;
-          font-size: 12px;
-        }
-        .btn-signUpIn-ul {
-          font-size: 10px;
-          line-height: 1.28;
-        }
+
     }
     //}
     
@@ -251,70 +121,18 @@
     // USER PROFILE MODAL WINDOW ----- Tablet styles
     //{  
       @media screen and (min-width: 768px) {
-        .modal {
-          position: absolute;
-          width: 579px;
-          display: flex;
-          flex-direction: column;
-        }
-        .modalForm-fields-list{
-          row-gap: 28px;
-        }
-        .close-button {
-          width: 28px;
-          height: 28px;
-        }
-        .modalForm-input {
-            padding: 20px 70px 20px 40px;
-            font-size: 18px;
-        }
-        .modalForm-input::placeholder {
-            font-size: 18px;
-        }
-        .modalForm-icon {
-          right: 34px;
-        }
-        .modalForm-icon.name {
+    
+        .user-profile-icon .name {
           width: 19px;
           height: 19px;
-        }
-        .modalForm-icon.email {
-          width: 23px;
-          height: 18px;
-        }
-        .modalForm-icon.password {
-          width: 21px;
-          height: 21px;
-        }
-        .modalWrapper-btn {
-          margin-top: 40px;
-        }
-        .submitBtn {
-          font-size: 18px;
-        }
-        .btn-signUpIn-ul {
-          margin-top: 20px;
-          font-size: 18px;
-          line-height: 1.33;
         }
       }
     
     @media screen and (min-width: 768px) and (max-height: 599.8px){
-        .autorization-modal-backdrop {
-        padding-top: 40px;
-      }
-        .modal {
-          top: 40px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
+
     }
     @media screen and (min-width: 768px) and (min-height: 600px){
-        .modal {
-          top: calc((100% + 70px)/2);
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
+
     }
     //}
     
