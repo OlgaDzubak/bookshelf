@@ -1,7 +1,8 @@
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
+const userProfileModal =  document.querySelector(".user-profile-modal");
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 
 function onCloseProfileModal(){
-    userProfileCloseBtn.classList.add("is-hidden");
+    userProfileModal.classList.add("is-hidden");
 }
