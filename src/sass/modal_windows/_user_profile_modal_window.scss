@@ -2,8 +2,8 @@
 //{
       .user-profile-modal{
         position: absolute;
-        top: 10%;
-        right: 0%;
+        top: 55px;
+        right: 0px;
         max-width: 479px;
         width: 100%;
         padding: 84px 40px 840x 40px;
@@ -17,7 +17,7 @@
         pointer-events: none;
       }
     
-      .close-button {
+      .cuser-profile-closeBtn{
         position: absolute;
         top: 14px;
         right: 14px;
