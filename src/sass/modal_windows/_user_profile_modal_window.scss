@@ -1,17 +1,16 @@
 // USER PROFILE MODAL WINDOW ----- Common styles
 //{
       .user-profile-modal{
-        padding: 84px 40px 840x 40px;
-        z-index: 1003;
-        background-color: var(--light-theme-background);
-        border: 2px solid var(--dark-theme-background);
-        border-radius: 18px;  
-
-        position: relative;
+        position: absolute;
         top: 10%;
         right: 0%;
         max-width: 479px;
         width: 100%;
+        padding: 84px 40px 840x 40px;
+        z-index: 1003;
+        background-color: var(--light-theme-background);
+        border: 2px solid var(--dark-theme-background);
+        border-radius: 18px;
       }
       .user-profile-modal.is-hidden{
         opacity: 0;
