@@ -83,7 +83,7 @@ function headerAuthorised(user){
 }
 
 function onAuthBtnClick(){
-    const userProfileWindow = document.querySelector(".user-profile-backdrop");
-    userProfileWindow.classList.remove("is-hidden");
+    const userProfileModal = document.querySelector(".user-profile-modal");
+    userProfileModal.classList.remove("is-hidden");
 
 }
