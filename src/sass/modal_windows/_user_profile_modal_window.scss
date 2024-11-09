@@ -40,13 +40,13 @@
       .icon-x:focus{
         stroke: var(--accent-color1);
       }
-    
-      .user-profile-form-inputWrap {
+      
+      .user-profile-inputWrap {
         position: relative;
         --auth-icon-color: var(--auth-icon-color1); 
       }
     
-      .user-profile-form-input {
+      .user-profile-input {
         width: 100%;
         font-weight: 700;
         line-height: 1;
@@ -71,25 +71,25 @@
           transition: background-color 5000s ease-in-out 0s;
       }
     
-      .user-profile-form-input:focus {
+      .user-profile-input:focus {
           border: 2px solid var(--accent-color1);
           outline: none;
           border-color: var(--accent-color1);
           color: var(--text-dark-color); 
       }
-      .user-profile-form-input:focus+ .user-profile-form--icon{
+      .user-profile-input:focus+ .user-profile-form--icon{
           --auth-icon-color: var(--auth-icon-color2);
       }
     
-      .user-profile-form--input::selection{
+      .user-profile-input::selection{
         color: currentColor;
         background-color: var(--accent-color2);
       }
     
-      .user-profile-form-input::placeholder {
+      .user-profile-input::placeholder {
         color: currentColor;
       }
-      .user-profile-form-icon {
+      .user-profile-icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
