@@ -62,7 +62,7 @@ showCategoryList();
         itemAllCategories.click();
 
         //створюємо loader
-        const loader1 = createLoader(itemAllCategories);
+        const loader1 = createLoader(itemAllCategories, "after");
         
         //завантажуємо з сервера список категорій книжок
         const data = await fetchCategoryList();
@@ -112,7 +112,7 @@ showCategoryList();
                 scrollToBoxTop(booksBox);
             }
 
-            const loader2 = createLoader(booksBoxTitle);
+            const loader2 = createLoader(booksBoxTitle, "after");
 
             abortCtrl1 = new AbortController();
             const data = await fetchBestSellersBooks(abortCtrl1);
@@ -143,7 +143,7 @@ showCategoryList();
 
             scrollToBoxTop(booksBox);
 
-            const loader2 = createLoader(booksBoxTitle);
+            const loader2 = createLoader(booksBoxTitle, "after");
             
             abortCtrl1 = new AbortController();
             const data  = await fetchBooksOfCategory(category, abortCtrl1);

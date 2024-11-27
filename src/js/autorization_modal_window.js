@@ -92,7 +92,7 @@ async function singIn({email, password}){
   try{
 
     //створюємо loader
-    const loader1 = createLoader(modal);
+    const loader1 = createLoader(modal, "into");
 
     abortCtrl2 = new AbortController();
     const {user} = await api.signIn({email, password}, abortCtrl2);

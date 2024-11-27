@@ -158,7 +158,7 @@ async function addToShoppingList() {
 
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
         
-        const loader1 = createLoader(divBackdropEl);
+        const loader1 = createLoader(divBackdropEl, "after");
         abortCtrl2 = new AbortController();
         const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
         loader1.remove();
@@ -205,7 +205,7 @@ async function removeFromShoppingList() {
 
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
 
-        const loader1 = createLoader(divBackdropEl);
+        const loader1 = createLoader(divBackdropEl, "after");
         
         abortCtrl2 = new AbortController();
         const {data} = await api.removeFromShoppingList(accessToken, book_Id, abortCtrl2);
