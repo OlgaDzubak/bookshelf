@@ -97,31 +97,31 @@ async function singIn({email, password}){
     const {user} = await api.signIn({email, password}, abortCtrl2);
     
     //видаляємо loader після виконання запиту
-    loader1.remove(); 
+  //  loader1.remove(); 
     
-    if (user) {
+    // if (user) {
 
-      onCloseModal();
+    //   onCloseModal();
   
-      const navigation = document.querySelector('.navigation');
-      navigation.classList.remove("is-hidden");
+    //   const navigation = document.querySelector('.navigation');
+    //   navigation.classList.remove("is-hidden");
 
-      const authBtn = document.querySelector('.auth-btn');
-      authBtn.classList.remove("is-hidden");
+    //   const authBtn = document.querySelector('.auth-btn');
+    //   authBtn.classList.remove("is-hidden");
       
-      const authBtnName = authBtn.querySelector('.login-p');
-      authBtnName.textContent = user.name;
+    //   const authBtnName = authBtn.querySelector('.login-p');
+    //   authBtnName.textContent = user.name;
       
-      openBtn.classList.add("is-hidden");
+    //   openBtn.classList.add("is-hidden");
 
-      localStorage.setItem("bookshelf_orderedbooks", JSON.stringify(user["shopping_list"]));
-      displayOrdredAmountInShoppingBag(user["shopping_list"]);
+    //   localStorage.setItem("bookshelf_orderedbooks", JSON.stringify(user["shopping_list"]));
+    //   displayOrdredAmountInShoppingBag(user["shopping_list"]);
 
-      Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1300});
+    //   Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1300});
 
-    }else { 
-      Notify.failure('Password or email is wrong!!!', {position:'center-center', timeout: 2000,});
-    }
+    // }else { 
+    //   Notify.failure('Password or email is wrong!!!', {position:'center-center', timeout: 2000,});
+    // }
 
   }catch(error){
     console.log(error);  
