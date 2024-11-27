@@ -8,6 +8,7 @@ let abortCtrl1, abortCtrl2;
 const backdrop = document.querySelector('.autorization-modal-backdrop');
 
 //відкриття модального вікна для авторизації
+const modal = document.querySelector('.modal');
 const openBtn = document.querySelector('.jsOpenBtn');
 const openBtnMobile = document.querySelector('.jsOpenBtn-mobile');
 openBtn.addEventListener('click', onOpenModal);
@@ -91,7 +92,7 @@ async function singIn({email, password}){
   try{
 
     //створюємо loader
-    const loader1 = createLoader(modalForm);
+    const loader1 = createLoader(modal);
 
     abortCtrl2 = new AbortController();
     const {user} = await api.signIn({email, password}, abortCtrl2);
