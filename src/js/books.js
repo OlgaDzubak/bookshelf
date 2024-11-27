@@ -23,7 +23,7 @@ const categoryListBox = document.querySelector(".category-list-box");
 categoryListBox.addEventListener('click', showBooksOfCategory);
 const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
-const container = document.querySelector('.container');
+const container = document.querySelector('main .container');
 
 let categoryList, itemAllCategories, abortCtrl1, per_page;
 let firstLoading = true;
