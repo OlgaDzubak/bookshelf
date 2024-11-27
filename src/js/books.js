@@ -23,6 +23,7 @@ const categoryListBox = document.querySelector(".category-list-box");
 categoryListBox.addEventListener('click', showBooksOfCategory);
 const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
+const container = document.querySelector('.container');
 
 let categoryList, itemAllCategories, abortCtrl1, per_page;
 let firstLoading = true;
@@ -44,7 +45,12 @@ scrollUpBtn.addEventListener('click', ()=>{
 
 window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
+const loader1 = createLoader(container, "into");
+
 showCategoryList();  
+
+loader1.remove(); 
+
 
 // ФУНКЦІЇ виводу даних на сайт ----------------------------------------------------------------------------------
 
@@ -62,7 +68,7 @@ showCategoryList();
         itemAllCategories.click();
 
         //створюємо loader
-        const loader1 = createLoader(itemAllCategories, "after");
+      //  const loader1 = createLoader(itemAllCategories, "after");
         
         //завантажуємо з сервера список категорій книжок
         const data = await fetchCategoryList();
@@ -79,7 +85,7 @@ showCategoryList();
         }
 
         //видаляємо loader після виконання запиту
-        loader1.remove(); 
+      //  loader1.remove(); 
         
     };
 
@@ -112,12 +118,12 @@ showCategoryList();
                 scrollToBoxTop(booksBox);
             }
 
-            const loader2 = createLoader(booksBoxTitle, "after");
+         //   const loader2 = createLoader(booksBoxTitle, "after");
 
             abortCtrl1 = new AbortController();
             const data = await fetchBestSellersBooks(abortCtrl1);
     
-            loader2.remove();
+         //   loader2.remove();
     
             if (data.length) {
     
