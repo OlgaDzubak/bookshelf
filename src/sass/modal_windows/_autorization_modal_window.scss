@@ -304,21 +304,21 @@
     }
   }
 
-@media screen and (min-width: 768px) and (max-height: 599.8px){
-    .autorization-modal-backdrop {
-    padding-top: 40px;
+  @media screen and (min-width: 768px) and (max-height: 599.8px){
+      .autorization-modal-backdrop {
+      padding-top: 40px;
+    }
+      .modal {
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
   }
-    .modal {
-      top: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-}
-@media screen and (min-width: 768px) and (min-height: 600px){
-    .modal {
-      top: calc((100% + 70px)/2);
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-}
+  @media screen and (min-width: 768px) and (min-height: 600px){
+      .modal {
+        top: calc((100% + 70px)/2);
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+  }
 //}

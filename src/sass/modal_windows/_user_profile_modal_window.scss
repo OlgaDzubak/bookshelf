@@ -1,12 +1,6 @@
 // USER PROFILE MODAL WINDOW ----- Common styles
 //{
       .user-profile-modal{
-        position: absolute;
-        top: 55px;
-        right: 0px;
-        max-width: 479px;
-        width: 100%;
-        padding: 84px 40px 840x 40px;
         z-index: 1003;
         background-color: var(--light-theme-background);
         border: 2px solid var(--dark-theme-background);
@@ -21,8 +15,6 @@
         position: absolute;
         top: 14px;
         right: 14px;
-        width: 28px;
-        height: 28px;
         padding: 0px;
         display: flex;
         justify-content: center;
@@ -103,17 +95,46 @@
     // USER PROFILE MODAL WINDOW ----- Mobile styles
     //{
       @media screen and (max-width: 767.8px) {
+        .user-profile-modal{
+          position: relative;
+          top: 50%;
+          right: 0%;
+          padding: 84px 40px 840x 40px;
+          width: 100%;
+          max-width: 479px;
+        }
+        .user-profile-closeBtn {
+          width: 20px;
+          height: 20px;
+        }
+        .user-profile-input {
+          padding: 16px 40px 16px 24px;
+          font-size: 16px;
+        }  
+        .user-profile-input::placeholder {
+          font-size: 16px;
+        }
+        .user-profile-icon {
+          right: 24px;
+        }
         .user-profile-icon.name {
           width:  13px;
           height: 18px;
         }
       }
       @media screen and (max-width: 270px) {
+        .user-profile-input {
+          padding: 14px 35px 14px 16px; 
+          font-size: 12px;
+        } 
+        .user-profile-input::placeholder {
+          font-size: 11px;
+        }
         .user-profile-icon {
           right: 16px;
         }
 
-    }
+      }
     //}
     
     
@@ -121,17 +142,57 @@
     //{  
       @media screen and (min-width: 768px) {
     
-        .user-profile-icon .name {
+        .user-profile-icon.name {
           width: 19px;
           height: 19px;
         }
+        .user-profile-modal {
+          position: absolute;
+          width: 579px;
+          display: flex;
+          flex-direction: column;
+        }
+        .user-profile-closeBtn {
+          width: 28px;
+          height: 28px;
+        }
+        .user-profile-input {
+            padding: 20px 70px 20px 40px;
+            font-size: 18px;
+        }
+        .user-profile-input::placeholder {
+            font-size: 18px;
+        }
+        .user-profile-icon {
+          right: 34px;
+        }
+        .user-profile-icon.name {
+          width: 19px;
+          height: 19px;
+        }
+        .user-profile-icon.email {
+          width: 23px;
+          height: 18px;
+        }
+        .user-profile-icon.password {
+          width: 21px;
+          height: 21px;
+        }
       }
     
-    @media screen and (min-width: 768px) and (max-height: 599.8px){
-
-    }
-    @media screen and (min-width: 768px) and (min-height: 600px){
-
-    }
+      @media screen and (min-width: 768px) and (max-height: 599.8px){
+        .user-profile-modal {
+          top: 55px;
+          right: 5%;
+          transform: translateX(-55px);
+        }
+      }
+      @media screen and (min-width: 768px) and (min-height: 600px){
+        .user-profile-modal {
+          top: calc((100% + 70px)/2);
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
     //}
     
