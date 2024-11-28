@@ -46,7 +46,7 @@ scrollUpBtn.addEventListener('click', ()=>{
 window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
 //створюємо loader
-const loader1 = createLoader(container, "into");
+const loader1 = createLoader(html, "into");
 
 showCategoryList();  
 
