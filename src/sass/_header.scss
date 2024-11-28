@@ -5,7 +5,6 @@
         z-index: 200;
         top: 0;
         right: 0;
-        height: 72px;
         border: 1.5px solid #111111;
         border-radius: 0px 0px 8px 8px;
         background-color: var(--accent-color3);
@@ -18,7 +17,7 @@
     }
     .logo-and-navigation{
         display: flex;
-        align-items: center;
+        align-items: center;        
     }
     .navigation.is-hidden{
       display: none;
@@ -312,7 +311,6 @@
     .header {
             padding-top: 17px;
             padding-bottom: 16px;
-            height: 64px;
     }
     .mobile-menu-container{
       height: 100%;
