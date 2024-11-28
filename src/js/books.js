@@ -23,7 +23,7 @@ const categoryListBox = document.querySelector(".category-list-box");
 categoryListBox.addEventListener('click', showBooksOfCategory);
 const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
-const container = document.querySelector('main .container');
+const container = document.querySelector('.main.container');
 
 let categoryList, itemAllCategories, abortCtrl1, per_page;
 let firstLoading = true;
@@ -49,7 +49,6 @@ const loader1 = createLoader(container, "into");
 
 showCategoryList();  
 
-loader1.remove(); 
 
 
 // ФУНКЦІЇ виводу даних на сайт ----------------------------------------------------------------------------------
