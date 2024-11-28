@@ -45,6 +45,8 @@ scrollUpBtn.addEventListener('click', ()=>{
 
 window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
+//створюємо loader
+const loader1 = createLoader(container, "into");
 
 showCategoryList();  
 
@@ -63,10 +65,7 @@ showCategoryList();
         itemAllCategories.setAttribute("id","all-categories-item");
         categoryListBox.prepend(itemAllCategories);
         itemAllCategories.click();
-
-        //створюємо loader
-        const loader1 = createLoader(container, "into");
-        
+       
         //завантажуємо з сервера список категорій книжок
         const data = await fetchCategoryList();
         
