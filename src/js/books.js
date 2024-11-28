@@ -50,7 +50,7 @@ const loader1 = createLoader(container, "into");
 
 showCategoryList();  
 
-
+loader1.remove(); 
 
 // ФУНКЦІЇ виводу даних на сайт ----------------------------------------------------------------------------------
 
