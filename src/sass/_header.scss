@@ -150,7 +150,9 @@
     .slider.round:before {
         border-radius: 50%;
     }
-
+    .log-div{
+        height: 48px;
+    }
     .shopping-link{
         position: relative;
     }
@@ -326,6 +328,7 @@
       align-items: center;
       
     }
+
     .burger-menu {
         background-color: transparent;
         border: none;
@@ -522,6 +525,7 @@
         .burger-menu {
             display: none;
         }
+        
         .mobile-menu {
             display: none;
         }
