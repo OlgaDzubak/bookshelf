@@ -38,11 +38,12 @@
         position: relative;
         --auth-icon-color: var(--auth-icon-color1); 
       }
-    
+      .user-profile-label{
+        marging-bottom: 40px;
+      }
       .user-profile-input {
         width: 100%;
         font-weight: 700;
-        marging-bottom: 40px;
         text-transform: uppercase;
         border: 2px solid var(--text-dark-color);
         background-color: transparent;
@@ -89,7 +90,16 @@
         transform: translateY(-50%);
         margin-left: 20px; 
       }
-
+     .user-profile-submitBtn{
+        padding: 20px 173px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        color: #f3f3f3; //var(--)
+        border-radius: 40px;
+     }
 
     //}
     
@@ -137,7 +147,11 @@
         .user-profile-icon {
           right: 16px;
         }
-
+       .user-profile-submitBtn{
+          padding: 20px 173px;
+          font-size: 16px;
+          line-height: 1.33;
+       }
       }
     //}
     
