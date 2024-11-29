@@ -1,5 +1,9 @@
 // USER PROFILE MODAL WINDOW ----- Common styles
 //{
+      .user-profile-form{
+        display: flex;
+        flex-direction: column;
+      }
       .user-profile-modal{
         padding: 86px 40px;
         z-index: 1005;
