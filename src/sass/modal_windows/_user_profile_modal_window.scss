@@ -1,15 +1,15 @@
 // USER PROFILE MODAL WINDOW ----- Common styles
 //{
-      .user-profile-form{
-        display: flex;
-        flex-direction: column;
-      }
       .user-profile-modal{
         padding: 86px 40px;
         z-index: 1005;
         background-color: var(--light-theme-background);
         border: 2px solid var(--dark-theme-background);
         border-radius: 18px;
+      }
+      .user-profile-form{
+        display: flex;
+        flex-direction: column;
       }
       .user-profile-modal.is-hidden{
         opacity: 0;
@@ -117,7 +117,7 @@
           right: 0%;
           padding: 84px 40px 840x 40px;
           width: 100%;
-          max-width: 479px;
+          max-width: 375px;
         }
         .user-profile-closeBtn {
           width: 20px;
@@ -169,7 +169,7 @@
         }
         .user-profile-modal {
           position: absolute;
-          width: 579px;
+          width: 479px;
           display: flex;
           flex-direction: column;
         }
