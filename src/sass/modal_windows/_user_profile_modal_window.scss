@@ -169,7 +169,7 @@
         }
         .user-profile-modal {
           position: absolute;
-          width: 479px;
+          max-width: 479px;
           display: flex;
           flex-direction: column;
         }
