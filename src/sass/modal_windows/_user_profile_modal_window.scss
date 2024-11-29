@@ -34,12 +34,14 @@
         stroke: var(--accent-color1);
       }
       
-      .user-profile-inputWrap {
-        position: relative;
-        --auth-icon-color: var(--auth-icon-color1); 
-      }
+      // .user-profile-inputWrap {
+      //   position: relative;
+      //   --auth-icon-color: var(--auth-icon-color1); 
+      // }
       .user-profile-label{
+        position: relative;
         margin-bottom: 40px;
+        --auth-icon-color: var(--auth-icon-color1); 
       }
       .user-profile-input {
         width: 100%;
