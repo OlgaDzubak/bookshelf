@@ -7,10 +7,17 @@ closeBtn.addEventListener('click', onCloseModal);
 
 function onOpenModal() {
   window.addEventListener('keydown', onEscKeyDown);
+  window.addEventListener('mousemove', onAnyKeyDown);
+  window.addEventListener('touchstart', onAnyKeyDown);
+
   backdrop.classList.remove('is-hidden');
 }
 function onCloseModal() {
+  
   window.removeEventListener('keydown', onEscKeyDown);
+  window.removeEventListener('mousemove', onAnyKeyDown);
+  window.removeEventListener('touchstart', onAnyKeyDown);
+
   backdrop.classList.add('is-hidden');
 }
 
