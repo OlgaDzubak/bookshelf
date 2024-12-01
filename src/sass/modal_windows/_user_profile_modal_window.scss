@@ -1,7 +1,8 @@
 // USER PROFILE MODAL WINDOW ----- Common styles
 //{
       .user-profile-modal{
-        position: relative;
+        position: fixed;
+        top: 75px;
         padding: 86px 40px;
         z-index: 1005;
         background-color: var(--light-theme-background);
