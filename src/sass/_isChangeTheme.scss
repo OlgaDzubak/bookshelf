@@ -329,7 +329,6 @@ body.dark {
         &:hover,
         &:focus {
             background-color: var(--accent-color1);
-            border: 2px solid var(--text-dark-color);
             color: var(--text-white-color);
         }
     }
