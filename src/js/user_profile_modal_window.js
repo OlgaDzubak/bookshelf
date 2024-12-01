@@ -5,8 +5,8 @@ userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 
 function onCloseProfileModal(){
     
-    window.removeEventListener('keydown', onAnyKeyDown);
-    window.removeEventListener('touchstart', onAnyKeyDown);
+    window.removeEventListener('keydown', onAnyKeyDownProfileModal);
+    window.removeEventListener('touchstart', onAnyKeyDownProfileModal);
     userProfileModal.classList.add("is-hidden");
 }
 
