@@ -14,7 +14,7 @@ export function onAnyKeyDownProfileModal({target, code}){
    
     console.log(target.classList.contains('user-profile-input'));
     
-    if (!target.classList.contains('user-profile-input')){
+    if (!target.classList.contains('user-profile-input') || code === 'Escape') {
         onCloseProfileModal();
     }    
 }
