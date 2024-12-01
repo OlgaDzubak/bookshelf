@@ -150,10 +150,6 @@
     .slider.round:before {
         border-radius: 50%;
     }
-    .log-div{
-        min-width: 184px;
-        //height: 48px;
-    }
     .shopping-link{
         position: relative;
     }
@@ -525,6 +521,7 @@
             margin-right: 24px;
         }
         .log-div{
+            min-width: 184px;
             height: 48px;
         }
         .burger-menu {
