@@ -312,8 +312,8 @@ body.dark {
     }
     body.dark .user-profile-input:focus+ .user-profile-icon,
     body.dark .user-profile-input:hover+ .user-profile-icon,
-    body.dark .user-profile-icon:focus,
-    body.dark .user-profile-icon:hover{
+    body.dark .user-profile-input+.user-profile-icon:focus,
+    body.dark .user-profile-input+.user-profile-icon:hover{
         --auth-icon-color: var(--auth-icon-color2);
     }
     body.dark .user-profile-input::placeholder {

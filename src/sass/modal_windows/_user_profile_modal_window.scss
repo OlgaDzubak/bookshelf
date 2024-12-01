@@ -79,11 +79,10 @@
       }
       .user-profile-input:focus+.user-profile-icon,
       .user-profile-input:hover+.user-profile-icon,
-      .user-profile-icon:focus,
-      .user-profile-icon:hover{
+      .user-profile-input+.user-profile-icon:focus,
+      .user-profile-input+.user-profile-icon:hover{
         --auth-icon-color: var(--auth-icon-color2);
       }
-      
       .user-profile-input::selection{
         color: currentColor;
         background-color: var(--accent-color2);
