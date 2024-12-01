@@ -305,9 +305,8 @@ body.dark {
         background-color: transparent;
         color: var(--text-white-color);
     }
-    body.dark .user-profile-input:focus {
-        border: 2px solid var(--accent-color1);
-        outline: none;
+    body.dark .user-profile-input:focus,
+    body.dark .user-profile-input:hover {
         border-color: var(--accent-color1);
         color: var(--text-white-color);
     }
