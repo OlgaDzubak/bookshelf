@@ -200,4 +200,14 @@
        }
       }
 //}
+
+
+// USER PROFILE MODAL WINDOW ----- Desktop styles
+//{  
+      @media screen and (min-width: 1440px) {
+        .user-profile-modal {
+          right: calc(50% - 660px);
+        }
+      }
+//}
     
