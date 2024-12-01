@@ -62,42 +62,22 @@
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
       .user-profile-input:focus {
+        border: 2px solid var(--accent-color1);
+        outline: none;
         border-color: var(--accent-color1);
+        color: var(--text-dark-color); 
       }
       .user-profile-input:focus+.user-profile-icon{
         --auth-icon-color: var(--auth-icon-color2);
-    }
-      input:-webkit-autofill,
-      input:-webkit-autofill:hover,
-      input:-webkit-autofill:focus,
-      textarea:-webkit-autofill,
-      textarea:-webkit-autofill:hover,
-      textarea:-webkit-autofill:focus,
-      select:-webkit-autofill,
-      select:-webkit-autofill:hover,
-      select:-webkit-autofill:focus {
-          -webkit-text-fill-color: var(--text-dark-color);
-          transition: background-color 5000s ease-in-out 0s;
       }
-    
-      .user-profile-input:focus {
-          border: 2px solid var(--accent-color1);
-          outline: none;
-          border-color: var(--accent-color1);
-          color: var(--text-dark-color); 
-      }
-      .user-profile-input:focus+ .user-profile-form--icon{
-          --auth-icon-color: var(--auth-icon-color2);
-      }
-    
       .user-profile-input::selection{
         color: currentColor;
         background-color: var(--accent-color2);
       }
-    
       .user-profile-input::placeholder {
         color: currentColor;
       }
+
       .user-profile-icon {
         position: absolute;
         top: 50%;
@@ -105,16 +85,29 @@
         margin-left: 20px; 
       }
       .user-profile-submitBtn{
+        display: block;
         width: 100%;
+        padding: 16px 0;
         font-weight: 700;
+        font-size: 16px;
         line-height: 1.33;
         letter-spacing: -0.01em;
         text-transform: uppercase;
         white-space: nowrap;
+        color: var(--logo-theme-dark);
+        background-color: var(--dark-theme-background);
+        border: none;
         border-radius: 40px;
-        color: var(--light-theme-background);
-        background-color: var(--text-dark-color);
+        cursor: pointer;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      
+        &:hover,
+        &:focus {
+          background-color: var(--accent-color1);
+        }
       }
+ 
 
 //}
 

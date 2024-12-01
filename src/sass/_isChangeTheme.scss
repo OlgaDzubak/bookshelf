@@ -105,90 +105,7 @@ body.dark {
     }
 //}
 
-// ---------- autorization_modal_window ------------//
-//{
-    body.dark .modal{
-        background-color: black;
-        border-color: var(--accent-color3);
-        // border-radius: 18px;
-        // border: #ffffff;
-    }
 
-    body.dark .close-button {
-        color: var(--accent-color3)}
-
-    body.dark .modalForm-inputWrap{
-        --auth-icon-color: var(--auth-icon-color3);  
-    }
-    body.dark .modalForm-input {
-        border: 2px solid var(--text-white-color);
-        background-color: transparent;
-        color: var(--text-white-color);
-    }
-
-    
-    body.dark input:-webkit-autofill,
-    body.dark input:-webkit-autofill:hover,
-    body.dark input:-webkit-autofill:focus,
-    body.dark textarea:-webkit-autofill,
-    body.dark textarea:-webkit-autofill:hover,
-    body.dark textarea:-webkit-autofill:focus,
-    body.dark select:-webkit-autofill,
-    body.dark select:-webkit-autofill:hover,
-    body.dark select:-webkit-autofill:focus {
-        -webkit-text-fill-color: var(--text-white-color);
-        transition: background-color 5000s ease-in-out 0s;
-    }
-
-    body.dark .modalForm-input:focus {
-        border: 2px solid var(--accent-color1);
-        outline: none;
-        border-color: var(--accent-color1);
-        color: var(--text-white-color);
-    }
-    body.dark.modalForm-input:focus+ .modalForm-icon{
-        --auth-icon-color: var(--auth-icon-color2);
-    }
-
-    body.dark .modalForm-input::placeholder {
-        color: currentColor;
-    }
-
-    body.dark .close-icon,
-    body.dark .close-button
-    {
-        fill: #ffffff;
-    }
-
-    body.dark .modalForm-icon.email{
-        fill: #ffffff;
-    }
-
-    body.dark .submitBtn{
-        color:black;
-        background-color: var(--accent-color3);
-        &:hover,
-        &:focus {
-            background-color: var(--accent-color1);
-            border: 2px solid var(--text-dark-color);
-            color: var(--text-white-color);
-        }
-    }
-
-    body.dark .btn-sign-up,
-    body.dark .btn-sign-in{
-        color: rgba(255,255,255, 0.6);
-        &:hover,
-        &:focus {
-          color: var(--accent-color1);
-        }
-        &.current {
-            color: var(--accent-color1);
-          }
-    }
-
-
-//}
 
 //----------- shopping_list ------------------------//
 //{
@@ -286,6 +203,90 @@ body.dark {
     }
 //}
 
+// ---------- autorization_modal_window ------------//
+//{
+    body.dark .modal{
+        background-color: black;
+        border-color: var(--accent-color3);
+        // border-radius: 18px;
+        // border: #ffffff;
+    }
+
+    body.dark .close-button {
+        color: var(--accent-color3)}
+
+    body.dark .modalForm-inputWrap{
+        --auth-icon-color: var(--auth-icon-color3);  
+    }
+    body.dark .modalForm-input {
+        border: 2px solid var(--text-white-color);
+        background-color: transparent;
+        color: var(--text-white-color);
+    }
+
+    
+    body.dark input:-webkit-autofill,
+    body.dark input:-webkit-autofill:hover,
+    body.dark input:-webkit-autofill:focus,
+    body.dark textarea:-webkit-autofill,
+    body.dark textarea:-webkit-autofill:hover,
+    body.dark textarea:-webkit-autofill:focus,
+    body.dark select:-webkit-autofill,
+    body.dark select:-webkit-autofill:hover,
+    body.dark select:-webkit-autofill:focus {
+        -webkit-text-fill-color: var(--text-white-color);
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    body.dark .modalForm-input:focus {
+        border: 2px solid var(--accent-color1);
+        outline: none;
+        border-color: var(--accent-color1);
+        color: var(--text-white-color);
+    }
+    body.dark.modalForm-input:focus+ .modalForm-icon{
+        --auth-icon-color: var(--auth-icon-color2);
+    }
+
+    body.dark .modalForm-input::placeholder {
+        color: currentColor;
+    }
+
+    body.dark .close-icon,
+    body.dark .close-button
+    {
+        fill: #ffffff;
+    }
+
+    body.dark .modalForm-icon.email{
+        fill: #ffffff;
+    }
+
+    body.dark .submitBtn{
+        color:black;
+        background-color: var(--accent-color3);
+        &:hover,
+        &:focus {
+            background-color: var(--accent-color1);
+            border: 2px solid var(--text-dark-color);
+            color: var(--text-white-color);
+        }
+    }
+
+    body.dark .btn-sign-up,
+    body.dark .btn-sign-in{
+        color: rgba(255,255,255, 0.6);
+        &:hover,
+        &:focus {
+          color: var(--accent-color1);
+        }
+        &.current {
+            color: var(--accent-color1);
+          }
+    }
+
+
+//}
 
 //----------- user profile window --------------------//
 
@@ -293,3 +294,15 @@ body.dark {
         background-color: var(--dark-theme-background);
         border-color: 2px solid var(--light-theme-background);
     }
+    body.dark .user-profile-closeBtn{
+        color: var(--accent-color3)
+    }
+    body.dark .user-profile-inputWrap{
+        --auth-icon-color: var(--auth-icon-color3);  
+    }
+    body.dark .user-profile-input {
+        border: 2px solid var(--text-white-color);
+        background-color: transparent;
+        color: var(--text-white-color);
+    }
+
