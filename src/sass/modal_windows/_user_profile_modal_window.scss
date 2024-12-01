@@ -43,6 +43,12 @@
         stroke: var(--accent-color1);
       }
       
+
+      .user-photo{
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+      }
       .user-profile-inputWrap {
         position: relative;
         --auth-icon-color: var(--auth-icon-color1); 
