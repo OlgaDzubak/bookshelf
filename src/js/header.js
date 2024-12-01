@@ -1,7 +1,8 @@
 
-import {displayOrdredAmountInShoppingBag } from './help_functions';
+import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { getCookie } from './help_functions';
+import { onAnyKeyDown } from './user_profile_modal_window'
 
 const api = new bookshelf_API();
 
@@ -84,5 +85,10 @@ function headerAuthorised(user){
 
 function onAuthBtnClick(){
     const userProfileModal = document.querySelector(".user-profile-modal");
+    
     userProfileModal.classList.remove("is-hidden");
+
+    window.addEventListener('keydown', onAnyKeyDown);
+    window.addEventListener('mousemove', onAnyKeyDown);
+    window.addEventListener('touchstart', onAnyKeyDown);
 }
