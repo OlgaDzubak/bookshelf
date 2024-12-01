@@ -85,4 +85,12 @@ function headerAuthorised(user){
 function onAuthBtnClick(){
     const userProfileModal = document.querySelector(".user-profile-modal");
     userProfileModal.classList.remove("is-hidden");
+    window.addEventListener('keydown', onAnyKeyDown);
+}
+
+function onAnyKeyDown({target, currentTarget, code}){
+    console.log(target, currentTarget, code);
+    if (code === 'Escape' || target != currentTarget){
+        userProfileModal.classList.add("is-hidden");
+    }
 }

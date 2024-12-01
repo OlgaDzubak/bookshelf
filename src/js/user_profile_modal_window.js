@@ -1,7 +1,7 @@
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
 const userProfileModal =  document.querySelector(".user-profile-modal");
 
-window.addEventListener('keydown', onAnyKeyDown);
+
 userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 
 
@@ -10,7 +10,6 @@ function onCloseProfileModal(){
     userProfileModal.classList.add("is-hidden");
     
 }
-
 
 function onAnyKeyDown({target, currentTarget, code}){
     console.log(target, currentTarget, code);
