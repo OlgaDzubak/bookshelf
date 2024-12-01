@@ -9,16 +9,12 @@ userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 
 
 function onCloseProfileModal(){
-    removeOnAnyKeyDown();
+    window.removeEventListener('keydown', onAnyKeyDown);
+    window.removeEventListener('mousemove', onAnyKeyDown);
+    window.removeEventListener('touchstart', onAnyKeyDown);
     userProfileModal.classList.add("is-hidden");
 }
 
 function onAnyKeyDown({target}){
-    onCloseProfileModal();
-}
-
-function removeOnAnyKeyDown(){
-    window.removeEventListener('keydown', onAnyKeyDown);
-    window.removeEventListener('mousemove', onAnyKeyDown);
-    window.removeEventListener('touchstart', onAnyKeyDown);
+    userProfileModal.classList.add("is-hidden");
 }
