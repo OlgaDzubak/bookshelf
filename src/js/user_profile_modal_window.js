@@ -10,7 +10,7 @@ function onCloseProfileModal(){
     userProfileModal.classList.add("is-hidden");
 }
 
-export function onAnyKeyDown({target, code}){
+export function onAnyKeyDownProfileModal({target, code}){
    
     console.log(target.classList.contains('user-profile-input'));
     
