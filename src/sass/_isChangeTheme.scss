@@ -305,4 +305,35 @@ body.dark {
         background-color: transparent;
         color: var(--text-white-color);
     }
+    body.dark .user-profile-input:focus {
+        border: 2px solid var(--accent-color1);
+        outline: none;
+        border-color: var(--accent-color1);
+        color: var(--text-white-color);
+    }
+    body.dark .user-profile-input:focus+.user-profile-icon,
+    body.dark .user-profile-input:hover+.user-profile-icon{
+        --auth-icon-color: var(--auth-icon-color2);
+    }
+    body.dark .user-profile-input::placeholder {
+        color: currentColor;
+    }
+
+    body.dark .close-icon,
+    body.dark .icon-x {
+        fill: #ffffff;
+    }
+ 
+    body.dark .user-profile-submitBtn{
+        color:black;
+        background-color: var(--accent-color3);
+        &:hover,
+        &:focus {
+            background-color: var(--accent-color1);
+            border: 2px solid var(--text-dark-color);
+            color: var(--text-white-color);
+        }
+    }
+
+
 
