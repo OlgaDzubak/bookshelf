@@ -61,15 +61,18 @@
         transition-duration: 250ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
-      .user-profile-input:focus {
+      .user-profile-input:focus,
+      .user-profile-input:hover {
         border: 2px solid var(--accent-color1);
         outline: none;
         border-color: var(--accent-color1);
         color: var(--text-dark-color); 
       }
-      .user-profile-input:focus+.user-profile-icon{
+      .user-profile-input:focus+.user-profile-icon,
+      .user-profile-input:hover+.user-profile-icon{
         --auth-icon-color: var(--auth-icon-color2);
       }
+
       .user-profile-input::selection{
         color: currentColor;
         background-color: var(--accent-color2);
