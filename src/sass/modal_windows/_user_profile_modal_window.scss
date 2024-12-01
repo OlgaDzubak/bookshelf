@@ -64,7 +64,9 @@
       .user-profile-input:focus {
         border-color: var(--accent-color1);
       }
-
+      .user-profile-input:focus+.user-profile-icon{
+        --auth-icon-color: var(--auth-icon-color2);
+    }
       input:-webkit-autofill,
       input:-webkit-autofill:hover,
       input:-webkit-autofill:focus,
