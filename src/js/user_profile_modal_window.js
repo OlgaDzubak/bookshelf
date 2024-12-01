@@ -3,21 +3,29 @@ const userProfileModal =  document.querySelector(".user-profile-modal");
 
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
+window.addEventListener('keydown', onAnyKeyDown);
+window.addEventListener('mousemove', onAnyKeyDown);
+window.addEventListener('touchstart', onAnyKeyDown);
 
 
 function onCloseProfileModal(){
+
     window.removeEventListener('keydown', onAnyKeyDown);
+    window.removeEventListener('mousemove', onAnyKeyDown);
+    window.removeEventListener('touchstart', onAnyKeyDown);
+
     userProfileModal.classList.add("is-hidden");
     
 }
 
-function onAnyKeyDown({target, currentTarget, code}){
+function onAnyKeyDown({target}){
     
-    console.dir("target=", target, currentTarget, code);
-    console.dir("Currenttarget=", currentTarget, code);
-    console.dir("code==", code);
+
+    window.removeEventListener('keydown', onAnyKeyDown);
+    window.removeEventListener('mousemove', onAnyKeyDown);
+    window.removeEventListener('touchstart', onAnyKeyDown);
+
+    userProfileModal.classList.add("is-hidden");
     
-    if (code === 'Escape' || target != currentTarget){
-        userProfileModal.classList.add("is-hidden");
-    }
+    
 }

@@ -85,18 +85,4 @@ function headerAuthorised(user){
 function onAuthBtnClick(){
     const userProfileModal = document.querySelector(".user-profile-modal");
     userProfileModal.classList.remove("is-hidden");
-    
-    window.addEventListener('keydown', onAnyKeyDown);
-    window.addEventListener('mousemove', onAnyKeyDown);
-    window.addEventListener('touchstart', onAnyKeyDown);
-}
-
-function onAnyKeyDown({target, currentTarget, code}){
-    const userProfileModal = document.querySelector(".user-profile-modal");
-    
-    console.log("target = ",target);
-
-    if (code === 'Escape' || target != currentTarget){
-        userProfileModal.classList.add("is-hidden");
-    }
 }
