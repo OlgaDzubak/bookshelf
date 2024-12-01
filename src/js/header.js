@@ -89,6 +89,7 @@ function onAuthBtnClick(){
 }
 
 function onAnyKeyDown({target, currentTarget, code}){
+    const userProfileModal = document.querySelector(".user-profile-modal");
     console.log(target, currentTarget, code);
     if (code === 'Escape' || target != currentTarget){
         userProfileModal.classList.add("is-hidden");
