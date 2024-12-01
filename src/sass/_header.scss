@@ -179,12 +179,12 @@
     }
     .auth-btn{
        position: relative;
-       padding: 8px 12px;
+       padding: 4px 12px;
        display: flex;
        align-items: center;
        font-weight: 700;
        font-size: 18px;
-       line-height: 1.32;
+       line-height: 1.27;
        border-radius: 36px;
        border: none; //1.50px solid #111;
        color: var(--text-white-color);
@@ -522,7 +522,7 @@
         }
         .log-div{
             min-width: 184px;
-         //   height: 48px;
+            height: 45px;
         }
         .burger-menu {
             display: none;
