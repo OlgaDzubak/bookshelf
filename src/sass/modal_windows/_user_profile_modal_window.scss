@@ -63,6 +63,7 @@
       }
       .user-profile-input:focus,
       .user-profile-input:hover {
+        outline: none;
         border-color: var(--accent-color1);
         color: var(--text-dark-color); 
       }
