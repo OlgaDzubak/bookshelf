@@ -13,7 +13,7 @@ function onCloseProfileModal(){
 
 
 function onAnyKeyDown({target, currentTarget, code}){
-    if (e.code === 'Escape' || target != currentTarget){
+    if (code === 'Escape' || target != currentTarget){
         userProfileModal.classList.add("is-hidden");
     }
 }
