@@ -186,7 +186,7 @@
        font-size: 18px;
        line-height: 1.32;
        border-radius: 36px;
-     //  border: 1.50px solid #111;
+       border: none; //1.50px solid #111;
        color: var(--text-white-color);
        background-color: var(--accent-color1);
 
@@ -493,7 +493,7 @@
         color: var(--text-dark-color);
     }
     .auth-btn{
-    display: none;
+        display: none;
     }
     }
 //}
