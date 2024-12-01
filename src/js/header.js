@@ -85,5 +85,4 @@ function headerAuthorised(user){
 function onAuthBtnClick(){
     const userProfileModal = document.querySelector(".user-profile-modal");
     userProfileModal.classList.remove("is-hidden");
-
 }
