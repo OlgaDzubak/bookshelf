@@ -152,7 +152,7 @@
     }
     .log-div{
         min-width: 184px;
-        height: 48px;
+        //height: 48px;
     }
     .shopping-link{
         position: relative;
@@ -523,6 +523,9 @@
         }
         .switch {
             margin-right: 24px;
+        }
+        .log-div{
+            height: 48px;
         }
         .burger-menu {
             display: none;
