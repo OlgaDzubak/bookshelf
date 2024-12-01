@@ -3,7 +3,6 @@
       .user-profile-modal{
         position: absolute;
         top: 75px;
-        right: 0px;
         padding: 86px 40px;
         z-index: 1005;
         background-color: var(--light-theme-background);
@@ -120,6 +119,7 @@
       @media screen and (max-width: 767.8px) {
         .user-profile-modal {
           max-width: 375px;
+          right: calc(50% - 200px);
         }
         .user-profile-closeBtn {
           width: 20px;
@@ -172,6 +172,7 @@
         }
         .user-profile-modal {
           max-width: 479px;
+          right: calc(50% - 300px);
         }
         .user-profile-closeBtn {
           width: 28px;
