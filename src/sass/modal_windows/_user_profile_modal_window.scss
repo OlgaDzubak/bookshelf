@@ -117,11 +117,6 @@
 //{
       @media screen and (max-width: 767.8px) {
         .user-profile-modal{
-          position: relative;
-          top: 50%;
-          right: 0%;
-          padding: 84px 40px 840x 40px;
-          width: 100%;
           max-width: 375px;
         }
         .user-profile-closeBtn {
@@ -173,10 +168,7 @@
           height: 19px;
         }
         .user-profile-modal {
-          position: absolute;
           max-width: 479px;
-          display: flex;
-          flex-direction: column;
         }
         .user-profile-closeBtn {
           width: 28px;
@@ -204,19 +196,19 @@
        }
       }
     
-      @media screen and (min-width: 768px) and (max-height: 599.8px){
-        .user-profile-modal {
-          top: 55px;
-          right: 5%;
-          transform: translateX(-55px);
-        }
-      }
-      @media screen and (min-width: 768px) and (min-height: 600px){
-        .user-profile-modal {
-          top: calc((100% + 70px)/2);
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-      }
+      // @media screen and (min-width: 768px) and (max-height: 599.8px){
+      //   .user-profile-modal {
+      //     top: 55px;
+      //     right: 5%;
+      //     transform: translateX(-55px);
+      //   }
+      // }
+      // @media screen and (min-width: 768px) and (min-height: 600px){
+      //   .user-profile-modal {
+      //     top: calc((100% + 70px)/2);
+      //     left: 50%;
+      //     transform: translate(-50%, -50%);
+      //   }
+      // }
 //}
     
