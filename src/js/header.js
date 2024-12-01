@@ -91,9 +91,9 @@ function onAuthBtnClick(){
 function onAnyKeyDown({target, currentTarget, code}){
     const userProfileModal = document.querySelector(".user-profile-modal");
     
-    console.dir("target = ",target);
-    console.dir("currenttarget=", currentTarget);
-    console.dir("code=", code);
+    console.log("target = ",target);
+    console.log("currenttarget=", currentTarget);
+    console.log("code=", code);
 
     if (code === 'Escape' || target != currentTarget){
         userProfileModal.classList.add("is-hidden");
