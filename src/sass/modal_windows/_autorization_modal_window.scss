@@ -123,6 +123,7 @@
     font-size: 16px;
     font-weight: 700;
     color: var(--logo-theme-dark);
+    border: 2px solid var(--logo-theme-dark);
     background-color: var(--dark-theme-background);
     cursor: pointer;
     border: none;
@@ -133,6 +134,7 @@
     &:hover,
     &:focus {
       background-color: var(--accent-color1);
+      border-color: var(--accent-color1);;
     }
   }
   .btn-signUpIn-ul {
