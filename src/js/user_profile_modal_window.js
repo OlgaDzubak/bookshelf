@@ -16,11 +16,8 @@ export function onCloseProfileModalClick(){
 }
 
 
-export function onAnyKeyDownProfileModal({currentTarget, target, code}){
-  
-    console.dir(target);
-    console.dir(currentTarget);
-    
+export function onAnyKeyDownProfileModal({target, code}){
+     
     if (!target.classList.contains('profile-elm') || code === 'Escape') {
         onCloseProfileModalClick();
     }    
