@@ -104,25 +104,7 @@ async function singIn({email, password}){
     if (user) {
 
       onCloseModal();
-  
       headerAuthorised(user);
-
-     // const navigation = document.querySelector('.navigation');
-    //  navigation.classList.remove("is-hidden");
-
-    //  const authBtn = document.querySelector('.auth-btn');
-
-
-    //  authBtn.classList.remove("is-hidden");
-      
-    // const authBtnName = authBtn.querySelector('.login-p');
-    //  authBtnName.textContent = user.name;
-      
-    //  openBtn.classList.add("is-hidden");
-
-    //  localStorage.setItem("bookshelf_orderedbooks", JSON.stringify(user["shopping_list"]));
-    //  displayOrdredAmountInShoppingBag(user["shopping_list"]);
-
       Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1300});
 
     }else { 

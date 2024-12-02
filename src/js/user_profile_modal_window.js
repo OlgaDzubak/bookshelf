@@ -16,8 +16,11 @@ export function onCloseProfileModalClick(){
 }
 
 
-export function onAnyKeyDownProfileModal({target, code}){
+export function onAnyKeyDownProfileModal({currentTarget, target, code}){
   
+    console.dir(target);
+    console.dir(currentTarget);
+
     if (!target.classList.contains('user-profile-input') || code === 'Escape') {
         onCloseProfileModalClick();
     }    
