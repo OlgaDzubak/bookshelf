@@ -94,13 +94,9 @@
       }
 
       .user-profile-input:focus,
-      .user-profile-input:hover {
-        outline: none;
-        border-color: var(--accent-color1);
-        color: var(--text-dark-color); 
-        --auth-icon-color: var(--auth-icon-color2);
-      }
-
+      .user-profile-input:hover,
+      .user-profile-icon:focus,
+      .user-profile-icon:hover,
       .user-profile-input:focus+.user-profile-icon,
       .user-profile-input:hover+.user-profile-icon{
         outline: none;
