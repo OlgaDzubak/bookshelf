@@ -95,7 +95,7 @@
         background-color: transparent;
         border-radius: 40px;
         color: var(--text-dark-color);
-        transition: color var(--transition);
+        transition: border-color var(--transition);
       }
      
       .user-profile-input:focus,
@@ -112,6 +112,7 @@
 
       .user-profile-input::placeholder {
         color: currentColor;
+        transition: color var(--transition);
       }
       .user-profile-input:focus::placeholder,
       .user-profile-input:hover::placeholder{
@@ -128,7 +129,9 @@
         top: 50%;
         transform: translateY(-50%);
         margin-left: 20px; 
+        transition: fill var(--transition);
       }
+      
       .user-profile-submitBtn{
         display: block;
         width: 100%;
