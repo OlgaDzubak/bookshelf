@@ -103,9 +103,9 @@
       .user-profile-icon:focus,
       .user-profile-icon:hover,
       .user-profile-input:focus+.user-profile-icon,
-      .user-profile-input:hover+.user-profile-icon
-      .user-profile-input:focus+.user-profile-input::placeholder,
-      .user-profile-input:hover+.user-profile-input::placeholder{
+      .user-profile-input:hover+.user-profile-icon,
+      .user-profile-input:focus.user-profile-input::placeholder,
+      .user-profile-input:hover.user-profile-input::placeholder{
         outline: none;
         border-color: var(--accent-color1);
         color: var(--text-dark-color); 
