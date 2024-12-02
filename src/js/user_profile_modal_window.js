@@ -34,6 +34,8 @@ function onAddPhotoBtnClick(){
 
 function onSaveChangesBtnClick(e){
     
+    console.log("onSaveChangesBtnClick");
+    
     e.preventDefault();
 
     const inputNameValue = document.querySelector(".user-profile-input");
