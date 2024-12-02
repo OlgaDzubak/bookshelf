@@ -107,8 +107,7 @@
         outline: none;
         border-color: var(--accent-color1);
         color: var(--text-dark-color); 
-        fill: var(--auth-icon-color2);
-        //--auth-icon-color: var(--auth-icon-color2);
+        --auth-icon-color: var(--auth-icon-color2);
       }
 
       .user-profile-input::placeholder {
@@ -130,7 +129,6 @@
         top: 50%;
         transform: translateY(-50%);
         margin-left: 20px; 
-        fill: var(--auth-icon-color1);
         transition: fill var(--transition);
       }
 
