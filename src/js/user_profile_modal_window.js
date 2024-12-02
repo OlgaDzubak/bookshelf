@@ -5,7 +5,7 @@ const userProfileSaveChangesBtn =  document.querySelector(".user-profile-submitB
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
-userProfileSaveChangesBtn.addEventListener("click", onSaveChangesBtnClick);
+userProfileSaveChangesBtn.addEventListener("submit", onSaveChangesBtnClick);
 
 
 
@@ -32,8 +32,9 @@ function onAddPhotoBtnClick(){
   
 }
 
-function onSaveChangesBtnClick(){
+function onSaveChangesBtnClick(e){
     
+    e.preventDefault();
 
     const inputNameValue = document.querySelector(".user-profile-input");
     console.log("inputNameValue=",inputNameValue);
