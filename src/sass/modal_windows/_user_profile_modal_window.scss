@@ -98,26 +98,26 @@
         transition: var(--transition);
       }
 
-      .user-profile-input:focus,
-      .user-profile-input:hover,
-      .user-profile-icon:focus,
-      .user-profile-icon:hover,
-      .user-profile-input:focus+.user-profile-icon,
-      .user-profile-input:hover+.user-profile-icon,
-      .user-profile-input:focus.user-profile-input::placeholder,
-      .user-profile-input:hover.user-profile-input::placeholder{
-        outline: none;
-        border-color: var(--accent-color1);
-        color: var(--text-dark-color); 
-        --auth-icon-color: var(--auth-icon-color2);
-      }
-
       .user-profile-input::selection{
         color: currentColor;
         background-color: var(--accent-color2);
       }
       .user-profile-input::placeholder {
         color: currentColor;
+      }
+     
+      .user-profile-input:focus,
+      .user-profile-input:hover,
+      .user-profile-icon:focus,
+      .user-profile-icon:hover,
+      .user-profile-input:focus+.user-profile-icon,
+      .user-profile-input:hover+.user-profile-icon,
+      .user-profile-input:focus::placeholder,
+      .user-profile-input:hover::placeholder{
+        outline: none;
+        border-color: var(--accent-color1);
+        color: var(--text-dark-color); 
+        --auth-icon-color: var(--auth-icon-color2);
       }
 
       .user-profile-icon {

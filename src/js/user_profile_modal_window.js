@@ -38,7 +38,8 @@ function onUserProfileFormSubmit(e){
 
     e.preventDefault();
 
-    const inputNameValue = document.querySelector(".user-profile-input");
-    console.log("inputNameValue=",inputNameValue);
+    const userProfileInput = document.querySelector(".user-profile-input");
+
+    console.log("inputNameValue=", userProfileInput.value);
 
 }
