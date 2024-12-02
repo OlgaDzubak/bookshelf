@@ -97,14 +97,6 @@
         color: var(--text-dark-color);
         transition: var(--transition);
       }
-
-      .user-profile-input::selection{
-        color: currentColor;
-        background-color: var(--accent-color2);
-      }
-      .user-profile-input::placeholder {
-        color: currentColor;
-      }
      
       .user-profile-input:focus,
       .user-profile-input:hover,
@@ -118,9 +110,17 @@
         --auth-icon-color: var(--auth-icon-color2);
       }
 
+      .user-profile-input::placeholder {
+        color: currentColor;
+      }
       .user-profile-input:focus::placeholder,
       .user-profile-input:hover::placeholder{
         color: var(--text-dark-color); 
+      }
+
+      .user-profile-input::selection{
+        color: currentColor;
+        background-color: var(--accent-color2);
       }
 
       .user-profile-icon {
