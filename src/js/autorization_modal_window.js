@@ -105,7 +105,7 @@ async function singIn({email, password}){
 
       onCloseModal();
   
-      headerAuthorised();
+      headerAuthorised(user);
 
      // const navigation = document.querySelector('.navigation');
     //  navigation.classList.remove("is-hidden");
