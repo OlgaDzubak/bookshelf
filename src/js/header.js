@@ -5,10 +5,13 @@ import { getCookie } from './help_functions';
 import { onAnyKeyDownProfileModal, onCloseProfileModalClick } from './user_profile_modal_window'
 
 const api = new bookshelf_API();
-
 let abortCtrl;
 
+
 showHeader();
+
+
+
 
 
 
@@ -85,8 +88,6 @@ export function headerAuthorised(user){
 
 function onAuthBtnClick(){
 
-    console.log("onAuthBtnClick");
-    
     const userProfileModal = document.querySelector(".user-profile-modal");
     
     userProfileModal.classList.remove("is-hidden");

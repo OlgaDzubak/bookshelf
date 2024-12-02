@@ -6,9 +6,10 @@ import {headerAuthorised} from './header';
 const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2;
 
-const backdrop = document.querySelector('.autorization-modal-backdrop');
+
 
 //відкриття модального вікна для авторизації
+const backdrop = document.querySelector('.autorization-modal-backdrop');
 const modal = document.querySelector('.modal');
 const openBtn = document.querySelector('.jsOpenBtn');
 const openBtnMobile = document.querySelector('.jsOpenBtn-mobile');
@@ -32,6 +33,7 @@ function onCloseModal() {
   document.body.classList.remove('block-scroll');
   modalForm.reset();
 }
+
 function onEscKeyDown(e) {
   if (e.code === 'Escape') {
     onCloseModal();
@@ -56,6 +58,7 @@ function onFormSubmit(e) {
   else if (submitBtn.textContent === "SIGN IN") { singIn({email, password}); }
 
 }
+
 async function singUp({name, email, password}){
   
   if (abortCtrl1) {
@@ -83,6 +86,7 @@ async function singUp({name, email, password}){
   }
 
 }
+
 async function singIn({email, password}){
 
   if (abortCtrl2) {
@@ -124,6 +128,7 @@ const passInput=document.querySelector('#password');
 nameInput.addEventListener('click', onModalInputClick);
 emailInput.addEventListener('click', onModalInputClick);
 passInput.addEventListener('click', onModalInputClick);
+
 function onModalInputClick({target}){
   target.select();
 }
@@ -135,6 +140,7 @@ function onModalInputClick({target}){
   const nameItem = document.querySelector('.li-name');
   signUpBtn.addEventListener('click', onSignUpBtnClick);
   signInBtn.addEventListener('click', onSignInBtnClick);
+
   function onSignUpBtnClick(e){
     modalForm.reset();
     nameItem.classList.remove("is-hidden");
@@ -142,6 +148,7 @@ function onModalInputClick({target}){
     signUpBtn.classList.add("current");
     signInBtn.classList.remove("current");  
   }
+
   function onSignInBtnClick(){
     modalForm.reset();
     nameItem.classList.add("is-hidden");

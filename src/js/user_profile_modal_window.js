@@ -6,6 +6,10 @@ userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
 
 
+
+
+
+
 export function onCloseProfileModalClick(){
     
     window.removeEventListener('keydown', onAnyKeyDownProfileModal);
@@ -14,7 +18,6 @@ export function onCloseProfileModalClick(){
   
     userProfileModal.classList.add("is-hidden");
 }
-
 
 export function onAnyKeyDownProfileModal({target, code}){
      
