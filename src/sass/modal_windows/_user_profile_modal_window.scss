@@ -130,6 +130,7 @@
         top: 50%;
         transform: translateY(-50%);
         margin-left: 20px; 
+        fill: var(--auth-icon-color1);
         transition: fill var(--transition);
       }
 
