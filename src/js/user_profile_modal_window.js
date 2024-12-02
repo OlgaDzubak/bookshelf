@@ -1,10 +1,11 @@
 const userProfileModal =  document.querySelector(".user-profile-modal");
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
 const userProfileAddPhotoBtn =  document.querySelector(".add-photo-btn");
+const userProfileSaveChangesBtn =  document.querySelector(".user-profile-submitBtn");
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
-
+userProfileSaveChangesBtn.addEventListener("click", onSaveChangesBtnClick);
 
 
 
@@ -29,4 +30,12 @@ export function onAnyKeyDownProfileModal({target, code}){
 function onAddPhotoBtnClick(){
   // дописати обрання файла фото
   
+}
+
+function onSaveChangesBtnClick(){
+    
+
+    const inputNameValue = document.querySelector(".user-profile-input");
+    console.log("inputNameValue=",inputNameValue);
+
 }
