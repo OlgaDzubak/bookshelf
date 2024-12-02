@@ -66,7 +66,8 @@
         height: 32px;
         border: none;
         border-radius: 100%;
-        background-color: var(--add-photo-btn-backgroundcolor);        
+        background-color: var(--add-photo-btn-backgroundcolor);
+        transition: var(--transition2);
       }
 
       .plus-svg{
@@ -90,8 +91,7 @@
         background-color: transparent;
         border-radius: 40px;
         color: var(--text-dark-color);
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition: var(--transition2);
       }
 
       .user-profile-input:focus,
@@ -135,8 +135,7 @@
         border: none;
         border-radius: 40px;
         cursor: pointer;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition: var(--transition2);
       
         &:hover,
         &:focus {
