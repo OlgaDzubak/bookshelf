@@ -6,13 +6,24 @@ userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 function onCloseProfileModal(){
     
     window.removeEventListener('keydown', onAnyKeyDownProfileModal);
-    window.removeEventListener('mousedown', onAnyKeyDownProfileModal);
+    window.removeEventListener('mousedown', ()=>{onCloseProfileModal()} );
+    window.removeEventListener('mousemove', ()=>{onCloseProfileModal()} );
+  
     userProfileModal.classList.add("is-hidden");
 }
 
 export function onAnyKeyDownProfileModal({target, code}){
    
-    console.log(target.classList.contains('user-profile-input'));
+    //console.log(target.classList.contains('user-profile-input'));
+    
+    if (!target.classList.contains('user-profile-input') || code === 'Escape') {
+        onCloseProfileModal();
+    }    
+}
+
+export function onMouseMoveProfileModal({target}){
+   
+    //console.log(target.classList.contains('user-profile-input'));
     
     if (!target.classList.contains('user-profile-input') || code === 'Escape') {
         onCloseProfileModal();
