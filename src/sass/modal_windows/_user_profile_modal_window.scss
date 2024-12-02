@@ -41,10 +41,10 @@
       .icon-x:hover,
       .icon-x:focus{
         stroke: var(--accent-color1);
-      }
-      
+      }      
 
       .user-photo{
+        position: relative;
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -53,6 +53,20 @@
         margin-right: auto;
         --auth-icon-color: var(--auth-icon-color2);
       }
+
+      .add-photo-btn{
+        position: absolute;
+        padding: 11px;
+        border-radius: 50%;
+        background-color: #888888;        
+      }
+
+      .plus-svg{
+        fill: none;
+        stroke: #F3F3F3;
+      }
+
+
       .user-profile-inputWrap {
         position: relative;
         --auth-icon-color: var(--auth-icon-color1); 
