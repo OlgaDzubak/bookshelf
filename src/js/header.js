@@ -38,7 +38,8 @@ async function showHeader(){
                   document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
                }
                 
-                headerAuthorised(user);                
+                headerAuthorised(user);   
+                             
             }else{ 
                 throw new Error("Not authorized");
             }
@@ -84,6 +85,9 @@ function headerAuthorised(user){
 }
 
 function onAuthBtnClick(){
+
+    console.log("onAuthBtnClick");
+
     const userProfileModal = document.querySelector(".user-profile-modal");
     
     userProfileModal.classList.remove("is-hidden");
