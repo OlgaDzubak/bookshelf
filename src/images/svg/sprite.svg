@@ -75,9 +75,9 @@
 
          <!--  -->
          <symbol id="add-plus" viewBox="0 0 32 32"> 
-            <path style="fill:var(--color1, #fff); stroke: var(--color1, #fff)" d="M24 18h-6v6h-4v-6h-6v-4h6v-6h4v6h6v4z"></path>
+            <path style="fill:var(--color1, #fff); stroke: var(--color1, #fff)" d="m32,20.04l-12,0l0,11.96l-8,0l0,-11.96l-12,0l0,-7.97l12,0l0,-11.96l8,0l0,11.96l12,0l0,7.97z" id="svg_1"></path>
          </symbol>
-
+    
   </defs>
 
 </svg>
