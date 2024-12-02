@@ -89,6 +89,6 @@ function onAuthBtnClick(){
     userProfileModal.classList.remove("is-hidden");
 
     window.addEventListener('keydown', onAnyKeyDownProfileModal);
-    window.addEventListener('mousedown', onCloseProfileModal);
+    window.addEventListener('mousedown', onAnyKeyDownProfileModal);
     window.addEventListener('scroll', onCloseProfileModal);
 }
