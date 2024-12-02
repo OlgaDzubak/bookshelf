@@ -95,7 +95,7 @@
         background-color: transparent;
         border-radius: 40px;
         color: var(--text-dark-color);
-        transition: var(--transition);
+        transition: color var(--transition);
       }
      
       .user-profile-input:focus,
@@ -115,7 +115,7 @@
       }
       .user-profile-input:focus::placeholder,
       .user-profile-input:hover::placeholder{
-        color: var(--accent-color1);; 
+        color: var(--accent-color1); 
       }
 
       .user-profile-input::selection{
@@ -144,7 +144,7 @@
         border: none;
         border-radius: 40px;
         cursor: pointer;
-        transition: var(--transition);
+        transition: background-color var(--transition);
       
         &:hover,
         &:focus {
