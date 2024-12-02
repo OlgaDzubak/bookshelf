@@ -75,7 +75,7 @@
 
          <!--  -->
          <symbol id="add-plus" viewBox="0 0 32 32"> 
-            <path style="fill: none; stroke: var(--add-photo-btn-color, #fff); stroke-width: 2px" d="m32,20.04l-12,0l0,11.96l-8,0l0,-11.96l-12,0l0,-7.97l12,0l0,-11.96l8,0l0,11.96l12,0l0,7.97z" id="svg_1"></path>
+            <path style="fill:  var(--add-photo-btn-color, #fff); stroke: none; stroke-width: 2px" d="m32,20.04l-12,0l0,11.96l-8,0l0,-11.96l-12,0l0,-7.97l12,0l0,-11.96l8,0l0,11.96l12,0l0,7.97z" id="svg_1"></path>
          </symbol>
     
   </defs>
