@@ -66,8 +66,12 @@
         height: 32px;
         border: none;
         border-radius: 100%;
-        background-color: var(--add-photo-btn-backgroundcolor);
+        background-color: var(--add-photo-btn-bgcolor);
         transition: var(--transition);
+      }
+      .add-photo-btn:hover,
+      .add-photo-btn:focus{
+        background-color: var(--add-photo-btn-bgcolor-hover);
       }
 
       .plus-svg{
