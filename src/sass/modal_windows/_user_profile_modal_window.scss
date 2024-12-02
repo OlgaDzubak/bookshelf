@@ -63,8 +63,9 @@
         left: calc(50% - 16px);
         width: 32px;
         height: 32px;
-        border-radius: 50%;
-        background-color: #888888;        
+        border: none;
+        border-radius: 100%;
+        background-color: var(--add-photo-btn-backgroundcolor);        
       }
 
       .plus-svg{
