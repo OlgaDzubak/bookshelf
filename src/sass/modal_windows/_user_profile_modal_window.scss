@@ -120,6 +120,13 @@
         --auth-icon-color: var(--auth-icon-color2);
       }
 
+      .user-profile-input:hover::-webkit-input-placeholder,
+      .user-profile-input:hover::-moz-placeholder,
+      .user-profile-input:hover::-moz-placeholder,
+      .user-profile-input:hover::-ms-input-placeholder {
+        color: var(--text-dark-color); 
+    }
+
       .user-profile-icon {
         position: absolute;
         top: 50%;
