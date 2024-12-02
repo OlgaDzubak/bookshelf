@@ -111,21 +111,17 @@
       .user-profile-icon:focus,
       .user-profile-icon:hover,
       .user-profile-input:focus+.user-profile-icon,
-      .user-profile-input:hover+.user-profile-icon,
-      .user-profile-input:focus::placeholder,
-      .user-profile-input:hover::placeholder{
+      .user-profile-input:hover+.user-profile-icon{
         outline: none;
         border-color: var(--accent-color1);
         color: var(--text-dark-color); 
         --auth-icon-color: var(--auth-icon-color2);
       }
 
-      input:hover::-webkit-input-placeholder,
-      input:hover::-moz-placeholder,
-      input:hover::-moz-placeholder,
-      input:hover::-ms-input-placeholder {
+      .user-profile-input:focus::placeholder,
+      .user-profile-input:hover::placeholder{
         color: var(--text-dark-color); 
-    }
+      }
 
       .user-profile-icon {
         position: absolute;
