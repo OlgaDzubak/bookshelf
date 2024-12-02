@@ -38,8 +38,7 @@ async function showHeader(){
                   document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
                }
                 
-                headerAuthorised(user);   
-                             
+                headerAuthorised(user);                
             }else{ 
                 throw new Error("Not authorized");
             }
@@ -64,7 +63,7 @@ function headerNotAuthorised(){
     localStorage.removeItem("bookshelf_orderedbooks");
 }
 
-function headerAuthorised(user){
+export function headerAuthorised(user){
 
     const navigation = document.querySelector('.navigation');
     const openBtn = document.querySelector('.jsOpenBtn');
@@ -87,7 +86,7 @@ function headerAuthorised(user){
 function onAuthBtnClick(){
 
     console.log("onAuthBtnClick");
-
+    
     const userProfileModal = document.querySelector(".user-profile-modal");
     
     userProfileModal.classList.remove("is-hidden");

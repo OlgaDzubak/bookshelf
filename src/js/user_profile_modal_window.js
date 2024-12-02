@@ -5,6 +5,7 @@ const userProfileAddPhotoBtn =  document.querySelector(".add-photo-btn");
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
 
+
 export function onCloseProfileModalClick(){
     
     window.removeEventListener('keydown', onAnyKeyDownProfileModal);

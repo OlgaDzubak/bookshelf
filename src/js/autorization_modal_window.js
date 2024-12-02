@@ -1,6 +1,7 @@
 import { bookshelf_API } from './API';
 import { Notify } from 'notiflix';
 import {displayOrdredAmountInShoppingBag, createLoader } from './help_functions';
+import {headerAuthorised} from './header';
 
 const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2;
@@ -104,19 +105,23 @@ async function singIn({email, password}){
 
       onCloseModal();
   
-      const navigation = document.querySelector('.navigation');
-      navigation.classList.remove("is-hidden");
+      headerAuthorised();
 
-      const authBtn = document.querySelector('.auth-btn');
-      authBtn.classList.remove("is-hidden");
-      
-      const authBtnName = authBtn.querySelector('.login-p');
-      authBtnName.textContent = user.name;
-      
-      openBtn.classList.add("is-hidden");
+     // const navigation = document.querySelector('.navigation');
+    //  navigation.classList.remove("is-hidden");
 
-      localStorage.setItem("bookshelf_orderedbooks", JSON.stringify(user["shopping_list"]));
-      displayOrdredAmountInShoppingBag(user["shopping_list"]);
+    //  const authBtn = document.querySelector('.auth-btn');
+
+
+    //  authBtn.classList.remove("is-hidden");
+      
+    // const authBtnName = authBtn.querySelector('.login-p');
+    //  authBtnName.textContent = user.name;
+      
+    //  openBtn.classList.add("is-hidden");
+
+    //  localStorage.setItem("bookshelf_orderedbooks", JSON.stringify(user["shopping_list"]));
+    //  displayOrdredAmountInShoppingBag(user["shopping_list"]);
 
       Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1300});
 

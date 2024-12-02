@@ -166,6 +166,7 @@ function rewriteAccessToken(newAccessToken){
 }
 
 
+
 //-------------------------------------------------------------------------------------------------------------------
 export {  displayOrdredAmountInShoppingBag, 
           shortTitle, 
@@ -178,4 +179,7 @@ export {  displayOrdredAmountInShoppingBag,
           scrollTracker,
           getCookie,
           rewriteAccessToken,
+          headerNotAuthorised,
+          headerAuthorised,
+          onAuthBtnClick
        };
