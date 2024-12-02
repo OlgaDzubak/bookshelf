@@ -59,9 +59,10 @@
 
       .add-photo-btn{
         position: absolute;
+        top: calc(100% - 16px);
+        left: calc(50% - 16px);
         width: 32px;
         height: 32px;
-        //padding: 10.5px;
         border-radius: 50%;
         background-color: #888888;        
       }
@@ -69,8 +70,6 @@
       .plus-svg{
         width: 11px;
         height: 11px;
-        fill: none;
-        stroke: #F3F3F3;
       }
 
 
