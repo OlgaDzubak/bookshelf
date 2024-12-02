@@ -2,7 +2,7 @@
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { getCookie } from './help_functions';
-import { onAnyKeyDownProfileModal } from './user_profile_modal_window'
+import { onAnyKeyDownProfileModal, onCloseProfileModal } from './user_profile_modal_window'
 
 const api = new bookshelf_API();
 
@@ -89,5 +89,6 @@ function onAuthBtnClick(){
     userProfileModal.classList.remove("is-hidden");
 
     window.addEventListener('keydown', onAnyKeyDownProfileModal);
-    window.addEventListener('mousedown', onAnyKeyDownProfileModal);
+    window.addEventListener('mousedown', onCloseProfileModal);
+    window.addEventListener('scroll', onCloseProfileModal);
 }
