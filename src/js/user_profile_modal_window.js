@@ -16,11 +16,12 @@ export function onCloseProfileModalClick(){
 }
 
 
-export function onAnyKeyDownProfileModal(event){
+export function onAnyKeyDownProfileModal({currentTarget, target, code}){
   
-    console.dir(event);
+    console.dir(target);
+    console.dir(currentTarget);
     
-    if (!event.target.classList.contains('user-profile-input') || event.code === 'Escape') {
+    if (!target.classList.contains('profile-elm') || code === 'Escape') {
         onCloseProfileModalClick();
     }    
 }
