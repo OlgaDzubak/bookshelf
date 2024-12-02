@@ -67,7 +67,7 @@
         border: none;
         border-radius: 100%;
         background-color: var(--add-photo-btn-backgroundcolor);
-        transition: var(--transition2);
+        transition: var(--transition);
       }
 
       .plus-svg{
@@ -91,7 +91,7 @@
         background-color: transparent;
         border-radius: 40px;
         color: var(--text-dark-color);
-        transition: var(--transition2);
+        transition: var(--transition);
       }
 
       .user-profile-input:focus,
@@ -135,7 +135,7 @@
         border: none;
         border-radius: 40px;
         cursor: pointer;
-        transition: var(--transition2);
+        transition: var(--transition);
       
         &:hover,
         &:focus {
