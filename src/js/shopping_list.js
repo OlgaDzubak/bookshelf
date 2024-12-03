@@ -65,6 +65,8 @@ createShoppingList();
   // Центральна функція, робить перевірки, запит та відмальовує
 async function createShoppingList() {
 
+    console.log(createShoppingList);
+  
     if (abortCtrl1) {      
       abortCtrl1.abort();
       console.log("abort previous fetch");
