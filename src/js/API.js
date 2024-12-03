@@ -20,6 +20,7 @@ export class bookshelf_API {
       try{
         const {data} = axios.post(`${this.#BASE_URL}auth/signup`, credentials, {signal: abortCtrl.signal});
         this.setAuthHeader(data.accessToken);
+        console.log(data);
         return data;
       }catch(error){
         return error.message;
