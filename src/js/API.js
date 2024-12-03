@@ -19,7 +19,6 @@ export class bookshelf_API {
     async signUp (credentials, abortCtrl){
       try{
         const {data} = await axios.post(`${this.#BASE_URL}auth/signup`, credentials, {signal: abortCtrl.signal});
-        console.log(data);
         this.setAuthHeader(data.accessToken);
 
         return data;
