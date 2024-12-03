@@ -94,9 +94,7 @@ async function createShoppingList() {
           createEmptyBooksBox();
         }else{
           
-          
           shoppingBooks = [...books];
-          console.log("shoppingBooks=",shoppingBooks);
 
           books_ul = document.createElement("ul");
           books_ul.classList.add("list","shopping_booklist");
@@ -135,7 +133,6 @@ async function createShoppingList() {
   // Функція створення розмітки ShoppingBooks
 function showPage(dataArray, page, itemsOnPage) {
   
-  console.log("showPage(dataArray=",dataArray);
   const startShownItem_idx = (page - 1)* itemsOnPage;
   const lastShownItem_idx = startShownItem_idx + (itemsOnPage-1); 
 
