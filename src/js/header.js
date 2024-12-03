@@ -15,7 +15,7 @@ const authBtnName= authBtn.querySelector('.login-p');
 const userProfileModal = document.querySelector(".user-profile-modal");
 
 authBtn.addEventListener('click', onAuthBtnClick);
-shoppinglistlink.addEventListener('click', onShoppingListLinkClick);
+//shoppinglistlink.addEventListener('click', onShoppingListLinkClick);
 
 showHeader();
 
