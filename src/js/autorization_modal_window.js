@@ -71,12 +71,12 @@ async function singUp({name, email, password}){
     const {accessToken, user} = await api.signUp({name, email, password}, abortCtrl1);
     
     if (user) {
-      Notify.success('Successfull registration!', {position: "center-center", timeout: 1300});
-      setTimeout(()=>{onSignInBtnClick()}, 2000);
+      Notify.success('Successfull registration!', {position: "center-center", timeout: 1000});
+      setTimeout(()=>{onSignInBtnClick()}, 1000);
 
     }else { 
       emailInput.select();
-      Notify.failure('Email in use!!!', {position:'center-center', timeout: 1700,});
+      Notify.failure('Email in use!!!', {position:'center-center', timeout: 1000,});
     }
   }catch(error){
     console.log(error);  
@@ -106,10 +106,10 @@ async function singIn({email, password}){
 
       onCloseModal();
       headerAuthorised(user);
-      Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1300});
+      Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1000});
 
     }else { 
-      Notify.failure('Password or email is wrong!!!', {position:'center-center', timeout: 2000,});
+      Notify.failure('Password or email is wrong!!!', {position:'center-center', timeout: 1000,});
     }
 
   }catch(error){
