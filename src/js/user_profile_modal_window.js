@@ -4,6 +4,8 @@ const userProfileAddPhotoBtn =  document.querySelector(".add-photo-btn");
 const userProfileForm =  document.querySelector(".user-profile-form");
 
 console.log("user_profile_modal_window.js");
+console.log("userProfileModal=",userProfileModal);
+console.log("userProfileCloseBtn=",userProfileCloseBtn);
 
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
