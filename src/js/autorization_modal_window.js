@@ -68,14 +68,12 @@ async function singUp({name, email, password}){
 
   try{
     abortCtrl1 = new AbortController();
-    const data = await api.signUp({name, email, password}, abortCtrl1);
+    const {accessToken, user} = await api.signUp({name, email, password}, abortCtrl1);
     
-    console.log(data);
-    
-    if (data.accessToken) {
+    if (accessToken) {
       
-      document.cookie(`accessToken-${data.accessToken}`);
-
+      document.cookie(`accessToken-${accessToken}`);
+      
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1300});
       setTimeout(()=>{onSignInBtnClick()}, 2000);
 
