@@ -5,6 +5,7 @@ import './js/support_ukraine';
 import './js/mobile_menu';
 import './js/about_us_modal_window';
 import './js/autorization_modal_window';
+import './js/user_profile_modal_window';
 
 console.log("shopping_list_page.js");
 
