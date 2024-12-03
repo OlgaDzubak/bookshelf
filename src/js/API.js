@@ -16,11 +16,12 @@ export class bookshelf_API {
       axios.defaults.headers.common.Authorization = '';
     }
     
-    signUp (credentials, abortCtrl){
+    async signUp (credentials, abortCtrl){
       try{
-        const {data} = axios.post(`${this.#BASE_URL}auth/signup`, credentials, {signal: abortCtrl.signal});
-        this.setAuthHeader(data.accessToken);
+        const {data} = await axios.post(`${this.#BASE_URL}auth/signup`, credentials, {signal: abortCtrl.signal});
         console.log(data);
+        this.setAuthHeader(data.accessToken);
+
         return data;
       }catch(error){
         return error.message;
