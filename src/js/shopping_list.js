@@ -37,6 +37,7 @@ const bucketCard = [
   },
 ];
 
+console.log("shopping_list.js");
 const shoppingBooksBox = document.querySelector('.shopping-wrapper');
 const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
 
