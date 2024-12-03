@@ -8,8 +8,6 @@ import './js/about_us_modal_window';
 import './js/autorization_modal_window';
 
 
-console.log("shopping_list_page.js");
-
 const shoppingListLinkEl = document.querySelector('.js-nav-shoppinglistlink');
 const mobileShoppingListLinkEl = document.querySelector('.js-mobile-nav-shoppinglistlink');
 const mobileShoppingBagIconEl = document.querySelector('.js-mobile-shopping-bag-icon');
