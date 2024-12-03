@@ -87,14 +87,24 @@
       transition: background-color 5000s ease-in-out 0s;
   }
 
-  .modalForm-input:focus {
+  .modalForm-input:focus,
+  .modalForm-input:hover{
       border: 2px solid var(--accent-color1);
       outline: none;
       border-color: var(--accent-color1);
       color: var(--text-dark-color); 
   }
-  .modalForm-input:focus+ .modalForm-icon{
+  .modalForm-input:focus+.modalForm-icon,
+  .modalForm-input:hover+.modalForm-icon{
       --auth-icon-color: var(--auth-icon-color2);
+  }
+
+  .modalForm-input::placeholder {
+    color: currentColor;
+  }
+  .modalForm-input:focus::placeholder,
+  .modalForm-input:hover::placeholder{
+    color: var(--accent-color1);
   }
 
   .modalForm-input::selection{
@@ -102,9 +112,6 @@
     background-color: var(--accent-color2);
   }
 
-  .modalForm-input::placeholder {
-    color: currentColor;
-  }
   .modalForm-icon {
     position: absolute;
     top: 50%;
