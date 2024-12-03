@@ -7,6 +7,14 @@ import { onAnyKeyDownProfileModal, onCloseProfileModalClick } from './user_profi
 const api = new bookshelf_API();
 let abortCtrl;
 
+const navigation = document.querySelector('.navigation');
+const openBtn = document.querySelector('.jsOpenBtn');
+const authBtn = document.querySelector('.auth-btn');
+const authBtnName= authBtn.querySelector('.login-p');
+const userProfileModal = document.querySelector(".user-profile-modal");
+
+authBtn.addEventListener('click', onAuthBtnClick);
+
 
 showHeader();
 
@@ -55,10 +63,6 @@ async function showHeader(){
 
 function headerNotAuthorised(){
 
-    const navigation = document.querySelector('.navigation');
-    const openBtn = document.querySelector('.jsOpenBtn');
-    const authBtn = document.querySelector('.auth-btn');
-
     openBtn.classList.remove("is-hidden");
     authBtn.classList.add("is-hidden");
     navigation.classList.add("is-hidden");
@@ -67,13 +71,6 @@ function headerNotAuthorised(){
 }
 
 export function headerAuthorised(user){
-
-    const navigation = document.querySelector('.navigation');
-    const openBtn = document.querySelector('.jsOpenBtn');
-    const authBtn = document.querySelector('.auth-btn');
-    const authBtnName= authBtn.querySelector('.login-p');
-
-    authBtn.addEventListener('click', onAuthBtnClick);
 
     authBtnName.textContent = user.name;
     openBtn.classList.add("is-hidden");
@@ -88,8 +85,6 @@ export function headerAuthorised(user){
 
 function onAuthBtnClick(){
 
-    const userProfileModal = document.querySelector(".user-profile-modal");
-    
     userProfileModal.classList.remove("is-hidden");
 
     window.addEventListener('keydown', onAnyKeyDownProfileModal);
