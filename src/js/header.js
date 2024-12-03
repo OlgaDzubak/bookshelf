@@ -8,16 +8,12 @@ const api = new bookshelf_API();
 let abortCtrl;
 
 const navigation = document.querySelector('.navigation');
-const shoppinglistlink = document.querySelector('.js-nav-shoppinglistlink');
 const openBtn = document.querySelector('.jsOpenBtn');
 const authBtn = document.querySelector('.auth-btn');
 const authBtnName= authBtn.querySelector('.login-p');
 const userProfileModal = document.querySelector(".user-profile-modal");
 
 authBtn.addEventListener('click', onAuthBtnClick);
-//shoppinglistlink.addEventListener('click', onShoppingListLinkClick);
-
-console.log("header.js");
 
 showHeader();
 
@@ -28,8 +24,6 @@ showHeader();
 
 async function showHeader(){
 
-    console.log("header.js -> showHeader()");
-  
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
     if (!accessToken){ 
