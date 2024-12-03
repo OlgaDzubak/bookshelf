@@ -71,8 +71,7 @@
     background-color: transparent;
     border-radius: 40px;
     color: var(--text-dark-color);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color var(--transition);
   }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
@@ -101,6 +100,7 @@
 
   .modalForm-input::placeholder {
     color: currentColor;
+    transition: color var(--transition);
   }
   .modalForm-input:focus::placeholder,
   .modalForm-input:hover::placeholder{
@@ -117,6 +117,7 @@
     top: 50%;
     transform: translateY(-50%);
     margin-left: 20px; 
+    transition: fill var(--transition);  // !!! не буде працювати, подумаьи як виправити
   }
 
   .modalWrapper-btn {
