@@ -69,7 +69,9 @@ async function singUp({name, email, password}){
   try{
     abortCtrl1 = new AbortController();
     const data = await api.signUp({name, email, password}, abortCtrl1);
-
+    
+    console.log(data);
+    
     if (data.accessToken) {
       
       document.cookie(`accessToken-${data.accessToken}`);
