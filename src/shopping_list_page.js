@@ -1,6 +1,6 @@
 import './js/isChangeTheme';
-import './js/header';
 import './js/user_profile_modal_window';
+import './js/header';
 import './js/shopping_list';
 import './js/support_ukraine';
 import './js/mobile_menu';
