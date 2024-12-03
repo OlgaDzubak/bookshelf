@@ -262,7 +262,6 @@ async function deleteBook({target}){
         shoppingBooks = shoppingBooks.filter(item => item._id != book_id);        
 
         // зміщуємо елемент, що видаляться, вправо за межі екрану
-        console.log(bookIdDelete_idx, book_id);
         const delItem = books_ul.children[bookIdDelete_idx];
         delItem.classList.add("shift-right");
 
