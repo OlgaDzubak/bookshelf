@@ -3,11 +3,16 @@ const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
 const userProfileAddPhotoBtn =  document.querySelector(".add-photo-btn");
 const userProfileForm =  document.querySelector(".user-profile-form");
 
+console.log("user_profile_modal_window.js");
+
+
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
 userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
 
-
+console.log("userProfileCloseBtn = ", userProfileCloseBtn);
+console.log("userProfileAddPhotoBtn = ", userProfileAddPhotoBtn);
+console.log("userProfileForm = ", userProfileForm);
 
 
 
@@ -34,12 +39,7 @@ function onAddPhotoBtnClick(){
 
 function onUserProfileFormSubmit(e){
     
-    console.log("onSaveChangesBtnClick");
-
     e.preventDefault();
 
     const userProfileInput = document.querySelector(".user-profile-input");
-
-    console.log("inputNameValue=", userProfileInput.value);
-
 }
