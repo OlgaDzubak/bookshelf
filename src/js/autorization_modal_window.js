@@ -71,9 +71,6 @@ async function singUp({name, email, password}){
     const {accessToken, user} = await api.signUp({name, email, password}, abortCtrl1);
     
     if (user) {
-      
-      // document.cookie(`accessToken-${accessToken}`);
-      
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1300});
       setTimeout(()=>{onSignInBtnClick()}, 2000);
 
