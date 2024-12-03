@@ -35,4 +35,7 @@ function onUserProfileFormSubmit(e){
     e.preventDefault();
 
     const userProfileInput = document.querySelector(".user-profile-input");
+
+    console.dir(userProfileInput);
+    
 }
