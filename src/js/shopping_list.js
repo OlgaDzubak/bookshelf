@@ -37,7 +37,6 @@ const bucketCard = [
   },
 ];
 
-console.log("shopping_list.js");
 const shoppingBooksBox = document.querySelector('.shopping-wrapper');
 const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
 
@@ -66,8 +65,6 @@ createShoppingList();
   // Центральна функція, робить перевірки, запит та відмальовує
 async function createShoppingList() {
 
-    console.log(createShoppingList);
-  
     if (abortCtrl1) {      
       abortCtrl1.abort();
       console.log("abort previous fetch");
