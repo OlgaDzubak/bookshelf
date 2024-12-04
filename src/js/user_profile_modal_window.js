@@ -41,11 +41,16 @@ async function onUserProfileFormSubmit(e){
     const newName = userProfileInput.value;
     
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
+
+    
+
     if (!accessToken){
         
         // не авторизовано
 
-    }else{   
+    }else{
+        
+        console.log("accessToken=", accessToken);
         
         if (abortCtrl1) {
             abortCtrl1.abort();
@@ -68,7 +73,5 @@ async function onUserProfileFormSubmit(e){
 
         }
     }
-
-    console.dir(userProfileInput);
-    
+   
 }
