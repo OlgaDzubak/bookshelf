@@ -1,3 +1,5 @@
+import {getCookie} from './help_functions';
+
 const userProfileModal =  document.querySelector(".user-profile-modal");
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
 const userProfileAddPhotoBtn =  document.querySelector(".add-photo-btn");
@@ -63,7 +65,7 @@ async function onUserProfileFormSubmit(e){
             }
 
         }catch{
-            
+
         }
     }
 
