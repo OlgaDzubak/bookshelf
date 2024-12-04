@@ -69,7 +69,7 @@ async function onUserProfileFormSubmit(e){
                 console.log("dataNewUserName=",data);
             }
 
-        }catch{
+        }catch(error){
             console.log(error);
         }
     }
