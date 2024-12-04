@@ -49,7 +49,7 @@ async function onUserProfileFormSubmit(e){
         // не авторизовано
 
     }else{
-        
+
         console.log("accessToken=", accessToken);
         
         if (abortCtrl1) {
@@ -70,7 +70,7 @@ async function onUserProfileFormSubmit(e){
             }
 
         }catch{
-
+            console.log(error);
         }
     }
    
