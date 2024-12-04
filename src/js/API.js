@@ -59,7 +59,7 @@ export class bookshelf_API {
       }
     }
 
-    async updatehUser(accessToken, formData, abortCtrl){
+    async updateUser(accessToken, formData, abortCtrl){
       try{
         this.setAuthHeader(accessToken);
         axios.defaults.withCredentials = true;

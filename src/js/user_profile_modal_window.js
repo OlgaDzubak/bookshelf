@@ -1,4 +1,7 @@
+import { bookshelf_API } from './API';
 import {getCookie} from './help_functions';
+
+const api = new bookshelf_API();
 
 const userProfileModal =  document.querySelector(".user-profile-modal");
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
@@ -63,7 +66,7 @@ async function onUserProfileFormSubmit(e){
             const formData = new FormData;
             formData.append('name', newName);
 
-            const data = refreshUser(accessToken, formData, abortCtrl1)
+            const data = await api.updateUser(accessToken, formData, abortCtrl1)
             
             if (data){
                 console.log("dataNewUserName=",data);
