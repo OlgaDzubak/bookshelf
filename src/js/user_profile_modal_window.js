@@ -7,7 +7,7 @@ userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
 userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
 
-
+let abortCtrl1;
 
 export function onCloseProfileModalClick(){
     
@@ -30,11 +30,42 @@ function onAddPhotoBtnClick(){
   
 }
 
-function onUserProfileFormSubmit(e){
+async function onUserProfileFormSubmit(e){
     
     e.preventDefault();
 
     const userProfileInput = document.querySelector(".user-profile-input");
+
+    const newName = userProfileInput.value;
+    
+    const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
+    if (!accessToken){
+        
+        // не авторизовано
+
+    }else{   
+        
+        if (abortCtrl1) {
+            abortCtrl1.abort();
+            console.log("abort previous refreshUser");
+        }
+
+        try{
+            abortCtrl1 = new AbortController();
+
+            const formData = new FormData;
+            formData.append('name', newName);
+
+            const data = refreshUser(accessToken, formData, abortCtrl1)
+            
+            if (data){
+                console.log("dataNewUserName=",data);
+            }
+
+        }catch{
+            
+        }
+    }
 
     console.dir(userProfileInput);
     

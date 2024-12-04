@@ -59,6 +59,21 @@ export class bookshelf_API {
       }
     }
 
+    async updatehUser(accessToken, formData, abortCtrl){
+      try{
+        this.setAuthHeader(accessToken);
+        axios.defaults.withCredentials = true;
+        const {data} = await axios.patch(
+                                        `${this.#BASE_URL}users/update`,
+                                         formData, 
+                                         {headers: {'Content-Type': 'multipart/form-data'}},
+                                         {signal: abortCtrl.signal}                                         
+                                        );  
+        return data;   
+      }catch(error){
+        return error.message;
+      }
+    }
  
 
     //методи для /books/
