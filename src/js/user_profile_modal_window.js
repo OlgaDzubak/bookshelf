@@ -43,7 +43,7 @@ async function onUserProfileFormSubmit(e){
 
     const newName = userProfileInput.value;
     console.log("newName=",newName);
-    
+
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
     
@@ -58,7 +58,7 @@ async function onUserProfileFormSubmit(e){
         
         if (abortCtrl1) {
             abortCtrl1.abort();
-            console.log("abort previous refreshUser");
+            console.log("abort previous updateUser");
         }
 
         try{
