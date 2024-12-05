@@ -64,7 +64,7 @@ export class bookshelf_API {
         this.setAuthHeader(accessToken);
 
         axios.defaults.withCredentials = true;
-        axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+        axios.defaults.headers.patch['Content-Type'] = 'multipart/form-data';
 
         console.log("name=", formData.get("name"));
 
