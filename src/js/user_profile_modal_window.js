@@ -42,11 +42,8 @@ async function onUserProfileFormSubmit(e){
     const userProfileInput = document.querySelector(".user-profile-input");
 
     const newName = userProfileInput.value;
-    console.log("newName=",newName);
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
-
-    
 
     if (!accessToken){
         
@@ -54,8 +51,6 @@ async function onUserProfileFormSubmit(e){
 
     }else{
 
-        console.log("accessToken=", accessToken);
-        
         if (abortCtrl1) {
             abortCtrl1.abort();
             console.log("abort previous updateUser");
@@ -70,7 +65,7 @@ async function onUserProfileFormSubmit(e){
             const data = await api.updateUser(accessToken, formData, abortCtrl1)
             
             if (data){
-                console.log("dataNewUserName=",data);
+
             }
 
         }catch(error){
