@@ -63,10 +63,7 @@ export class bookshelf_API {
       try{
         this.setAuthHeader(accessToken);
 
-       axios.defaults.headers.patch['Content-Type'] = 'multipart/form-data';
-
-        console.log("name=", formData.get("name"));
-
+        axios.defaults.headers.patch['Content-Type'] = 'multipart/form-data';
         const {data} = await axios.patch(`${this.#BASE_URL}users/update`, formData, { signal: abortCtrl.signal});
 
         return data;   
