@@ -59,10 +59,10 @@ async function onUserProfileFormSubmit(e){
         try{
             abortCtrl1 = new AbortController();
 
-            const formData = new FormData;
-            formData.append('name', newName);
+            // const formData = new FormData;
+            // formData.append('name', newName);
 
-            const data = await api.updateUser(accessToken, formData, abortCtrl1)
+            const data = await api.updateUser({accessToken, newName}, abortCtrl1)
             
             if (data){
 
