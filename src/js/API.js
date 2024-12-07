@@ -61,7 +61,6 @@ export class bookshelf_API {
 
     async updateUser(credentials, abortCtrl){
       try{
-        console.log(credentials);
         this.setAuthHeader(credentials.accessToken);
 
      //   axios.defaults.headers.patch['Content-Type'] = 'multipart/form-data';

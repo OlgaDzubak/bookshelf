@@ -43,7 +43,6 @@ async function onUserProfileFormSubmit(e){
     const userProfileInput = document.querySelector(".user-profile-input");
 
     const newName = userProfileInput.value;
-    console.log("newName=", newName);
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
