@@ -86,5 +86,6 @@ async function onUserProfileFormSubmit(e){
         }
    
     userProfileModal.classList.add("is-hidden");
+    userProfileInput.value = "";
    
 }
