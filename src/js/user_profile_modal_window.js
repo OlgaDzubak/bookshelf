@@ -42,6 +42,7 @@ async function onUserProfileFormSubmit(e){
     const userProfileInput = document.querySelector(".user-profile-input");
 
     const newName = userProfileInput.value;
+    console.log("newName=", newName);
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
@@ -62,7 +63,7 @@ async function onUserProfileFormSubmit(e){
             // const formData = new FormData;
             // formData.append('name', newName);
 
-            const data = await api.updateUser({accessToken, newName}, abortCtrl1)
+            const data = await api.updateUser({accessToken, name: newName}, abortCtrl1)
             
             if (data){
 
