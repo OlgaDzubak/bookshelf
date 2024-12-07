@@ -48,7 +48,7 @@ function lastBlueWord(string) {
     return `${firstWord.join(' ')} <span class="last-word-color">${arrWord.join('')}</span>`
 }
 
-//Функція створює та повертає loader, який додає в документ після елементу elementAfter
+//Функція створює та повертає loader, який додає в документ після/в/попереду елементу el. Параметр where визначає куди саме додається loader
 function createLoader(el, where){
 
         const loader = document.createElement("div");

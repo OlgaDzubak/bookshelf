@@ -1,7 +1,7 @@
 
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
-import { getCookie } from './help_functions';
+import { getCookie, createLoader } from './help_functions';
 import { onAnyKeyDownProfileModal, onCloseProfileModalClick } from './user_profile_modal_window'
 
 const api = new bookshelf_API();
@@ -38,6 +38,8 @@ async function showHeader(){
         try{
 
             abortCtrl = new AbortController();
+
+            const ss = createLoader();
             const {accessToken:newAccessToken, user} = await api.refreshUser(accessToken, abortCtrl);              // отримуємо дані про юзера та його accessToken з сервера
 
             if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі

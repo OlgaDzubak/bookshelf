@@ -49,7 +49,8 @@ async function onUserProfileFormSubmit(e){
 
     if (!accessToken){
         
-        // не авторизовано
+        document.cookie = 'accessToken=;  max-age=-1;';
+        headerNotAuthorised();
 
     }else{
 
