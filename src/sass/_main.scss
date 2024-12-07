@@ -521,7 +521,7 @@
         }
         .list-books{
             display: flex;
-            //flex-wrap: wrap;
+            flex-wrap: wrap;
             gap: 24px;
         }
         .title-theme-book {
@@ -599,7 +599,7 @@
         }
         .list-books {
             margin-bottom: 32px;
-            flex-basis: calc((100% - 96px) / 5);
+      //      flex-basis: calc((100% - 96px) / 5);
         }
 
 
