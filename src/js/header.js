@@ -60,7 +60,7 @@ async function showHeader(){
     }
 }
 
-function headerNotAuthorised(){
+export function headerNotAuthorised(){
 
     openBtn.classList.remove("is-hidden");
     authBtn.classList.add("is-hidden");
