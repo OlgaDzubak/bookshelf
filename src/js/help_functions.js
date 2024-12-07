@@ -165,7 +165,13 @@ function rewriteAccessToken(newAccessToken){
   }
 }
 
-
+const capitalizeStr = (str) => {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
 
 //-------------------------------------------------------------------------------------------------------------------
 export {  displayOrdredAmountInShoppingBag, 
@@ -181,5 +187,6 @@ export {  displayOrdredAmountInShoppingBag,
           rewriteAccessToken,
           headerNotAuthorised,
           headerAuthorised,
-          onAuthBtnClick
+          onAuthBtnClick,
+          capitalizeStr
        };

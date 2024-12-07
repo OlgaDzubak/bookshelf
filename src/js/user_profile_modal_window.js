@@ -1,6 +1,6 @@
 import { bookshelf_API } from './API';
 import { headerNotAuthorised, headerAuthorised } from './header';
-import {createLoader, getCookie} from './help_functions';
+import {createLoader, getCookie, capitalizeStr} from './help_functions';
 
 const api = new bookshelf_API();
 
@@ -42,7 +42,7 @@ async function onUserProfileFormSubmit(e){
 
     const userProfileInput = document.querySelector(".user-profile-input");
 
-    const newName = userProfileInput.value;
+    const newName = capitalizeStr(userProfileInput.value);
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
