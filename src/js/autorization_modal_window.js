@@ -1,6 +1,6 @@
 import { bookshelf_API } from './API';
 import { Notify } from 'notiflix';
-import {displayOrdredAmountInShoppingBag, createLoader } from './help_functions';
+import {createLoader, capitalizeStr } from './help_functions';
 import {headerAuthorised} from './header';
 
 const api = new bookshelf_API();
@@ -68,7 +68,7 @@ async function singUp({name, email, password}){
 
   try{
     abortCtrl1 = new AbortController();
-    const {accessToken, user} = await api.signUp({name, email, password}, abortCtrl1);
+    const {accessToken, user} = await api.signUp({name: capitalizeStr(name), email, password}, abortCtrl1);
     
     if (user) {
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1000});
