@@ -1,4 +1,5 @@
 import { bookshelf_API } from './API';
+import { headerAuthorised } from './header';
 import {getCookie} from './help_functions';
 
 const api = new bookshelf_API();
@@ -63,10 +64,12 @@ async function onUserProfileFormSubmit(e){
             // const formData = new FormData;
             // formData.append('name', newName);
 
-            const data = await api.updateUser({accessToken, name: newName}, abortCtrl1)
+            const {user} = await api.updateUser({accessToken, name: newName}, abortCtrl1)
             
-            if (data){
+            if (user){
 
+                userProfileModal.classList.add("is-hidden");
+                headerAuthorised(user);
             }
 
         }catch(error){
