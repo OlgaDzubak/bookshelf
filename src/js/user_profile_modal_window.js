@@ -46,12 +46,13 @@ async function onUserProfileFormSubmit(e){
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
-    if (!accessToken){
+    // if (!accessToken){
         
-        document.cookie = 'accessToken=;  max-age=-1;';
-        headerNotAuthorised();
+    //     console.log(error);
+    //     document.cookie = 'accessToken=;  max-age=-1;';
+    //     headerNotAuthorised();
 
-    }else{
+    // }else{
 
         if (abortCtrl1) {
             abortCtrl1.abort();
@@ -66,7 +67,7 @@ async function onUserProfileFormSubmit(e){
 
             const {accessToken:newAccessToken, user} = await api.updateUser({accessToken, name: newName}, abortCtrl1)
             
-            userProfileModal.classList.add("is-hidden");
+            
 
             if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
@@ -83,11 +84,13 @@ async function onUserProfileFormSubmit(e){
 
 
         }catch(error){
+
             console.log(error);
 
             document.cookie = 'accessToken=;  max-age=-1;';
             headerNotAuthorised();
         }
-    }
+   // }
+    userProfileModal.classList.add("is-hidden");
    
 }
