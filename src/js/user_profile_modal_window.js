@@ -61,7 +61,7 @@ async function onUserProfileFormSubmit(e){
 
             const {accessToken:newAccessToken, user} = await api.updateUser({accessToken, name: newName}, abortCtrl1)
             
-            // loader.remove();
+            loader.remove();
 
             if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
