@@ -185,7 +185,6 @@
        font-weight: 700;
        font-size: 18px;
        line-height: 1.27;
-       white-space: nowrap;
        border-radius: 36px;
        border: none; //1.50px solid #111;
        color: var(--text-white-color);
@@ -221,6 +220,7 @@
         font-weight: 700;
         font-size: 18px;
         line-height: 1.32;
+        white-space: nowrap;
         overflow-x: auto;
     }
     .login-p::-webkit-scrollbar{   
