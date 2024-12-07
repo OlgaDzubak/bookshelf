@@ -1,6 +1,6 @@
 import { bookshelf_API } from './API';
 import { headerNotAuthorised, headerAuthorised } from './header';
-import {getCookie} from './help_functions';
+import {createLoader, getCookie} from './help_functions';
 
 const api = new bookshelf_API();
 
@@ -46,14 +46,6 @@ async function onUserProfileFormSubmit(e){
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
-    // if (!accessToken){
-        
-    //     console.log(error);
-    //     document.cookie = 'accessToken=;  max-age=-1;';
-    //     headerNotAuthorised();
-
-    // }else{
-
         if (abortCtrl1) {
             abortCtrl1.abort();
             console.log("abort previous updateUser");
@@ -65,9 +57,11 @@ async function onUserProfileFormSubmit(e){
             // const formData = new FormData;
             // formData.append('name', newName);
 
+            const loader = createLoader(userProfileModal, "into");
+
             const {accessToken:newAccessToken, user} = await api.updateUser({accessToken, name: newName}, abortCtrl1)
             
-            
+            // loader.remove();
 
             if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
@@ -90,7 +84,7 @@ async function onUserProfileFormSubmit(e){
             document.cookie = 'accessToken=;  max-age=-1;';
             headerNotAuthorised();
         }
-   // }
+   
     userProfileModal.classList.add("is-hidden");
    
 }
