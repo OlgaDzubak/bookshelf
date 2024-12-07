@@ -221,8 +221,8 @@
         font-size: 18px;
         line-height: 1.32;
         white-space: nowrap;
-        overflow-x: scroll;
         text-transform: capitalize;
+        overflow-x: auto;
     }
     .login-p::-webkit-scrollbar{   
         width: 0.1px;
