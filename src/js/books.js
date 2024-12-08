@@ -282,37 +282,43 @@ showCategoryList();
         // розмітка best sellers books
     function createBestSellersBooksMarcup(data, querty) {
  //ПОПРАВИТИ КОД ПІД ЗАГЛУШКУ КАРТИНКИ
-                // <picture>
-                // <source
-                // srcset="${emptyImgMobile_1x } 1x, ${ emptyImgMobile_2x } 2x, ${ emptyImgMobile_3x } 3x "
-                // media="(max-width: 767.9px)"
-                // >
-                // <source
-                // srcset="${emptyImgTablet_1x } 1x, ${ emptyImgTablet_2x } 2x, ${ emptyImgTablet_3x } 3x "
-                // media="(min-width: 768px) and (max-width: 1439.8px)"
-                // >
-                // <source
-                // srcset="${emptyImgDesktop_1x } 1x, ${ emptyImgDesktop_2x } 2x, ${ emptyImgDesktop_3x } 3x "
-                // media="(min-width: 1440px)"
-                // >
-                // <img 
-                // src=${ emptyImgDesktop_3x }
-                // alt= ${title}
-                // class="img-book 
-                // loading="auto"
-                // >
-                // </picture>
+       const emptyImgMarkup =   ` <picture>
+                                    <source
+                                        srcset="${emptyImgMobile_1x } 1x, ${ emptyImgMobile_2x } 2x, ${ emptyImgMobile_3x } 3x "
+                                        media="(max-width: 767.9px)"
+                                        >
+                                    <source
+                                        srcset="${emptyImgTablet_1x } 1x, ${ emptyImgTablet_2x } 2x, ${ emptyImgTablet_3x } 3x "
+                                        media="(min-width: 768px) and (max-width: 1439.8px)"
+                                        >
+                                    <source
+                                        srcset="${emptyImgDesktop_1x } 1x, ${ emptyImgDesktop_2x } 2x, ${ emptyImgDesktop_3x } 3x "
+                                        media="(min-width: 1440px)"
+                                        >
+                                    <img 
+                                        src=${ emptyImgDesktop_3x }
+                                        alt= ${title}
+                                        class="img-book 
+                                        loading="auto"
+                                        >
+                                </picture>`
+
         const markup = data.map(({category, books}) => {
             const categoryName = `<p class="theme-book">${category}</p>`;
 
             if (books.length) {
-                let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) => 
+                let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) =>
+
                 `<li class="item-book" data-id="${_id}">
                     <div class="img-owerlay">
-                        <img src="${book_image}" alt="${title}" class="img-book" loading="auto">
+
+                        ${book_image ? `<img src="${book_image}" alt="${title}" class="img-book" loading="auto">`
+                                     : emptyImgMarkup}
+                        
                         <div class="owerlay">
                             <p class="owerlay-content">quick view</p>
                         </div>
+
                     </div>
                     <p class="title-book">${shortTitle(title, 17)}</p>
                     <p class="title-author">${shortTitle(author, 34)}</p>
@@ -322,6 +328,7 @@ showCategoryList();
                             <ul class="list-books">${booksOfCategory}</ul>
                             <button type="button" class="button-more js-btn-more" id="${category}">See more</button>
                         </li>`
+                
             } else {
                 return `<li class="off-books best-book-container">${category}
                             <p class="off-books-text">Sorry, there are no books in this category, please choose another category</p>
