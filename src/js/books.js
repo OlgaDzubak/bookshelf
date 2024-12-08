@@ -307,8 +307,9 @@ showCategoryList();
             const categoryName = `<p class="theme-book">${category}</p>`;
 
             if (books.length) {
-                let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) =>
-
+                let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) =>{
+                    console.log("book_image", book_image);
+                    return
                 `<li class="item-book" data-id="${_id}">
                     <div class="img-owerlay">
 
@@ -322,8 +323,8 @@ showCategoryList();
                     </div>
                     <p class="title-book">${shortTitle(title, 17)}</p>
                     <p class="title-author">${shortTitle(author, 34)}</p>
-                </li>`).join('');
-
+                </li>`}).join('');
+                
                 return `<li class="best-book-container">${categoryName}
                             <ul class="list-books">${booksOfCategory}</ul>
                             <button type="button" class="button-more js-btn-more" id="${category}">See more</button>
