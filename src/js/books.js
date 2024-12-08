@@ -309,8 +309,8 @@ showCategoryList();
             if (books.length) {
                 let booksOfCategory = books.splice(0, querty).map(({_id, book_image, title, author}) =>{
                     console.log("book_image", book_image);
-                    return
-                `<li class="item-book" data-id="${_id}">
+                    return `
+                <li class="item-book" data-id="${_id}">
                     <div class="img-owerlay">
 
                         ${book_image ? `<img src="${book_image}" alt="${title}" class="img-book" loading="auto">`
