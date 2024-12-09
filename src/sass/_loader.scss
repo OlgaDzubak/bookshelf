@@ -10,6 +10,10 @@
     border-radius: 18px; 
     z-index: 1005; 
   }
+  .loader-box-trans{
+    background-color: transparent;
+  }
+
   .loader{
     position: relative;
     top: calc(50% - 40px);
