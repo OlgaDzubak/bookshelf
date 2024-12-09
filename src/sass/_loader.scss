@@ -614,7 +614,9 @@
 
 // ------ tablet styles
 @media screen and (min-width: 768px) and (max-width: 1439.8px){
-
+  .loader-box{
+    padding-top: 80px;
+  }
 }
 
 
