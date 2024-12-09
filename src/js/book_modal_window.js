@@ -7,6 +7,7 @@ let book_Id, abortCtrl1, abortCtrl2;
 
 const divContainerEl = document.querySelector('.books-box');
 const divBackdropEl = document.querySelector('.book-modal-backdrop');
+const bookModalContainer = document.querySelector(".book-modal-container")
 const btnCloseModal = document.querySelector('.btn-modal-close');
 const btnAddEl = document.querySelector('.add');
 const btnRemoveEl = document.querySelector('.remove');
@@ -158,10 +159,10 @@ async function addToShoppingList() {
 
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
         
-        const loader1 = createLoader(divBackdropEl, "after");
+        const loader1 = createLoader(bookModalContainer, "into");
         abortCtrl2 = new AbortController();
         const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
-      //  loader1.remove();
+        loader1.remove();
         
         if (data){
 
@@ -205,7 +206,7 @@ async function removeFromShoppingList() {
 
         if (!accessToken){  throw new Error("Request failed with status code 401"); }
 
-        const loader1 = createLoader(divBackdropEl, "after");
+        const loader1 = createLoader(bookModalContainer, "into");
         
         abortCtrl2 = new AbortController();
         const {data} = await api.removeFromShoppingList(accessToken, book_Id, abortCtrl2);
