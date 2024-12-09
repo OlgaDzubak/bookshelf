@@ -127,7 +127,7 @@ showCategoryList();
             booksBoxTitle.innerText = "Best Sellers Books";
             
             abortCtrl1 = new AbortController();
-            
+
             const data = await fetchBestSellersBooks(abortCtrl1);
             
             bestBooksAreLoaded = true;
@@ -177,7 +177,7 @@ showCategoryList();
         }
 
         if (bestBooksAreLoaded && categoriesAreLoaded){
-            loader1.remove();
+    //        loader1.remove();
          }
     }
 
