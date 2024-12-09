@@ -46,7 +46,10 @@ scrollUpBtn.addEventListener('click', ()=>{
 window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
 //створюємо loader
-const loader1 = createLoader(html, "into");
+if (!bestBooksAreLoaded && !categoriesAreLoaded){
+    const loader1 = createLoader(html, "into");
+ }
+
 
 showCategoryList();  
 
@@ -154,7 +157,7 @@ showCategoryList();
             abortCtrl1 = new AbortController();
             const data  = await fetchBooksOfCategory(category, abortCtrl1);
             
-            loader2.remove();
+           // loader2.remove();
 
             if (data.length) {
 
