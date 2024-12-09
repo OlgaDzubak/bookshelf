@@ -21,12 +21,13 @@ const api = new bookshelf_API();
 
 const categoryListBox = document.querySelector(".category-list-box");
 categoryListBox.addEventListener('click', showBooksOfCategory);
+
 const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
 const html = document.querySelector('html');
 
 let categoryList, itemAllCategories, abortCtrl1, per_page, categoriesAreLoaded=false, bestBooksAreLoaded=false;
-let firstLoading = true;
+let firstLoading = true, loader1, loader2;
 
 const pageWidth = document.documentElement.scrollWidth; 
 
@@ -47,11 +48,12 @@ window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
 //створюємо loader
 if (!bestBooksAreLoaded && !categoriesAreLoaded){
-    const loader1 = createLoader(html, "into");
- }
-
+    loader1 = createLoader(html, "into");
+}
 
 showCategoryList();  
+
+
 
 
 // ФУНКЦІЇ виводу даних на сайт ----------------------------------------------------------------------------------
@@ -67,7 +69,8 @@ showCategoryList();
         itemAllCategories.classList.add("category-list-item", "active");
         itemAllCategories.setAttribute("id","all-categories-item");
         categoryListBox.prepend(itemAllCategories);
-        itemAllCategories.click();
+        
+        itemAllCategories.click(); // завантажуємо best sellers books
        
         //завантажуємо з сервера список категорій книжок
         const data = await fetchCategoryList();
@@ -76,7 +79,7 @@ showCategoryList();
  
         if (bestBooksAreLoaded && categoriesAreLoaded){
             loader1.remove();
-         }
+        }
  
         //якщо отримали непусті дані, то малюємо розмітку
         if (data.length) {
@@ -152,7 +155,7 @@ showCategoryList();
 
             scrollToBoxTop(booksBox);
 
-            const loader2 = createLoader(booksBoxTitle, "after");
+            loader2 = createLoader(booksBoxTitle, "after");
             
             abortCtrl1 = new AbortController();
             const data  = await fetchBooksOfCategory(category, abortCtrl1);
