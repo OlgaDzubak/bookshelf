@@ -557,10 +557,10 @@
             margin-bottom: 20px;
         }
         .item-book{
-            flex-basis: calc((100% - 24px)/3);
+            flex-basis: calc((100% /3 - 25px));
         }
         .category-books-list .item-book{
-            flex-basis: calc((100% - 50px ) / 3);
+            flex-basis: calc(100% / 3 - 25px);
         }
         .support-ukraine-box {
             height: 472px;
@@ -604,8 +604,8 @@
       //      flex-basis: calc((100% - 96px) / 5);
         }
         .item-book{
-            flex-basis: calc(100%/5 - 24px);
-        }
+            flex-basis: calc(100% / 5 - 24px);
+        } 
         .category-books-list{
             column-gap: 24px;
         }
