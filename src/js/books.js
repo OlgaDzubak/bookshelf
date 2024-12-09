@@ -155,12 +155,12 @@ showCategoryList();
 
             scrollToBoxTop(booksBox);
 
-            loader2 = createLoader(booksBoxTitle, "after");
+            loader1 = createLoader(booksBoxTitle, "after");
             
             abortCtrl1 = new AbortController();
             const data  = await fetchBooksOfCategory(category, abortCtrl1);
             
-           // loader2.remove();
+            loader1.remove();
 
             if (data.length) {
 
