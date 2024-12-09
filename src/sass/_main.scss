@@ -601,7 +601,6 @@
         }
         .list-books {
             margin-bottom: 32px;
-      //      flex-basis: calc((100% - 96px) / 5);
         }
         .item-book{
             flex-basis: calc(100% / 5 - 24px);
@@ -610,7 +609,7 @@
             column-gap: 24px;
         }
         .category-books-list .item-book{
-            flex-basis: calc((100% - 96px ) / 5);
+            flex-basis: calc(100% / 5 - 24px);
         }
         .support-ukraine-box {
             height: 490px;
