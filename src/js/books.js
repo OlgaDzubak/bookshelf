@@ -24,12 +24,12 @@ categoryListBox.addEventListener('click', showBooksOfCategory);
 
 const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
-const mainContainer = document.querySelector('.main.container');
+const mainContainer = document.querySelector('.main .container');
 
 let categoryList, itemAllCategories, abortCtrl1, per_page, categoriesAreLoaded=false, bestBooksAreLoaded=false;
 let firstLoading = true, loader1;
 
-const pageWidth = document.documentElement.scrollWidth; 
+const pageWidth = document.documentElement.scrollWidth ; 
 
 if (pageWidth < 768) {
     per_page = 1;
