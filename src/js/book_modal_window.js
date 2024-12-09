@@ -161,7 +161,7 @@ async function addToShoppingList() {
         const loader1 = createLoader(divBackdropEl, "after");
         abortCtrl2 = new AbortController();
         const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
-        loader1.remove();
+      //  loader1.remove();
         
         if (data){
 
