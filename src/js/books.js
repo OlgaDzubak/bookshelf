@@ -144,22 +144,21 @@ showCategoryList();
         else {
                         
             booksBox.innerHTML="";
-
-            const categoryBooksList = document.createElement("ul");
+            
             const booksBoxTitle = createBooksBoxTitle(booksBox, target.id);
 
             scrollToBoxTop(booksBox);
 
+            const loader2 = createLoader(booksBoxTitle, "after");
+            
             abortCtrl1 = new AbortController();
-
-            const loader2 = createLoader(categoryBooksList, "into");
-
             const data  = await fetchBooksOfCategory(category, abortCtrl1);
             
             loader2.remove();
 
             if (data.length) {
 
+                const categoryBooksList = document.createElement("ul");
                 booksBoxTitle.after(categoryBooksList);
                 categoryBooksList.classList.add("list", "category-books-list");
 
