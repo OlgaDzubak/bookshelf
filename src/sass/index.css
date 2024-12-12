@@ -32,11 +32,11 @@ html {
 
 body {
   position: relative;
+  width: 100vw;
   font-family: "DM Sans", sans-serif;
   font-size: 12px;
   letter-spacing: 0.02em;
-  background-color: var(--light-theme-background);
-  width: 100vw;
+  background-color: var(--light-theme-background);  
 }
 
 .list {
