@@ -1714,7 +1714,7 @@ body.dark .btn-many {
 }
 
 .block-scroll {
-  overflow: hidden;
+  overflow:scroll;
   position: fixed;
   top: 0;
   left: 0;
