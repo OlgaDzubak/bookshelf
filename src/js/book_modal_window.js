@@ -22,7 +22,7 @@ const objScroll = {
     },
 
     enabledScroll() {
-        document.body.classList.remove('block-scroll');
+       // document.body.classList.remove('block-scroll');
         document.body.style.cssText = `top: 0`
         window.scroll({top: objScroll.scrollPosition})
     },
