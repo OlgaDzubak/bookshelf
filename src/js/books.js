@@ -78,7 +78,7 @@ showCategoryList();
         categoriesAreLoaded = true;
  
         if (bestBooksAreLoaded && categoriesAreLoaded){
-    //        loader1.remove();
+            loader1.remove();
         }
  
         //якщо отримали непусті дані, то малюємо розмітку
