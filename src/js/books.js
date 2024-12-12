@@ -24,7 +24,7 @@ categoryListBox.addEventListener('click', showBooksOfCategory);
 
 const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
-const body = document.querySelector('body');
+const mainContainer = document.querySelector('.main .container');
 
 let categoryList, itemAllCategories, abortCtrl1, per_page, categoriesAreLoaded=false, bestBooksAreLoaded=false;
 let firstLoading = true, loader1;
@@ -48,7 +48,7 @@ window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
 //створюємо loader
 if (!bestBooksAreLoaded && !categoriesAreLoaded){
-    loader1 = createLoader(body, "into");
+    loader1 = createLoader(mainContainer, "into");
 }
 
 showCategoryList();  
@@ -178,7 +178,7 @@ showCategoryList();
         }
 
         if (bestBooksAreLoaded && categoriesAreLoaded){
-    //        loader1.remove();
+            loader1.remove();
          }
     }
 
