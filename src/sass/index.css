@@ -31,6 +31,7 @@ html {
 }
 
 body {
+  position: relative;
   font-family: "DM Sans", sans-serif;
   font-size: 12px;
   letter-spacing: 0.02em;
