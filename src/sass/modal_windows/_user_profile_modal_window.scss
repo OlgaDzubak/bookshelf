@@ -58,23 +58,26 @@
         --auth-icon-color: var(--auth-icon-color2);
       }
 
-      .add-photo-btn{
+      .add-photo-btn-div{
         position: absolute;
-        top: calc(100% - 16px);
-        left: calc(50% - 16px);
         width: 32px;
         height: 32px;
+        top: calc(100% - 16px);
+        left: calc(50% - 16px);
+        border-radius: 100%;
         border: none;
         border-radius: 100%;
         background-color: var(--add-photo-btn-bgcolor);
         transition: var(--transition);
       }
-      .add-photo-btn:hover,
-      .add-photo-btn:focus{
+ 
+
+      .add-photo-btn-div:hover,
+      .add-photo-btn-div:focus{
         background-color: var(--add-photo-btn-bgcolor-hover);
       }
 
-      .plus-svg{
+      .plus-btn-img{
         width: 11px;
         height: 11px;
       }
