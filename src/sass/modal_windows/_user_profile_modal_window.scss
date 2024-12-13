@@ -60,9 +60,9 @@
 
       .add-photo-btn-div{
         position: absolute;
-
-        //top: calc(100% - 16px);
-        //left: calc(50% - 16px);
+        display: flex;
+        top: calc(100% - 16px);
+        left: calc(50% - 16px);
         border-radius: 100%;
         border: none;
         border-radius: 100%;
@@ -70,8 +70,7 @@
         transition: var(--transition);
       }
     .plus-btn-label{
-      width: 32px;
-      height: 32px;
+      display: flex;
       padding: 10.5px;
     }
 
