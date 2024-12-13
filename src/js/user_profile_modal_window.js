@@ -6,12 +6,12 @@ const api = new bookshelf_API();
 
 const userProfileModal =  document.querySelector(".user-profile-modal");
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
-const userProfileAddPhotoBtn =  document.querySelector(".add-photo-btn");
+// const userProfileAddPhotoBtn =  document.querySelector(".add-photo-btn");
 const userProfileForm =  document.querySelector(".user-profile-form");
 const userProfileInput = document.querySelector(".user-profile-input");
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
-userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
+// userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
 userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
 
 let abortCtrl1;
@@ -32,10 +32,10 @@ export function onAnyKeyDownProfileModal({target, code}){
     }    
 }
 
-function onAddPhotoBtnClick(){
-  // дописати обрання файла фото
+// function onAddPhotoBtnClick(){
+//   // дописати обрання файла фото
   
-}
+// }
 
 async function onUserProfileFormSubmit(e){
     
