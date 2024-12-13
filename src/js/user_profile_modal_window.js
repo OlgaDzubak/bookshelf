@@ -8,6 +8,7 @@ const userProfileModal =  document.querySelector(".user-profile-modal");
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
 const userProfileAddPhotoBtn =  document.querySelector(".add-photo-btn");
 const userProfileForm =  document.querySelector(".user-profile-form");
+const userProfileInput = document.querySelector(".user-profile-input");
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileAddPhotoBtn.addEventListener("click", onAddPhotoBtnClick);
@@ -39,8 +40,6 @@ function onAddPhotoBtnClick(){
 async function onUserProfileFormSubmit(e){
     
     e.preventDefault();
-
-    const userProfileInput = document.querySelector(".user-profile-input");
 
     const newName = capitalizeStr(userProfileInput.value);
 

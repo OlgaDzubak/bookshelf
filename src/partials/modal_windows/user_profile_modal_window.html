@@ -1,24 +1,43 @@
     <div class="user-profile-modal profile-elm is-hidden">
 
-        <!-- close button -->
-        <button class="user-profile-closeBtn profile-elm" type="button" title="Close button">
-            <svg class="icon-x profile-elm">
-                <use href="/src/images/svg/sprite.svg#x-close-icon"></use>
-            </svg>
-        </button>
 
-        <div class="user-photo-div profile-elm">
+        <!-- <div class="user-photo-div profile-elm">
             <img src="/src/images/png/person_light@1x.png" alt="user-photo" class="user-photo profile-elm">
             <button class="add-photo-btn profile-elm" type="button">
                 <svg class="plus-svg profile-elm">
                     <use href="/src/images/svg/sprite.svg#add-plus" class="profile-elm"></use>
                 </svg>
             </button>
-        </div>
+        </div> -->
         
         <form class="user-profile-form profile-elm">
+
+            <!-- close button -->
+            <button class="user-profile-closeBtn profile-elm" type="button" title="Close button">
+                <svg class="icon-x profile-elm">
+                    <use href="/src/images/svg/sprite.svg#x-close-icon"></use>
+                </svg>
+            </button>
+
+            <div class="user-photo-div">
+                <img src="/src/images/png/person_light@1x.png" alt="user-photo" class="user-photo profile-elm">
+            </div>
             
-            <label class="user-profile-label profile-elm" for="name">
+            <div class="add-photo-btn-div">
+                <input id="load-photo-file" name="file" type="file" accept="image/*" hidden value>
+
+                <label for="load-photo-file">
+                    <img class="plus-svg profile-elm" alt="" src="/src/images/svg/sprite.svg#add-plus"/>
+                    <!-- <svg class="plus-svg profile-elm">
+                        <use href="/src/images/svg/sprite.svg#add-plus" class="profile-elm"></use>
+                    </svg>                     -->
+                </label>
+            </div>
+
+
+
+
+            <label class="user-profile-label profile-elm" for="profile-name">
 
                 <div class="user-profile-inputWrap profile-elm">
 
