@@ -62,9 +62,8 @@
         position: absolute;
         width: 32px;
         height: 32px;
-        padding: 11px;
-        top: calc(100% - 16px);
-        left: calc(50% - 16px);
+        //top: calc(100% - 16px);
+        //left: calc(50% - 16px);
         border-radius: 100%;
         border: none;
         border-radius: 100%;
@@ -72,8 +71,7 @@
         transition: var(--transition);
       }
     .plus-btn-label{
-      width: 100%;
-      height: 100%;
+      padding: 10.5px;
     }
 
       .add-photo-btn-div:hover,
