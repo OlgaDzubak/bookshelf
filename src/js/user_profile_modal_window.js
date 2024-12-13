@@ -54,8 +54,9 @@ async function onUserProfileFormSubmit(e){
         try{
             abortCtrl1 = new AbortController();
 
-            // const formData = new FormData;
-            // formData.append('name', newName);
+            const formData = new FormData;
+            formData.append('avatar', fileAvatar)
+            formData.append('name', newName);
 
             const loader = createLoader(userProfileModal, "into");
 
