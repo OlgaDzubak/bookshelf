@@ -16,9 +16,16 @@
             <div class="add-photo-btn-div">
                 <input id="load-photo-file" name="file" type="file" accept="image/*" hidden value>
                 <label class="plus-btn-label" for="load-photo-file">
-                    <img class="plus-btn-img profile-elm" alt="" src="/src/images/svg/sprite.svg#add-plus"/>
+                    <svg class="plus-btn-img profile-elm">
+                        <use href="/src/images/svg/sprite.svg#add-plus"></use>
+                    </svg> 
+                    
+                    
                 </label>
             </div>
+
+
+
 
             <label class="user-profile-label profile-elm" for="profile-name">
 
