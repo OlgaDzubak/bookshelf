@@ -52,7 +52,7 @@
         margin-right: auto;
       }
 
-      .user-photo{
+      .user-photo_img{
         width: 100%;
         height: 100%;
         border-radius: 100%;
@@ -71,10 +71,10 @@
         background-color: var(--add-photo-btn-bgcolor);
         transition: var(--transition);
       }
-    .plus-btn-label{
-      display: flex;
-      padding: 10.5px;
-    }
+      .plus-btn-label{
+        display: flex;
+        padding: 10.5px;
+      }
 
       .add-photo-btn-div:hover,
       .add-photo-btn-div:focus{
