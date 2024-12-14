@@ -51,9 +51,13 @@ function onLoadPhotoFileClick({target}){
       return;
     }
     fileAvatar = file;
-    console.log(fileAvatar);
-    //const objectURL = URL.createObjectURL(file);
-    userPhotoImg.src = objectURL;
+    userPhotoImg.src =  URL.createObjectURL(file);
+
+//    if (FileReader && files && files.length) {
+//         var fr = new FileReader();
+//         fr.onload = () => showImage(fr);
+//         fr.readAsDataURL(files[0]);
+//     }
 }
     
 
