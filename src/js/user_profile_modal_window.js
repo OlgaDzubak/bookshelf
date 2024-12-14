@@ -12,7 +12,7 @@ const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
-userProfileLoadPhotoFile.addEventListener("click", onLoadPhotoFileClick);
+userProfileLoadPhotoFile.addEventListener("change", onLoadPhotoFileClick);
 userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
 
 let abortCtrl1;
@@ -39,15 +39,9 @@ export function onAnyKeyDownProfileModal({target, code}){
 
 function onLoadPhotoFileClick({target}){
    var files = target.files;
-   const file = target.files[0];
-   console.dir(target)
-   console.log(file)
    if (FileReader && files && files.length) {
         var fr = new FileReader();
-        fr.onload = () => {
-            userPhotoImg.onload = () => getImageData(userPhotoImg);
-            userPhotoImg.src = fr.result;
-        };
+        fr.onload = () => showImage(fr);
         fr.readAsDataURL(files[0]);
     }
 }
@@ -64,6 +58,12 @@ function onLoadPhotoFileClick({target}){
   
 //}
 
+
+function showImage(fileReader) {
+    var img = document.getElementById("myImage");
+    img.onload = () => getImageData(img);
+    img.src = fileReader.result;
+}
 
 function getImageData(img) {
     ctx.drawImage(img, 0, 0);
