@@ -8,8 +8,8 @@ const userProfileModal =  document.querySelector(".user-profile-modal");
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
 const userProfileLoadPhotoFile =  document.querySelector("#load-photo-file");
 const userProfileForm =  document.querySelector(".user-profile-form");
+const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
-
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileLoadPhotoFile.addEventListener("click", onLoadPhotoFileClick);
 userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
@@ -35,6 +35,18 @@ export function onAnyKeyDownProfileModal({target, code}){
 function onLoadPhotoFileClick({target}){
     const file = target.files[0];
     console.log(file);
+
+    const maxSizeFile = 5 * 1024 * 1024;
+    if (file.size > maxSizeFile) {
+      Notify.failure('Файл повинен бути менше 5Mb', {
+        position: 'center-top',
+        distance: '10px',
+      });
+      return;
+    }
+    console.dir(userPhotoImg);
+    const objectURL = URL.createObjectURL(file);
+    console.log(objectURL);
   
 }
 
