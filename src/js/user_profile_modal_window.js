@@ -51,15 +51,9 @@ function onLoadPhotoFileClick({target}){
       return;
     }
     fileAvatar = file;
-    const objectURL = URL.createObjectURL(file);
-    console.log(objectURL);
+    console.log(fileAvatar);
+    //const objectURL = URL.createObjectURL(file);
     userPhotoImg.src = objectURL;
-
-//    if (FileReader && files && files.length) {
-//         var fr = new FileReader();
-//         fr.onload = () => showImage(fr);
-//         fr.readAsDataURL(files[0]);
-//     }
 }
     
 
@@ -96,7 +90,7 @@ async function onUserProfileFormSubmit(e){
             abortCtrl1 = new AbortController();
 
             const formData = new FormData;
-            formData.append('avatar', fileAvatar)
+            formData.append('avatar', fileAvatar);
             formData.append('name', newName);
 
             const loader = createLoader(userProfileModal, "into");
