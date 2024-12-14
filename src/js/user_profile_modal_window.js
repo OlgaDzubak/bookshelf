@@ -35,7 +35,8 @@ export function onAnyKeyDownProfileModal({target, code}){
 
 function onLoadPhotoFileClick({target}){
    var files = target.files;
-
+   const file = target.files[0];
+   console.log(file)
    if (FileReader && files && files.length) {
         var fr = new FileReader();
         fr.onload = () => {
