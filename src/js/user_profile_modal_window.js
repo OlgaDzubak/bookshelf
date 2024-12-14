@@ -34,9 +34,9 @@ export function onAnyKeyDownProfileModal({target, code}){
 }
 
 function onLoadPhotoFileClick({target}){
-
+    console.dir(target);
     const file = target.files[0];
-    console.dir(file);
+    
     const maxSizeFile = 5 * 1024 * 1024;
     if (file.size > maxSizeFile) {
       Notify.failure('Файл повинен бути менше 5Mb', {
