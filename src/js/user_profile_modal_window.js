@@ -96,6 +96,7 @@ async function onUserProfileFormSubmit(e){
             const formData = new FormData;
             formData.append('avatar', fileAvatar);
             formData.append('name', newName);
+            console.log("formData=", formData);
 
             const loader = createLoader(userProfileModal, "into");
 
