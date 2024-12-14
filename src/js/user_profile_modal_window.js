@@ -17,9 +17,9 @@ userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
 
 let abortCtrl1;
 
-var canvas = document.createElement("canvas");
-var ctx = canvas.getContext("2d");
-var imageData;
+//var canvas = document.createElement("canvas");
+//var ctx = canvas.getContext("2d");
+let fileAvatar;
 
 export function onCloseProfileModalClick(){
     
@@ -38,21 +38,31 @@ export function onAnyKeyDownProfileModal({target, code}){
 }
 
 function onLoadPhotoFileClick({target}){
-   var files = target.files;
-   console.log(files[0]);
-   if (FileReader && files && files.length) {
-        var fr = new FileReader();
-        fr.onload = () => showImage(fr);
-        fr.readAsDataURL(files[0]);
+   
+   var file = target.files[0];
+   const maxSizeFile = 5 * 1024 * 1024;
+
+    if (file.size > maxSizeFile) {
+      Notify.failure('Файл повинен бути менше 5Mb', {
+        position: 'center-top',
+        distance: '10px',
+      })
+      fileAvatar='';
+      return;
     }
+    fileAvatar = file;
+    const objectURL = URL.createObjectURL(file);
+    console.log(objectURL);
+    userPhotoImg.src = objectURL;
+
+//    if (FileReader && files && files.length) {
+//         var fr = new FileReader();
+//         fr.onload = () => showImage(fr);
+//         fr.readAsDataURL(files[0]);
+//     }
 }
-    // const maxSizeFile = 5 * 1024 * 1024;
-    // if (file.size > maxSizeFile) {
-    //   Notify.failure('Файл повинен бути менше 5Mb', {
-    //     position: 'center-top',
-    //     distance: '10px',
-    //   });
-    // const objectURL = URL.createObjectURL(file);
+    
+
 
   
 //}
