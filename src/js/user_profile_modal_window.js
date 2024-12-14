@@ -10,6 +10,7 @@ const userProfileLoadPhotoFile =  document.querySelector("#load-photo-file");
 const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
+
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
 userProfileLoadPhotoFile.addEventListener("click", onLoadPhotoFileClick);
 userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
