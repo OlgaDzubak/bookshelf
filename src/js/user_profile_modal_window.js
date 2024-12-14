@@ -34,21 +34,35 @@ export function onAnyKeyDownProfileModal({target, code}){
 }
 
 function onLoadPhotoFileClick({target}){
-    console.dir(target);
-    const file = target.files[0];
-    console.dir(file);
-    const maxSizeFile = 5 * 1024 * 1024;
-    if (file.size > maxSizeFile) {
-      Notify.failure('Файл повинен бути менше 5Mb', {
-        position: 'center-top',
-        distance: '10px',
-      });
-      return;
+   var files = target.files;
+
+   if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = () => {
+          //  userPhotoImg.onload = () => getImageData(userPhotoImg);
+            userPhotoImg.src = fr.result;
+        };
+        fr.readAsDataURL(files[0]);
     }
-    console.dir(userPhotoImg);
-    const objectURL = URL.createObjectURL(file);
-    console.log(objectURL);
+}
+    // const maxSizeFile = 5 * 1024 * 1024;
+    // if (file.size > maxSizeFile) {
+    //   Notify.failure('Файл повинен бути менше 5Mb', {
+    //     position: 'center-top',
+    //     distance: '10px',
+    //   });
+    //   return;
+     // console.dir(userPhotoImg);
+    // const objectURL = URL.createObjectURL(file);
+    // console.log(objectURL);
   
+//}
+
+
+function getImageData(img) {
+    ctx.drawImage(img, 0, 0);
+    imageData = ctx.getImageData(0, 0, img.width, img.height).data;
+    console.log("image data:", imageData);
 }
 
 async function onUserProfileFormSubmit(e){
