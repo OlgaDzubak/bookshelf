@@ -100,7 +100,7 @@ async function onUserProfileFormSubmit(e){
 
             const loader = createLoader(userProfileModal, "into");
 
-            const {accessToken:newAccessToken, user} = await api.updateUser({accessToken, name: newName}, abortCtrl1)
+            const {accessToken:newAccessToken, user} = await api.updateUser({accessToken, formData}, abortCtrl1)
             
             loader.remove();
 
