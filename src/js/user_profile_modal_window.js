@@ -17,6 +17,10 @@ userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
 
 let abortCtrl1;
 
+var canvas = document.createElement("canvas");
+var ctx = canvas.getContext("2d");
+var imageData;
+
 export function onCloseProfileModalClick(){
     
     window.removeEventListener('keydown', onAnyKeyDownProfileModal);
@@ -36,12 +40,12 @@ export function onAnyKeyDownProfileModal({target, code}){
 function onLoadPhotoFileClick({target}){
    var files = target.files;
    const file = target.files[0];
-   console.log(target)
+   console.dir(target)
    console.log(file)
    if (FileReader && files && files.length) {
         var fr = new FileReader();
         fr.onload = () => {
-          //  userPhotoImg.onload = () => getImageData(userPhotoImg);
+            userPhotoImg.onload = () => getImageData(userPhotoImg);
             userPhotoImg.src = fr.result;
         };
         fr.readAsDataURL(files[0]);
