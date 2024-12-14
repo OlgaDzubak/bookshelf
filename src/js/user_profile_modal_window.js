@@ -60,9 +60,8 @@ function onLoadPhotoFileClick({target}){
 
 
 function showImage(fileReader) {
-    var img = document.getElementById("myImage");
-    img.onload = () => getImageData(img);
-    img.src = fileReader.result;
+    userPhotoImg.onload = () => getImageData(userPhotoImg);
+    userPhotoImg.src = fileReader.result;
 }
 
 function getImageData(img) {
