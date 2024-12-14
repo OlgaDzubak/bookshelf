@@ -39,6 +39,7 @@ export function onAnyKeyDownProfileModal({target, code}){
 
 function onLoadPhotoFileClick({target}){
    var files = target.files;
+   console.log(files[0]);
    if (FileReader && files && files.length) {
         var fr = new FileReader();
         fr.onload = () => showImage(fr);
@@ -51,10 +52,8 @@ function onLoadPhotoFileClick({target}){
     //     position: 'center-top',
     //     distance: '10px',
     //   });
-    //   return;
-     // console.dir(userPhotoImg);
     // const objectURL = URL.createObjectURL(file);
-    // console.log(objectURL);
+
   
 //}
 
