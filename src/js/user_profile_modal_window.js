@@ -1,6 +1,7 @@
 import { bookshelf_API } from './API';
 import { headerNotAuthorised, headerAuthorised } from './header';
 import {createLoader, getCookie, capitalizeStr} from './help_functions';
+import { Notify } from 'notiflix';
 
 const api = new bookshelf_API();
 
