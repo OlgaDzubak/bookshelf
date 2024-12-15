@@ -245,6 +245,7 @@
 
         transform: translateY(100%);
         transition: transform var(--transition);
+        cursor: pointer;
     } 
     .item-book:hover .owerlay,
     .item-book:focus .owerlay {
@@ -258,7 +259,7 @@
         
         text-transform: uppercase;
         color: var(--text-dark-color);
-        cursor: pointer;
+      //  cursor: pointer;
     }
 
     // Стилі вразі якщо прожить пустий масив____________________________________________
