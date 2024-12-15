@@ -66,16 +66,16 @@ function onLoadPhotoFileClick({target}){
 //}
 
 
-function showImage(fileReader) {
-    userPhotoImg.onload = () => getImageData(userPhotoImg);
-    userPhotoImg.src = fileReader.result;
-}
+// function showImage(fileReader) {
+//     userPhotoImg.onload = () => getImageData(userPhotoImg);
+//     userPhotoImg.src = fileReader.result;
+// }
 
-function getImageData(img) {
-    ctx.drawImage(img, 0, 0);
-    imageData = ctx.getImageData(0, 0, img.width, img.height).data;
-    console.log("image data:", imageData);
-}
+// function getImageData(img) {
+//     ctx.drawImage(img, 0, 0);
+//     imageData = ctx.getImageData(0, 0, img.width, img.height).data;
+//     console.log("image data:", imageData);
+// }
 
 async function onUserProfileFormSubmit(e){
     
@@ -96,14 +96,15 @@ async function onUserProfileFormSubmit(e){
             const formData = new FormData;
             formData.append('avatar', fileAvatar);
             formData.append('name', newName);
-            console.log("formData=", formData);
+
 
             const loader = createLoader(userProfileModal, "into");
 
             const {accessToken:newAccessToken, user} = await api.updateUser({accessToken, formData}, abortCtrl1)
             
             loader.remove();
-
+            resetForm();
+            
             if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
                 if (newAccessToken != accessToken){
