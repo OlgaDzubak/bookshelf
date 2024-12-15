@@ -44,14 +44,16 @@
       }  
 
       .user-photo-and-addbtn-div{
-        position: relative;
         margin-bottom: 70px;
-
+        position: relative;
       }
 
       .user-photo-div{
+        position: relative;
         width: 100px;
         height: 100px;
+        margin-left: auto;
+        margin-right: auto;
         overflow: hidden;
         border-radius: 100%;
         border: 1px solid #000000;
