@@ -12,7 +12,7 @@ const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
-userProfileLoadPhotoFile.addEventListener("change", onLoadPhotoFileClick);
+userProfileLoadPhotoFile.addEventListener("change", onChangePhotoFile);
 userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
 
 let abortCtrl1;
@@ -34,10 +34,10 @@ export function onAnyKeyDownProfileModal({target, code}){
     }    
 }
 
-function onLoadPhotoFileClick({target}){
+function onChangePhotoFile({target}){
    
    var file = target.files[0];
-   const maxSizeFile = 5 * 1024 * 1024;
+   const maxSizeFile = 5 * 1024 ;//* 1024;
 
     if (file.size > maxSizeFile) {
       Notify.failure('Файл повинен бути менше 5Mb', {
