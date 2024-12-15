@@ -16,9 +16,6 @@ userProfileLoadPhotoFile.addEventListener("change", onLoadPhotoFileClick);
 userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
 
 let abortCtrl1;
-
-//var canvas = document.createElement("canvas");
-//var ctx = canvas.getContext("2d");
 let fileAvatar;
 
 export function onCloseProfileModalClick(){
@@ -53,29 +50,8 @@ function onLoadPhotoFileClick({target}){
     fileAvatar = file;
     userPhotoImg.src =  URL.createObjectURL(file);
 
-//    if (FileReader && files && files.length) {
-//         var fr = new FileReader();
-//         fr.onload = () => showImage(fr);
-//         fr.readAsDataURL(files[0]);
-//     }
 }
     
-
-
-  
-//}
-
-
-// function showImage(fileReader) {
-//     userPhotoImg.onload = () => getImageData(userPhotoImg);
-//     userPhotoImg.src = fileReader.result;
-// }
-
-// function getImageData(img) {
-//     ctx.drawImage(img, 0, 0);
-//     imageData = ctx.getImageData(0, 0, img.width, img.height).data;
-//     console.log("image data:", imageData);
-// }
 
 async function onUserProfileFormSubmit(e){
     
