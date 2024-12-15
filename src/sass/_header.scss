@@ -199,20 +199,31 @@
     .auth-btn.is-hidden{
         display: none;
     }
-    .icon-user-div{
+    // .icon-user-div{
+    //     width: 37px;
+    //     height: 37px;
+    //     padding: 9px;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     border-radius: 50%;
+    //     margin-right: 9px;
+    //     background-color: var(--accent-color3);
+    // }
+    // .icon-user{
+    //     width: 19px;
+    //     height: 19px;
+    //     --auth-icon-color: var(--auth-icon-color2);
+    // }
+    .user-img{
         width: 37px;
         height: 37px;
-        padding: 9px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
         border-radius: 50%;
         margin-right: 9px;
         background-color: var(--accent-color3);
-    }
-    .icon-user{
-        width: 19px;
-        height: 19px;
         --auth-icon-color: var(--auth-icon-color2);
     }
     .login-p{

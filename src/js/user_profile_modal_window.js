@@ -112,7 +112,6 @@ async function onUserProfileFormSubmit(e){
                    date = date.toUTCString();
                    document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
                 }
-                 
                  headerAuthorised(user);                
              }else{ 
                  throw new Error("Not authorized");
