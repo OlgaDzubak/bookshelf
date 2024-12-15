@@ -2,7 +2,6 @@
 
         <form class="user-profile-form profile-elm">
 
-            <!-- close button -->
             <button class="user-profile-closeBtn profile-elm" type="button" title="Close button">
                 <svg class="icon-x profile-elm">
                     <use href="/src/images/svg/sprite.svg#x-close-icon"></use>
@@ -10,24 +9,17 @@
             </button>
 
             <div class="user-photo-div profile-elm">
-                
                 <img class="user-photo-img profile-elm" src="/src/images/png/person_light@1x.png" alt="user-photo"/>
-                
-                <div class="add-photo-btn-div profile-elm">
-                    <input id="load-photo-file" class="profile-elm" name="file" type="file" accept="images/*" hidden>
-                    <label class="plus-btn-label profile-elm" for="load-photo-file" role="button">
-                        <svg class="plus-btn-svg profile-elm">
-                            <use  class="profile-elm" href="/src/images/svg/sprite.svg#add-plus"></use>
-                        </svg>
-                    </label>
-                </div>
-                
             </div>
             
-
-
-
-
+            <div class="add-photo-btn-div profile-elm">
+                <input id="load-photo-file" class="profile-elm" name="file" type="file" accept="images/*" hidden>
+                <label class="plus-btn-label profile-elm" for="load-photo-file" role="button">
+                    <svg class="plus-btn-svg profile-elm">
+                        <use  class="profile-elm" href="/src/images/svg/sprite.svg#add-plus"></use>
+                    </svg>
+                </label>
+            </div>
 
             <label class="user-profile-label profile-elm" for="profile-name">
 
