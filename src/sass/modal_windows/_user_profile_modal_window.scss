@@ -72,6 +72,7 @@
         border-radius: 100%;
         background-color: var(--add-photo-btn-bgcolor);
         transition: var(--transition);
+        cursor: pointer;
       }
       .plus-btn-label{
         display: flex;
