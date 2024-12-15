@@ -43,13 +43,15 @@
         stroke: var(--accent-color1);
       }  
 
-      .user-photo-div{
+      .user-photo-and-addbtn-div{
         position: relative;
+        margin-bottom: 70px;
+
+      }
+
+      .user-photo-div{
         width: 100px;
         height: 100px;
-        margin-bottom: 70px;
-        margin-left: auto;
-        margin-right: auto;
         overflow: hidden;
         border-radius: 100%;
         border: 1px solid #000000;
