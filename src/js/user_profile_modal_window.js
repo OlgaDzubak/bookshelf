@@ -104,7 +104,7 @@ async function onUserProfileFormSubmit(e){
             
             loader.remove();
             //resetForm();
-            console.log(accessToken,user)
+
             if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
                 if (newAccessToken != accessToken){
