@@ -40,7 +40,7 @@ function onChangePhotoFile({target}){
    var file = target.files[0];
    const maxSizeFile = 5 * 1024 * 1024;
 
-   console.log(file.type.slice(0, 4));
+   console.log(file.type.slice(0, 5));
     if (file.type.slice(5) != "image"){
         Notify.failure('Wrong file format. Please choose image file.', {
             position: 'right-center',
