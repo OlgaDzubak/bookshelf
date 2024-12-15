@@ -41,7 +41,9 @@ function onChangePhotoFile({target}){
    const maxSizeFile = 5 * 1024 * 1024;
 
 //    if (file.type.slice(-5))
-    console.log(file.type.slice(-5));
+console.log(file.type);
+console.log(file.type.slice(-5));
+
     if (file.size > maxSizeFile) {
       Notify.failure('Файл повинен бути менше 5Mb', {
         position: 'right-center',
