@@ -12,14 +12,14 @@ const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
 
-userProfileCloseBtn.addEventListener("click", onCloseProfileModalClick);
-userProfileLoadPhotoFile.addEventListener("change", onChangePhotoFile);
-userProfileForm.addEventListener("submit", onUserProfileFormSubmit);
+userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
+userProfileLoadPhotoFile.addEventListener("change", onChangeProfileModalPhotoFile);
+userProfileForm.addEventListener("submit", onUserProfileModalFormSubmit);
 
 let abortCtrl1;
 let fileAvatar;
 
-export function onCloseProfileModalClick(){
+export function onCloseProfileModal(){
     
     window.removeEventListener('keydown', onAnyKeyDownProfileModal);
     window.removeEventListener('mousedown', onAnyKeyDownProfileModal );
@@ -35,7 +35,7 @@ export function onAnyKeyDownProfileModal({target, code}){
     }    
 }
 
-function onChangePhotoFile({target}){
+function onChangeProfileModalPhotoFile({target}){
    
    var file = target.files[0];
    const maxSizeFile = 5 * 1024 * 1024;
@@ -43,7 +43,7 @@ function onChangePhotoFile({target}){
     if (file.type.slice(0,5) != "image"){
         Notify.failure('Wrong file format. Please choose image file.', {
             position: 'right-center',
-            distance: '50px',
+            distance: '100px',
         })
         fileAvatar='';
         return;
@@ -52,7 +52,7 @@ function onChangePhotoFile({target}){
     if (file.size > maxSizeFile) {
       Notify.failure('File size should be less then 5Mb.', {
         position: 'right-center',
-        distance: '10px',
+        distance: '100px',
       })
       fileAvatar='';
       return;
@@ -60,10 +60,9 @@ function onChangePhotoFile({target}){
     fileAvatar = file;
     userPhotoImg.src =  URL.createObjectURL(file);
 
-}
-    
+}    
 
-async function onUserProfileFormSubmit(e){
+async function onUserProfileModalFormSubmit(e){
     
     e.preventDefault();
 
@@ -78,11 +77,10 @@ async function onUserProfileFormSubmit(e){
 
         try{
             abortCtrl1 = new AbortController();
-            console.log(fileAvatar, newName);
+              
             const formData = new FormData;
             formData.append('avatar', fileAvatar);
             formData.append('name', newName);
-
 
             const loader = createLoader(userProfileModal, "into");
 

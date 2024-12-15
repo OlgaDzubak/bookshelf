@@ -23,7 +23,6 @@ showHeader();
 
 
 
-
 async function showHeader(){
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
