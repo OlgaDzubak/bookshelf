@@ -218,19 +218,16 @@
     .user-img-div{
         width: 37px;
         height: 37px;
-        background-size: contain;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         border-radius: 50%;
         margin-right: 9px;
+        overflow: hidden;
         background-color: var(--accent-color3);
         --auth-icon-color: var(--auth-icon-color2);
     }
     .user-img{
         width: 100%;
     }
-    
+
     .login-p{
         max-width: 150px;
         margin-right: 4px;
