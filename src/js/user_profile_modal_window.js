@@ -38,11 +38,13 @@ export function onAnyKeyDownProfileModal({target, code}){
 function onChangePhotoFile({target}){
    
    var file = target.files[0];
-   const maxSizeFile = 5 * 1024 ;//* 1024;
-    console.log(file);
+   const maxSizeFile = 5 * 1024 * 1024;
+
+//    if (file.type.slice(-5))
+    console.log(file.type.slice(-5));
     if (file.size > maxSizeFile) {
       Notify.failure('Файл повинен бути менше 5Mb', {
-        position: 'center-top',
+        position: 'right-center',
         distance: '10px',
       })
       fileAvatar='';
