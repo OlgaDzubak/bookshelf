@@ -50,13 +50,15 @@
         margin-bottom: 70px;
         margin-left: auto;
         margin-right: auto;
+        overflow: hidden;
+        border-radius: 100%;
+        border: 1px solid #000000;
       }
 
       .user-photo-img{
         width: 100%;
         height: 100%;
-        border-radius: 100%;
-        border: 1px solid #000000;
+        object-fit: cover;
         --auth-icon-color: var(--auth-icon-color2);        
       }
 
