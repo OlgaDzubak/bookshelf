@@ -78,7 +78,7 @@ async function onUserProfileFormSubmit(e){
 
         try{
             abortCtrl1 = new AbortController();
-
+            console.log(fileAvatar, newName);
             const formData = new FormData;
             formData.append('avatar', fileAvatar);
             formData.append('name', newName);
@@ -89,7 +89,6 @@ async function onUserProfileFormSubmit(e){
             const {accessToken: newAccessToken, user} = await api.updateUser({accessToken, formData}, abortCtrl1)
             
             loader.remove();
-            //resetForm();
 
             if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
