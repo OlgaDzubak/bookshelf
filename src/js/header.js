@@ -10,6 +10,7 @@ let abortCtrl;
 const navigation = document.querySelector('.navigation');
 const openBtn = document.querySelector('.jsOpenBtn');
 const authBtn = document.querySelector('.auth-btn');
+const authBtnImg= authBtn.querySelector('.user-img');
 const authBtnName= authBtn.querySelector('.login-p');
 const userProfileModal = document.querySelector(".user-profile-modal");
 
@@ -74,6 +75,12 @@ export function headerNotAuthorised(){
 export function headerAuthorised(user){
 
     authBtnName.textContent = user.name;
+    if (user.avatarURL){
+        authBtnImg.src=user.avatarURL;
+    }else{
+        authBtnImg.src="/src/images/svg/sprite.svg#name_icon";
+    }
+    
     openBtn.classList.add("is-hidden");
     authBtn.classList.remove("is-hidden");
     navigation.classList.remove("is-hidden");    
