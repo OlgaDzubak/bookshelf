@@ -99,21 +99,24 @@ async function onUserProfileModalFormSubmit(e){
                    document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
                 }
                  headerAuthorised(user);                
-             }else{ 
-                 throw new Error("500 Not authorized");
              }
+            //  else{ 
+            //      throw new Error("Not authorized");
+            //  }
 
 
         }catch(error){
 
+            console.log(error.code);
             console.log(error);
-            
-            if (error.code === 401) {
+
+            if (error === "Not authorized") {
                 document.cookie = 'accessToken=;  max-age=-1;';
                 headerNotAuthorised();
-            }else{
-
             }
+            // else if(error === "Not authorized") {
+
+            // }
             
 
         }
