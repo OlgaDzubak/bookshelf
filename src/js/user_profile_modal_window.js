@@ -22,8 +22,8 @@ let fileAvatar;
 export function onCloseProfileModal(){
     
     window.removeEventListener('keydown', onAnyKeyDownProfileModal);
-    window.removeEventListener('mousedown', onAnyKeyDownProfileModal );
-    window.removeEventListener('scroll', onCloseProfileModalClick );
+    window.removeEventListener('mousedown', onAnyKeyDownProfileModal);
+    window.removeEventListener('scroll', onCloseProfileModal);
   
     userProfileModal.classList.add("is-hidden");
 }
