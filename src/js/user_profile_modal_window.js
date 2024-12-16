@@ -40,14 +40,17 @@ function onChangeProfileModalPhotoFile({target}){
    var file = target.files[0];
    const maxSizeFile = 5 * 1024 * 1024;
 
-    if (file.type.slice(0,5) != "image"){
+  console.log(file.type);
+  console.log(file.type.slice(0,5));
+  
+   if (file.type.slice(0,5) != "image"){
         Notify.failure('Wrong file format. Please choose image file.', {
             position: 'right-center',
             distance: '100px',
         })
         fileAvatar='';
         return;
-    }
+   }
 
     if (file.size > maxSizeFile) {
       Notify.failure('File size should be less then 5Mb.', {
