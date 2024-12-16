@@ -101,9 +101,9 @@ async function onUserProfileModalFormSubmit(e){
                 }
                  headerAuthorised(user);                
              }
-            //  else{ 
-            //      throw new Error("Not authorized");
-            //  }
+             else{ 
+                 throw new Error("error !!!!!");
+             }
 
 
         }catch(error){
