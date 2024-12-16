@@ -43,7 +43,7 @@ function onChangeProfileModalPhotoFile({target}){
   console.log(file.type);
   console.log(file.type.slice(0,5));
   
-   if (file.type.slice(0,5) != "image"){
+   if ((file.type.slice(0,5) != "image") && (file.type.slice(0,9) != "image/svg")){
         Notify.failure('Wrong file format. Please choose image file.', {
             position: 'right-center',
             distance: '100px',
