@@ -31,7 +31,7 @@ export function onCloseProfileModal(){
 export function onAnyKeyDownProfileModal({target, code}){
      
     if (!target.classList.contains('profile-elm') || code === 'Escape') {
-        onCloseProfileModalClick();
+        onCloseProfileModal();
     }    
 }
 
@@ -100,16 +100,22 @@ async function onUserProfileModalFormSubmit(e){
                 }
                  headerAuthorised(user);                
              }else{ 
-                 throw new Error("Not authorized");
+                 throw new Error("500 Not authorized");
              }
 
 
         }catch(error){
 
             console.log(error);
+            
+            if (error.code === 401) {
+                document.cookie = 'accessToken=;  max-age=-1;';
+                headerNotAuthorised();
+            }else{
 
-            document.cookie = 'accessToken=;  max-age=-1;';
-            headerNotAuthorised();
+            }
+            
+
         }
    
     userProfileModal.classList.add("is-hidden");
