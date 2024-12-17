@@ -99,7 +99,7 @@ async function onUserProfileModalFormSubmit(e){
                    date = date.toUTCString();
                    document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
                 }
-                 headerAuthorised(user);                
+                 headerAuthorised(data.user);                
              }
              else{ 
                 console.log("data=",data);
