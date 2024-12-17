@@ -88,11 +88,12 @@ async function onUserProfileModalFormSubmit(e){
 
             const loader = createLoader(userProfileModal, "into");
 
-            const data = await api.updateUser({accessToken, formData}, abortCtrl1)
-            
+            const data = await api.updateUser({accessToken, formData}, abortCtrl1);
+            console.log("data=",data);
+
             loader.remove();
 
-            if (data.user && data.AccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
+            if (data.user && data.accessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
                 if (data.accessToken != accessToken){
                    let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
