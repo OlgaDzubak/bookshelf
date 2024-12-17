@@ -73,7 +73,7 @@ export function headerNotAuthorised(){
 }
 
 export function headerAuthorised(user){
-
+    console.log(user);
     authBtnName.textContent = user.name;
     if (user.avatarURL){
         authBtnImg.src = user.avatarURL;
