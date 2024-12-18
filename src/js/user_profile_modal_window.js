@@ -39,9 +39,6 @@ function onChangeProfileModalPhotoFile({target}){
    
    var file = target.files[0];
    const maxSizeFile = 5 * 1024 * 1024;
-
-  console.log(file.type);
-  console.log(file.type.slice(0,5));
   
    if (file.type.slice(0,5) != "image"){                        //|| (file.type.slice(0,9) === "image/svg"))
     
@@ -103,7 +100,6 @@ async function onUserProfileModalFormSubmit(e){
              }
         }catch(error){
             console.log(error);
-
             if (error === "Not authorized") {
                 document.cookie = 'accessToken=;  max-age=-1;';
                 headerNotAuthorised();
