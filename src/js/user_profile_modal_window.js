@@ -101,15 +101,7 @@ async function onUserProfileModalFormSubmit(e){
                 }
                  headerAuthorised(data.user);                
              }
-             else{ 
-                console.log("data=",data);
-                 throw new Error("error !!!!!");
-             }
-
-
         }catch(error){
-
-            console.log(error.code);
             console.log(error);
 
             if (error === "Not authorized") {
