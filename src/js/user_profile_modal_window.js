@@ -38,6 +38,7 @@ export function onAnyKeyDownProfileModal({target, code}){
 function onChangeProfileModalPhotoFile({target}){
    
    var file = target.files[0];
+   console.log(file);
    const maxSizeFile = 5 * 1024 * 1024;
   
    if (file.type.slice(0,5) != "image"){                        //|| (file.type.slice(0,9) === "image/svg"))
