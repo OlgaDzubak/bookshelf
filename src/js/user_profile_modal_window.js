@@ -105,23 +105,31 @@ async function onUserProfileModalFormSubmit(e){
               throw new Error(data);
              }
         }catch(error){
-            console.log("erorr = ",error);
+            
+            console.log("erorr = ", error);
+
             if (error === "Not authorized") {
+
                 document.cookie = 'accessToken=;  max-age=-1;';
                 userProfileModal.classList.add("is-hidden");
                 userProfileInput.value = "";
                 headerNotAuthorised();
+
             } else if (error === "Wrong file format!"){
+
                 Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
                        position: 'right-center',
                        distance: '100px',
                 })
+
             }else{
+
                 Notify.failure('Profile uploading failed. Please reload the page and try again.', {
                        position: 'right-center',
                        distance: '100px',
                 });
+
             }
-          }
+        }
   
 }
