@@ -101,7 +101,7 @@ async function onUserProfileModalFormSubmit(e){
                  userProfileInput.value = "";
                  headerAuthorised(data.user);                
              }else{
-              console.log("data в ошибке = ", data);
+              throw new Error(data);
              }
         }catch(error){
             console.log("erorr = ",error);
