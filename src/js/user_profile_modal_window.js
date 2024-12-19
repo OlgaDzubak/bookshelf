@@ -100,6 +100,9 @@ async function onUserProfileModalFormSubmit(e){
                    date = date.toUTCString();
                    document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
                 }
+                 
+                 userProfileModal.classList.add("is-hidden");
+                 userProfileInput.value = "";
                  headerAuthorised(data.user);                
              }
         }catch(error){
@@ -107,17 +110,18 @@ async function onUserProfileModalFormSubmit(e){
             console.log(error);
           
             if (error === "Not authorized") {
+
                 document.cookie = 'accessToken=;  max-age=-1;';
+                userProfileModal.classList.add("is-hidden");
+                userProfileInput.value = "";
                 headerNotAuthorised();
+              
             } else if(error === 'Wrong file format!") {
+                      
                 Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
                        position: 'right-center',
                        distance: '100px',
                 })
-            }
-        }
-   
-    userProfileModal.classList.add("is-hidden");
-    userProfileInput.value = "";
-   
+          
+            }   
 }
