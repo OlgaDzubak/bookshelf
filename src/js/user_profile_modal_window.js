@@ -109,9 +109,7 @@ async function onUserProfileModalFormSubmit(e){
         }
     }catch(error){
         
-        console.log("erorr = ", error);
-
-        if (error === "Not authorized") {
+        if (error === "Error: Not authorized") {
 
             document.cookie = 'accessToken=;  max-age=-1;';
             userProfileModal.classList.add("is-hidden");
