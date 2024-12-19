@@ -109,6 +109,8 @@ async function onUserProfileModalFormSubmit(e){
         }
     }catch(error){
         
+        console.log(error);
+
         if (error === "Error: Not authorized") {
 
             document.cookie = 'accessToken=;  max-age=-1;';
