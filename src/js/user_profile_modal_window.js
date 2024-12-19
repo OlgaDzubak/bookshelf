@@ -89,10 +89,6 @@ async function onUserProfileModalFormSubmit(e){
             
             loader.remove();
 
-            if (data.message){
-              throw new Error("Wrong file format!");
-            }
-
             if (data.user && data.accessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
                 if (data.accessToken != accessToken){
