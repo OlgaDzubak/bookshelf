@@ -18,6 +18,7 @@ userProfileForm.addEventListener("submit", onUserProfileModalFormSubmit);
 
 let abortCtrl1;
 let fileAvatar;
+let loader;
 
 export function onCloseProfileModal(){
     
@@ -87,7 +88,7 @@ async function onUserProfileModalFormSubmit(e){
         formData.append('avatar', fileAvatar);
         formData.append('name', newName);
 
-        const loader = createLoader(userProfileModal, "into");
+        loader = createLoader(userProfileModal, "into");
 
         const data = await api.updateUser({accessToken, formData}, abortCtrl1);
         
