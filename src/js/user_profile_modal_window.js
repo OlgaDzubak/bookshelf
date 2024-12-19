@@ -70,7 +70,7 @@ async function onUserProfileModalFormSubmit(e){
     const newName = capitalizeStr(userProfileInput.value);
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
-
+    
         console.log("accessToken=",accessToken);
 
         if (abortCtrl1) {
