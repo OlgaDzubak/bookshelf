@@ -114,11 +114,11 @@ async function onUserProfileModalFormSubmit(e){
                 userProfileModal.classList.add("is-hidden");
                 userProfileInput.value = "";
                 headerNotAuthorised();
-            }else if (error === 'Wrong file format!"){
+            } else if (error === "Wrong file format!"){
                 Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
                        position: 'right-center',
                        distance: '100px',
-                });
+                })
             }else{
                 Notify.failure('Profile uploading failed. Please reload the page and try again.', {
                        position: 'right-center',
