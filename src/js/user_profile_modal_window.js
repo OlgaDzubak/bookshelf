@@ -91,9 +91,9 @@ async function onUserProfileModalFormSubmit(e){
 
         const data = await api.updateUser({accessToken, formData}, abortCtrl1);
         
-        loader.remove();
-
         if (data.user && data.accessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
+            
+            loader.remove();
 
             if (data.accessToken != accessToken){
                 let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
@@ -108,6 +108,8 @@ async function onUserProfileModalFormSubmit(e){
             throw new Error(data);
         }
     }catch(error){
+        
+        loader.remove();
         
         console.dir(error);
 
