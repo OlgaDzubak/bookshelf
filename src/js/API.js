@@ -45,7 +45,8 @@ export class bookshelf_API {
         
         return data;
       }catch(error){
-        console.log(error);
+        const {data: errorData} = error
+        console.log(errorData);
         return error.message;
       }
     } 
