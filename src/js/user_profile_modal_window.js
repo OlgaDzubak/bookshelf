@@ -71,67 +71,68 @@ async function onUserProfileModalFormSubmit(e){
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
     
-        console.log("accessToken=",accessToken);
+    if (abortCtrl1) {
+        abortCtrl1.abort();
+        console.log("abort previous updateUser");
+    }
 
-        if (abortCtrl1) {
-            abortCtrl1.abort();
-            console.log("abort previous updateUser");
+    try{
+        if (!accessToken){
+            throw new Error("Not authorized");
         }
 
-        try{
-            abortCtrl1 = new AbortController();
-              
-            const formData = new FormData;
-            formData.append('avatar', fileAvatar);
-            formData.append('name', newName);
-
-            const loader = createLoader(userProfileModal, "into");
-
-            const data = await api.updateUser({accessToken, formData}, abortCtrl1);
+        abortCtrl1 = new AbortController();
             
-            loader.remove();
+        const formData = new FormData;
+        formData.append('avatar', fileAvatar);
+        formData.append('name', newName);
 
-            if (data.user && data.accessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
+        const loader = createLoader(userProfileModal, "into");
 
-                if (data.accessToken != accessToken){
-                   let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
-                   date = date.toUTCString();
-                   document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
-                }
-                 
-                 userProfileModal.classList.add("is-hidden");
-                 userProfileInput.value = "";
-                 headerAuthorised(data.user);                
-             }else{
-              console.log(data);
-              throw new Error(data);
-             }
-        }catch(error){
-            
-            console.log("erorr = ", error);
+        const data = await api.updateUser({accessToken, formData}, abortCtrl1);
+        
+        loader.remove();
 
-            if (error === "Not authorized") {
+        if (data.user && data.accessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
-                document.cookie = 'accessToken=;  max-age=-1;';
-                userProfileModal.classList.add("is-hidden");
-                userProfileInput.value = "";
-                headerNotAuthorised();
-
-            } else if (error === "Wrong file format!"){
-
-                Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
-                       position: 'right-center',
-                       distance: '100px',
-                })
-
-            }else{
-
-                Notify.failure('Profile uploading failed. Please reload the page and try again.', {
-                       position: 'right-center',
-                       distance: '100px',
-                });
-
+            if (data.accessToken != accessToken){
+                let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
+                date = date.toUTCString();
+                document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
             }
+            userProfileModal.classList.add("is-hidden");
+            userProfileInput.value = "";
+            headerAuthorised(data.user);                
+
+        }else{
+            throw new Error(data);
         }
+    }catch(error){
+        
+        console.log("erorr = ", error);
+
+        if (error === "Not authorized") {
+
+            document.cookie = 'accessToken=;  max-age=-1;';
+            userProfileModal.classList.add("is-hidden");
+            userProfileInput.value = "";
+            headerNotAuthorised();
+
+        } else if (error === "Error: Wrong file format!"){
+
+            Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
+                    position: 'right-center',
+                    distance: '100px',
+            })
+
+        }else{
+
+            Notify.failure('Profile uploading failed. Please reload the page and try again.', {
+                    position: 'right-center',
+                    distance: '100px',
+            });
+
+        }
+    }
   
 }
