@@ -109,7 +109,7 @@ async function onUserProfileModalFormSubmit(e){
         }
     }catch(error){
         
-        console.log(error);
+        console.dir(error);
 
         if (error === "Error: Not authorized") {
 
