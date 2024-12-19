@@ -87,8 +87,6 @@ async function onUserProfileModalFormSubmit(e){
 
             const data = await api.updateUser({accessToken, formData}, abortCtrl1);
             
-            console.log("data=",data);
-            
             loader.remove();
 
             if (data.message){
