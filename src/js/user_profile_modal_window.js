@@ -111,16 +111,16 @@ async function onUserProfileModalFormSubmit(e){
         
         loader.remove();
         
-        console.dir(error);
+        console.dir(error.message);
 
-        if (error === "Error: Not authorized") {
+        if (error.message === "Not authorized") {
 
             document.cookie = 'accessToken=;  max-age=-1;';
             userProfileModal.classList.add("is-hidden");
             userProfileInput.value = "";
             headerNotAuthorised();
 
-        } else if (error === "Error: Wrong file format!"){
+        } else if (error.message === "Wrong file format!"){
 
             Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
                     position: 'right-center',
