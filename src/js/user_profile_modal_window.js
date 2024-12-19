@@ -102,7 +102,7 @@ async function onUserProfileModalFormSubmit(e){
                  headerAuthorised(data.user);                
              }else{
               console.log(data);
-              throw new Error(data["message"]);
+              throw new Error(data);
              }
         }catch(error){
             console.log("erorr = ",error);
