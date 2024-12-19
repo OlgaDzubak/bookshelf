@@ -87,7 +87,8 @@ async function onUserProfileModalFormSubmit(e){
             const loader = createLoader(userProfileModal, "into");
 
             const data = await api.updateUser({accessToken, formData}, abortCtrl1);
-
+            console.log("data=", data);
+          
             loader.remove();
 
             if (data.user && data.accessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
