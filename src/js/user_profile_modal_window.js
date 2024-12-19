@@ -86,7 +86,7 @@ async function onUserProfileModalFormSubmit(e){
             const loader = createLoader(userProfileModal, "into");
 
             const data = await api.updateUser({accessToken, formData}, abortCtrl1);
-          
+            сщтыщдуюдщп("data=",data);
             loader.remove();
 
             if (data.message){
@@ -106,9 +106,6 @@ async function onUserProfileModalFormSubmit(e){
                  headerAuthorised(data.user);                
              }
         }catch(error){
-          
-            console.log(error);
-          
             if (error === "Not authorized") {
                 document.cookie = 'accessToken=;  max-age=-1;';
                 userProfileModal.classList.add("is-hidden");
