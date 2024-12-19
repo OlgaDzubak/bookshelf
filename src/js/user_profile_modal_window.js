@@ -100,6 +100,8 @@ async function onUserProfileModalFormSubmit(e){
                  userProfileModal.classList.add("is-hidden");
                  userProfileInput.value = "";
                  headerAuthorised(data.user);                
+             }else{
+              console.log("data в ошибке = ", data);
              }
         }catch(error){
             if (error === "Not authorized") {
