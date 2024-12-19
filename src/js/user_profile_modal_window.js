@@ -86,9 +86,12 @@ async function onUserProfileModalFormSubmit(e){
             const loader = createLoader(userProfileModal, "into");
 
             const data = await api.updateUser({accessToken, formData}, abortCtrl1);
-            console.log("data=", data);
           
             loader.remove();
+
+            if (data.message){
+              throw new Error("Wrong file format!");
+            }
 
             if (data.user && data.accessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
 
@@ -100,16 +103,18 @@ async function onUserProfileModalFormSubmit(e){
                  headerAuthorised(data.user);                
              }
         }catch(error){
+          
             console.log(error);
+          
             if (error === "Not authorized") {
                 document.cookie = 'accessToken=;  max-age=-1;';
                 headerNotAuthorised();
+            } else if(error === 'Wrong file format!") {
+                Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
+                       position: 'right-center',
+                       distance: '100px',
+                })
             }
-            // else if(error === "Not authorized") {
-
-            // }
-            
-
         }
    
     userProfileModal.classList.add("is-hidden");
