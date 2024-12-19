@@ -71,6 +71,8 @@ async function onUserProfileModalFormSubmit(e){
 
     const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
 
+        console.log("accessToken=",accessToken);
+
         if (abortCtrl1) {
             abortCtrl1.abort();
             console.log("abort previous updateUser");
