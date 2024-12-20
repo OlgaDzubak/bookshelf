@@ -4,7 +4,7 @@ import {createLoader, capitalizeStr } from './help_functions';
 import {headerAuthorised} from './header';
 
 const api = new bookshelf_API();
-let abortCtrl1, abortCtrl2;
+let abortCtrl1, abortCtrl2, loader1;
 const emailRegEx = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
 
 
@@ -69,7 +69,7 @@ async function singUp({name, email, password}){
 
   try{
     
-    const loader1 = createLoader(modal, "into");
+    loader1 = createLoader(modal, "into");
     
     abortCtrl1 = new AbortController();
     const {accessToken, user} = await api.signUp({name: capitalizeStr(name), email, password}, abortCtrl1);
@@ -100,7 +100,7 @@ async function singIn({email, password}){
   try{
 
     //створюємо loader
-    const loader1 = createLoader(modal, "into");
+    loader1 = createLoader(modal, "into");
 
     abortCtrl2 = new AbortController();
     const {user} = await api.signIn({email, password}, abortCtrl2);
