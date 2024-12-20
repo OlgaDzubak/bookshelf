@@ -24,7 +24,7 @@ categoryListBox.addEventListener('click', showBooksOfCategory);
 
 const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
-const mainContainer = document.querySelector('.main .container');
+const body = document.querySelector('body');
 
 let categoryList, itemAllCategories, abortCtrl1, per_page, categoriesAreLoaded=false, bestBooksAreLoaded=false;
 let firstLoading = true, loader1;
