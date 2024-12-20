@@ -6,7 +6,7 @@ import {headerAuthorised} from './header';
 const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2, loader1;
 
-const emailRegEx = /[a-zA-Z0-9]{3}@[a-zA-Z0-9]{3}\.[a-zA-Z]{3}/; 
+//const emailRegEx = /[a-zA-Z0-9]{3}@[a-zA-Z0-9]{3}\.[a-zA-Z]{3}/; 
 
 //відкриття модального вікна для авторизації
 const backdrop = document.querySelector('.autorization-modal-backdrop');
@@ -57,14 +57,14 @@ function onFormSubmit(e) {
   
   console.log(email);
   
-  const regex = new RegExp("^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+  // const regex = new RegExp("^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
   
-  if (!regex.test(email)){
-    return Notify.failure('Wrong email address!!!', {
-                  position: 'right-center',
-                  distance: '100px',
-                });
-  }
+  // if (!regex.test(email)){
+  //   return Notify.failure('Wrong email address!!!', {
+  //                 position: 'right-center',
+  //                 distance: '100px',
+  //               });
+  // }
 
 
   if      (submitBtn.textContent === "SIGN UP") { singUp({name, email, password}); }
