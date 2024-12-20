@@ -7,6 +7,8 @@ const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2, loader1;
 const emailRegEx = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
 
+
+
 //відкриття модального вікна для авторизації
 const backdrop = document.querySelector('.autorization-modal-backdrop');
 const modal = document.querySelector('.modal');
