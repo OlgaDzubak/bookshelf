@@ -48,7 +48,7 @@ window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
 //створюємо loader
 if (!bestBooksAreLoaded && !categoriesAreLoaded){
-    loader1 = createLoader(mainContainer, "into");
+    loader1 = createLoader(body, "into");
 }
 
 showCategoryList();  
