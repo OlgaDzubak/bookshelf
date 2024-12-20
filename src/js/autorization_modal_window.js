@@ -72,17 +72,14 @@ async function singUp({name, email, password}){
     loader1 = createLoader(modal, "into");
     
     abortCtrl1 = new AbortController();
-    const data = await api.signUp({name: capitalizeStr(name), email, password}, abortCtrl1);
+    const {user} = await api.signUp({name: capitalizeStr(name), email, password}, abortCtrl1);
     
     loader1.remove(); 
     
-    if (data.user) {
- 
+    if (user) {
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1000});
-      setTimeout(()=>{onSignInBtnClick()}, 1000); 
-
+      setTimeout(()=>{onSignInBtnClick()}, 1000);
     }else { 
-      console.log(data);
       emailInput.select();
       Notify.failure('Email in use!!!', {position:'center-center', timeout: 1000,});
     }
