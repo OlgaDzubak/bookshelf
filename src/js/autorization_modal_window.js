@@ -54,7 +54,9 @@ function onFormSubmit(e) {
   const name = modalForm.elements.name.value;
   const email = modalForm.elements.email.value;
   const password = modalForm.elements.password.value;
-
+  
+  console.log(email);
+  
   const regex = new RegExp("^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
   
   if (!regex.test(email)){
