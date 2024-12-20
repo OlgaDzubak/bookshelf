@@ -79,7 +79,7 @@ async function singUp({name, email, password}){
     if (data.user) {
  
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1000});
-      setTimeout(()=>{onSignInBtnClick()}, 1000);
+      setTimeout(()=>{onSignInBtnClick()}, 1000); 
 
     }else { 
       console.log(data);
