@@ -28,7 +28,7 @@ export class bookshelf_API {
         
         return data;
       }catch(error){
-        return error.message;
+        return error.response.data.message;
       };
     };
 
