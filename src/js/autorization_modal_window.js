@@ -6,7 +6,7 @@ import {headerAuthorised} from './header';
 const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2, loader1;
 
-const emailRegEx = /[A-Za-z]{1,}@[A-Za-z]{1,}\.[A-Za-z]{2,3}/; // /[0-9A-Za-z%-.+]+@[0-9A-Za-z-.]+\.[A-Za-z]{2,}/;
+const emailRegEx = /[a-zA-Z0-9]{3}@[a-zA-Z0-9]{3}\.[a-zA-Z]{3}/; // /[0-9A-Za-z%-.+]+@[0-9A-Za-z-.]+\.[A-Za-z]{2,}/;
 
 
 //відкриття модального вікна для авторизації
