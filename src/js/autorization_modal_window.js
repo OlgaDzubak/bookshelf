@@ -13,11 +13,6 @@ const backdrop = document.querySelector('.autorization-modal-backdrop');
 const modal = document.querySelector('.modal');
 const openBtn = document.querySelector('.jsOpenBtn');
 const openBtnMobile = document.querySelector('.jsOpenBtn-mobile');
-const emailInput = document.querySelector('#email');
-
-console.dir(emailInput);
-
-emailInput.pattern = emailRegEx;
   
 openBtn.addEventListener('click', onOpenModal);
 openBtnMobile.addEventListener('click', onOpenModal);
@@ -128,6 +123,10 @@ async function singIn({email, password}){
 const nameInput=document.querySelector('#name');
 const emailInput=document.querySelector('#email');
 const passInput=document.querySelector('#password');
+
+console.dir(emailInput);
+emailInput.pattern = emailRegEx;
+
 nameInput.addEventListener('click', onModalInputClick);
 emailInput.addEventListener('click', onModalInputClick);
 passInput.addEventListener('click', onModalInputClick);
