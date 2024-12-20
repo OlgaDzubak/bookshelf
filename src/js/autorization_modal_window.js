@@ -5,7 +5,7 @@ import {headerAuthorised} from './header';
 
 const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2, loader1;
-const emailRegEx = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
+const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
 //відкриття модального вікна для авторизації
@@ -72,21 +72,22 @@ async function singUp({name, email, password}){
     loader1 = createLoader(modal, "into");
     
     abortCtrl1 = new AbortController();
-    const {accessToken, user} = await api.signUp({name: capitalizeStr(name), email, password}, abortCtrl1);
+    const data = await api.signUp({name: capitalizeStr(name), email, password}, abortCtrl1);
     
     loader1.remove(); 
     
-    if (user) {
+    if (data.user) {
  
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1000});
       setTimeout(()=>{onSignInBtnClick()}, 1000);
 
     }else { 
+      console.log(data);
       emailInput.select();
       Notify.failure('Email in use!!!', {position:'center-center', timeout: 1000,});
     }
   }catch(error){
-    loader1.remove(); 
+    loader1.remove();
     console.log(error);  
   }
 
