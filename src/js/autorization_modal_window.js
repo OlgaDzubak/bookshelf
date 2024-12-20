@@ -139,7 +139,7 @@ const nameInput=document.querySelector('#name');
 const emailInput=document.querySelector('#email');
 const passInput=document.querySelector('#password');
 
-emailInput.pattern = emailRegEx;
+//emailInput.pattern = emailRegEx;
 
 nameInput.addEventListener('click', onModalInputClick);
 emailInput.addEventListener('click', onModalInputClick);
