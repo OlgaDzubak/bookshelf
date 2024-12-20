@@ -68,10 +68,14 @@ async function singUp({name, email, password}){
   }
 
   try{
+    
+    const loader1 = createLoader(modal, "into");
+    
     abortCtrl1 = new AbortController();
     const {accessToken, user} = await api.signUp({name: capitalizeStr(name), email, password}, abortCtrl1);
     
     if (user) {
+      loader1.remove(); 
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1000});
       setTimeout(()=>{onSignInBtnClick()}, 1000);
 
@@ -80,6 +84,7 @@ async function singUp({name, email, password}){
       Notify.failure('Email in use!!!', {position:'center-center', timeout: 1000,});
     }
   }catch(error){
+    loader1.remove(); 
     console.log(error);  
   }
 
@@ -101,10 +106,10 @@ async function singIn({email, password}){
     const {user} = await api.signIn({email, password}, abortCtrl2);
     
     //видаляємо loader після виконання запиту
-   loader1.remove(); 
+   
     
     if (user) {
-
+      loader1.remove(); 
       onCloseModal();
       headerAuthorised(user);
       Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1000});
@@ -114,6 +119,7 @@ async function singIn({email, password}){
     }
 
   }catch(error){
+    loader1.remove(); 
     console.log(error);  
   }
 
