@@ -5,7 +5,7 @@ import {headerAuthorised} from './header';
 
 const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2;
-const emailRegEx = /[a-zA-Z]{1,}[0-9]{0,}[-_]{0,}@[a-z]{1,}[.]{1,}[a-z]{2,}/
+const emailRegEx = /[a-zA-Z]{1,}[0-9]{0,}[-_]{0,}@[a-z]{1,}[.]{1,}[a-z]{2,}/;
 
 
 //відкриття модального вікна для авторизації
@@ -14,6 +14,8 @@ const modal = document.querySelector('.modal');
 const openBtn = document.querySelector('.jsOpenBtn');
 const openBtnMobile = document.querySelector('.jsOpenBtn-mobile');
 const emailInput = document.querySelector('#email');
+
+console.dir(emailInput);
 
 emailInput.pattern = emailRegEx;
   
