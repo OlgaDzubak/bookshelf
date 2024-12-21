@@ -30,7 +30,6 @@ export function onCloseProfileModal(){
   
     userProfileModal.classList.add("is-hidden");
     userPhotoImg.src = document.querySelector(".user-img").src;
-    console.log(userPhotoImg.src);
  
 }
 
@@ -109,7 +108,6 @@ async function onUserProfileModalFormSubmit(e){
             }
             userProfileModal.classList.add("is-hidden");
             userProfileInput.value = "";
-            userPhotoImgURL = data.user.avatarURL;
             headerAuthorised(data.user);                
 
         }else{
