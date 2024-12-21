@@ -73,19 +73,20 @@ async function onUserProfileModalFormSubmit(e){
     
     e.preventDefault();
 
-    const newName = capitalizeStr(userProfileInput.value);
-
-    const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
-    
     if (abortCtrl1) {
         abortCtrl1.abort();
         console.log("abort previous updateUser");
     }
 
     try{
-        if (!accessToken){
-            throw new Error("Not authorized");
-        }
+
+        const newName = capitalizeStr(userProfileInput.value);
+
+        const accessToken = getCookie("accessToken");        
+
+        // if (!accessToken){
+        //     throw new Error("Not authorized");
+        // }
 
         abortCtrl1 = new AbortController();
             
@@ -97,7 +98,7 @@ async function onUserProfileModalFormSubmit(e){
 
         const data = await api.updateUser({accessToken, formData}, abortCtrl1);
         
-        if (data.user && data.accessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
+        if (data.user && data.accessToken){
             
             loader.remove();
 
