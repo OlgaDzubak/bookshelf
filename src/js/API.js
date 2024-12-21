@@ -9,6 +9,7 @@ export class bookshelf_API {
     //методи для регістрації та авторизації (auth/signup, auth/signin)
     setAuthHeader = (token) => { 
       axios.defaults.headers.common.Authorization = `Bearer ${token}`; 
+      console.timeLog(axios.defaults.headers.common.Authorization);
       axios.defaults.withCredentials = true;
     }
     
