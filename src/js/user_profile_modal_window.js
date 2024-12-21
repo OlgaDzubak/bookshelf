@@ -14,6 +14,7 @@ const userProfileInput = document.querySelector(".user-profile-input");
 const authBtnPhotoImg = document.querySelector(".user-img");
 
 const userPhotoImgURL = authBtnPhotoImg.src;
+console.log(userPhotoImgURL);
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 userProfileLoadPhotoFile.addEventListener("change", onChangeProfileModalPhotoFile);
@@ -31,6 +32,7 @@ export function onCloseProfileModal(){
   
     userProfileModal.classList.add("is-hidden");
     userPhotoImg.src = userPhotoImgURL;
+    console.log(userPhotoImg.src);
 }
 
 export function onAnyKeyDownProfileModal({target, code}){
