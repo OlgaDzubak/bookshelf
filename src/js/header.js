@@ -92,7 +92,7 @@ export function headerAuthorised(user){
     }
 }
 
-function onAuthBtnClick(){
+function oncClick(){
 
     userProfileModal.classList.remove("is-hidden");
 

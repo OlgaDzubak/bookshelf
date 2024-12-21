@@ -11,6 +11,9 @@ const userProfileLoadPhotoFile =  document.querySelector("#load-photo-file");
 const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
+const authBtnPhotoImg = document.querySelector(".user-img");
+
+const userPhotoImgURL = authBtnPhotoImg.src;
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 userProfileLoadPhotoFile.addEventListener("change", onChangeProfileModalPhotoFile);
@@ -27,7 +30,7 @@ export function onCloseProfileModal(){
     window.removeEventListener('scroll', onCloseProfileModal);
   
     userProfileModal.classList.add("is-hidden");
-
+    userPhotoImg.src = userPhotoImgURL;
 }
 
 export function onAnyKeyDownProfileModal({target, code}){
@@ -104,9 +107,11 @@ async function onUserProfileModalFormSubmit(e){
             }
             userProfileModal.classList.add("is-hidden");
             userProfileInput.value = "";
+            userPhotoImgURL = data.user.avatarURL;
             headerAuthorised(data.user);                
 
         }else{
+
             throw new Error(data);
         }
     }catch(error){
