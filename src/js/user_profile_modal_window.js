@@ -16,9 +16,8 @@ userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 userProfileLoadPhotoFile.addEventListener("change", onChangeProfileModalPhotoFile);
 userProfileForm.addEventListener("submit", onUserProfileModalFormSubmit);
 
-let abortCtrl1;
-let fileAvatar;
-let loader;
+let abortCtrl1, fileAvatar, loader;
+
 
 export function onCloseProfileModal(){
     
