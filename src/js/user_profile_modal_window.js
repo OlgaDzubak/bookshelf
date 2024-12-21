@@ -28,6 +28,7 @@ export function onCloseProfileModal(){
   
     userProfileModal.classList.add("is-hidden");
     userPhotoImg.src = document.querySelector(".user-img").src;
+    userProfileInput.value = "";
  
 }
 
@@ -72,7 +73,7 @@ async function onUserProfileModalFormSubmit(e){
 
     if (abortCtrl1) {
         abortCtrl1.abort();
-        console.log("abort previous updateUser");
+        // console.log("abort previous updateUser");
     }
 
     try{
@@ -80,19 +81,14 @@ async function onUserProfileModalFormSubmit(e){
         const newName = capitalizeStr(userProfileInput.value);
 
         const accessToken = getCookie("accessToken");        
-
-        // if (!accessToken){
-        //     throw new Error("Not authorized");
-        // }
-
-        abortCtrl1 = new AbortController();
-            
+ 
         const formData = new FormData;
         formData.append('avatar', fileAvatar);
         formData.append('name', newName);
 
         loader = createLoader(userProfileModal, "into");
 
+        abortCtrl1 = new AbortController();
         const data = await api.updateUser({accessToken, formData}, abortCtrl1);
         
         if (data.user && data.accessToken){
