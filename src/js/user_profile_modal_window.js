@@ -12,8 +12,6 @@ const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
 
-console.dir(document.querySelector(".user-img"));
-
 userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 userProfileLoadPhotoFile.addEventListener("change", onChangeProfileModalPhotoFile);
 userProfileForm.addEventListener("submit", onUserProfileModalFormSubmit);
