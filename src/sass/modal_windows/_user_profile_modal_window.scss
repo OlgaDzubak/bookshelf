@@ -228,12 +228,8 @@
 //{  
       @media screen and (min-width: 768px) {
 
-        .user-profile-icon.name {
-          width: 19px;
-          height: 19px;
-        }
         .user-profile-modal {
-          max-width: 479px;
+          max-width: 379px;
           right: calc(50% - 300px);
         }
         .user-profile-closeBtn {
@@ -257,7 +253,7 @@
           height: 19px;
         }
         .user-profile-submitBtn {
-          padding: 20px 132px;
+          padding: 20px 40px;
           font-size: 18px;
        }
       }
