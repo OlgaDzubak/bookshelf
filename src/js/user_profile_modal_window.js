@@ -11,10 +11,9 @@ const userProfileLoadPhotoFile =  document.querySelector("#load-photo-file");
 const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
-const authBtnPhotoImg = document.querySelector(".user-img");
 
-const userPhotoImgURL = authBtnPhotoImg.src;
 console.log(userPhotoImgURL);
+console.dir(document.querySelector(".user-img"));
 
 userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
 userProfileLoadPhotoFile.addEventListener("change", onChangeProfileModalPhotoFile);
@@ -31,8 +30,9 @@ export function onCloseProfileModal(){
     window.removeEventListener('scroll', onCloseProfileModal);
   
     userProfileModal.classList.add("is-hidden");
-    userPhotoImg.src = userPhotoImgURL;
+    userPhotoImg.src = document.querySelector(".user-img").src;
     console.log(userPhotoImg.src);
+ 
 }
 
 export function onAnyKeyDownProfileModal({target, code}){
