@@ -27,6 +27,7 @@ export function onCloseProfileModal(){
     window.removeEventListener('scroll', onCloseProfileModal);
   
     userProfileModal.classList.add("is-hidden");
+
 }
 
 export function onAnyKeyDownProfileModal({target, code}){

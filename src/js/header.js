@@ -77,7 +77,6 @@ export function headerAuthorised(user){
     if (user.avatarURL){
         authBtnImg.src = user.avatarURL;
         userPhotoImg.src = user.avatarURL;
-
     }else{
         authBtnImg.src = "/src/images/svg/sprite.svg#name_icon";
         userPhotoImg.src = "/src/images/svg/sprite.svg#name_icon";
