@@ -86,6 +86,7 @@ async function onUserProfileModalFormSubmit(e){
         formData.append('name', newName);
 
         loader = createLoader(userProfileModal, "into");
+        loader.classList.add("profile-elm");
 
         abortCtrl1 = new AbortController();
         const data = await api.updateUser({accessToken, formData}, abortCtrl1);
