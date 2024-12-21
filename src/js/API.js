@@ -7,9 +7,12 @@ export class bookshelf_API {
     #BASE_URL = 'https://bookshelf-server-4bkr.onrender.com/';
 
     //методи для регістрації та авторизації (auth/signup, auth/signin)
-    setAuthHeader = (token) => { 
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`; 
-      console.log(axios.defaults.headers.common.Authorization);
+    setAuthHeader = (token) => {
+
+      console.log(`Bearer ${token ? token : ""}`);
+      console.log(`Bearer ${token}`);
+
+      axios.defaults.headers.common.Authorization = `Bearer ${token ? token : ""}`; 
       axios.defaults.withCredentials = true;
     }
     
