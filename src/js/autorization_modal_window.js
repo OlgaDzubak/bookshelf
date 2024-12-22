@@ -138,11 +138,14 @@ function onModalInputClick({target}){
   const signUpBtn = document.querySelector('.btn-sign-up');
   const signInBtn = document.querySelector('.btn-sign-in');
   const nameItem = document.querySelector('.li-name');
+
   signUpBtn.addEventListener('click', onSignUpBtnClick);
   signInBtn.addEventListener('click', onSignInBtnClick);
 
+
   function onSignUpBtnClick(e){
     modalForm.reset();
+    nameInput.setAttribute("required");
     nameItem.classList.remove("is-hidden");
     submitBtn.textContent = "SIGN UP";
     signUpBtn.classList.add("current");
@@ -152,6 +155,7 @@ function onModalInputClick({target}){
   function onSignInBtnClick(){
     modalForm.reset();
     nameItem.classList.add("is-hidden");
+    nameInput.removeAttribute("required");
     submitBtn.textContent = "SIGN IN";
     signInBtn.classList.add("current");
     signUpBtn.classList.remove("current");    
