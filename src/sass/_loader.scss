@@ -15,7 +15,7 @@
   }
 
   .loader{
-    position: absolute;
+    position: relative;
     top: 200px;
     width: max-content;
     height: 80px;
@@ -28,8 +28,8 @@
     --color1:var(--accent-color1);
     --color2:var(--accent-color2);
   }
-  .loader-modal{
-    top: 50%;
+  .loader.loader-modal{
+    top: 100px;
   }
   .loader .text{
     width: 100%;
