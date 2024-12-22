@@ -68,11 +68,13 @@ async function singUp({name, email, password}){
   try{
     
     loader1 = createLoader(modal, "into");
+    loader1.classList.add("loader-modal");
     
     abortCtrl1 = new AbortController();
     const {user} = await api.signUp({name: capitalizeStr(name), email, password}, abortCtrl1);
     
     loader1.remove(); 
+
     
     if (user) {
       Notify.success('Successfull registration!', {position: "center-center", timeout: 1000});
@@ -98,6 +100,7 @@ async function singIn({email, password}){
   try{
 
     loader1 = createLoader(modal, "into");
+    loader1.classList.add("loader-modal");
 
     abortCtrl2 = new AbortController();
     const {user} = await api.signIn({email, password}, abortCtrl2);
