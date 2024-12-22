@@ -11,6 +11,7 @@
         transition: background-color var(--transition)
     }
     .header .container{
+        position: relative;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
