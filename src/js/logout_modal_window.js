@@ -4,7 +4,7 @@ import {createLoader, headerNotAuthorised} from './help_functions';
 const api = new bookshelf_API();
 
 const userProfileModalBkdr = document.querySelector(".user-profile-modal-backdrop");
-const logoutModal =  document.querySelector(".logout-modal");
+const logoutModalBackDrop =  document.querySelector(".logout-modal-backdrop");
 
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
@@ -26,7 +26,7 @@ export function onCloseLogoutModal(){
         window.removeEventListener('mousedown', onAnyKeyDownLogoutModal);
         window.removeEventListener('scroll', onCloseLogoutModal);
       
-        logoutModal.classList.add("is-hidden");
+        logoutModalBackDrop.classList.add("is-hidden");
 }
 
 export function onAnyKeyDownLogoutModal({target, code}){
