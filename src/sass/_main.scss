@@ -12,7 +12,6 @@
         min-height: calc(100vh - 238px);   
     }
     
-    .autorization-modal-backdrop,
     .logout-modal-backdrop,
     .user-profile-modal-backdrop,
     .book-modal-backdrop,
@@ -24,7 +23,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--accent-color1);
+        background-color: rgba(17, 17, 17, 0.4);
     }
 
     .category-list-box {
