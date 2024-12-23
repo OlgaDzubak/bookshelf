@@ -11,6 +11,18 @@
         gap: 40px;
         min-height: calc(100vh - 238px);   
     }
+
+    .modal-backdrop {
+        position: fixed;
+        z-index: 999;
+        padding: 20px 20px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--accent-color1);
+    }
+
     .category-list-box {
         position: relative;
         margin: 0;
