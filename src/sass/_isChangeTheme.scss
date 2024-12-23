@@ -297,6 +297,9 @@ body.dark .logout-modal{
 body.dark .edit-profile-p{
     color: var(--text-white-color);
 }
+body.dark .edit-profile-btn{
+    background-color: var(--dark-theme-background);
+}
 body.dark .edit-profile-btn-svg{
     --profile-edit-color: var(--light-theme-background);
 }
