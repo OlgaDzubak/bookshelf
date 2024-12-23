@@ -57,6 +57,12 @@
         border: 1.50px solid var(--text-dark-color);
         border-radius: 18px;
         background: var(--text-white-color);
+
+        &:hover,
+        &:focus{
+            color: var(--text-white-color);
+            background-color: var(--accent-color1);
+        }
     }
     .logout-btn::after{
         width: 20px;
