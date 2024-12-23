@@ -2,7 +2,7 @@
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { getCookie, createLoader } from './help_functions';
-import { onAnyKeyDownLogoutModal, onCloseLogoutModal } from './logout_modal_window';
+import {openLogoutModal} from './logout_modal_window';
 
 const api = new bookshelf_API();
 let abortCtrl;
@@ -15,7 +15,7 @@ const userPhotoImg = document.querySelector(".user-photo-img");
 const authBtnName= authBtn.querySelector('.login-p');
 const logoutModalBackDrop = document.querySelector(".logout-modal-backdrop");
 
-authBtn.addEventListener('click', onAuthBtnClick);
+authBtn.addEventListener('click', ()=>{openLogoutModal()});
 
 showHeader();
 
@@ -87,14 +87,4 @@ export function headerAuthorised(user){
         displayOrdredAmountInShoppingBag(user.shopping_list);
         localStorage.setItem("bookshelf_orderedbooks",JSON.stringify(user.shopping_list));
     }
-}
-
-function onAuthBtnClick(){
-    
-    logoutModalBackDrop.classList.remove("is-hidden");
-  
-
-    window.addEventListener('keydown', onAnyKeyDownLogoutModal);
-    window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
-    window.addEventListener('scroll', onCloseLogoutModal);
 }

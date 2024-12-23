@@ -12,32 +12,29 @@ const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
 
-userProfileCloseBtn.addEventListener("click", onCloseProfileModal);
+userProfileCloseBtn.addEventListener("click", ()=>{closeProfileModal()});
 userProfileLoadPhotoFile.addEventListener("change", onChangeProfileModalPhotoFile);
-userProfileForm.addEventListener("submit", onUserProfileModalFormSubmit);
+userProfileForm.addEventListener("submit", ()=>{userProfileModalFormSubmit()});
 
 let abortCtrl1, fileAvatar, loader;
 
 
-export function onCloseProfileModal(){
+function openProfileModal(){
     
-    window.removeEventListener('keydown', onAnyKeyDownProfileModal);
-    window.removeEventListener('mousedown', onAnyKeyDownProfileModal);
-    window.removeEventListener('scroll', onCloseProfileModal);
+    objScroll.disabledScroll();
+    userProfileModalBackdrop.classList.remove("is-hidden");
+    window.addEventListener('keydown', onEscKeyDown);
+}
+
+function closeProfileModal(){
     
     userProfileModalBackdrop.classList.add("is-hidden");
     objScroll.enabledScroll();
-    
+    window.removeEventListener('keydown', onEscKeyDown);
+
     userPhotoImg.src = document.querySelector(".user-img").src;
     userProfileInput.value = "";
  
-}
-
-export function onAnyKeyDownProfileModal({target, code}){
-     
-    if (!target.classList.contains('profile-elm') || code === 'Escape') {
-        onCloseProfileModal();
-    }    
 }
 
 function onChangeProfileModalPhotoFile({target}){
@@ -68,7 +65,13 @@ function onChangeProfileModalPhotoFile({target}){
 
 }    
 
-async function onUserProfileModalFormSubmit(e){
+function onEscKeyDown(e) {
+    if (e.code === 'Escape') {
+        closeProfileModal();
+    }
+}
+
+async function userProfileModalFormSubmit(e){
     
     e.preventDefault();
 
@@ -142,3 +145,8 @@ async function onUserProfileModalFormSubmit(e){
     }
   
 }
+
+
+  export {
+    openProfileModal,
+  }
