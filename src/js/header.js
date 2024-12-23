@@ -2,7 +2,7 @@
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { getCookie, createLoader } from './help_functions';
-import { onAnyKeyDownProfileModal, onCloseProfileModal} from './user_profile_modal_window'
+import { onAnyKeyDownLogoutModal, onCloseLogoutModal } from './user_profile_modal_window'
 
 const api = new bookshelf_API();
 let abortCtrl;
@@ -13,16 +13,12 @@ const authBtn = document.querySelector('.auth-btn');
 const authBtnImg= authBtn.querySelector('.user-img');
 const userPhotoImg = document.querySelector(".user-photo-img");
 const authBtnName= authBtn.querySelector('.login-p');
-
 const logoutModal = document.querySelector(".logout-modal");
-const userProfileModal = document.querySelector(".user-profile-modal");
+// const userProfileModal = document.querySelector(".user-profile-modal");
 
 authBtn.addEventListener('click', onAuthBtnClick);
 
 showHeader();
-
-
-
 
 
 async function showHeader(){
@@ -99,7 +95,7 @@ function onAuthBtnClick(){
     logoutModal.classList.remove("is-hidden");
   //  userProfileModal.classList.remove("is-hidden");
 
-    window.addEventListener('keydown', onAnyKeyDownProfileModal);
-    window.addEventListener('mousedown', onAnyKeyDownProfileModal);
-    window.addEventListener('scroll', onCloseProfileModal);
+    window.addEventListener('keydown', onAnyKeyDownPLogoutModal);
+    window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
+    window.addEventListener('scroll', onCloseLogoutModal);
 }
