@@ -31,12 +31,12 @@
     .edit-profile-btn-svg{
         width: 29px;
         height: 29px;
-        stroke: var(--logo-theme-light);
-        fill: none;
+        --profile-edit-color: var(--logo-theme-light);
     }
 
     .logout-btn{
         width: 100%;
+        padding: 12px;
         font-family: var(--font-family);
         font-weight: 500;
         font-size: 14px;
