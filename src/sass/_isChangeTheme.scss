@@ -294,10 +294,10 @@ body.dark .logout-modal{
     background-color: var(--dark-theme-background);
     border-color: var(--light-theme-background);
 }
-.edit-profile-p{
+body.dark .edit-profile-p{
     color: var(--text-white-color);
 }
-.edit-profile-btn-svg{
+body.dark .edit-profile-btn-svg{
     --profile-edit-color: var(--light-theme-background);
 }
 
