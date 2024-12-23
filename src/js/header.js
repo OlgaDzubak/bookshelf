@@ -95,7 +95,7 @@ function onAuthBtnClick(){
     logoutModal.classList.remove("is-hidden");
   //  userProfileModal.classList.remove("is-hidden");
 
-    window.addEventListener('keydown', onAnyKeyDownPLogoutModal);
+    window.addEventListener('keydown', onAnyKeyDownLogoutModal);
     window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
     window.addEventListener('scroll', onCloseLogoutModal);
 }
