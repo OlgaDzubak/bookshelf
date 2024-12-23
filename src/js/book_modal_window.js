@@ -31,7 +31,7 @@ const objScroll = {
 divContainerEl.addEventListener('click', onReadId);
 
 function onReadId({target}) {
-    //(target.classList.contains('img-book') || 
+
     if (target.classList.contains('owerlay')) {
         book_Id = target.parentElement.parentElement.dataset.id;
         createModalWindow(book_Id);
