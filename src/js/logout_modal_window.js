@@ -3,7 +3,7 @@ import {createLoader, headerNotAuthorised} from './help_functions';
 
 const api = new bookshelf_API();
 
-const userProfileModalBkdr = document.querySelector(".user-profile-modal-backdrop");
+const userProfileModalBackDrop = document.querySelector(".user-profile-modal-backdrop");
 const logoutModalBackDrop =  document.querySelector(".logout-modal-backdrop");
 
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
@@ -17,7 +17,7 @@ let abortCtrl1, loader;
 
 function onEditProfileBtnClick(){
     onCloseLogoutModal();    
-    userProfileModalBkdr.classList.remove("is-hidden");
+    userProfileModalBackDrop.classList.remove("is-hidden");
 }
 
 export function onCloseLogoutModal(){
