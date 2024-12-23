@@ -5,7 +5,7 @@ import { Notify } from 'notiflix';
 
 const api = new bookshelf_API();
 
-const userProfileModal =  document.querySelector(".user-profile-modal");
+const userProfileModalBackdrop =  document.querySelector(".user-profile-modal-backdrop");
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
 const userProfileLoadPhotoFile =  document.querySelector("#load-photo-file");
 const userProfileForm =  document.querySelector(".user-profile-form");
@@ -25,7 +25,7 @@ export function onCloseProfileModal(){
     window.removeEventListener('mousedown', onAnyKeyDownProfileModal);
     window.removeEventListener('scroll', onCloseProfileModal);
   
-    userProfileModal.classList.add("is-hidden");
+    userProfileModalBackdrop.classList.add("is-hidden");
     userPhotoImg.src = document.querySelector(".user-img").src;
     userProfileInput.value = "";
  
