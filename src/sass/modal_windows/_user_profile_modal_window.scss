@@ -223,9 +223,11 @@
 // USER PROFILE MODAL WINDOW ----- Tablet styles
 //{  
       @media screen and (min-width: 768px) {
-
         .user-profile-modal {
           max-width: 379px;
+          top: calc(50% + 35px);
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
         .user-profile-closeBtn {
           width: 28px;
@@ -257,7 +259,7 @@
 
 // USER PROFILE MODAL WINDOW ----- Desktop styles
 //{  
-      @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1440px) {
 
-      }
+    }
 //}
