@@ -4,10 +4,8 @@ import {createLoader, headerNotAuthorised} from './help_functions';
 const api = new bookshelf_API();
 
 const logoutModal =  document.querySelector(".logout-modal");
-const logoutCloseBtn = document.querySelector(".logout-closeBtn");
 const logoutForm =  document.querySelector(".logout-form");
 
-logoutCloseBtn.addEventListener("click", onCloseLogoutModal);
 logoutForm.addEventListener("submit", onLogoutFormSubmit);
 
 
