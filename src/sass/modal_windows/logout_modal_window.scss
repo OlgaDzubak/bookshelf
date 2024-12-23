@@ -51,7 +51,7 @@
         font-family: var(--font-family);
         font-weight: 500;
         font-size: 14px;
-        line-height: 1.29;
+        line-height: 1.286;
         letter-spacing: -0.04em;
         color: var(--text-dark-color);
         border: 1.50px solid var(--text-dark-color);
@@ -59,7 +59,8 @@
         background: var(--text-white-color);
     }
     .logout-btn::after{
-
+        width: 20px;
+        height: 20px;
         content: url("/src/images/svg/arrow-right.svg");
     }
 //}
