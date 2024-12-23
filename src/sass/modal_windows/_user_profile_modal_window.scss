@@ -23,8 +23,8 @@
 
       .user-profile-closeBtn{
         position: absolute;
-        top: 14px;
-        right: 14px;
+        top: 24px;
+        right: 24px;
         padding: 0px;
         display: flex;
         justify-content: center;
@@ -121,8 +121,6 @@
         color: var(--text-dark-color); 
       }
 
-      // .user-profile-icon:focus,
-      // .user-profile-icon:hover,
       .user-profile-input:focus+.user-profile-icon,
       .user-profile-input:hover+.user-profile-icon{
         --auth-icon-color: var(--auth-icon-color2);
