@@ -1,0 +1,49 @@
+// USER PROFILE MODAL WINDOW ----- Common styles
+//{
+    .logout-modal{
+        position: absolute;
+        top: 65px;
+        right: calc(100%);
+        width: 264px;
+        height: 197px;
+        padding: 40px;
+        border: 2px solid var(--text-dark-color);
+        border-radius: 18px;
+        background-color: var(--light-theme-background);
+    }
+
+    .edit-profile-div{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logout-modal-p{
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 1.318;
+        letter-spacing: -0.04em;
+        color: var(--text-dark-color);
+    }
+    .edit-profile-btn-svg{
+        width: 29px;
+        height: 29px;
+        stroke: var(--logo-theme-light);
+        fill: none;
+    }
+
+    .logout-btn{
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+        color: var(--text-white-color);
+        border: 1.50px solid var(--text-dark-color);
+        border-radius: 18px;
+        background: var(--text-white-color);
+    }
+    .logout-btn::after{
+        content: url("../../images/svg/sprite.svg#arrow_narrow_right_icon");
+    }
+//}
