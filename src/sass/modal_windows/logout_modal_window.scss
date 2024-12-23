@@ -28,6 +28,12 @@
         letter-spacing: -0.04em;
         color: var(--text-dark-color);
     }
+    .edit-profile-btn{
+        display: block;
+        padding: 0;
+        border: none;
+        background-color: var(--light-theme-background);
+    }
     .edit-profile-btn-svg{
         width: 29px;
         height: 29px;
