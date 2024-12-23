@@ -13,6 +13,8 @@ const authBtn = document.querySelector('.auth-btn');
 const authBtnImg= authBtn.querySelector('.user-img');
 const userPhotoImg = document.querySelector(".user-photo-img");
 const authBtnName= authBtn.querySelector('.login-p');
+
+const logoutModal = document.querySelector(".logout-modal");
 const userProfileModal = document.querySelector(".user-profile-modal");
 
 authBtn.addEventListener('click', onAuthBtnClick);
@@ -93,8 +95,9 @@ export function headerAuthorised(user){
 }
 
 function onAuthBtnClick(){
-
-    userProfileModal.classList.remove("is-hidden");
+    
+    logoutModal.classList.remove("is-hidden");
+  //  userProfileModal.classList.remove("is-hidden");
 
     window.addEventListener('keydown', onAnyKeyDownProfileModal);
     window.addEventListener('mousedown', onAnyKeyDownProfileModal);
