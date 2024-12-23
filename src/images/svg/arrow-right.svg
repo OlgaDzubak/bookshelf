@@ -1,3 +1,3 @@
-<svg id="arrow_right_icon" viewBox="0 0 43 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="arrow_right_icon" width="20" height="20" viewBox="0 0 43 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <path fill="none" stroke="#eac645" style="stroke: var(--color4, #eac645)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="5.3333" d="M3.555 16h35.556M39.111 16l-13.333-13.333M39.111 16l-13.333 13.333"></path>
 </svg>
