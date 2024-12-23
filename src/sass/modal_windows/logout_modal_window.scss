@@ -3,7 +3,7 @@
     .logout-modal{
         position: absolute;
         top: 65px;
-        //right: calc(100%);
+        right: calc(50vw - 720px + 24px);
         width: 264px;
         height: 197px;
         padding: 40px;
@@ -69,4 +69,35 @@
         height: 15px;
         content: url("/src/images/svg/arrow-right.svg");
     }
+//}
+
+
+// USER PROFILE MODAL WINDOW ----- Mobile styles
+//{
+    @media screen and (max-width: 767.8px) {
+        .logout-modal{
+            right:  calc((100vw - 768px) / 2 + 24px);
+        }        
+    }
+//}
+
+
+
+// LOGOUT MODAL WINDOW ----- Tablet styles
+//{  
+    @media screen and (min-width: 768px) {
+        .logout-modal{
+            right:  calc((100vw - 768px) / 2 + 24px);
+        }
+      }
+//}
+
+
+// LOGOUT MODAL WINDOW ----- Desktop styles
+//{  
+      @media screen and (min-width: 1440px) {
+        .logout-modal{
+            right: calc((100vw - 1440px) / 2 + 24px);
+        }
+      }
 //}
