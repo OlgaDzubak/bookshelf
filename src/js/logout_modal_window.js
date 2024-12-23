@@ -13,7 +13,7 @@ logoutForm.addEventListener("submit", onLogoutFormSubmit);
 
 let abortCtrl1, loader;
 
-function onCloseLogoutModal(){
+export function onCloseLogoutModal(){
 
         window.removeEventListener('keydown', onAnyKeyDownLogoutModal);
         window.removeEventListener('mousedown', onAnyKeyDownLogoutModal);
