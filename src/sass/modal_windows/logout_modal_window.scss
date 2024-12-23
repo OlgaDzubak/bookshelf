@@ -30,13 +30,13 @@
     }
     .edit-profile-btn{
         display: block;
+        width: 29px;
+        height: 29px;
         padding: 0;
         border: none;
         background-color: var(--light-theme-background);
     }
     .edit-profile-btn-svg{
-        width: 29px;
-        height: 29px;
         --profile-edit-color: var(--logo-theme-light);
     }
 
