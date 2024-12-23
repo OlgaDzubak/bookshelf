@@ -4,8 +4,9 @@ import {createLoader, headerNotAuthorised} from './help_functions';
 const api = new bookshelf_API();
 
 const logoutModal =  document.querySelector(".logout-modal");
+const logoutBtn =  document.querySelector(".logout-btn");
 
-logoutForm.addEventListener("submit", onLogoutFormSubmit);
+logoutBtn.addEventListener("submit", onLogoutSubmit);
 
 let abortCtrl1, loader;
 
@@ -25,7 +26,7 @@ export function onAnyKeyDownLogoutModal({target, code}){
     }    
 }
 
-async function onLogoutFormSubmit(){
+async function onLogoutSubmit(){
     e.preventDefault();
 
     if (abortCtrl1) {
