@@ -35,8 +35,10 @@
     }
 
     .logout-btn{
+        display: flex;
         width: 100%;
         padding: 12px;
+        justify-content: space-between;
         font-family: var(--font-family);
         font-weight: 500;
         font-size: 14px;
@@ -48,6 +50,7 @@
         background: var(--text-white-color);
     }
     .logout-btn::after{
+
         content: url("/src/images/svg/arrow-right.svg");
     }
 //}
