@@ -1,5 +1,5 @@
 import { bookshelf_API } from './API';
-import {createLoader, headerNotAuthorised} from './help_functions';
+import {createLoader, objScroll, headerNotAuthorised} from './help_functions';
 
 const api = new bookshelf_API();
 
@@ -21,6 +21,7 @@ editProfileBtn.addEventListener("click", onEditProfileBtnClick);
 
 function onEditProfileBtnClick(){
     onCloseLogoutModal();    
+    objScroll.disabledScroll();
     userProfileModalBackdrop.classList.remove("is-hidden");
 }
 

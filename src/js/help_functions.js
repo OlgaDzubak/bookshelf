@@ -134,6 +134,21 @@ function scrollUp() {
       behavior: 'smooth',
   });
 }
+//активація/дезактивація скрола
+const objScroll = {
+  scrollPosition: 0,
+  disabledScroll() {
+      objScroll.scrollPosition = window.scrollY;
+      document.body.classList.add('block-scroll');
+      document.body.style.cssText = `top: -${objScroll.scrollPosition}px;`;
+  },
+
+  enabledScroll() {
+      document.body.classList.remove('block-scroll');
+      document.body.style.cssText = `top: 0`
+      window.scroll({top: objScroll.scrollPosition})
+  },
+}
 
 
 // Функція показу кнопки повернення на початок сторінки
@@ -188,5 +203,6 @@ export {  displayOrdredAmountInShoppingBag,
           headerNotAuthorised,
           headerAuthorised,
           onAuthBtnClick,
-          capitalizeStr
+          capitalizeStr,
+          objScroll
        };
