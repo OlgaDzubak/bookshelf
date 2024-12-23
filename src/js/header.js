@@ -2,7 +2,7 @@
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { getCookie, createLoader } from './help_functions';
-import { onAnyKeyDownLogoutModal, onCloseLogoutModal } from './user_profile_modal_window'
+import { onAnyKeyDownLogoutModal, onCloseLogoutModal } from './logout_modal_window';
 
 const api = new bookshelf_API();
 let abortCtrl;
