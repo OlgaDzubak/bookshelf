@@ -125,9 +125,9 @@ export class bookshelf_API {
     }
 
     
-    getShoppingList(accessToken, abortCtrl){
+    getShoppingList(abortCtrl){
 
-      this.setAuthHeader(accessToken);
+      this.setAuthHeader(getCookie("accessToken"));
       const response = axios.get(`${this.#BASE_URL}books/shoppinglist`, {signal: abortCtrl.signal});
 
       return response;
@@ -145,12 +145,15 @@ export class bookshelf_API {
       }
     }
 
-    async removeFromShoppingList(accessToken, bookId ,abortCtrl){
-      const accessToken = getCookie("accessToken");
-      this.setAuthHeader(accessToken);
-      const {data} = await axios.delete(`${this.#BASE_URL}books/shoppinglist/remove/${bookId}`, {signal: abortCtrl.signal});
-      rewriteAccessTokenCookie(data.accessToken);
-      return data;
+    async removeFromShoppingList(bookId ,abortCtrl){
+      try{
+        this.setAuthHeader(getCookie("accessToken"));
+        const {data} = await axios.delete(`${this.#BASE_URL}books/shoppinglist/remove/${bookId}`, {signal: abortCtrl.signal});
+        rewriteAccessTokenCookie(data.accessToken);
+        return data;
+      }catch(error){
+        return error.message;
+      }
     }
     
 }
