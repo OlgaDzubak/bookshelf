@@ -1,5 +1,6 @@
 import { bookshelf_API } from './API';
-import { displayOrdredAmountInShoppingBag, createLoader, getCookie, rewriteAccessToken } from './help_functions';
+import { displayOrdredAmountInShoppingBag, 
+         createLoader, getCookie, rewriteAccessToken, objScroll } from './help_functions';
 
 
 const api = new bookshelf_API;
@@ -10,23 +11,24 @@ const divBackdropEl = document.querySelector('.book-modal-backdrop');
 const bookModalContainer = document.querySelector(".book-modal-container")
 const btnCloseModal = document.querySelector('.btn-modal-close');
 const btnAddEl = document.querySelector('.add');
-const btnRemoveEl = document.querySelector('.remove');
+
+
 const textEl = document.querySelector('.modal-message');
 
-const objScroll = {
-    scrollPosition: 0,
-    disabledScroll() {
-        objScroll.scrollPosition = window.scrollY;
-        document.body.classList.add('block-scroll');
-        document.body.style.cssText = `top: -${objScroll.scrollPosition}px;`;
-    },
+// const objScroll = {
+//     scrollPosition: 0,
+//     disabledScroll() {
+//         objScroll.scrollPosition = window.scrollY;
+//         document.body.classList.add('block-scroll');
+//         document.body.style.cssText = `top: -${objScroll.scrollPosition}px;`;
+//     },
 
-    enabledScroll() {
-        document.body.classList.remove('block-scroll');
-        document.body.style.cssText = `top: 0`
-        window.scroll({top: objScroll.scrollPosition})
-    },
-}
+//     enabledScroll() {
+//         document.body.classList.remove('block-scroll');
+//         document.body.style.cssText = `top: 0`
+//         window.scroll({top: objScroll.scrollPosition})
+//     },
+// }
 
 divContainerEl.addEventListener('click', onReadId);
 
@@ -162,15 +164,13 @@ async function addToShoppingList() {
         
         const loader1 = createLoader(bookModalContainer, "into");
         abortCtrl2 = new AbortController();
-        const {data} = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
+        const data = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
         loader1.remove();
         
         if (data){
 
-            const {accessToken: newAccessToken, shopping_list} = data;
-
-            rewriteAccessToken(newAccessToken);
-            
+            const {shopping_list} = data;
+   
             btnAddEl.classList.add('is-hidden');
             btnRemoveEl.classList.remove('is-hidden');
             textEl.classList.remove('is-hidden');
@@ -215,10 +215,7 @@ async function removeFromShoppingList() {
         loader1.remove();
 
         if (data){
-            const {accessToken: newAccessToken, shopping_list} = data;
-            console.log("shoppingList=",shopping_list);
-
-            rewriteAccessToken(newAccessToken);
+            const {shopping_list} = data;
 
             btnAddEl.classList.remove('is-hidden');
             btnRemoveEl.classList.add('is-hidden');
