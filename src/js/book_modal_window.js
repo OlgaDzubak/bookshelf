@@ -140,7 +140,9 @@ async function addToShoppingList() {
         abortCtrl2 = new AbortController();
         const data = await api.addToShoppingList(book_Id, abortCtrl2);
         loader1.remove();
-        
+
+        console.log("data=",data);
+
         if (data){
 
             const {shopping_list} = data;
