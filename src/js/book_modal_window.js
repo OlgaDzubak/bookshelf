@@ -2,7 +2,6 @@ import { bookshelf_API } from './API';
 import { displayOrdredAmountInShoppingBag, 
          createLoader, getCookie, rewriteAccessToken, objScroll } from './help_functions';
 
-
 const api = new bookshelf_API;
 let book_Id, abortCtrl1, abortCtrl2;
 
@@ -11,26 +10,12 @@ const divBackdropEl = document.querySelector('.book-modal-backdrop');
 const bookModalContainer = document.querySelector(".book-modal-container")
 const btnCloseModal = document.querySelector('.btn-modal-close');
 const btnAddEl = document.querySelector('.add');
-
-
 const textEl = document.querySelector('.modal-message');
 
-// const objScroll = {
-//     scrollPosition: 0,
-//     disabledScroll() {
-//         objScroll.scrollPosition = window.scrollY;
-//         document.body.classList.add('block-scroll');
-//         document.body.style.cssText = `top: -${objScroll.scrollPosition}px;`;
-//     },
-
-//     enabledScroll() {
-//         document.body.classList.remove('block-scroll');
-//         document.body.style.cssText = `top: 0`
-//         window.scroll({top: objScroll.scrollPosition})
-//     },
-// }
-
+btnCloseModal.addEventListener('click', onCloseModal);
+btnAddEl.addEventListener('click', addToShoppingList);
 divContainerEl.addEventListener('click', onReadId);
+btnRemoveEl.addEventListener('click', removeFromShoppingList);
 
 function onReadId({target}) {
 
@@ -134,8 +119,6 @@ async function createModalWindow(book_Id) {
     
 };
 
-btnCloseModal.addEventListener('click', onCloseModal);
-
 function onCloseModal() {
     objScroll.enabledScroll();
     divBackdropEl.classList.add('is-hidden');
@@ -144,27 +127,20 @@ function onCloseModal() {
     textEl.classList.add('is-hidden');
 }
 
-
-
-btnAddEl.addEventListener('click', addToShoppingList);
-btnRemoveEl.addEventListener('click', removeFromShoppingList);
-
 async function addToShoppingList() {
-    
-    
+        
     if (abortCtrl2) {      
         abortCtrl2.abort();
         console.log("abort previous fetch");
     }
 
     try{
-        const accessToken = getCookie("accessToken");
-
-        if (!accessToken){  throw new Error("Request failed with status code 401"); }
+        // const accessToken = getCookie("accessToken");
+        // if (!accessToken){  throw new Error("Request failed with status code 401"); }
         
-        const loader1 = createLoader(bookModalContainer, "into");
+        const loader1 = createLoader(bookModalContainer, "into", ["loader-modal"]);
         abortCtrl2 = new AbortController();
-        const data = await api.addToShoppingList(accessToken, book_Id, abortCtrl2);
+        const data = await api.addToShoppingList(book_Id, abortCtrl2);
         loader1.remove();
         
         if (data){
@@ -190,9 +166,6 @@ async function addToShoppingList() {
             errorBox.innerHTML = `<p class="error-box-text">Sorry, there was a server error, please reload the page!!!</p>`;
         }
     }
-
-
-
 };
 
 async function removeFromShoppingList() {
