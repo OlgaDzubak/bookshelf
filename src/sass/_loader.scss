@@ -16,7 +16,7 @@
 
   .loader{
     position: relative;
-    top: 200px;
+    top: 250px;
     width: max-content;
     height: 80px;
     display: flex;
@@ -27,6 +27,10 @@
     --duration: 6.8s;
     --color1:var(--accent-color1);
     --color2:var(--accent-color2);
+  }
+  
+  .loader.loader-modal{
+    top: 60px;
   }
 
   .loader .text{
@@ -609,29 +613,20 @@
 
 // ------ mobile styles
 @media screen and (max-width: 767.8px){
-  .loader{
-    top: 200px;
-  }
+
   
 }
 
 
 // ------ tablet styles
 @media screen and (min-width: 768px) and (max-width: 1439.8px){
-  .loader{
-    top: 200px;
-  }
+
 }
 
 
 // ------ desktop styles
 @media screen and (min-width: 1440px){
-  .loader{
-    top: 300px;
-  }
+
 }
 
 
-.loader.loader-modal{
-  top: 60px;
-}
