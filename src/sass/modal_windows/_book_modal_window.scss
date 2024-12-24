@@ -118,14 +118,13 @@
     }
     .btn-shopping {
         width: 100%;        
-        //margin-top: 40px;
         font-weight: 700;
         text-transform: uppercase;
         cursor: pointer;
         border: 2px solid var(--accent-color1);
         border-radius: 40px;
         color: var(--text-dark-color);
-        transition: all var(--transition);
+        transition: background-color var(--transition), color var(--transition);
     }
     .btn-shopping:focus,
     .btn-shopping:hover {
