@@ -1,7 +1,7 @@
 
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
-import { getCookie, createLoader } from './help_functions';
+import { createLoader } from './help_functions';
 import {openLogoutModal} from './logout_modal_window';
 
 const api = new bookshelf_API();
@@ -22,42 +22,24 @@ showHeader();
 
 async function showHeader(){
 
-    const accessToken = getCookie("accessToken");         // зчитуємо поточний accessToken з кукі
-
-    if (!accessToken){ 
-        headerNotAuthorised();                                            // Якшо accessToken в кукі немає, то малюємо хедер без авторизації
-    }else{                                                                // Якшо accessToken в кукі є, то спробуємо оновити інформацію про юзера
-
-        if (abortCtrl) {
-            abortCtrl.abort();
-            console.log("abort previous refreshUser");
-        }
+        if (abortCtrl) { abortCtrl.abort(); }
         
         try{
 
             abortCtrl = new AbortController();
 
-            const ss = createLoader();
-            const {accessToken:newAccessToken, user} = await api.refreshUser(accessToken, abortCtrl);              // отримуємо дані про юзера та його accessToken з сервера
+            //const ss = createLoader();
+            const {user} = await api.refreshUser(abortCtrl);
 
-            if (user && newAccessToken){                                                                          // якщо юзер та accessToken отримано перевіримо чи збігається accessToken, що отримано з тим який є в кукі
-
-               if (newAccessToken != accessToken){
-                  let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
-                  date = date.toUTCString();
-                  document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
-               }
-                
+            if (user){
                 headerAuthorised(user);                
             }else{ 
                 throw new Error("Not authorized");
             }
 
         }catch(error){
-            document.cookie = 'accessToken=;  max-age=-1;';
             headerNotAuthorised();
         }
-    }
 }
 
 export function headerNotAuthorised(){

@@ -16,17 +16,24 @@ export class bookshelf_API {
       axios.defaults.headers.common.Authorization = '';
     }
     
+    rewriteAccessTokenCookie = (newAccessToken) => {
+      const accessToken = getCookie("accessToken");  
+      if (newAccessToken != accessToken){
+        let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
+        date = date.toUTCString();
+        document.cookie = `accessToken=${newAccessToken}; expires=${date}; secure`;
+      }
+    }
+
     async signUp (credentials, abortCtrl){
       try{
         const {data} = await axios.post(`${this.#BASE_URL}auth/signup`, credentials, {signal: abortCtrl.signal});
         
-        // записуємо в кукі та в заголовки accessToken, отриманий з сервера
         this.setAuthHeader(data.accessToken);
-        let date = new Date(Date.now() + (24 * 60* 60 * 1000));
-        date = date.toUTCString();
-        document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`; 
-        
+        rewriteAccessTokenCookie(data.accessToken);
+
         return data;
+
       }catch(error){
         return error.response.data.message;
       };
@@ -37,23 +44,25 @@ export class bookshelf_API {
         axios.defaults.withCredentials = true;
         const {data} = await axios.post(`${this.#BASE_URL}auth/signin`, credentials, {signal: abortCtrl.signal});
         
-        // записуємо в кукі та в заголовки accessToken, отриманий з сервера
         this.setAuthHeader(data.accessToken);
-        let date = new Date(Date.now() + (24 * 60* 60 * 1000));
-        date = date.toUTCString();
-        document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;          
+        rewriteAccessTokenCookie(data.accessToken);
         
         return data;
+
       }catch(error){
         return error.message;
       }
     } 
 
-    async refreshUser(accessToken, abortCtrl){
+    async refreshUser(abortCtrl){
       try{
+        const accessToken = getCookie("accessToken");  
         this.setAuthHeader(accessToken);
         const {data} = await axios.get(`${this.#BASE_URL}users/current`, {signal: abortCtrl.signal});  
-        return data;   
+       
+        rewriteAccessTokenCookie(data.accessToken);
+        return data;
+
       }catch(error){
         return error.message;
       }
@@ -69,12 +78,8 @@ export class bookshelf_API {
         
         const {data} = await axios.patch(`${this.#BASE_URL}users/update`, formData, { signal: abortCtrl.signal});
         
-        if (data.accessToken != accessToken){
-          let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
-          date = date.toUTCString();
-          document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
-        }
-        
+        rewriteAccessTokenCookie(data.accessToken);
+
         return data;   
       }catch(error){
         return error.response.data.message;
@@ -87,8 +92,9 @@ export class bookshelf_API {
         setAuthHeader(accessToken);
         const {data} = await axios.post(`${this.#BASE_URL}auth/signout`, {signal: abortCtrl.signal});
         clearAuthHeader();
+        return data;
       }catch(error){
-
+        return error.message;
       }
     }
 
