@@ -227,13 +227,10 @@ async function deleteBook({target}){
       const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираємо з localStorage масив id обраних книжок до видалення
       const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
 
-      const accessToken = getCookie("accessToken");
-      if (!accessToken){  throw new Error("Request failed with status code 401"); }
-
      // const loader1 = createLoader(delitedBookContainer, "after");
       
       abortCtrl1 = new AbortController();
-      const {data} = await api.removeFromShoppingList(accessToken, book_id, abortCtrl1);
+      const {data} = await api.removeFromShoppingList(book_id, abortCtrl1);
       
     //  loader1.remove();
 
