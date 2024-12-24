@@ -27,7 +27,7 @@ import noBookImage_desktop_1x from '/src/images/png/empty-img-desktop@1x.jpg';
 import noBookImage_desktop_2x from '/src/images/png/empty-img-desktop@2x.jpg';
 import noBookImage_desktop_3x from '/src/images/png/empty-img-desktop@3x.jpg';
 
-import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp, getCookie, rewriteAccessToken} from './help_functions';
+import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp, rewriteAccessToken} from './help_functions';
 
 const api = new bookshelf_API();
 
@@ -236,9 +236,6 @@ async function deleteBook({target}){
     //  loader1.remove();
 
       if (data){
-        const {accessToken: newAccessToken, shopping_list} = data;
-
-        rewriteAccessToken(newAccessToken);
         
         // перезаписуємо localStorage новим масивом id за вичетом id видаленої книги
         localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));    
