@@ -104,6 +104,7 @@ async function singIn({email, password}){
     const {user} = await api.signIn({email, password}, abortCtrl2);
     loader1.remove(); 
     
+    
     if (user) {
       
       onCloseModal();
