@@ -136,8 +136,7 @@ export class bookshelf_API {
 
     async addToShoppingList(bookId ,abortCtrl){
       try{
-        const accessToken = getCookie("accessToken");
-        this.setAuthHeader(accessToken);
+        this.setAuthHeader(getCookie("accessToken"));
         const {data} = await axios.post(`${this.#BASE_URL}books/shoppinglist/add/${bookId}`, {signal: abortCtrl.signal});
         this.rewriteAccessTokenCookie(data.accessToken);
         return data;
