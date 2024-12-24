@@ -66,7 +66,7 @@ async function createShoppingList() {
 
     try{
 
-      loader1 = createLoader(shoppingBooksBoxTitle, "after");
+      loader1 = createLoader(shoppingBooksBoxTitle, "after", []);
 
       abortCtrl1 = new AbortController();
       const data = await api.getShoppingList(abortCtrl1);
