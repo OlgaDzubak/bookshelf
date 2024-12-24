@@ -149,8 +149,8 @@ export class bookshelf_API {
         const accessToken = getCookie("accessToken"); 
         this.setAuthHeader(accessToken);
         const {data} = await axios.delete(`${this.#BASE_URL}books/shoppinglist/remove/${bookId}`, {signal: abortCtrl.signal});
-        rewriteAccessTokenCookie(data.accessToken);
-        
+        this.rewriteAccessTokenCookie(data.accessToken);
+
         return data;
     }
    

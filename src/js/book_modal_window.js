@@ -1,6 +1,6 @@
 import { bookshelf_API } from './API';
 import { displayOrdredAmountInShoppingBag, 
-         createLoader, getCookie, rewriteAccessToken, objScroll } from './help_functions';
+         createLoader, objScroll } from './help_functions';
 
 const api = new bookshelf_API;
 let book_Id, abortCtrl1, abortCtrl2, loader1;
@@ -140,8 +140,6 @@ async function addToShoppingList() {
         abortCtrl2 = new AbortController();
         const data = await api.addToShoppingList(book_Id, abortCtrl2);
         loader1.remove();
-
-        console.log("data=",data);
 
         if (data){
 
