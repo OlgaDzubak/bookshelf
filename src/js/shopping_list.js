@@ -71,6 +71,8 @@ async function createShoppingList() {
       abortCtrl1 = new AbortController();
       const data = await api.getShoppingList(abortCtrl1);
       
+      console.log("data=",data);
+
       loader1.remove();
 
       if (data){
@@ -106,6 +108,8 @@ async function createShoppingList() {
 
     }catch(error){
       
+      console.log("error=",error);
+
       loader1.remove();
       if (error.message === "Request failed with status code 401"){
         document.querySelector('.logo-link').click();
@@ -373,11 +377,6 @@ function onPaginationClick(paginationBox, target){
   
   }else if (target.classList.contains("right-three-dots-btn") || target.classList.contains("right-three-dots-svg")) {
       currentPage=shiftPageRight(paginationBox, 2);
-
-      console.log("shoppingBooks=",shoppingBooks);
-      console.log("currentPage=",currentPage);
-      console.log("booksOnPage=",booksOnPage);
-
       books_ul.innerHTML=showPage(shoppingBooks, currentPage, booksOnPage);
   }else if (target.classList.contains("right-arrow-btn") || target.classList.contains("right-arrow-svg")) {
       // currentPage = shiftPageRight(paginationBox, 1);
