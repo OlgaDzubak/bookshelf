@@ -6,6 +6,7 @@ import { Notify } from 'notiflix';
 const api = new bookshelf_API();
 
 const userProfileModalBackdrop =  document.querySelector(".user-profile-modal-backdrop");
+const userProfileModal =  document.querySelector(".user-profile-modal");
 const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
 const userProfileLoadPhotoFile =  document.querySelector("#load-photo-file");
 const userProfileForm =  document.querySelector(".user-profile-form");
@@ -13,8 +14,8 @@ const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
 
 userProfileCloseBtn.addEventListener("click", (e)=>{closeProfileModal()});
-userProfileLoadPhotoFile.addEventListener("change", (e)=>{changeProfileModalPhotoFile});
-userProfileForm.addEventListener("submit", (e)=>{userProfileModalFormSubmit()});
+userProfileLoadPhotoFile.addEventListener("change", (e)=>{ changeProfileModalPhotoFile(e.target.files[0]) });
+userProfileForm.addEventListener("submit", (e)=>{ e.preventDefault(); userProfileModalFormSubmit() });
 
 let abortCtrl1, fileAvatar, loader;
 
@@ -37,12 +38,12 @@ function closeProfileModal(){
  
 }
 
-function changeProfileModalPhotoFile({target}){
+function changeProfileModalPhotoFile(file){
    
-   var file = target.files[0];
+ //  var file = target.files[0];
    const maxSizeFile = 5 * 1024 * 1024;
   
-   if (file.type.slice(0,5) != "image"){                        //|| (file.type.slice(0,9) === "image/svg"))
+   if (file.type.slice(0,5) != "image"){
     
         Notify.failure('Wrong file format. Please choose image file.', {
             position: 'right-center',
@@ -65,88 +66,88 @@ function changeProfileModalPhotoFile({target}){
 
 }    
 
+async function userProfileModalFormSubmit(){
+    
+    // e.preventDefault();
+ 
+     if (abortCtrl1) {
+         abortCtrl1.abort();
+     }
+ 
+     try{
+ 
+         const newName = capitalizeStr(userProfileInput.value);
+ 
+         const accessToken = getCookie("accessToken");        
+  
+         const formData = new FormData;
+         formData.append('avatar', fileAvatar);
+         formData.append('name', newName);
+ 
+         loader = createLoader(userProfileModal, "into");
+         loader.classList.add("loader-modal");
+         loader.classList.add("profile-elm");
+         
+         abortCtrl1 = new AbortController();
+         const data = await api.updateUser({accessToken, formData}, abortCtrl1);
+         
+         if (data.user && data.accessToken){
+             
+             loader.remove();
+ 
+             if (data.accessToken != accessToken){
+                 let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
+                 date = date.toUTCString();
+                 document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
+             }
+             userProfileModal.classList.add("is-hidden");
+             userProfileInput.value = "";
+             headerAuthorised(data.user);                
+ 
+         }else{
+ 
+             throw new Error(data);
+         }
+     }catch(error){
+         
+         loader.remove();
+         
+         console.dir(error.message);
+ 
+         if (error.message === "Not authorized") {
+ 
+             document.cookie = 'accessToken=;  max-age=-1;';
+             userProfileModal.classList.add("is-hidden");
+             userProfileInput.value = "";
+             headerNotAuthorised();
+ 
+         } else if (error.message === "Wrong file format!"){
+ 
+             Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
+                     position: 'right-center',
+                     distance: '100px',
+             })
+ 
+         }else{
+ 
+             Notify.failure('Profile uploading failed. Please reload the page and try again.', {
+                     position: 'right-center',
+                     distance: '100px',
+             });
+ 
+         }
+     }
+   
+}
+
 function onEscKeyDown(e) {
     if (e.code === 'Escape') {
         closeProfileModal();
     }
 }
 
-async function userProfileModalFormSubmit(e){
-    
-    e.preventDefault();
 
-    if (abortCtrl1) {
-        abortCtrl1.abort();
-        // console.log("abort previous updateUser");
-    }
 
-    try{
-
-        const newName = capitalizeStr(userProfileInput.value);
-
-        const accessToken = getCookie("accessToken");        
- 
-        const formData = new FormData;
-        formData.append('avatar', fileAvatar);
-        formData.append('name', newName);
-
-        loader = createLoader(userProfileModal, "into");
-        loader.classList.add("loader-modal");
-        loader.classList.add("profile-elm");
-        
-        abortCtrl1 = new AbortController();
-        const data = await api.updateUser({accessToken, formData}, abortCtrl1);
-        
-        if (data.user && data.accessToken){
-            
-            loader.remove();
-
-            if (data.accessToken != accessToken){
-                let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
-                date = date.toUTCString();
-                document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
-            }
-            userProfileModal.classList.add("is-hidden");
-            userProfileInput.value = "";
-            headerAuthorised(data.user);                
-
-        }else{
-
-            throw new Error(data);
-        }
-    }catch(error){
-        
-        loader.remove();
-        
-        console.dir(error.message);
-
-        if (error.message === "Not authorized") {
-
-            document.cookie = 'accessToken=;  max-age=-1;';
-            userProfileModal.classList.add("is-hidden");
-            userProfileInput.value = "";
-            headerNotAuthorised();
-
-        } else if (error.message === "Wrong file format!"){
-
-            Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
-                    position: 'right-center',
-                    distance: '100px',
-            })
-
-        }else{
-
-            Notify.failure('Profile uploading failed. Please reload the page and try again.', {
-                    position: 'right-center',
-                    distance: '100px',
-            });
-
-        }
-    }
-  
+export {
+openProfileModal,
 }
-
-
-  export {
-    openProfileModal,
-  }
