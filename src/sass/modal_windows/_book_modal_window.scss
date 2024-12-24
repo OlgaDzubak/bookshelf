@@ -125,12 +125,12 @@
         border: 2px solid var(--accent-color1);
         border-radius: 40px;
         color: var(--text-dark-color);
-        transition: var(--transition);
+        transition: all var(--transition);
     }
     .btn-shopping:focus,
     .btn-shopping:hover {
         color: #FFFFFF;
-        background: #4F2EE8;
+        background-color: #4F2EE8;
         box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
     }
 
