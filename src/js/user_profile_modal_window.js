@@ -108,25 +108,14 @@ async function userProfileModalFormSubmit(){
          loader.remove();
          
          if(error.message === "Not authorized") {
- 
-             document.cookie = 'accessToken=;  max-age=-1;';
              closeProfileModal();
              headerNotAuthorised();
- 
          }else if (error.message === "Wrong file format!"){
- 
-             Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
-                     position: 'right-center',
-                     distance: '100px',
-             })
- 
+            Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', 
+                          { position: 'right-center', distance: '100px',})
          }else{
- 
-             Notify.failure('Profile uploading failed. Please reload the page and try again.', {
-                     position: 'right-center',
-                     distance: '100px',
-             });
- 
+              Notify.failure('Profile uploading failed. Please reload the page and try again.', 
+                          { position: 'right-center', distance: '100px',});
          }
      }
    

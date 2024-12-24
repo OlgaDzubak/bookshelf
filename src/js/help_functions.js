@@ -49,10 +49,12 @@ function lastBlueWord(string) {
 }
 
 //Функція створює та повертає loader, який додає в документ після/в/попереду елементу el. Параметр where визначає куди саме додається loader
-function createLoader(el, where){
+function createLoader(el, where, classList){
 
         const loader = document.createElement("div");
+        loader.classList.add(...classList);
         loader.classList.add("loader-box");
+       
         loader.innerHTML = loaderHTML;
 
         switch (where) {

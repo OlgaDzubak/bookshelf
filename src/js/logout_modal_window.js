@@ -7,6 +7,7 @@ const api = new bookshelf_API();
 let abortCtrl1, loader;
 
 const logoutModalBackDrop =  document.querySelector(".logout-modal-backdrop");
+const logoutModal =  document.querySelector(".logout-modal");
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
 
@@ -31,7 +32,6 @@ function closeLogoutModal(){
     logoutModalBackDrop.classList.add("is-hidden");
 }
 
-//ДОПИСАТИ ЦЮ ФУНКЦІЮ
 async function logoutSubmit(){   
     
     if (abortCtrl1) {
@@ -39,19 +39,20 @@ async function logoutSubmit(){
     }
 
     try{
-
-        const accessToken = getCookie("accessToken");        
- 
-        loader = createLoader(userProfileModal, "into");
-        loader.classList.add("loader-modal");
-        loader.classList.add("logout-elm");
+        loader = createLoader(logoutModal, "into", ["loader-modal", "logout-elm"]);
         
         abortCtrl1 = new AbortController();
-        const data = await api.logout({accessToken}, abortCtrl1);
+        const data = await api.logout(abortCtrl1);
         
+        if (!data){
+            closeLogoutModal();
+            headerNotAuthorised();
+        }
+
     }catch(error){
+
         loader.remove();
-        console.dir(error.message);
+        console.log(error.message);
     }
 }
 

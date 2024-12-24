@@ -62,11 +62,12 @@ async function showHeader(){
 
 export function headerNotAuthorised(){
 
+    document.cookie = 'accessToken=;  max-age=-1;';
+    localStorage.removeItem("bookshelf_orderedbooks");
+
     openBtn.classList.remove("is-hidden");
     authBtn.classList.add("is-hidden");
-    navigation.classList.add("is-hidden");
-
-    localStorage.removeItem("bookshelf_orderedbooks");
+    navigation.classList.add("is-hidden");    
 }
 
 export function headerAuthorised(user){

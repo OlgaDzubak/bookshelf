@@ -71,6 +71,16 @@ export class bookshelf_API {
       }
     }
  
+    async logout(abortCtrl){
+      try{
+        const accessToken = getCookie("accessToken");
+        setAuthHeader(accessToken);
+        const {data} = await axios.post(`${this.#BASE_URL}auth/signout`, {signal: abortCtrl.signal});
+        clearAuthHeader();
+      }catch(error){
+
+      }
+    }
 
     //методи для /books/
 
