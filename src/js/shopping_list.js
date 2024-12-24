@@ -40,12 +40,8 @@ const bucketCard = [
 const shoppingBooksBox = document.querySelector('.shopping-wrapper');
 const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
 
-let shoppingBooks = [];
 const booksOnPage = 3;
-let paginationBox, books_ul;
-let currentPage = 1;
-let pagesCount;
-let visiblePagesCount, abortCtrl1;
+let paginationBox, pagesCount, books_ul, visiblePagesCount, abortCtrl1, loader1, currentPage = 1, shoppingBooks = [];
 
 const pageWidth = document.documentElement.scrollWidth;
 if (pageWidth < 768) {
@@ -56,8 +52,6 @@ if (pageWidth < 768) {
 
 //дістаємо з бази книги. що замовлені користувачем
 createShoppingList();
-
-
 
 
 // ФУНКЦІЇ -----------------------------------------------------------------------------------------------------
@@ -72,24 +66,17 @@ async function createShoppingList() {
 
     try{
 
-      const accessToken = getCookie("accessToken");         // зчитуємо accessToken з кукі
-      if (!accessToken){
-        throw new Error("Request failed with status code 401");
-      }
-
-      const loader1 = createLoader(shoppingBooksBoxTitle, "after");
+      loader1 = createLoader(shoppingBooksBoxTitle, "after");
 
       abortCtrl1 = new AbortController();
-      const {data} = await api.getShoppingList(accessToken, abortCtrl1);
+      const {data} = await api.getShoppingList(abortCtrl1);
       
       loader1.remove();
 
       if (data){
        
-        const {accessToken: newAccessToken, books} = data;
+        const {books} = data;
 
-        rewriteAccessToken(newAccessToken);   // перевіряємо якщо ми отримали новий ток ен доступу то перезаписуємо його в кукі
-        
         if (books.length === 0){
           createEmptyBooksBox();
         }else{
@@ -118,6 +105,8 @@ async function createShoppingList() {
       }
 
     }catch(error){
+      
+      loader1.remove();
       if (error.message === "Request failed with status code 401"){
         document.querySelector('.logo-link').click();
       }else{
