@@ -10,6 +10,7 @@ const divBackdropEl = document.querySelector('.book-modal-backdrop');
 const bookModalContainer = document.querySelector(".book-modal-container")
 const btnCloseModal = document.querySelector('.btn-modal-close');
 const btnAddEl = document.querySelector('.add');
+const btnRemoveEl = document.querySelector('.remove');
 const textEl = document.querySelector('.modal-message');
 
 btnCloseModal.addEventListener('click', onCloseModal);
@@ -135,9 +136,6 @@ async function addToShoppingList() {
     }
 
     try{
-        // const accessToken = getCookie("accessToken");
-        // if (!accessToken){  throw new Error("Request failed with status code 401"); }
-        
         const loader1 = createLoader(bookModalContainer, "into", ["loader-modal"]);
         abortCtrl2 = new AbortController();
         const data = await api.addToShoppingList(book_Id, abortCtrl2);
