@@ -83,9 +83,9 @@ async function userProfileModalFormSubmit(){
          const data = await api.updateUser(formData, abortCtrl1);
          
          if (data.user){
-         //    loader.remove();
-         //    closeProfileModal();
-             headerAuthorised(data.user);                
+            loader.remove();
+            closeProfileModal();
+            headerAuthorised(data.user);                
          }else{
              throw new Error(data);
          }
