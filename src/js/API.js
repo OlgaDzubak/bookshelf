@@ -59,12 +59,22 @@ export class bookshelf_API {
       }
     }
 
-    async updateUser({accessToken, formData}, abortCtrl){
+    async updateUser(formData, abortCtrl){
 
       try{
+        const accessToken = getCookie("accessToken");  
+        
         this.setAuthHeader(accessToken);
         axios.defaults.headers.patch['Content-Type'] = 'multipart/form-data';
+        
         const {data} = await axios.patch(`${this.#BASE_URL}users/update`, formData, { signal: abortCtrl.signal});
+        
+        if (data.accessToken != accessToken){
+          let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
+          date = date.toUTCString();
+          document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
+        }
+        
         return data;   
       }catch(error){
         return error.response.data.message;

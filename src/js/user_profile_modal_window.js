@@ -67,42 +67,29 @@ function changeProfileModalPhotoFile(file){
 
 async function userProfileModalFormSubmit(){
     
-     if (abortCtrl1) {
-         abortCtrl1.abort();
-     }
+     if (abortCtrl1) { abortCtrl1.abort(); }
  
      try{
  
          const newName = capitalizeStr(userProfileInput.value);
  
-         const accessToken = getCookie("accessToken");        
-  
          const formData = new FormData;
          formData.append('avatar', fileAvatar);
          formData.append('name', newName);
  
-         loader = createLoader(userProfileModal, "into");
-         loader.classList.add("loader-modal");
+         loader = createLoader(userProfileModal, "into", ["loader-modal"]);
          
          abortCtrl1 = new AbortController();
-         const data = await api.updateUser({accessToken, formData}, abortCtrl1);
+         const data = await api.updateUser(formData, abortCtrl1);
          
-         if (data.user && data.accessToken){
-             
+         if (data.user){
              loader.remove();
- 
-             if (data.accessToken != accessToken){
-                 let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
-                 date = date.toUTCString();
-                 document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
-             }
              closeProfileModal();
              headerAuthorised(data.user);                
- 
          }else{
- 
              throw new Error(data);
          }
+
      }catch(error){
          
          loader.remove();
@@ -118,7 +105,7 @@ async function userProfileModalFormSubmit(){
                           { position: 'right-center', distance: '100px',});
          }
      }
-   
+
 }
 
 function onEscKeyDown(e) {
