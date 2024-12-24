@@ -211,8 +211,6 @@ function showPage(dataArray, page, itemsOnPage) {
   // Функція видалення книжки зі списку Shopping list
 async function deleteBook({target}){
 
-  console.log("я в deleteBook");
-
   if (target.classList.contains("bucket-btn")){
     
     const btns = document.querySelectorAll(".bucket-btn");  //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
@@ -236,11 +234,12 @@ async function deleteBook({target}){
      // const loader1 = createLoader(delitedBookContainer, "after");
       
       abortCtrl1 = new AbortController();
-      const {data} = await api.removeFromShoppingList(book_id, abortCtrl1);
+      const data = await api.removeFromShoppingList(book_id, abortCtrl1);
       
     //  loader1.remove();
 
       if (data){
+        console.log("я в deleteBook");
         
         // перезаписуємо localStorage новим масивом id за вичетом id видаленої книги
         localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));    
