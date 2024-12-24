@@ -99,7 +99,7 @@ async function userProfileModalFormSubmit(){
              headerNotAuthorised();
          }else if (error.message === "Wrong file format!"){
             Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', 
-                          { position: 'right-center', distance: '300px 200px',})
+                          { position: 'right-center', distance: '330px',})
          }else{
               Notify.failure('Profile uploading failed. Please reload the page and try again.', 
                           { position: 'right-center', distance: '100px',});
