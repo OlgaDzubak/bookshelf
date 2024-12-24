@@ -71,7 +71,7 @@ async function createShoppingList() {
       abortCtrl1 = new AbortController();
       const data = await api.getShoppingList(abortCtrl1);
       
-      console.log("data=", data);
+      console.log("data в createShoppingList=", data);
 
       loader1.remove();
 
