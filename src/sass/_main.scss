@@ -201,8 +201,8 @@
         border-radius: 50%;
 
         transition: opacity var(--transition),
-        visibility var(--transition),
-        transform var(--transition);
+                    visibility var(--transition),
+                    transform var(--transition);
     }
     .btn-up-scroll::before {
         content: "";
