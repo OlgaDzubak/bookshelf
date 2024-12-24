@@ -130,12 +130,8 @@ export class bookshelf_API {
       const accessToken = getCookie("accessToken"); 
       this.setAuthHeader(accessToken);
       const {data} = await axios.get(`${this.#BASE_URL}books/shoppinglist`, {signal: abortCtrl.signal});
-
-      console.log("data = ", data);
       this.rewriteAccessTokenCookie(data.accessToken);
-
       return data;
-      
     }
 
     async addToShoppingList(bookId ,abortCtrl){
@@ -154,7 +150,6 @@ export class bookshelf_API {
         this.setAuthHeader(accessToken);
         const {data} = await axios.delete(`${this.#BASE_URL}books/shoppinglist/remove/${bookId}`, {signal: abortCtrl.signal});
         this.rewriteAccessTokenCookie(data.accessToken);
-
         return data;
     }
    
