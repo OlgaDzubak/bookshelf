@@ -10,9 +10,8 @@ const logoutModalBackDrop =  document.querySelector(".logout-modal-backdrop");
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
 
-logoutBtn.addEventListener("submit", (e)=>{logoutSubmit()});
-editProfileBtn.addEventListener("click", (e)=>{  closeLogoutModal();  openProfileModal(); });
-
+logoutBtn.addEventListener("submit", (e)=>{ e.preventDefault(); logoutSubmit(); });
+editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 
 function openLogoutModal(){
 
@@ -32,9 +31,9 @@ function closeLogoutModal(){
     logoutModalBackDrop.classList.add("is-hidden");
 }
 
-async function logoutSubmit(){
-    e.preventDefault();
-
+//ДОПИСАТИ ЦЮ ФУНКЦІЮ
+async function logoutSubmit(){   
+    
     if (abortCtrl1) {
         abortCtrl1.abort();
     }
@@ -62,7 +61,6 @@ function onAnyKeyDownLogoutModal({target, code}){
         closeLogoutModal();
     }    
 }
-
 
 export {
     openLogoutModal,

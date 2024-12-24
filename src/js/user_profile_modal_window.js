@@ -13,12 +13,11 @@ const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
 
-userProfileCloseBtn.addEventListener("click", (e)=>{closeProfileModal()});
-userProfileLoadPhotoFile.addEventListener("change", (e)=>{ changeProfileModalPhotoFile(e.target.files[0]) });
-userProfileForm.addEventListener("submit", (e)=>{ e.preventDefault(); userProfileModalFormSubmit() });
+userProfileCloseBtn.addEventListener("click", (e)=>{closeProfileModal(); });
+userProfileLoadPhotoFile.addEventListener("change", (e)=>{ changeProfileModalPhotoFile(e.target.files[0]); });
+userProfileForm.addEventListener("submit", (e)=>{ e.preventDefault(); userProfileModalFormSubmit(); });
 
 let abortCtrl1, fileAvatar, loader;
-
 
 function openProfileModal(){
     
@@ -68,8 +67,6 @@ function changeProfileModalPhotoFile(file){
 
 async function userProfileModalFormSubmit(){
     
-    // e.preventDefault();
- 
      if (abortCtrl1) {
          abortCtrl1.abort();
      }
@@ -100,8 +97,6 @@ async function userProfileModalFormSubmit(){
                  document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
              }
              closeProfileModal();
-             //userProfileModal.classList.add("is-hidden");
-             //userProfileInput.value = "";
              headerAuthorised(data.user);                
  
          }else{
@@ -112,16 +107,13 @@ async function userProfileModalFormSubmit(){
          
          loader.remove();
          
-         console.dir(error.message);
- 
-         if (error.message === "Not authorized") {
+         if(error.message === "Not authorized") {
  
              document.cookie = 'accessToken=;  max-age=-1;';
-             userProfileModal.classList.add("is-hidden");
-             userProfileInput.value = "";
+             closeProfileModal();
              headerNotAuthorised();
  
-         } else if (error.message === "Wrong file format!"){
+         }else if (error.message === "Wrong file format!"){
  
              Notify.failure('Wrong file format! Only png/jpg/jpeg file are allowed.', {
                      position: 'right-center',
@@ -145,8 +137,6 @@ function onEscKeyDown(e) {
         closeProfileModal();
     }
 }
-
-
 
 export {
 openProfileModal,
