@@ -59,10 +59,7 @@ createShoppingList();
   // Центральна функція, робить перевірки, запит та відмальовує
 async function createShoppingList() {
 
-    if (abortCtrl1) {      
-      abortCtrl1.abort();
-      console.log("abort previous fetch");
-    }
+    if (abortCtrl1) { abortCtrl1.abort(); }
 
     try{
 
@@ -219,10 +216,7 @@ async function deleteBook({target}){
     btns.forEach(btn=>btn.setAttribute("disabled",""));
 
     //Видаляємо id книги з shoppinglist користувача в базі даних
-    if (abortCtrl1) {      
-        abortCtrl1.abort();
-        console.log("abort previous fetch");
-    }
+    if (abortCtrl1) { abortCtrl1.abort(); }
 
     try{
 
@@ -232,13 +226,8 @@ async function deleteBook({target}){
       const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираємо з localStorage масив id обраних книжок до видалення
       const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
 
-
-     // const loader1 = createLoader(delitedBookContainer, "after");
-      
       abortCtrl1 = new AbortController();
       const {shopping_list} = await api.removeFromShoppingList(book_id, abortCtrl1);
-      
-    //  loader1.remove();
 
       if (shopping_list){
 
