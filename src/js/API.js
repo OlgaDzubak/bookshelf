@@ -30,7 +30,7 @@ export class bookshelf_API {
         const {data} = await axios.post(`${this.#BASE_URL}auth/signup`, credentials, {signal: abortCtrl.signal});
         
         this.setAuthHeader(data.accessToken);
-        rewriteAccessTokenCookie(data.accessToken);
+        this.rewriteAccessTokenCookie(data.accessToken);
 
         return data;
 
@@ -44,12 +44,8 @@ export class bookshelf_API {
         axios.defaults.withCredentials = true;
         const {data} = await axios.post(`${this.#BASE_URL}auth/signin`, credentials, {signal: abortCtrl.signal});
         
-        console.log("1",data);
-        
         this.setAuthHeader(data.accessToken);
         this.rewriteAccessTokenCookie(data.accessToken);
-        
-        console.log("2",data);
 
         return data;
 
@@ -64,7 +60,7 @@ export class bookshelf_API {
         this.setAuthHeader(accessToken);
         const {data} = await axios.get(`${this.#BASE_URL}users/current`, {signal: abortCtrl.signal});  
        
-        rewriteAccessTokenCookie(data.accessToken);
+        this.rewriteAccessTokenCookie(data.accessToken);
         return data;
 
       }catch(error){
@@ -82,7 +78,7 @@ export class bookshelf_API {
         
         const {data} = await axios.patch(`${this.#BASE_URL}users/update`, formData, { signal: abortCtrl.signal});
         
-        rewriteAccessTokenCookie(data.accessToken);
+        this.rewriteAccessTokenCookie(data.accessToken);
 
         return data;   
       }catch(error){
@@ -92,11 +88,14 @@ export class bookshelf_API {
  
     async logout(abortCtrl){
       try{
+
         const accessToken = getCookie("accessToken");
-        setAuthHeader(accessToken);
+        this.setAuthHeader(accessToken);
         const {data} = await axios.post(`${this.#BASE_URL}auth/signout`, {signal: abortCtrl.signal});
-        clearAuthHeader();
+        this.clearAuthHeader();
+
         return data;
+
       }catch(error){
         return error.message;
       }
