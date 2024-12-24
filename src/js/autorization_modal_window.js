@@ -103,7 +103,7 @@ async function singIn({email, password}){
     abortCtrl2 = new AbortController();
     const {user} = await api.signIn({email, password}, abortCtrl2);
     loader1.remove(); 
-    
+    console.log(user);
     
     if (user) {
       
