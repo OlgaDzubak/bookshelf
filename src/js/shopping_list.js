@@ -37,8 +37,6 @@ const bucketCard = [
   },
 ];
 
-const shoppingBooksBox = document.querySelector('.shopping-wrapper');
-const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
 
 const booksOnPage = 3;
 let paginationBox, pagesCount, books_ul, visiblePagesCount, abortCtrl1, loader1, currentPage = 1, shoppingBooks = [];
@@ -53,6 +51,9 @@ if (pageWidth < 768) {
 //дістаємо з бази книги. що замовлені користувачем
 createShoppingList();
 
+
+const shoppingBooksBox = document.querySelector('.shopping-wrapper');
+const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
 
 // ФУНКЦІЇ -----------------------------------------------------------------------------------------------------
 
@@ -239,8 +240,7 @@ async function deleteBook({target}){
     //  loader1.remove();
 
       if (shopping_list){
-        console.log("я в deleteBook");
-        console.log("data = ",data);
+
         // перезаписуємо localStorage новим масивом id за вичетом id видаленої книги
         localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));    
        
