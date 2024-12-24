@@ -53,7 +53,9 @@ function createLoader(el, where, classArray){
 
         const loaderBox = document.createElement("div");
         loaderBox.classList.add("loader-box");
-        loaderBox.classList.add(...classArray);
+        if (classArray.length > 0){
+          loaderBox.classList.add(...classArray);
+        }
         loaderBox.innerHTML = loaderHTML;
 
         switch (where) {
