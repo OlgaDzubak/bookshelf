@@ -58,16 +58,16 @@ function createLoader(el, where, classArray){
 
         switch (where) {
           case "after":
-            el.after(loader);
+            el.after(loaderBox);
             break;
           case "into" :
-            el.prepend(loader);
+            el.prepend(loaderBox);
             break;
           case "befor":
-            el.before(loader);
+            el.before(loaderBox);
             break;
         }
-        return loader;
+        return loaderBox;
 }
 
 //Функція перезаписує клас .active в меню list, включаючи елемент headerElement
