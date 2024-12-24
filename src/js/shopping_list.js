@@ -71,13 +71,15 @@ async function createShoppingList() {
       abortCtrl1 = new AbortController();
       const data = await api.getShoppingList(abortCtrl1);
       
-      console.log("data=",data);
+      console.log("data=", data);
 
       loader1.remove();
 
       if (data){
-       
+
         const {books} = data;
+
+        console.log("books=", books);
 
         if (books.length === 0){
           createEmptyBooksBox();
@@ -103,6 +105,7 @@ async function createShoppingList() {
 
           }
         }
+
         scrollUp();
       }
 
