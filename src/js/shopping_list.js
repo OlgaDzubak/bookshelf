@@ -373,6 +373,11 @@ function onPaginationClick(paginationBox, target){
   
   }else if (target.classList.contains("right-three-dots-btn") || target.classList.contains("right-three-dots-svg")) {
       currentPage=shiftPageRight(paginationBox, 2);
+
+      console.log("shoppingBooks=",shoppingBooks);
+      console.log("currentPage=",currentPage);
+      console.log("booksOnPage=",booksOnPage);
+
       books_ul.innerHTML=showPage(shoppingBooks, currentPage, booksOnPage);
   }else if (target.classList.contains("right-arrow-btn") || target.classList.contains("right-arrow-svg")) {
       // currentPage = shiftPageRight(paginationBox, 1);
