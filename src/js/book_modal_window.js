@@ -183,8 +183,10 @@ async function removeFromShoppingList() {
         
         loader1.remove();
 
+        console.log(data);
+        
         if (data){
-            
+
             const {shopping_list} = data;
 
             btnAddEl.classList.remove('is-hidden');
