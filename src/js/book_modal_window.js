@@ -176,11 +176,7 @@ async function removeFromShoppingList() {
     }
 
     try{
-        const accessToken = getCookie("accessToken");
-
-        if (!accessToken){  throw new Error("Request failed with status code 401"); }
-
-        const loader1 = createLoader(bookModalContainer, "into");
+        const loader1 = createLoader(bookModalContainer, "into", ["loader-modal"]);
         
         abortCtrl2 = new AbortController();
         const {data} = await api.removeFromShoppingList(accessToken, book_Id, abortCtrl2);
@@ -188,6 +184,7 @@ async function removeFromShoppingList() {
         loader1.remove();
 
         if (data){
+            
             const {shopping_list} = data;
 
             btnAddEl.classList.remove('is-hidden');
