@@ -86,7 +86,6 @@ async function userProfileModalFormSubmit(){
  
          loader = createLoader(userProfileModal, "into");
          loader.classList.add("loader-modal");
-         loader.classList.add("profile-elm");
          
          abortCtrl1 = new AbortController();
          const data = await api.updateUser({accessToken, formData}, abortCtrl1);
@@ -100,8 +99,9 @@ async function userProfileModalFormSubmit(){
                  date = date.toUTCString();
                  document.cookie = `accessToken=${data.accessToken}; expires=${date}; secure`;
              }
-             userProfileModal.classList.add("is-hidden");
-             userProfileInput.value = "";
+             closeProfileModal();
+             //userProfileModal.classList.add("is-hidden");
+             //userProfileInput.value = "";
              headerAuthorised(data.user);                
  
          }else{
