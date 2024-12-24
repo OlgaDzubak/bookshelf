@@ -12,8 +12,8 @@ const logoutModalBackDrop =  document.querySelector(".logout-modal-backdrop");
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
 
-logoutBtn.addEventListener("submit", ()=>{logoutSubmit()});
-editProfileBtn.addEventListener("click", ()=>{  closeLogoutModal();  openProfileModal(); });
+logoutBtn.addEventListener("submit", (e)=>{logoutSubmit()});
+editProfileBtn.addEventListener("click", (e)=>{  closeLogoutModal();  openProfileModal(); });
 
 
 function openLogoutModal(){

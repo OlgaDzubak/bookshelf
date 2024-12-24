@@ -12,9 +12,9 @@ const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
 const userProfileInput = document.querySelector(".user-profile-input");
 
-userProfileCloseBtn.addEventListener("click", ()=>{closeProfileModal()});
-userProfileLoadPhotoFile.addEventListener("change", onChangeProfileModalPhotoFile);
-userProfileForm.addEventListener("submit", ()=>{userProfileModalFormSubmit()});
+userProfileCloseBtn.addEventListener("click", (e)=>{closeProfileModal()});
+userProfileLoadPhotoFile.addEventListener("change", (e)=>{changeProfileModalPhotoFile});
+userProfileForm.addEventListener("submit", (e)=>{userProfileModalFormSubmit()});
 
 let abortCtrl1, fileAvatar, loader;
 
@@ -37,7 +37,7 @@ function closeProfileModal(){
  
 }
 
-function onChangeProfileModalPhotoFile({target}){
+function changeProfileModalPhotoFile({target}){
    
    var file = target.files[0];
    const maxSizeFile = 5 * 1024 * 1024;
