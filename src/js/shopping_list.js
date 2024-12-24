@@ -27,7 +27,7 @@ import noBookImage_desktop_1x from '/src/images/png/empty-img-desktop@1x.jpg';
 import noBookImage_desktop_2x from '/src/images/png/empty-img-desktop@2x.jpg';
 import noBookImage_desktop_3x from '/src/images/png/empty-img-desktop@3x.jpg';
 
-import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp, rewriteAccessToken} from './help_functions';
+import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp} from './help_functions';
 
 const api = new bookshelf_API();
 
@@ -37,6 +37,8 @@ const bucketCard = [
   },
 ];
 
+const shoppingBooksBox = document.querySelector('.shopping-wrapper');
+const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
 
 const booksOnPage = 3;
 let paginationBox, pagesCount, books_ul, visiblePagesCount, abortCtrl1, loader1, currentPage = 1, shoppingBooks = [];
@@ -51,9 +53,6 @@ if (pageWidth < 768) {
 //дістаємо з бази книги. що замовлені користувачем
 createShoppingList();
 
-
-const shoppingBooksBox = document.querySelector('.shopping-wrapper');
-const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
 
 // ФУНКЦІЇ -----------------------------------------------------------------------------------------------------
 
@@ -213,8 +212,10 @@ function showPage(dataArray, page, itemsOnPage) {
 async function deleteBook({target}){
 
   if (target.classList.contains("bucket-btn")){
+
+    console.log("bucket-btn is clicked");
     
-    const btns = document.querySelectorAll(".bucket-btn");  //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
+    const btns = document.querySelectorAll(".bucket-btn"); 
     btns.forEach(btn=>btn.setAttribute("disabled",""));
 
     //Видаляємо id книги з shoppinglist користувача в базі даних
