@@ -59,7 +59,10 @@ createShoppingList();
   // Центральна функція, робить перевірки, запит та відмальовує
 async function createShoppingList() {
 
-    if (abortCtrl1) { abortCtrl1.abort(); }
+    if (abortCtrl1) { 
+      abortCtrl1.abort();
+      console.log("abortCtrl1.abort()"); 
+    }
 
     try{
 
@@ -214,7 +217,10 @@ async function deleteBook({target}){
     btns.forEach(btn=>btn.setAttribute("disabled",""));
 
     //Видаляємо id книги з shoppinglist користувача в базі даних
-    if (abortCtrl2) { abortCtrl2.abort(); }
+    if (abortCtrl2) { 
+      abortCtrl2.abort(); 
+      console.log("abortCtrl2.abort()");
+    }
 
     try{
 
