@@ -116,7 +116,7 @@ showCategoryList();
         const booksBoxTitle = createBooksBoxTitle(booksBox, "");
         
         if (!firstLoading) { 
-            scrollToBoxTop(booksBox);
+          //  scrollToBoxTop(booksBox);
             loader1 = createLoader(booksBoxTitle, "after", ["loader-box-trans"]);
         }
 
@@ -141,7 +141,7 @@ showCategoryList();
                 bestBooksList.innerHTML = createBestSellersBooksMarcup(data, per_page);
 
                 if (!firstLoading) {
-                    scrollToBoxTop(booksBox);
+                  //  scrollToBoxTop(booksBox);
                 }else {
                     firstLoading = false;
                 }
@@ -170,7 +170,7 @@ showCategoryList();
                 } else {
                     categoryBooksList.innerHTML = createBooksOfCategoryMarcup(data, 5);
                 }
-                scrollToBoxTop(booksBox);
+             //   scrollToBoxTop(booksBox);
 
             }
         }
