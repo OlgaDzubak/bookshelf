@@ -69,7 +69,7 @@ async function createShoppingList() {
       loader1 = createLoader(shoppingBooksBoxTitle, "after");
 
       abortCtrl1 = new AbortController();
-      const {data} = await api.getShoppingList(abortCtrl1);
+      const data = await api.getShoppingList(abortCtrl1);
       
       loader1.remove();
 
@@ -226,6 +226,7 @@ async function deleteBook({target}){
       const LOCALSTORAGE_KEY ="bookshelf_orderedbooks"
       const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираємо з localStorage масив id обраних книжок до видалення
       const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
+
 
      // const loader1 = createLoader(delitedBookContainer, "after");
       

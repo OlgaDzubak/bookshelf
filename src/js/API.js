@@ -129,10 +129,10 @@ export class bookshelf_API {
 
       const accessToken = getCookie("accessToken"); 
       this.setAuthHeader(accessToken);
-      const response = axios.get(`${this.#BASE_URL}books/shoppinglist`, {signal: abortCtrl.signal});
+      const {data} = axios.get(`${this.#BASE_URL}books/shoppinglist`, {signal: abortCtrl.signal});
       this.rewriteAccessTokenCookie(data.accessToken);
-      
-      return response;
+
+      return data;
       
     }
 
