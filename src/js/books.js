@@ -48,7 +48,9 @@ window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
 //створюємо loader
 if (!bestBooksAreLoaded && !categoriesAreLoaded){
-    loader1 = createLoader(body, "into");
+    loader1 = createLoader(body, "into",[]
+
+    );
 }
 
 showCategoryList();  
@@ -118,8 +120,7 @@ showCategoryList();
         
         if (!firstLoading) { 
             scrollToBoxTop(booksBox);
-            loader1 = createLoader(booksBoxTitle, "after");
-            loader1.classList.add("loader-box-trans");
+            loader1 = createLoader(booksBoxTitle, "after", ["loader-box-trans"]);
         }
 
         //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії
