@@ -211,6 +211,8 @@ function showPage(dataArray, page, itemsOnPage) {
   // Функція видалення книжки зі списку Shopping list
 async function deleteBook({target}){
 
+  console.log("я в deleteBook");
+
   if (target.classList.contains("bucket-btn")){
     
     const btns = document.querySelectorAll(".bucket-btn");  //знаходимо всі кнопки bucket-btn та деактивуємо їх (після аніммційних зміщень елемента списку та видалення книги знову їх активуємо)
