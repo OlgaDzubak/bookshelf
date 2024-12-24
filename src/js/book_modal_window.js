@@ -184,7 +184,7 @@ async function removeFromShoppingList() {
         loader1.remove();
 
         console.log(data);
-        
+
         if (data){
 
             const {shopping_list} = data;
@@ -199,6 +199,8 @@ async function removeFromShoppingList() {
         }
 
     }catch(error){
+        loader1.remove();
+        console.log(error);
         if (error.message === "Request failed with status code 401"){
             const logoLink = document.querySelector('.logo-link');
             logoLink.click();
