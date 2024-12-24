@@ -179,6 +179,8 @@ async function removeFromShoppingList() {
         abortCtrl2 = new AbortController();
         const data = await api.removeFromShoppingList(book_Id, abortCtrl2);
         loader1.remove();
+        
+        console.log("data = ", data);
 
         if (data){
 
