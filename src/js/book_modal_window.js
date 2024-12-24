@@ -3,7 +3,7 @@ import { displayOrdredAmountInShoppingBag,
          createLoader, getCookie, rewriteAccessToken, objScroll } from './help_functions';
 
 const api = new bookshelf_API;
-let book_Id, abortCtrl1, abortCtrl2;
+let book_Id, abortCtrl1, abortCtrl2, loader1;
 
 const divContainerEl = document.querySelector('.books-box');
 const divBackdropEl = document.querySelector('.book-modal-backdrop');
@@ -176,7 +176,7 @@ async function removeFromShoppingList() {
     }
 
     try{
-        const loader1 = createLoader(bookModalContainer, "into", ["loader-modal"]);
+        loader1 = createLoader(bookModalContainer, "into", ["loader-modal"]);
         
         abortCtrl2 = new AbortController();
         const {data} = await api.removeFromShoppingList(accessToken, book_Id, abortCtrl2);
