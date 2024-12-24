@@ -41,7 +41,7 @@ const shoppingBooksBox = document.querySelector('.shopping-wrapper');
 const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
 
 const booksOnPage = 3;
-let paginationBox, pagesCount, books_ul, visiblePagesCount, abortCtrl1, loader1, currentPage = 1, shoppingBooks = [];
+let paginationBox, pagesCount, books_ul, visiblePagesCount, abortCtrl1, abortCtrl2, loader1, currentPage = 1, shoppingBooks = [];
 
 const pageWidth = document.documentElement.scrollWidth;
 if (pageWidth < 768) {
@@ -210,13 +210,11 @@ async function deleteBook({target}){
 
   if (target.classList.contains("bucket-btn")){
 
-    console.log("bucket-btn is clicked");
-    
     const btns = document.querySelectorAll(".bucket-btn"); 
     btns.forEach(btn=>btn.setAttribute("disabled",""));
 
     //Видаляємо id книги з shoppinglist користувача в базі даних
-    if (abortCtrl1) { abortCtrl1.abort(); }
+    if (abortCtrl2) { abortCtrl2.abort(); }
 
     try{
 
@@ -226,8 +224,8 @@ async function deleteBook({target}){
       const orderedBooksIdArray = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));   // забираємо з localStorage масив id обраних книжок до видалення
       const bookIdDelete_idx = orderedBooksIdArray.indexOf(book_id);                    // Знаходимо індекс id книжки, що видалається, в масиві orderedBooksIdArray   
 
-      abortCtrl1 = new AbortController();
-      const {shopping_list} = await api.removeFromShoppingList(book_id, abortCtrl1);
+      abortCtrl2 = new AbortController();
+      const {shopping_list} = await api.removeFromShoppingList(book_id, abortCtrl2);
 
       if (shopping_list){
 
