@@ -76,7 +76,7 @@ async function createShoppingList() {
       if (data){
 
         const {books} = data;
-
+        
         if (books.length === 0){
           createEmptyBooksBox();
         }else{
@@ -234,13 +234,13 @@ async function deleteBook({target}){
      // const loader1 = createLoader(delitedBookContainer, "after");
       
       abortCtrl1 = new AbortController();
-      const data = await api.removeFromShoppingList(book_id, abortCtrl1);
+      const {shopping_list} = await api.removeFromShoppingList(book_id, abortCtrl1);
       
     //  loader1.remove();
 
-      if (data){
+      if (shopping_list){
         console.log("я в deleteBook");
-        
+        console.log("data = ",data);
         // перезаписуємо localStorage новим масивом id за вичетом id видаленої книги
         localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(shopping_list));    
        
