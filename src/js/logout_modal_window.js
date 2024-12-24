@@ -6,9 +6,7 @@ const api = new bookshelf_API();
 
 let abortCtrl1, loader;
 
-
 const logoutModalBackDrop =  document.querySelector(".logout-modal-backdrop");
-
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
 
