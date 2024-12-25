@@ -20,8 +20,8 @@ function onOpenMobileMenu(evt) {
 }
 
 function showMobileMenu() {
-  mobileDivEl.classList.remove('is-hidden-modal');
+  mobileDivEl.classList.remove('is-hidden');
 }
 function hideMobileMenu() {
-  mobileDivEl.classList.add('is-hidden-modal');
+  mobileDivEl.classList.add('is-hidden');
 }

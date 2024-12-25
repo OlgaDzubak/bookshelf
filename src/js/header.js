@@ -70,7 +70,6 @@ function headerAuthorised(user){
     }
 }
 
-
 export {
     headerNotAuthorised,
     headerAuthorised,
