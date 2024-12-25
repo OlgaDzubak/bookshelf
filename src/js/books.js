@@ -347,8 +347,30 @@ showCategoryList();
             const markup = data.map(({_id, book_image, author, title}) => 
             `<li class="item-book" data-id="${_id}">  
                 <div class="img-owerlay">
-                
-                    <img src="${book_image}" alt="${title}" class="img-book loading="auto"">
+
+                    ${book_image ? `<img src="${book_image}" alt="${title}" class="img-book" loading="auto">`
+                                    : `<picture>
+                                        <source
+                                            srcset="${emptyImgMobile_1x } 1x, ${ emptyImgMobile_2x } 2x, ${ emptyImgMobile_3x } 3x "
+                                            media="(max-width: 767.9px)"
+                                            >
+                                        <source
+                                            srcset="${emptyImgTablet_1x } 1x, ${ emptyImgTablet_2x } 2x, ${ emptyImgTablet_3x } 3x "
+                                            media="(min-width: 768px) and (max-width: 1439.8px)"
+                                            >
+                                        <source
+                                            srcset="${emptyImgDesktop_1x } 1x, ${ emptyImgDesktop_2x } 2x, ${ emptyImgDesktop_3x } 3x "
+                                            media="(min-width: 1440px)"
+                                            >
+                                        <img 
+                                            src=${ emptyImgDesktop_3x }
+                                            alt= ${title}
+                                            class="img-book 
+                                            loading="auto"
+                                            >
+                                    </picture>`
+                    }
+
                     <div class="owerlay">
                         <p class="owerlay-content">quick view</p>
                     </div>
