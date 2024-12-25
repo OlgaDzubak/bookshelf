@@ -124,6 +124,11 @@
         border-radius: 18px;
 
         transition: var(--transition);
+
+        &:hover,
+        &:focus{
+         background-color: var(--accent-color1-hf);
+        }
     }
     .logout-btn-mobile{
         display: flex;
