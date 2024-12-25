@@ -44,6 +44,7 @@ export class bookshelf_API {
         axios.defaults.withCredentials = true;
         const {data} = await axios.post(`${this.#BASE_URL}auth/signin`, credentials, {signal: abortCtrl.signal});
         
+        console.log("data = ", data);
         this.setAuthHeader(data.accessToken);
         this.rewriteAccessTokenCookie(data.accessToken);
 
