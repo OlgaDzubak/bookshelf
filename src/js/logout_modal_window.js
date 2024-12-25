@@ -46,10 +46,12 @@ async function logoutSubmit(){
         
         loader.remove();
 
-        console.log("data = ", data);
+        
 
         if (!data){
             closeLogoutModal();
+            console.log("data = ", data);
+
             headerNotAuthorised();
         }
 
