@@ -91,8 +91,9 @@ async function createShoppingList() {
           books_ul.addEventListener('click', deleteBook);
           console.log("3 =");
           books_ul.innerHTML = showPage(shoppingBooks, 1, booksOnPage);
-          pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
           console.log("4 =");
+          pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
+          console.log("5 =");
           //стиворюємо пагінацію, якщо сторінок більше за 1
           
           if (pagesCount > 1 ) {
