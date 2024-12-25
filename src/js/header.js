@@ -44,11 +44,9 @@ async function showHeader(){
 
 function headerNotAuthorised(){
 
-    console.log("headerNotAuthorised");
-
     document.cookie = 'accessToken=;  max-age=-1;';
     localStorage.removeItem("bookshelf_orderedbooks");
-    console.log("headerNotAuthorised");
+
     openBtn.classList.remove("is-hidden");
     authBtn.classList.add("is-hidden");
     navigation.classList.add("is-hidden");    
