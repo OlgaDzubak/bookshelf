@@ -17,7 +17,7 @@ export class bookshelf_API {
     }
     
     rewriteAccessTokenCookie = (newAccessToken) => {
-      const accessToken = getCookie("accessToken");  
+      const accessToken = getCookie("accessToken"); 
       if (newAccessToken != accessToken){
         let date = new Date(Date.now() + (24 * 60 * 60 * 1000));
         date = date.toUTCString();

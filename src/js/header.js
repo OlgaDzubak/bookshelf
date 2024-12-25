@@ -42,7 +42,7 @@ async function showHeader(){
         }
 }
 
-export function headerNotAuthorised(){
+function headerNotAuthorised(){
 
     console.log("headerNotAuthorised");
 
@@ -54,7 +54,7 @@ export function headerNotAuthorised(){
     navigation.classList.add("is-hidden");    
 }
 
-export function headerAuthorised(user){
+function headerAuthorised(user){
     authBtnName.textContent = user.name;
     if (user.avatarURL){
         authBtnImg.src = user.avatarURL;
@@ -72,4 +72,10 @@ export function headerAuthorised(user){
         displayOrdredAmountInShoppingBag(user.shopping_list);
         localStorage.setItem("bookshelf_orderedbooks",JSON.stringify(user.shopping_list));
     }
+}
+
+
+export {
+    headerNotAuthorised,
+    headerAuthorised,
 }
