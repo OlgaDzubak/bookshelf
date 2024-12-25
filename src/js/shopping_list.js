@@ -83,18 +83,15 @@ async function createShoppingList() {
         }else{
           
           shoppingBooks = [...books];
-          console.log("1 =");
           books_ul = document.createElement("ul");
           books_ul.classList.add("list","shopping_booklist");
-          console.log("2 =");
           shoppingBooksBoxTitle.after(books_ul);
           books_ul.addEventListener('click', deleteBook);
-          console.log("3 =", shoppingBooks, booksOnPage, books_ul);
 
           books_ul.innerHTML = showPage(shoppingBooks, 1, booksOnPage);
-          console.log("4 =");
+
           pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
-          console.log("5 =");
+
           //стиворюємо пагінацію, якщо сторінок більше за 1
           
           if (pagesCount > 1 ) {
@@ -130,6 +127,8 @@ async function createShoppingList() {
   // Функція створення розмітки ShoppingBooks
 function showPage(dataArray, page, itemsOnPage) {
   
+  console.log("showPage");
+
   const startShownItem_idx = (page - 1)* itemsOnPage;
   const lastShownItem_idx = startShownItem_idx + (itemsOnPage-1); 
 
