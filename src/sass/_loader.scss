@@ -29,8 +29,14 @@
     --color2:var(--accent-color2);
   }
   
-  .loader-modal .loader{
+  .loader-auth-modal .loader{
+    top: 130px;
+  }
+  .loader-logout-modal .loader{
     top: 30px;
+  }
+  .loader-book-modal .loader{
+    top: 130px;
   }
 
   .loader .text{

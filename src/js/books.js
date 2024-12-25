@@ -47,7 +47,7 @@ scrollUpBtn.addEventListener('click', ()=>{
 window.addEventListener('scroll', ()=>{scrollTracker(scrollUpBtn)});
 
 if (!bestBooksAreLoaded && !categoriesAreLoaded){
-    loader1 = createLoader(body, "into",[]);
+    loader1 = createLoader(body, "into", []);
 }
 
 showCategoryList();  

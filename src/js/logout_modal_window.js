@@ -40,7 +40,7 @@ async function logout(){
     }
 
     try{
-        loader = createLoader(logoutModal, "into", ["loader-modal", "logout-elm"]);
+        loader = createLoader(logoutModal, "into", ["loader-logout-modal", "logout-elm"]);
         
         abortCtrl1 = new AbortController();
         const data = await api.logout(abortCtrl1);
