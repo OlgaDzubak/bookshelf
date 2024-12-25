@@ -97,7 +97,7 @@ async function createModalWindow(book_Id) {
                                                 <img 
                                                     src=${ emptyImgDesktop_3x }
                                                     alt= ${title}
-                                                    class="img-book" 
+                                                    class="book-img-modal" 
                                                     loading="auto"
                                                     >
                                                </picture>`
