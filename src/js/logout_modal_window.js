@@ -12,7 +12,7 @@ const logoutModal =  document.querySelector(".logout-modal");
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
 
-logoutBtn.addEventListener("click", logoutSubmit);
+logoutBtn.addEventListener("click", logout);
 editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 
 function openLogoutModal(){
@@ -33,7 +33,7 @@ function closeLogoutModal(){
     logoutModalBackDrop.classList.add("is-hidden");
 }
 
-async function logoutSubmit(){   
+async function logout(){   
     
     if (abortCtrl1) {
         abortCtrl1.abort();
