@@ -64,12 +64,13 @@
 
         border-radius: 36px;
         color: var(--accent-color3);
-        transition: background-color var(--transition), font-weight var(--transition);
+        transition: color var(--transition), background-color var(--transition), font-weight var(--transition);
     }
     .mobile-home-link:hover,
     .mobile-home-link:focus {
         background-color: var(--accent-color2);
         font-weight: 700;
+        color: var(--text-dark-color);
     }
 
     .mobile-shopping-link {
@@ -85,12 +86,13 @@
         border-radius: 36px;
 
         color: var(--accent-color3);
-        transition: background-color var(--transition), font-weight var(--transition);
+        transition: color var(--transition), background-color var(--transition), font-weight var(--transition);
     }
     .mobile-shopping-link:hover,
     .mobile-shopping-link:focus {
         background-color: var(--accent-color2);
         font-weight: 700;
+        color: var(--text-dark-color);
     }
     .mobile-shopping-bag-icon {
         fill: var(--accent-color3);
@@ -101,7 +103,6 @@
     .mobile-shopping-bag-icon.mobile-selected {
         background-color: var(--accent-color2);
         font-weight: 700;
-        // margin-left: 16px;
         color: var(--text-dark-color);
         fill: var(--text-dark-color);
     }

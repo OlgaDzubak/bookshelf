@@ -385,6 +385,7 @@
         .shopping-link:focus {
             background: var(--accent-color2);
             font-weight: 700;
+            transition: font-weight var(--transition);
         }
         .shopping-bag-icon {
             line-height: 0;
