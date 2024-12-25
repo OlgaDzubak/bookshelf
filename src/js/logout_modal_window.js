@@ -56,7 +56,7 @@ async function logoutSubmit(){
     }catch(error){
 
         loader.remove();
-        console.log(error.message);
+        console.log("error = ",error);
     }
 }
 
