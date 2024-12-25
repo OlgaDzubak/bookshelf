@@ -134,31 +134,29 @@ function showPage(dataArray, page, itemsOnPage) {
  
 
   const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
-                            let bookImage_markup;
-                            console.log("dataArray =", dataArray);
 
-                            bookImage_markup = book_image ? `<img class="book-image" src='${book_image}' alt='${title}'>`
+                        let bookImage_markup = book_image ? `<img class="book-image" src='${book_image}' alt='${title}'>`
                                                           : `<picture>
                                                               <source
-                                                                srcset="${empty-img-mobile_1x} 1x, ${empty-img-mobile_2x} 2x, ${empty-img-mobile_3x} 3x"
+                                                                srcset="${emptyImgMobile_1x} 1x, ${emptyImgMobile_2x} 2x, ${emptyImgMobile_3x} 3x"
                                                                 media="(max-width: 767.9px)"
                                                               >
                                                               <source
-                                                                srcset="${empty-img-tablet_1x} 1x, ${empty-img-tablet_2x} 2x, ${empty-img-tablet_3x} 3x"
+                                                                srcset="${emptyImgTablet_1x} 1x, ${emptyImgTablet_2x} 2x, ${emptyImgTablet_3x} 3x"
                                                                 media="(min-width: 768px) and (max-width: 1439.8px)"
                                                               >
                                                               <source
-                                                                srcset="${empty-img-desktop_1x} 1x, ${empty-img-desktop_2x} 2x, ${empty-img-desktop_3x} 3x"
+                                                                srcset="${emptyImgDesktop_1x} 1x, ${emptyImgDesktop_2x} 2x, ${emptyImgDesktop_2x} 3x"
                                                                 media="(min-width: 1440px)"
                                                               >
                                                         
                                                               <img 
                                                                 class="book-image" 
-                                                                src='${empty-img-mobile_3x}' 
+                                                                src='${emptyImgMobile_3x}' 
                                                                 alt='${title}'
                                                               >
                                                              </picture>`;
-                                                             console.log("dataArray =", dataArray);
+
                                 return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
 
                                         <div class="book-image-div">
