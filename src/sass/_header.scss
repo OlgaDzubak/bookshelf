@@ -264,12 +264,12 @@
     .auth-btn:hover .auth-triangle-icon-div,
     .auth-btn:focus .auth-triangle-icon-div{
         background-color: var(--accent-color1-hf);
+        transition: background-color var(--transition);
     }
     .auth-triangle-icon{
         width: 15px;
         height: 8px;
         --auth-icon-color: var(--accent-color3);
-        transition: fill var(--transition);
     }
 //}
 
