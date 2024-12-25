@@ -68,10 +68,6 @@
         transition: color var(--transition), background-color var(--transition), font-weight var(--transition);
     }
 
-    .mobile-shopping-bag-icon {
-        --bag-color: var(--text-white-color);
-        transition: fill var(--transition);
-    }
     .mobile-home-link:hover,
     .mobile-home-link:focus,
     .mobile-shopping-link:hover,
@@ -82,6 +78,11 @@
         background-color: var(--accent-color2);
         font-weight: 700;
         color: var(--text-dark-color);
+    }
+    .mobile-shopping-link .mobile-shopping-bag-icon,
+    .mobile-shopping-link .mobile-shopping-bag-icon{
+        --bag-color: var(--text-white-color);
+        transition: fill var(--transition);
     }
     .mobile-shopping-link:hover .mobile-shopping-bag-icon,
     .mobile-shopping-link:focus .mobile-shopping-bag-icon{
