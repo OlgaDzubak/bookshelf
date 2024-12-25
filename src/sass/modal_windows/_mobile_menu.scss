@@ -126,3 +126,25 @@
 
         transition: var(--transition);
     }
+    .logout-btn-mobile{
+        display: flex;
+        width: 100%;
+        padding: 14px 24px;
+        justify-content: space-between;
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.286;
+        letter-spacing: -0.04em;
+        color: var(--text-dark-color);
+        border: 1.50px solid var(--text-dark-color);
+        border-radius: 18px;
+        background: var(--text-white-color);
+        transition: background-color var(--transition), color var(--transition);
+
+        &:hover,
+        &:focus{
+            color: var(--text-white-color);
+            background-color: var(--accent-color1);
+        }
+    }
