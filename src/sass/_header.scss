@@ -225,7 +225,7 @@
         overflow: hidden;
         background-color: var(--accent-color3);
         --auth-icon-color: var(--auth-icon-color2);
-        transition: fill var(--transition);
+        // transition: background-color var(--transition);
     }
     .user-img{
         width: 100%;
@@ -260,6 +260,7 @@
         justify-content: center;
         background-color: var(--accent-color1);
         --auth-icon-color: var(--accent-color1-hf);
+        transition: fill var(--transition);
     }
     .auth-btn:hover .auth-triangle-icon-div,
     .auth-btn:focus .auth-triangle-icon-div{
