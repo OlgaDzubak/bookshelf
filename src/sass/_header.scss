@@ -295,7 +295,7 @@
             transition: var(--transition);
         }
     
-        .user-login {
+        .user-login-btn {
             display: none;
         }
 
@@ -391,7 +391,7 @@
             line-height: 0;
         }
 
-        .user-login {
+        .user-login-btn {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -410,11 +410,11 @@
             border-radius: 36px;
             transition: background-color var(--transition);
         }
-        .user-login:hover,
-        .user-login:focus {
+        .user-login-btn:hover,
+        .user-login-btn:focus {
             background-color: var(--accent-color1-hf);
         }
-        .jsOpenBtn.is-hidden{
+        .user-login-btn.is-hidden{
             display: none;
         }
         .icon-arrow-right {

@@ -12,7 +12,6 @@ const authBtn = document.querySelector('.auth-btn');
 const authBtnImg= authBtn.querySelector('.user-img');
 const userPhotoImg = document.querySelector(".user-photo-img");
 const authBtnName= authBtn.querySelector('.login-p');
-const logoutModalBackDrop = document.querySelector(".logout-modal-backdrop");
 
 authBtn.addEventListener('click', ()=>{openLogoutModal()});
 
@@ -62,7 +61,9 @@ function headerAuthorised(user){
     
     openBtn.classList.add("is-hidden");
     authBtn.classList.remove("is-hidden");
-    navigation.classList.remove("is-hidden");    
+    navigation.classList.remove("is-hidden");  
+    
+    
 
     if (user.shopping_list.length > 0){
         displayOrdredAmountInShoppingBag(user.shopping_list);

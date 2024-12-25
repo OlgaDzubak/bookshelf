@@ -66,7 +66,10 @@
         border-radius: 36px;
         color: var(--accent-color3);
         fill: var(--text-white-color);
-        transition: color var(--transition), background-color var(--transition), font-weight var(--transition), fill var(--transition);
+        transition: color var(--transition), 
+                    background-color var(--transition), 
+                    font-weight var(--transition), 
+                    fill var(--transition);
     }
 
     .mobile-home-link:hover,
@@ -81,27 +84,8 @@
         color: var(--text-dark-color);
         fill: var(--text-dark-color);
     }
-    // .mobile-shopping-link .mobile-shopping-bag-icon,
-    // .mobile-shopping-link .mobile-shopping-bag-icon{
-    //     --bag-color: var(--text-white-color);
-    //     transition: fill var(--transition);
-    // }
-    // .mobile-shopping-link:hover .mobile-shopping-bag-icon,
-    // .mobile-shopping-link:focus .mobile-shopping-bag-icon{
-    //     fill: var(--text-dark-color);
-    // }
 
-
-
-    // .mobile-home-link.mobile-selected,
-    // .mobile-shopping-link.mobile-selected,
-    // .mobile-shopping-bag-icon.mobile-selected {
-    //     background-color: var(--accent-color2);
-    //     font-weight: 700;
-    //     color: var(--text-dark-color);
-    //     fill: var(--text-dark-color);
-    // }
-    .user-login-mobile {
+    .user-login-mobile-btn {
         width: 184px;
         height: 48px;
         display: flex;
@@ -127,7 +111,7 @@
          background-color: var(--accent-color1-hf);
         }
     }
-    .logout-btn-mobile{
+    .logout-mobile-btn{
         display: flex;
         width: 118px;
         height: 48px;
@@ -151,7 +135,7 @@
             background-color: var(--accent-color1);
         }
     }
-    .logout-btn-mobile::after{
+    .logout-mobile-btn::after{
         width: 20px;
         height: 15px;
         content: url("/src/images/svg/arrow-right.svg");

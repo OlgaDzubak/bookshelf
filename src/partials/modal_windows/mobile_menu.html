@@ -3,8 +3,24 @@
   
     <div class="user-login-and-navigation-div">
    
-      <button class="user-login-mobile link jsOpenBtn-mobile">Sign up<svg class="icon-arrow-right" width="20" height="20">
+      <button class="user-login-mobile-btn link">Sign up<svg class="icon-arrow-right" width="20" height="20">
         <use href="/src/images/svg/sprite.svg#arrow_narrow_right_icon"></use></svg>
+      </button>
+
+      <button class="auth-mobile-btn is-hidden">
+
+        <div  class="user-img-div">
+            <img class="user-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
+        </div>
+
+        <p class="login-p">Login</p>
+        
+        <div  class="auth-triangle-icon-div">
+            <svg class="auth-triangle-icon">
+                <use href="/src/images/svg/sprite.svg#auth-triangle"></use>
+            </svg>
+        </div>
+        
       </button>
 
       <nav class="mobile-navigation">
@@ -29,7 +45,7 @@
 
     </div>
 
-    <button class="logout-btn-mobile" type="button">Log out</button>
+    <button class="logout-mobile-btn is-hidden" type="button">Log out</button>
 
   </div>
 </div>

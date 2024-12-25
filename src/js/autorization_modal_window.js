@@ -9,13 +9,13 @@ let abortCtrl1, abortCtrl2, loader1;
 //відкриття модального вікна для авторизації
 const backdrop = document.querySelector('.autorization-modal-backdrop');
 const modal = document.querySelector('.modal');
-const openBtn = document.querySelector('.jsOpenBtn');
-const openBtnMobile = document.querySelector('.jsOpenBtn-mobile');
-  
-openBtn.addEventListener('click', onOpenModal);
-openBtnMobile.addEventListener('click', onOpenModal);
+const userLoginBtn = document.querySelector('.user-login-btn');
+const userLoginMobileBtn = document.querySelector('.user-login-mobile-btn');
 
-function onOpenModal() {
+userLoginBtn.addEventListener('click', onOpenAuthModal);
+userLoginMobileBtn.addEventListener('click', onOpenAuthModal);
+
+function onOpenAuthModal() {
   window.addEventListener('keydown', onEscKeyDown);
   backdrop.classList.remove('is-hidden');
   document.body.classList.add('block-scroll');
@@ -24,9 +24,9 @@ function onOpenModal() {
 
 //обробка кнопки закриття модального вікна
 const closeBtn = document.querySelector('.close-button');
-closeBtn.addEventListener('click', onCloseModal);
+closeBtn.addEventListener('click', onCloseAuthModal);
 
-function onCloseModal() {
+function onCloseAuthModal() {
   window.removeEventListener('keydown', onEscKeyDown);
   backdrop.classList.add('is-hidden');
   document.body.classList.remove('block-scroll');
