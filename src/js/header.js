@@ -7,7 +7,7 @@ const api = new bookshelf_API();
 let abortCtrl;
 
 const navigation = document.querySelector('.navigation');
-const openBtn = document.querySelector('.jsOpenBtn');
+const userLoginBtn = document.querySelector('.user-login-btn');
 const authBtn = document.querySelector('.auth-btn');
 const authBtnImg= authBtn.querySelector('.user-img');
 const userPhotoImg = document.querySelector(".user-photo-img");
@@ -44,7 +44,7 @@ function headerNotAuthorised(){
     document.cookie = 'accessToken=;  max-age=-1;';
     localStorage.removeItem("bookshelf_orderedbooks");
 
-    openBtn.classList.remove("is-hidden");
+    userLoginBtn.classList.remove("is-hidden");
     authBtn.classList.add("is-hidden");
     navigation.classList.add("is-hidden");    
 }
@@ -59,7 +59,7 @@ function headerAuthorised(user){
         userPhotoImg.src = "/src/images/svg/sprite.svg#name_icon";
     }
     
-    openBtn.classList.add("is-hidden");
+    userLoginBtn.classList.add("is-hidden");
     authBtn.classList.remove("is-hidden");
     navigation.classList.remove("is-hidden");  
     
