@@ -312,7 +312,7 @@ showCategoryList();
                                             <img 
                                                 src=${ emptyImgDesktop_3x }
                                                 alt= ${title}
-                                                class="img-book 
+                                                class="img-book" 
                                                 loading="auto"
                                                 >
                                         </picture>`
@@ -365,7 +365,7 @@ showCategoryList();
                                         <img 
                                             src=${ emptyImgDesktop_3x }
                                             alt= ${title}
-                                            class="img-book 
+                                            class="img-book" 
                                             loading="auto"
                                             >
                                     </picture>`

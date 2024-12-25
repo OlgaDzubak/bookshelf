@@ -1,6 +1,15 @@
 import { bookshelf_API } from './API';
 import { displayOrdredAmountInShoppingBag, 
          createLoader, objScroll } from './help_functions';
+import emptyImgMobile_1x  from '/src/images/png/empty-img-mobile@1x.jpg';
+import emptyImgMobile_2x  from '/src/images/png/empty-img-mobile@2x.jpg';
+import emptyImgMobile_3x  from '/src/images/png/empty-img-mobile@3x.jpg';
+import emptyImgTablet_1x  from '/src/images/png/empty-img-tablet@1x.jpg';
+import emptyImgTablet_2x  from '/src/images/png/empty-img-tablet@2x.jpg';
+import emptyImgTablet_3x  from '/src/images/png/empty-img-tablet@3x.jpg';
+import emptyImgDesktop_1x  from '/src/images/png/empty-img-desktop@1x.jpg';
+import emptyImgDesktop_2x  from '/src/images/png/empty-img-desktop@2x.jpg';
+import emptyImgDesktop_3x  from '/src/images/png/empty-img-desktop@3x.jpg';
 
 const api = new bookshelf_API;
 let book_Id, abortCtrl1, abortCtrl2, loader1;
@@ -71,7 +80,30 @@ async function createModalWindow(book_Id) {
             descriptionEl.textContent = description;
         }
         
-        imageBox.innerHTML =   `<img src="${book_image}" alt="${book_image}" class="book-img-modal" loading="auto">`;
+        imageBox.innerHTML = `${book_image ? `<img src="${book_image}" alt="${title}" class="book-img-modal" loading="auto">`
+                                            : `<picture>
+                                                <source
+                                                    srcset="${emptyImgMobile_1x } 1x, ${ emptyImgMobile_2x } 2x, ${ emptyImgMobile_3x } 3x "
+                                                    media="(max-width: 767.9px)"
+                                                    >
+                                                <source
+                                                    srcset="${emptyImgTablet_1x } 1x, ${ emptyImgTablet_2x } 2x, ${ emptyImgTablet_3x } 3x "
+                                                    media="(min-width: 768px) and (max-width: 1439.8px)"
+                                                    >
+                                                <source
+                                                    srcset="${emptyImgDesktop_1x } 1x, ${ emptyImgDesktop_2x } 2x, ${ emptyImgDesktop_3x } 3x "
+                                                    media="(min-width: 1440px)"
+                                                    >
+                                                <img 
+                                                    src=${ emptyImgDesktop_3x }
+                                                    alt= ${title}
+                                                    class="img-book" 
+                                                    loading="auto"
+                                                    >
+                                               </picture>`
+                              }`
+
+
         marketPlEl.innerHTML = `<li class="marketplacer_li marketplacer_li_one">
                                     <a href="${buy_links[0].url}" class="marketplacer_li_link link" target="_blank">
                                         <svg id="amazon-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 15">
