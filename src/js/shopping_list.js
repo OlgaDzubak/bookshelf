@@ -131,10 +131,12 @@ function showPage(dataArray, page, itemsOnPage) {
   const startShownItem_idx = (page - 1)* itemsOnPage;
   const lastShownItem_idx = startShownItem_idx + (itemsOnPage-1); 
 
-  console.log("dataArray =", dataArray);
+ 
 
   const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
                             let bookImage_markup;
+                            console.log("dataArray =", dataArray);
+
                             bookImage_markup = book_image ? `<img class="book-image" src='${book_image}' alt='${title}'>`
                                                           : `<picture>
                                                               <source
@@ -156,7 +158,7 @@ function showPage(dataArray, page, itemsOnPage) {
                                                                 alt='${title}'
                                                               >
                                                              </picture>`;
-    
+                                                             console.log("dataArray =", dataArray);
                                 return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
 
                                         <div class="book-image-div">
