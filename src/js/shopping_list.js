@@ -89,7 +89,8 @@ async function createShoppingList() {
           console.log("2 =");
           shoppingBooksBoxTitle.after(books_ul);
           books_ul.addEventListener('click', deleteBook);
-          console.log("3 =");
+          console.log("3 =", shoppingBooks, booksOnPage, books_ul);
+
           books_ul.innerHTML = showPage(shoppingBooks, 1, booksOnPage);
           console.log("4 =");
           pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
