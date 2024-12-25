@@ -82,7 +82,7 @@
     .mobile-shopping-link .mobile-shopping-bag-icon,
     .mobile-shopping-link .mobile-shopping-bag-icon{
         --bag-color: var(--text-white-color);
-        transition: fill var(--transition);
+        transition: --bag-color var(--transition);
     }
     .mobile-shopping-link:hover .mobile-shopping-bag-icon,
     .mobile-shopping-link:focus .mobile-shopping-bag-icon{
