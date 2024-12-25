@@ -299,27 +299,7 @@
         .user-login {
             display: none;
         }
-        .user-login-mobile {
-            margin-top: 84px;
-            max-width: 184px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 13px 14px 12px;
-            background: var(--accent-color1);
-            cursor: pointer;
 
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 1.29;
-            letter-spacing: -0.04em;
-
-            color: var(--accent-color3);
-            border: 1.5px solid #111111;
-            border-radius: 18px;
-
-            transition: var(--transition);
-        }
         .icon-arrow-right {
             stroke: var(--accent-color2);
         }

@@ -18,9 +18,15 @@
         background-size: contain;
         transition: var(--transition);
     }
-    .mobile-menu-container{
-      height: 100%;
+
+    .mobile-menu .container{
+        padding-top: 105px;
+        padding-bottom: 20px;
+        height: 100%;
     }
+    // .mobile-menu-container{
+
+    // }
     .mobile-navigation {
       margin-top: 126px;
       display: flex;
@@ -99,4 +105,25 @@
         // margin-left: 16px;
         color: var(--text-dark-color);
         fill: var(--text-dark-color);
+    }
+    .user-login-mobile {
+        margin-top: 84px;
+        max-width: 184px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px 14px 12px;
+        background: var(--accent-color1);
+        cursor: pointer;
+
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+
+        color: var(--accent-color3);
+        border: 1.5px solid #111111;
+        border-radius: 18px;
+
+        transition: var(--transition);
     }
