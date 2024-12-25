@@ -11,7 +11,7 @@ const logoutModal =  document.querySelector(".logout-modal");
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
 
-logoutBtn.addEventListener("submit", (e)=>{ e.preventDefault(); logoutSubmit(); });
+logoutBtn.addEventListener("click", (e)=>{ e.preventDefault(); logoutSubmit(); });
 editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 
 function openLogoutModal(){
