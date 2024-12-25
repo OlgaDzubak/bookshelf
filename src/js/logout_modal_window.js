@@ -1,5 +1,6 @@
 import { bookshelf_API } from './API';
-import {createLoader, headerNotAuthorised} from './help_functions';
+import {createLoader} from './help_functions';
+import {headerNotAuthorised} from './header'
 import {openProfileModal} from './user_profile_modal_window';
 
 const api = new bookshelf_API();

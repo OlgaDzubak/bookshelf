@@ -203,9 +203,6 @@ export {  displayOrdredAmountInShoppingBag,
           scrollTracker,
           getCookie,
           rewriteAccessToken,
-          headerNotAuthorised,
-          headerAuthorised,
-          onAuthBtnClick,
           capitalizeStr,
-          objScroll
+          objScroll,
        };
