@@ -67,26 +67,22 @@
         color: var(--accent-color3);
         transition: color var(--transition), background-color var(--transition), font-weight var(--transition);
     }
-    // .mobile-shopping-link {
-    //     gap: 8px;
-    // }
+
     .mobile-shopping-bag-icon {
-        fill: var(--text-white-color);
-        transition: stroke var(--transition);
+        --bag-color: var(--text-white-color);
+        transition: fill var(--transition);
     }
     .mobile-home-link:hover,
     .mobile-home-link:focus,
     .mobile-shopping-link:hover,
     .mobile-shopping-link:focus,
-    .mobile-shopping-link:hover.mobile-shopping-bag-icon,
-    .mobile-shopping-link:focus.mobile-shopping-bag-icon,
     .mobile-home-link.mobile-selected,
     .mobile-shopping-link.mobile-selected,
     .mobile-shopping-bag-icon.mobile-selected{
         background-color: var(--accent-color2);
         font-weight: 700;
         color: var(--text-dark-color);
-        fill: var(--text-dark-color);
+        --bag-color: var(--text-dark-color);
     }
 
 
