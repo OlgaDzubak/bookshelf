@@ -93,8 +93,9 @@ async function createShoppingList() {
           pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
 
           //стиворюємо пагінацію, якщо сторінок більше за 1
+          console.log("pagesCount=", pagesCount);
           if (pagesCount > 1 ) {
-            console.log("books 4 =");
+            
             paginationBox = createPagination(shoppingBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
             shoppingBooksBox.append(paginationBox);
             currentPage = setPaginationPage(paginationBox, 1);
