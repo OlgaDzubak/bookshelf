@@ -15,17 +15,16 @@ import stackOfBooks_tablet_2x from '/src/images/shopping_list/stack_of_books_tab
 import stackOfBooks_desktop_1x from '/src/images/shopping_list/stack_of_books_desktop@1x.png';
 import stackOfBooks_desktop_2x from '/src/images/shopping_list/stack_of_books_desktop@2x.png';
 
-import noBookImage_mobile_1x from '/src/images/png/empty-img-mobile@1x.jpg';
-import noBookImage_mobile_2x from '/src/images/png/empty-img-mobile@2x.jpg';
-import noBookImage_mobile_3x from '/src/images/png/empty-img-mobile@3x.jpg';
+import emptyImgMobile_1x  from '/src/images/png/empty-img-mobile@1x.jpg';
+import emptyImgMobile_2x  from '/src/images/png/empty-img-mobile@2x.jpg';
+import emptyImgMobile_3x  from '/src/images/png/empty-img-mobile@3x.jpg';
+import emptyImgTablet_1x  from '/src/images/png/empty-img-tablet@1x.jpg';
+import emptyImgTablet_2x  from '/src/images/png/empty-img-tablet@2x.jpg';
+import emptyImgTablet_3x  from '/src/images/png/empty-img-tablet@3x.jpg';
+import emptyImgDesktop_1x  from '/src/images/png/empty-img-desktop@1x.jpg';
+import emptyImgDesktop_2x  from '/src/images/png/empty-img-desktop@2x.jpg';
+import emptyImgDesktop_3x  from '/src/images/png/empty-img-desktop@3x.jpg';
 
-import noBookImage_tablet_1x from '/src/images/png/empty-img-tablet@1x.jpg';
-import noBookImage_tablet_2x from '/src/images/png/empty-img-tablet@2x.jpg';
-import noBookImage_tablet_3x from '/src/images/png/empty-img-tablet@3x.jpg';
-
-import noBookImage_desktop_1x from '/src/images/png/empty-img-desktop@1x.jpg';
-import noBookImage_desktop_2x from '/src/images/png/empty-img-desktop@2x.jpg';
-import noBookImage_desktop_3x from '/src/images/png/empty-img-desktop@3x.jpg';
 
 import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp} from './help_functions';
 
@@ -136,31 +135,29 @@ function showPage(dataArray, page, itemsOnPage) {
 
   const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
                             let bookImage_markup;
-                            bookImage_markup = book_image 
-                                                ? `<img class="book-image" src='${book_image}' alt='${title}'>`
-                                                : `<picture>
-                                                    <source
-                                                      srcset="${empty-img-mobile_1x} 1x, ${empty-img-mobile_2x} 2x, ${empty-img-mobile_3x} 3x"
-                                                      media="(max-width: 767.9px)"
-                                                    >
-                                                    <source
-                                                      srcset="${empty-img-tablet_1x} 1x, ${empty-img-tablet_2x} 2x, ${empty-img-tablet_3x} 3x"
-                                                      media="(min-width: 768px) and (max-width: 1439.8px)"
-                                                    >
-                                                    <source
-                                                      srcset="${empty-img-desktop_1x} 1x, ${empty-img-desktop_2x} 2x, ${empty-img-desktop_3x} 3x"
-                                                      media="(min-width: 1440px)"
-                                                    >
-                                              
-                                                    <img 
-                                                      class="book-image" 
-                                                      src='${empty-img-mobile_3x}' 
-                                                      alt='${title}'
-                                                    >
-                                                 </picture>`;
+                            bookImage_markup = book_image ? `<img class="book-image" src='${book_image}' alt='${title}'>`
+                                                          : `<picture>
+                                                              <source
+                                                                srcset="${empty-img-mobile_1x} 1x, ${empty-img-mobile_2x} 2x, ${empty-img-mobile_3x} 3x"
+                                                                media="(max-width: 767.9px)"
+                                                              >
+                                                              <source
+                                                                srcset="${empty-img-tablet_1x} 1x, ${empty-img-tablet_2x} 2x, ${empty-img-tablet_3x} 3x"
+                                                                media="(min-width: 768px) and (max-width: 1439.8px)"
+                                                              >
+                                                              <source
+                                                                srcset="${empty-img-desktop_1x} 1x, ${empty-img-desktop_2x} 2x, ${empty-img-desktop_3x} 3x"
+                                                                media="(min-width: 1440px)"
+                                                              >
+                                                        
+                                                              <img 
+                                                                class="book-image" 
+                                                                src='${empty-img-mobile_3x}' 
+                                                                alt='${title}'
+                                                              >
+                                                             </picture>`;
     
-    console.log("showPage");
-                            return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
+                                return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
 
                                         <div class="book-image-div">
                                           ${bookImage_markup}
