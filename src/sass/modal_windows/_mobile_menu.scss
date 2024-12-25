@@ -26,10 +26,6 @@
         justify-content: space-between;
     }
 
-    .user-login-and-navigation-div{
-        
-    }
-
     .mobile-navigation {
       display: flex;
       flex-direction: column;
@@ -130,7 +126,7 @@
     }
     .logout-btn-mobile{
         display: flex;
-        width: 100%;
+        //width: 100%;
         padding: 14px 24px;
         justify-content: space-between;
         font-family: var(--font-family);
@@ -149,4 +145,9 @@
             color: var(--text-white-color);
             background-color: var(--accent-color1);
         }
+    }
+    .logout-btn-mobile::after{
+        width: 20px;
+        height: 15px;
+        content: url("/src/images/svg/arrow-right.svg");
     }
