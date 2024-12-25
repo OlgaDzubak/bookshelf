@@ -127,10 +127,12 @@ async function createShoppingList() {
   // Функція створення розмітки ShoppingBooks
 function showPage(dataArray, page, itemsOnPage) {
   
-  console.log("showPage");
+  
 
   const startShownItem_idx = (page - 1)* itemsOnPage;
   const lastShownItem_idx = startShownItem_idx + (itemsOnPage-1); 
+
+  console.log("showPage");
 
   const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
                             let bookImage_markup;
@@ -157,7 +159,7 @@ function showPage(dataArray, page, itemsOnPage) {
                                                     >
                                                  </picture>`;
     
-    
+    console.log("showPage");
                             return  ` <li data-id="${_id}" class="book-card ${((idx >= startShownItem_idx) && (idx <= lastShownItem_idx)) ? '' : 'non-active' }">
 
                                         <div class="book-image-div">
