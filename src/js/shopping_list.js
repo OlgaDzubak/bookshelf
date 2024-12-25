@@ -79,19 +79,24 @@ async function createShoppingList() {
 
 
         if (books.length === 0){
-          console.log("empty =");
           createEmptyBooksBox();
         }else{
           
           shoppingBooks = [...books];
-
+          
+          console.log("books 1 =");
+          
           books_ul = document.createElement("ul");
           books_ul.classList.add("list","shopping_booklist");
           shoppingBooksBoxTitle.after(books_ul);
           books_ul.addEventListener('click', deleteBook);
 
+          console.log("books 2 =");
+
           books_ul.innerHTML = showPage(shoppingBooks, 1, booksOnPage);
           pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
+
+          console.log("books 3 =");
 
           //стиворюємо пагінацію, якщо сторінок більше за 1
           if (pagesCount > 1 ) {
