@@ -98,7 +98,7 @@ export class bookshelf_API {
 
       // }catch(error){
         // return error.message;
-      }
+      //}
     }
 
     //методи для /books/
