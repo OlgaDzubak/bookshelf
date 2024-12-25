@@ -76,9 +76,10 @@ async function createShoppingList() {
       if (data){
 
         const {books} = data;
-        console.log("books = ",books);
+
 
         if (books.length === 0){
+          console.log("empty =");
           createEmptyBooksBox();
         }else{
           
