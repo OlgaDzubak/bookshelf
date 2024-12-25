@@ -65,7 +65,7 @@
         gap: 8px;
         border-radius: 36px;
         color: var(--accent-color3);
-        --bag-color: var(--text-dark-color);
+        --bag-color: var(--text-white-color);
         transition: color var(--transition), background-color var(--transition), font-weight var(--transition), fill var(--transition);;
     }
 
@@ -79,7 +79,7 @@
         background-color: var(--accent-color2);
         font-weight: 700;
         color: var(--text-dark-color);
-        --bag-color: var(--text-white-color);
+        --bag-color: var(--text-dark-color);
     }
     // .mobile-shopping-link .mobile-shopping-bag-icon,
     // .mobile-shopping-link .mobile-shopping-bag-icon{
