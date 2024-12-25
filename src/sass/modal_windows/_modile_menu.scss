@@ -1,0 +1,102 @@
+// MOBILE MENU ------ styles
+
+    .mobile-menu {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../images/menu/mobile_menu_background@1x.png'),
+                    radial-gradient(183.6% 183.01% at 59.76% -23.42%,
+                    #4f2ee8 18.03%,
+                    #ffffff 100%);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: contain;
+        transition: var(--transition);
+    }
+    .mobile-menu-container{
+      height: 100%;
+    }
+    .mobile-navigation {
+      margin-top: 126px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .burger-menu {
+        background-color: transparent;
+        border: none;
+        line-height: 0;
+        padding: 0;
+    }
+    .burger-logo{
+        @media screen and (max-width: 249.8px) {
+            width:20px;
+            height:20px;
+        }
+        @media screen and (min-width: 250px){
+                width:28px;
+                height:28px;
+        }
+
+    }
+
+    .mobile-nav-list{
+      display:flex;
+      flex-direction: column;
+      row-gap:16px;
+    }
+    .mobile-home-link {
+        padding: 8px 16px;
+        display: inline-flex;
+        font-size: 14px;
+        line-height: 1.28;
+        letter-spacing: -0.04em;
+        font-weight: 500;
+
+        border-radius: 36px;
+        color: var(--accent-color3);
+        transition: background-color var(--transition), font-weight var(--transition);
+    }
+    .mobile-home-link:hover,
+    .mobile-home-link:focus {
+        background-color: var(--accent-color2);
+        font-weight: 700;
+    }
+
+    .mobile-shopping-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 500;
+
+        line-height: 1.43;
+        letter-spacing: -0.04em;
+        border-radius: 36px;
+
+        color: var(--accent-color3);
+        transition: background-color var(--transition), font-weight var(--transition);
+    }
+    .mobile-shopping-link:hover,
+    .mobile-shopping-link:focus {
+        background-color: var(--accent-color2);
+        font-weight: 700;
+    }
+    .mobile-shopping-bag-icon {
+        fill: var(--accent-color3);
+        transition: var(--transition);
+    }
+    .mobile-home-link.mobile-selected,
+    .mobile-shopping-link.mobile-selected,
+    .mobile-shopping-bag-icon.mobile-selected {
+        background-color: var(--accent-color2);
+        font-weight: 700;
+        // margin-left: 16px;
+        color: var(--text-dark-color);
+        fill: var(--text-dark-color);
+    }

@@ -1,8 +1,7 @@
 
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
-import { createLoader } from './help_functions';
-import {openLogoutModal} from './logout_modal_window';
+import { openLogoutModal } from './logout_modal_window';
 
 const api = new bookshelf_API();
 let abortCtrl;
@@ -28,7 +27,6 @@ async function showHeader(){
 
             abortCtrl = new AbortController();
 
-            //const ss = createLoader();
             const {user} = await api.refreshUser(abortCtrl);
 
             if (user){
