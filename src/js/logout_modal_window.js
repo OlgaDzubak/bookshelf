@@ -1,5 +1,5 @@
 import { bookshelf_API } from './API';
-import {createLoader, objScroll, headerNotAuthorised} from './help_functions';
+import {createLoader, headerNotAuthorised} from './help_functions';
 import {openProfileModal} from './user_profile_modal_window';
 
 const api = new bookshelf_API();
@@ -44,14 +44,10 @@ async function logoutSubmit(){
         abortCtrl1 = new AbortController();
         const data = await api.logout(abortCtrl1);
         
-        loader.remove();
-
-        
+        loader.remove();       
 
         if (!data){
             closeLogoutModal();
-            console.log("data = ", data);
-
             headerNotAuthorised();
         }
 
