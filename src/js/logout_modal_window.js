@@ -46,10 +46,8 @@ async function logoutSubmit(){
         
         loader.remove();       
 
-        if (!data){
-            closeLogoutModal();
-            headerNotAuthorised();
-        }
+        closeLogoutModal();
+        headerNotAuthorised();
 
     }catch(error){
 
