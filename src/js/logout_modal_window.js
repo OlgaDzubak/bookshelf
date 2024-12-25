@@ -11,7 +11,7 @@ const logoutModal =  document.querySelector(".logout-modal");
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
 
-logoutBtn.addEventListener("click", (e)=>{ e.preventDefault(); logoutSubmit(); });
+logoutBtn.addEventListener("click", logoutSubmit);
 editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 
 function openLogoutModal(){
@@ -44,6 +44,10 @@ async function logoutSubmit(){
         abortCtrl1 = new AbortController();
         const data = await api.logout(abortCtrl1);
         
+        loader.remove();
+
+        console.log("data = ", data);
+
         if (!data){
             closeLogoutModal();
             headerNotAuthorised();

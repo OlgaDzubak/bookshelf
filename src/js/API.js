@@ -87,7 +87,7 @@ export class bookshelf_API {
     }
  
     async logout(abortCtrl){
-      try{
+      // try{
 
         const accessToken = getCookie("accessToken");
         this.setAuthHeader(accessToken);
@@ -96,8 +96,8 @@ export class bookshelf_API {
 
         return data;
 
-      }catch(error){
-        return error.message;
+      // }catch(error){
+        // return error.message;
       }
     }
 
