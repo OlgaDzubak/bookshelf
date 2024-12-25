@@ -84,23 +84,17 @@ async function createShoppingList() {
           
           shoppingBooks = [...books];
           
-          console.log("books 1 =");
-          
           books_ul = document.createElement("ul");
           books_ul.classList.add("list","shopping_booklist");
           shoppingBooksBoxTitle.after(books_ul);
           books_ul.addEventListener('click', deleteBook);
 
-          console.log("books 2 =");
-
           books_ul.innerHTML = showPage(shoppingBooks, 1, booksOnPage);
           pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
 
-          console.log("books 3 =");
-
           //стиворюємо пагінацію, якщо сторінок більше за 1
           if (pagesCount > 1 ) {
-
+            console.log("books 4 =");
             paginationBox = createPagination(shoppingBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
             shoppingBooksBox.append(paginationBox);
             currentPage = setPaginationPage(paginationBox, 1);
