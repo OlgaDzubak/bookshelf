@@ -260,11 +260,11 @@
         justify-content: center;
         background-color: var(--accent-color1);
         --auth-icon-color: var(--accent-color1-hf);
+        transition: background-color var(--transition);
     }
     .auth-btn:hover .auth-triangle-icon-div,
     .auth-btn:focus .auth-triangle-icon-div{
-        background-color: var(--accent-color1-hf);
-        transition: background-color var(--transition);
+        //background-color: var(--accent-color1-hf);        
     }
     .auth-triangle-icon{
         width: 15px;
