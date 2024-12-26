@@ -1,6 +1,7 @@
 
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
+import { openMobileMenu } from './mobile_menu';
 import { openAuthModal } from './autorization_modal_window';
 import { openLogoutModal } from './logout_modal_window';
 import userIcon from  '../images/svg/user_Icon.svg';
@@ -14,7 +15,7 @@ if (pageWidth < 768) {
     createMobileHeaderMarkUp();
 
     const burgerBtn = document.querySelector(".burger-menu-btn");
-    burgerBtn.addEventListener('click', ()=>{openMobileMenu()});
+    burgerBtn.addEventListener('click', openMobileMenu);
 
 }else{
     
