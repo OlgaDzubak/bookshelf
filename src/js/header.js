@@ -39,13 +39,10 @@ function headerNotAuthorised(){
     localStorage.removeItem("bookshelf_orderedbooks");
 
     userLoginBtn.classList.remove("is-hidden");
-    //userLoginMobileBtn.classList.remove("is-hidden");
 
     authBtn.classList.add("is-hidden");
-    //authMobileBtn.classList.add("is-hidden");
 
     navigation.classList.add("is-hidden");
-    //navigationMobile.classList.add("is-hidden");
 
 }
 function headerAuthorised(user){
@@ -125,6 +122,8 @@ function createNonMobileHeaderMarkUp(){
 
         </div>`
     header.innerHTML = headerMarkup;
+    
+    console.log(header);
 
     navigation = document.querySelector('.navigation');
     userLoginBtn = document.querySelector('.user-login-btn');
