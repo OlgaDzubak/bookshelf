@@ -297,6 +297,9 @@
         .user-login-btn {
             display: none;
         }
+        .user-login-btn.is-hidden{
+            display: none;
+        }
 
         .icon-arrow-right {
             stroke: var(--accent-color2);
@@ -309,6 +312,9 @@
         }
     
         .auth-btn{
+            display: none;
+        }
+        .auth-btn.is-hidden{
             display: none;
         }
     }
