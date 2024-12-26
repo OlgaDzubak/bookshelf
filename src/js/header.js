@@ -8,24 +8,30 @@ import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
 import shoppingBagIcon from '../images/svg/shopping_bag_icon.svg';
 
 const api = new bookshelf_API();
-let burgerBtnEl, mobileDivEl, iconOpenMobileMenu, iconCloseMobileMenu, userLoginMobileBtn, mobileNavigation, authMobileBtn, abortCtrl;
+let burgerBtn, userLoginBtn, navigation, authBtn, authBtnImg, abortCtrl;
 const pageWidth = document.documentElement.scrollWidth ; 
 
-if (pageWidth < 768) { 
+if (pageWidth < 768) {
+
     createMobileHeaderMarkUp();
-    
+
+    burgerBtn = document.querySelector(".burger-menu-btn");
+    burgerBtn.addEventListener('click', ()=>{openLogoutModal()});
+
 }else{
+    
     createNonMobileHeaderMarkUp();
+
+    navigation = document.querySelector('.navigation');
+    userLoginBtn = document.querySelector('.user-login-btn');
+    authBtn = document.querySelector('.auth-btn');
+    authBtnImg= authBtn.querySelector('.user-img');
+    authBtnName= authBtn.querySelector('.login-p');
+    userPhotoImg = document.querySelector(".user-photo-img");
+    
+    authBtn.addEventListener('click', ()=>{openLogoutModal()});
 }
 
-navigation = document.querySelector('.navigation');
-userLoginBtn = document.querySelector('.user-login-btn');
-authBtn = document.querySelector('.auth-btn');
-authBtnImg= authBtn.querySelector('.user-img');
-authBtnName= authBtn.querySelector('.login-p');
-userPhotoImg = document.querySelector(".user-photo-img");
-
-authBtn.addEventListener('click', ()=>{openLogoutModal()});
 
 showHeader();
 
@@ -201,7 +207,7 @@ function createMobileHeaderMarkUp(){
                 
                 <div class="log-div">
 
-                    <button class="burger-menu js-open-mobile-menu" type="button" aria-label="mobile menu">
+                    <button class="burger-menu-btn js-open-mobile-menu" type="button" aria-label="mobile menu">
                         <svg class="burger-logo">
                             <use class="icon-burger-mobile-menu" href=${burgerMenuIcon}></use>
                         </svg>
