@@ -23,9 +23,7 @@
     .navigation.is-hidden{
       display: none;
     }
-    .burger-logo {
-        stroke: black;
-    }
+
     .burger-menu-btn {
         background-color: transparent;
         border: none;
@@ -34,6 +32,13 @@
         width: 28px;
         height:28px;
     }
+    .burger-icon,
+    .close-mobile-menu-icon{
+        stroke: black;
+    }
+
+
+
     .logo-link {
         display: flex;
         align-items: center;

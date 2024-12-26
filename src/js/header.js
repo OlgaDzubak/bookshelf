@@ -4,7 +4,6 @@ import { bookshelf_API } from './API';
 import { openLogoutModal } from './logout_modal_window';
 import { onOpenMobileMenu } from './mobile_menu';
 
-import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
 import userIcon from  '../images/svg/user_Icon.svg';
 
 const api = new bookshelf_API();
@@ -246,13 +245,19 @@ function createMobileHeaderMarkUp(){
                 <div class="log-div">
 
                     <button class="burger-menu-btn" type="button" aria-label="mobile menu">
-                        <svg class="burger-logo" viewBox="0 0 32 32">
+                        <svg class="burger-icon" viewBox="0 0 32 32">
                             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M22.667 13.333h-18.667"></path>
                             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M28 8h-24"></path>
                             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M28 18.667h-24"></path>
                             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M22.667 24h-18.667"></path>
                         </svg>
+
+                        <svg class="close-mobile-menu-icon is-hidden" viewBox="0 0 32 32">
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286" d="M24 8l-16 16M8 8l16 16"></path>
+                        </svg>
                     </button>
+
+
 
                 </div>
             </div>
