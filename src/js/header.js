@@ -14,7 +14,7 @@ if (pageWidth < 768) {
     createMobileHeaderMarkUp();
 
     burgerBtn = document.querySelector(".burger-menu-btn");
-    burgerBtn.addEventListener('click', ()=>{onOpenMobileMenu()});
+    burgerBtn.addEventListener('click', ()=>{openMobileMenu()});
 
 }else{
     

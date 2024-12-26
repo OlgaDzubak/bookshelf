@@ -9,12 +9,11 @@ if (pageWidth < 768) {
     mobileMenu = document.querySelector('.mobile-menu');
     burgerIcon = document.querySelector('.burger-icon');
     closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
-    console.log(closeMobileMenuIcon);
-    userLoginMobileBtn = document.querySelector('.user-login');
-    mobileNavigation = document.querySelector('.navigation');
-    authMobileBtn = document.querySelector('.auth-btn');
+//    userLoginMobileBtn = document.querySelector('.user-login');
+//    mobileNavigation = document.querySelector('.navigation');
+ //   authMobileBtn = document.querySelector('.auth-btn');
 
-    authMobileBtn.addEventListener('click', openMobileMenu);
+    // authMobileBtn.addEventListener('click', openLogoutModal);
 
 }else{
 
