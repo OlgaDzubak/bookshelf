@@ -270,7 +270,7 @@
         
         }
 
-        .burger-menu {
+        .burger-menu-btn {
             background-color: transparent;
             border: none;
             line-height: 0;
@@ -292,9 +292,7 @@
             background-repeat: no-repeat;
             background-position: right bottom;
             background-size: contain;
-            // transform: translateY(0%);
-
-            transition: var(--transition);
+            //transition:  (--transition);
         }
     
         .user-login-btn {
@@ -347,9 +345,9 @@
             min-width: 184px;
             height: 45px;
         }
-        .burger-menu {
-            display: none;
-        }
+        // .burger-menu {
+        //     display: none;
+        // }
         
         .mobile-menu {
             display: none;
