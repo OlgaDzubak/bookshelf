@@ -106,7 +106,7 @@ async function singIn({email, password}){
     
     if (user) {
       
-      onCloseModal();
+      onCloseAuthModal();
       headerAuthorised(user);
       Notify.success('Ok!', {position: "top-right", distance: "55px",  width: "100px", timeout: 1000});
 
