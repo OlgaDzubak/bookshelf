@@ -1,12 +1,12 @@
 
 const pageWidth = document.documentElement.scrollWidth ; 
-let burgerBtnEl, mobileDivEl, iconOpenMobileMenu, iconCloseMobileMenu, userLoginMobileBtn, mobileNavigation, authMobileBtn;
+let burgerBtn, mobileDivEl, iconOpenMobileMenu, iconCloseMobileMenu, userLoginMobileBtn, mobileNavigation, authMobileBtn;
 
 if (pageWidth < 768) { 
     
     createMobileMenuMarkUp();
 
-    burgerBtnEl = document.querySelector('.js-open-menu');
+    burgerBtn = document.querySelector('.burger-menu-btn');
     mobileDivEl = document.querySelector('.js-menu');
     iconOpenMobileMenu = document.querySelector('.icon-burger-menu');
     iconCloseMobileMenu = document.querySelector('.icon-close-menu');
@@ -14,7 +14,7 @@ if (pageWidth < 768) {
     mobileNavigation = document.querySelector('.navigation');
     authMobileBtn = document.querySelector('.auth-btn');
 
-    burgerBtnEl.addEventListener('click', onOpenMobileMenu);
+    burgerBtn.addEventListener('click', onOpenMobileMenu);
     authMobileBtn.addEventListener('click', onOpenMobileMenu);
 
 }else{
