@@ -1,21 +1,22 @@
 
 const pageWidth = document.documentElement.scrollWidth ; 
+let burgerBtnEl, mobileDivEl, iconOpenMobileMenu, iconCloseMobileMenu, userLoginMobileBtn, mobileNavigation, authMobileBtn;
 
 if (pageWidth < 768) { 
+    
     createMobileMenuMarkUp();
+
+    burgerBtnEl = document.querySelector('.js-open-menu');
+    burgerBtnEl.addEventListener('click', onOpenMobileMenu);
+    mobileDivEl = document.querySelector('.js-menu');
+    iconOpenMobileMenu = document.querySelector('.icon-burger-menu');
+    iconCloseMobileMenu = document.querySelector('.icon-close-menu');
+    userLoginMobileBtn = document.querySelector('.user-login');
+    mobileNavigation = document.querySelector('.navigation');
+    authMobileBtn = document.querySelector('.auth-btn');
+
+    authMobileBtn.addEventListener('click', onOpenMobileMenu);
 }
-
-const burgerBtnEl = document.querySelector('.js-open-menu');
-const mobileDivEl = document.querySelector('.js-menu');
-const iconOpenMobileMenu = document.querySelector('.icon-burger-menu');
-const iconCloseMobileMenu = document.querySelector('.icon-close-menu');
-const userLoginMobileBtn = document.querySelector('.user-login');
-const mobileNavigation = document.querySelector('.navigation');
-const authMobileBtn = document.querySelector('.auth-btn');
-
-burgerBtnEl.addEventListener('click', onOpenMobileMenu);
-authMobileBtn.addEventListener('click', onOpenMobileMenu);
-
 
 
 // ----------------------------------------------------------------------------------------------
