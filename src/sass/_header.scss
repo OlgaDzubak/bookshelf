@@ -350,13 +350,11 @@
             margin-right: 24px;
         }
         .log-div{
+            display: flex;
+            align-items: center;
             min-width: 184px;
             height: 45px;
         }
-        // .burger-menu {
-        //     display: none;
-        // }
-        
         .mobile-menu {
             display: none;
         }
