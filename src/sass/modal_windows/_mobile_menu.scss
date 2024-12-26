@@ -72,74 +72,52 @@
         line-height: 1.27;
         border-radius: 36px;
         border: none;
-        cursor: pointer;
         color: var(--text-white-color);
-        background-color: var(--accent-color1);
-        transition: background-color var(--transition);
-        
+        background-color: transparent;
+       // transition: background-color var(--transition);
+        cursor: pointer;        
+
         &:hover,
         &:focus{
          background-color: var(--accent-color1-hf);
         }
     }
-    // .auth-btn.is-hidden{
-    //     display: none;
-    // }
-    // .user-img-div{
-    //     width: 37px;
-    //     height: 37px;
-    //     border-radius: 50%;
-    //     margin-right: 9px;
-    //     overflow: hidden;
-    //     background-color: var(--accent-color3);
-    //     --auth-icon-color: var(--auth-icon-color2);
-    // }
-    // .user-img{
-    //     width: 100%;
-    //     height: 100%;
-    //     object-fit: cover;
-    // }
-    // .login-p{
-    //     max-width: 150px;
-    //     margin-right: 4px;
-    //     font-weight: 700;
-    //     font-size: 18px;
-    //     line-height: 1.32;
-    //     white-space: nowrap;
-    //     text-transform: capitalize;
-    //     overflow-x: auto;
-    // }
-    // .login-p::-webkit-scrollbar{   
-    //     width: 0.1px;
-    //     height: 0.1px;
-    //     background-color: transparent;
-    // }
-    // .login-p::-webkit-scrollbar-thumb {
-    //      background-color: transparent;
-    // }
-    // .auth-triangle-icon-div{
-    //     width: 23px;
-    //     height: 26px;
-    //     padding: 9px 5px;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     background-color: var(--accent-color1);
-    //     --auth-icon-color: var(--accent-color1-hf);        
-    // }
-    // .auth-btn .auth-triangle-icon-div{
-    //     transition: background-color var(--transition);
-    // }
-    // .auth-btn:hover .auth-triangle-icon-div,
-    // .auth-btn:focus .auth-triangle-icon-div{
-    //     background-color: var(--accent-color1-hf);
-    // }
-    // .auth-triangle-icon{
-    //     width: 15px;
-    //     height: 8px;
-    //     --auth-icon-color: var(--accent-color3);
-    // }
-
+    .auth-btn.is-hidden{
+        display: none;
+    }
+    .user-img-div{
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        margin-right: 9px;
+        overflow: hidden;
+        background-color: var(--accent-color3);
+        --auth-icon-color: var(--auth-icon-color2);
+    }
+    .user-img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .login-p{
+        max-width: 150px;
+        margin-right: 4px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.32;
+        white-space: nowrap;
+        text-transform: capitalize;
+        overflow-x: auto;
+    }
+    .login-p::-webkit-scrollbar{   
+        width: 0.1px;
+        height: 0.1px;
+        background-color: transparent;
+    }
+    .login-p::-webkit-scrollbar-thumb {
+         background-color: transparent;
+    }
+ 
 
     // .navigation {
     //     display: flex;
