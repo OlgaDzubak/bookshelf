@@ -154,7 +154,7 @@ function createNonMobileHeaderMarkUp(){
             <div class="switch-burger-login"> 
 
                 <label class="switch">
-                    <input type="checkbox"  name="theme" id="theme-switch-toggle" aria-label="Переключить между тёмной и светлой темой" />
+                    <input type="checkbox" name="theme" id="theme-switch-toggle" aria-label="Переключить между тёмной и светлой темой" />
                     <span class="slider round"></span>
                 </label>
                 
@@ -243,7 +243,7 @@ function createMobileHeaderMarkUp(){
             <div class="switch-burger-login">
 
                 <label class="switch">
-                    <input type="checkbox"  name="theme" id="theme-switch-toggle" aria-label="Переключить между тёмной и светлой темой" />
+                    <input type="checkbox" name="theme" id="theme-switch-toggle" aria-label="Переключить между тёмной и светлой темой" />
                     <span class="slider round"></span>
                 </label>
                 
