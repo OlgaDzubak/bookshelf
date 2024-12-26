@@ -1,9 +1,8 @@
 
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
-import { OpenAuthModal } from './autorization_modal_window';
+import { openAuthModal } from './autorization_modal_window';
 import { openLogoutModal } from './logout_modal_window';
-import { onOpenMobileMenu } from './mobile_menu';
 import userIcon from  '../images/svg/user_Icon.svg';
 
 const api = new bookshelf_API();
@@ -29,7 +28,8 @@ authBtnImg= authBtn.querySelector('.user-img');
 authBtnName= authBtn.querySelector('.login-p');
 userPhotoImg = document.querySelector('.user-photo-img');
 
-userLoginBtn.addEventListener('click', OpenAuthModal);
+
+userLoginBtn.addEventListener('click', openAuthModal);
 authBtn.addEventListener('click', openLogoutModal);
 
 
