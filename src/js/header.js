@@ -140,7 +140,7 @@ function createNonMobileHeaderMarkUp(){
                 </div>
 
         </div>`
-
+    header.innerHTML = headerMarkup;
 }
 
 function createMobileHeaderMarkUp(){
@@ -212,7 +212,7 @@ function createMobileHeaderMarkUp(){
 
         </div>`
 
-        header.innerHTML = headerMarkup;
+    header.innerHTML = headerMarkup;
 }
 
 
