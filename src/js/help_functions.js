@@ -4,7 +4,7 @@ import loaderHTML from './loader';
 function displayOrdredAmountInShoppingBag(arr) {
   
   const ordredAmountBox = document.querySelector('.ordered-amount-box');
-  const ordredAmountMobileBox = document.querySelector('.ordered-amount-mobile-box');
+  //const ordredAmountMobileBox = document.querySelector('.ordered-amount-mobile-box');
 
 
   if (!arr.length) {
@@ -13,8 +13,8 @@ function displayOrdredAmountInShoppingBag(arr) {
       ordredAmountBox.style.display = "block"
       ordredAmountBox.firstElementChild.textContent = arr.length;
 
-      ordredAmountMobileBox.style.display = "block"
-      ordredAmountMobileBox.firstElementChild.textContent = arr.length;
+      //ordredAmountMobileBox.style.display = "block"
+      //ordredAmountMobileBox.firstElementChild.textContent = arr.length;
 
       return;
 
