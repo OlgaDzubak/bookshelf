@@ -74,25 +74,25 @@ function headerAuthorised(user){
     if (user.avatarURL){
         
         authBtnImg.src = user.avatarURL;
-        authMobileBtnImg.src = user.avatarURL;
+      //  authMobileBtnImg.src = user.avatarURL;
         
         userPhotoImg.src = user.avatarURL;
 
     }else{
         authBtnImg.src = "/src/images/svg/sprite.svg#name_icon";
-        authMobileBtnImg.src = "/src/images/svg/sprite.svg#name_icon";
+     //   authMobileBtnImg.src = "/src/images/svg/sprite.svg#name_icon";
 
         userPhotoImg.src = "/src/images/svg/sprite.svg#name_icon";
     }
     
     userLoginBtn.classList.add("is-hidden");
-    userLoginMobileBtn.classList.add("is-hidden");
+  //  userLoginMobileBtn.classList.add("is-hidden");
 
     authBtn.classList.remove("is-hidden");
-    authMobileBtn.classList.remove("is-hidden");
+ //   authMobileBtn.classList.remove("is-hidden");
 
     navigation.classList.remove("is-hidden");
-    navigationMobile.classList.remove("is-hidden");    
+ //   navigationMobile.classList.remove("is-hidden");    
 
     if (user.shopping_list.length > 0){
         displayOrdredAmountInShoppingBag(user.shopping_list);
