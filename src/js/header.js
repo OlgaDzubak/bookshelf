@@ -2,6 +2,7 @@
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { openLogoutModal } from './logout_modal_window';
+import { onOpenMobileMenu } from './mobile_menu';
 
 import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
 import userIcon from  '../images/svg/user_Icon.svg';
@@ -15,7 +16,7 @@ if (pageWidth < 768) {
     createMobileHeaderMarkUp();
 
     burgerBtn = document.querySelector(".burger-menu-btn");
-    burgerBtn.addEventListener('click', ()=>{openLogoutModal()});
+    burgerBtn.addEventListener('click', ()=>{onOpenMobileMenu()});
 
 }else{
     
@@ -244,7 +245,7 @@ function createMobileHeaderMarkUp(){
                 
                 <div class="log-div">
 
-                    <button class="burger-menu-btn js-open-mobile-menu" type="button" aria-label="mobile menu">
+                    <button class="burger-menu-btn" type="button" aria-label="mobile menu">
                         <svg class="burger-logo" viewBox="0 0 32 32">
                             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M22.667 13.333h-18.667"></path>
                             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M28 8h-24"></path>

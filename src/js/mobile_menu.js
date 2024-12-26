@@ -6,7 +6,7 @@ if (pageWidth < 768) {
     
     createMobileMenuMarkUp();
 
-    burgerBtn = document.querySelector('.burger-menu-btn');
+    //burgerBtn = document.querySelector('.burger-menu-btn');
     mobileDivEl = document.querySelector('.js-menu');
     iconOpenMobileMenu = document.querySelector('.icon-burger-menu');
     iconCloseMobileMenu = document.querySelector('.icon-close-menu');
@@ -14,7 +14,7 @@ if (pageWidth < 768) {
     mobileNavigation = document.querySelector('.navigation');
     authMobileBtn = document.querySelector('.auth-btn');
 
-    burgerBtn.addEventListener('click', onOpenMobileMenu);
+    // burgerBtn.addEventListener('click', onOpenMobileMenu);
     authMobileBtn.addEventListener('click', onOpenMobileMenu);
 
 }else{
@@ -111,4 +111,8 @@ function createMobileMenuMarkUp(){
     </div>`
 
   mobileMenu.innerHTML = mobileMenuMarkup;
+}
+
+export {
+  onOpenMobileMenu,
 }
