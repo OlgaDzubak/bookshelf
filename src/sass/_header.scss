@@ -31,6 +31,8 @@
         border: none;
         line-height: 0;
         padding: 0;
+        width: 28px;
+        height:28px;
     }
     .logo-link {
         display: flex;
@@ -41,6 +43,7 @@
         font-weight: 600;
     }
     .switch-burger-login{
+
         display: flex;
         align-items: center;
     }
