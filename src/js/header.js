@@ -6,27 +6,22 @@ import { openLogoutModal } from './logout_modal_window';
 import userIcon from  '../images/svg/user_Icon.svg';
 
 const api = new bookshelf_API();
-let burgerBtn, navigation, userLoginBtn, authBtn, abortCtrl; 
-//authBtnImg, authBtnName, userPhotoImg,
+let abortCtrl; 
 
 const pageWidth = document.documentElement.scrollWidth ; 
 if (pageWidth < 768) {
 
     createMobileHeaderMarkUp();
 
-    burgerBtn = document.querySelector(".burger-menu-btn");
+    const burgerBtn = document.querySelector(".burger-menu-btn");
     burgerBtn.addEventListener('click', ()=>{openMobileMenu()});
 
 }else{
     
     createNonMobileHeaderMarkUp();
 
-    navigation = document.querySelector('.navigation');
-    userLoginBtn = document.querySelector('.user-login-btn');
-    authBtn = document.querySelector('.auth-btn');
-    //authBtnImg= authBtn.querySelector('.user-img');
-    //authBtnName= authBtn.querySelector('.login-p');
-    //userPhotoImg = document.querySelector('.user-photo-img');
+    const userLoginBtn = document.querySelector('.user-login-btn');
+    const authBtn = document.querySelector('.auth-btn');
 
     userLoginBtn.addEventListener('click', openAuthModal);
     authBtn.addEventListener('click', openLogoutModal);
@@ -61,6 +56,10 @@ async function showHeader(){
 }
 
 function headerNotAuthorised(){
+    
+    const userLoginBtn = document.querySelector('.user-login-btn');
+    const authBtn = document.querySelector('.auth-btn');
+    const navigation = document.querySelector('.navigation');
 
     document.cookie = 'accessToken=;  max-age=-1;';
     localStorage.removeItem("bookshelf_orderedbooks");
@@ -71,7 +70,10 @@ function headerNotAuthorised(){
 
 }
 function headerAuthorised(user){
-    
+
+    const userLoginBtn = document.querySelector('.user-login-btn');
+    const authBtn = document.querySelector('.auth-btn');
+    const navigation = document.querySelector('.navigation');
     const authBtnImg= authBtn.querySelector('.user-img');
     const authBtnName= authBtn.querySelector('.login-p');
     const userPhotoImg = document.querySelector('.user-photo-img');
