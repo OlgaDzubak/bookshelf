@@ -2,13 +2,22 @@ import loaderHTML from './loader';
 
 // Функція відображає в купівельному кошику кількість замовлень
 function displayOrdredAmountInShoppingBag(arr) {
+  
   const ordredAmountBox = document.querySelector('.ordered-amount-box');
+  const ordredAmountMobileBox = document.querySelector('.ordered-amount-mobile-box');
+
+
   if (!arr.length) {
       return ordredAmountBox.style.display = "none";
   } else {
       ordredAmountBox.style.display = "block"
       ordredAmountBox.firstElementChild.textContent = arr.length;
+
+      ordredAmountMobileBox.style.display = "block"
+      ordredAmountMobileBox.firstElementChild.textContent = arr.length;
+
       return;
+
   }
 }
 

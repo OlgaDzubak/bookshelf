@@ -9,11 +9,11 @@
 
       <button class="auth-mobile-btn is-hidden">
 
-        <div  class="user-img-div">
-            <img class="user-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
+        <div  class="user-mobile-img-div">
+            <img class="user-mobile-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
         </div>
 
-        <p class="login-p">Login</p>
+        <p class="login-mobile-p">Login</p>
         
         <div  class="auth-triangle-icon-div">
             <svg class="auth-triangle-icon">
@@ -32,11 +32,20 @@
               </li>
 
               <li class="mobile-nav-item">
-                  <a class="mobile-shopping-link link js-mobile-nav-shoppinglistlink" href="/src/shopping_list_page.html" aria-label="Посилання на сторінку Shopping List">
+                  <a class="mobile-shopping-link link js-mobile-nav-shoppinglistlink" 
+                     href="/src/shopping_list_page.html" 
+                     aria-label="Посилання на сторінку Shopping List"
+                  >
                       <span>SHOPPING LIST</span>
+
                       <svg class="mobile-shopping-bag-icon js-mobile-shopping-bag-icon" width="20" height="20">
                           <use href="/src/images/svg/sprite.svg#shopping-bag-icon"></use>
                       </svg>
+
+                      <div class="ordered-amount-mobile-box">
+                        <p class="ordered-amount-mobile"></p>
+                      </div>
+
                   </a>
               </li>
 

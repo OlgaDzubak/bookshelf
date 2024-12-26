@@ -84,6 +84,26 @@
         color: var(--text-dark-color);
         fill: var(--text-dark-color);
     }
+    .ordered-amount-mobile-box{
+        position: absolute;
+        bottom: 0;
+        right: 8px;
+        background-color: var(--accent-color1);
+        text-align: center;
+        display: none;
+    
+        border-radius: 50%;
+        width: 17px;
+        height: 17px;
+        padding: 2px;
+    }
+    .ordered-amount-mobile{
+        color: var(--accent-color3);
+        font-size: 10px;
+        display: inline-flex;
+        transform: translateY(-3px);
+    }  
+
 
     .user-login-mobile-btn {
         width: 184px;
