@@ -8,21 +8,22 @@ import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
 import shoppingBagIcon from '../images/svg/shopping_bag_icon.svg';
 
 const api = new bookshelf_API();
-let abortCtrl;
+let burgerBtnEl, mobileDivEl, iconOpenMobileMenu, iconCloseMobileMenu, userLoginMobileBtn, mobileNavigation, authMobileBtn, abortCtrl;
 const pageWidth = document.documentElement.scrollWidth ; 
 
 if (pageWidth < 768) { 
     createMobileHeaderMarkUp();
+    
 }else{
     createNonMobileHeaderMarkUp();
 }
 
-const navigation = document.querySelector('.navigation');
-const userLoginBtn = document.querySelector('.user-login-btn');
-const authBtn = document.querySelector('.auth-btn');
-const authBtnImg= authBtn.querySelector('.user-img');
-const authBtnName= authBtn.querySelector('.login-p');
-const userPhotoImg = document.querySelector(".user-photo-img");
+navigation = document.querySelector('.navigation');
+userLoginBtn = document.querySelector('.user-login-btn');
+authBtn = document.querySelector('.auth-btn');
+authBtnImg= authBtn.querySelector('.user-img');
+authBtnName= authBtn.querySelector('.login-p');
+userPhotoImg = document.querySelector(".user-photo-img");
 
 authBtn.addEventListener('click', ()=>{openLogoutModal()});
 
