@@ -42,7 +42,7 @@
     }
 
     
-    .user-login-mobile-btn {
+    .mobile-menu .user-login-btn {
         width: 184px;
         height: 48px;
         display: flex;
@@ -68,11 +68,11 @@
          background-color: var(--accent-color1-hf);
         }
     }
-    .user-login-mobile-btn.is-hidden{
+    .mobile-menu .user-login-btn.is-hidden{
         display: none;
     }
 
-    .auth-mobile-btn{
+    .mobile-menu .auth-btn{
         position: relative;
         padding: 4px 12px;
         display: flex;
@@ -92,77 +92,77 @@
          background-color: var(--accent-color1-hf);
         }
     }
-    .auth-mobile-btn.is-hidden{
-        display: none;
-    }
-    .user-mobile-img-div{
-        width: 37px;
-        height: 37px;
-        border-radius: 50%;
-        margin-right: 9px;
-        overflow: hidden;
-        background-color: var(--accent-color3);
-        --auth-icon-color: var(--auth-icon-color2);
-    }
-    .user-mobile-img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .login-mobile-p{
-        max-width: 150px;
-        margin-right: 4px;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 1.32;
-        white-space: nowrap;
-        text-transform: capitalize;
-        overflow-x: auto;
-    }
-    .login-mobile-p::-webkit-scrollbar{   
-        width: 0.1px;
-        height: 0.1px;
-        background-color: transparent;
-    }
-    .login-mobile-p::-webkit-scrollbar-thumb {
-         background-color: transparent;
-    }
-    .auth-mobile-triangle-icon-div{
-        width: 23px;
-        height: 26px;
-        padding: 9px 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--accent-color1);
-        --auth-icon-color: var(--accent-color1-hf);        
-    }
-    .auth-mobile-btn .auth-mobile-triangle-icon-div{
-        transition: background-color var(--transition);
-    }
-    .auth-mobile-btn:hover .auth-mobile-triangle-icon-div,
-    .auth-mobile-btn:focus .auth-mobile-triangle-icon-div{
-        background-color: var(--accent-color1-hf);
-    }
-    .auth-mobile-triangle-icon{
-        width: 15px;
-        height: 8px;
-        --auth-icon-color: var(--accent-color3);
-    }
+    // .auth-btn.is-hidden{
+    //     display: none;
+    // }
+    // .user-img-div{
+    //     width: 37px;
+    //     height: 37px;
+    //     border-radius: 50%;
+    //     margin-right: 9px;
+    //     overflow: hidden;
+    //     background-color: var(--accent-color3);
+    //     --auth-icon-color: var(--auth-icon-color2);
+    // }
+    // .user-img{
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: cover;
+    // }
+    // .login-p{
+    //     max-width: 150px;
+    //     margin-right: 4px;
+    //     font-weight: 700;
+    //     font-size: 18px;
+    //     line-height: 1.32;
+    //     white-space: nowrap;
+    //     text-transform: capitalize;
+    //     overflow-x: auto;
+    // }
+    // .login-p::-webkit-scrollbar{   
+    //     width: 0.1px;
+    //     height: 0.1px;
+    //     background-color: transparent;
+    // }
+    // .login-p::-webkit-scrollbar-thumb {
+    //      background-color: transparent;
+    // }
+    // .auth-triangle-icon-div{
+    //     width: 23px;
+    //     height: 26px;
+    //     padding: 9px 5px;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     background-color: var(--accent-color1);
+    //     --auth-icon-color: var(--accent-color1-hf);        
+    // }
+    // .auth-btn .auth-triangle-icon-div{
+    //     transition: background-color var(--transition);
+    // }
+    // .auth-btn:hover .auth-triangle-icon-div,
+    // .auth-btn:focus .auth-triangle-icon-div{
+    //     background-color: var(--accent-color1-hf);
+    // }
+    // .auth-triangle-icon{
+    //     width: 15px;
+    //     height: 8px;
+    //     --auth-icon-color: var(--accent-color3);
+    // }
 
 
-    .mobile-navigation {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .mobile-nav-list{
-      display:flex;
-      flex-direction: column;
-      row-gap:16px;
-    }
-    .mobile-home-link,
-    .mobile-shopping-link {
+    // .navigation {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    // }
+    // .nav-list{
+    //   display:flex;
+    //   flex-direction: column;
+    //   row-gap:16px;
+    // }
+    .mobile-menu .home-link,
+    .mobile-menu .shopping-link {
         padding: 8px 16px;
         display: inline-flex;
         align-items: center;
@@ -178,13 +178,13 @@
                     font-weight var(--transition), 
                     fill var(--transition);
     }
-    .mobile-home-link:hover,
-    .mobile-home-link:focus,
-    .mobile-shopping-link:hover,
-    .mobile-shopping-link:focus,
-    .mobile-home-link.mobile-selected,
-    .mobile-shopping-link.mobile-selected,
-    .mobile-shopping-bag-icon.mobile-selected{
+    .mobile-menu .home-link:hover,
+    .mobile-menu .home-link:focus,
+    .mobile-menu .shopping-link:hover,
+    .mobile-menu .shopping-link:focus,
+    .mobile-menu .home-link.mobile-selected,
+    .mobile-menu .shopping-link.mobile-selected,
+    .mobile-menu .shopping-bag-icon.mobile-selected{
         background-color: var(--accent-color2);
         font-weight: 700;
         color: var(--text-dark-color);
@@ -192,7 +192,7 @@
     }
 
 
-    .ordered-amount-mobile-box{
+    .mobile-menu .ordered-amount-box{
         position: absolute;
         bottom: 0;
         right: 8px;
@@ -205,7 +205,7 @@
         height: 17px;
         padding: 2px;
     }
-    .ordered-amount-mobile{
+    .mobile-menu .ordered-amount{
         color: var(--accent-color3);
         font-size: 10px;
         display: inline-flex;
@@ -213,7 +213,7 @@
     }  
 
 
-    .logout-mobile-btn{
+    .mobile-menu .logout-mobile-btn{
         display: flex;
         width: 118px;
         height: 48px;
@@ -237,7 +237,7 @@
             background-color: var(--accent-color1);
         }
     }
-    .logout-mobile-btn::after{
+    .mobile-menu .logout-mobile-btn::after{
         width: 20px;
         height: 15px;
         content: url("/src/images/svg/arrow-right.svg");

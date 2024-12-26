@@ -7,19 +7,19 @@ const api = new bookshelf_API();
 let abortCtrl;
 
 const navigation = document.querySelector('.navigation');
-const navigationMobile = document.querySelector('.mobile-navigation');
+//const navigationMobile = document.querySelector('.mobile-navigation');
 
 const userLoginBtn = document.querySelector('.user-login-btn');
-const userLoginMobileBtn = document.querySelector('.user-login-mobile-btn');
+//const userLoginMobileBtn = document.querySelector('.user-login-mobile-btn');
 
 const authBtn = document.querySelector('.auth-btn');
-const authMobileBtn = document.querySelector('.auth-mobile-btn');
+//const authMobileBtn = document.querySelector('.auth-mobile-btn');
 
 const authBtnImg= authBtn.querySelector('.user-img');
-const authMobileBtnImg= authMobileBtn.querySelector('.user-mobile-img');
+//const authMobileBtnImg= authMobileBtn.querySelector('.user-mobile-img');
 
 const authBtnName= authBtn.querySelector('.login-p');
-const authMobileBtnName= authBtn.querySelector('.login-mobile-p');
+//const authMobileBtnName= authBtn.querySelector('.login-mobile-p');
 
 const userPhotoImg = document.querySelector(".user-photo-img");
 
@@ -67,7 +67,10 @@ function headerNotAuthorised(){
 }
 
 function headerAuthorised(user){
+    
     authBtnName.textContent = user.name;
+    // authMobileBtnName.textContent = user.name;
+
     if (user.avatarURL){
         
         authBtnImg.src = user.avatarURL;
