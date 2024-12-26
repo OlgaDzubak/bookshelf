@@ -6,7 +6,7 @@ import { openLogoutModal } from './logout_modal_window';
 const api = new bookshelf_API();
 let navigation, userLoginBtn, authBtn, authBtnImg, authBtnName, userPhotoImg, abortCtrl;
 
-showHeader();
+//showHeader();
 
 
 // ----------------------------------------------------------------------------------------------
@@ -39,9 +39,7 @@ function headerNotAuthorised(){
     localStorage.removeItem("bookshelf_orderedbooks");
 
     userLoginBtn.classList.remove("is-hidden");
-
     authBtn.classList.add("is-hidden");
-
     navigation.classList.add("is-hidden");
 
 }
@@ -123,8 +121,6 @@ function createNonMobileHeaderMarkUp(){
         </div>`
     header.innerHTML = headerMarkup;
     
-    console.log(header);
-
     navigation = document.querySelector('.navigation');
     userLoginBtn = document.querySelector('.user-login-btn');
     authBtn = document.querySelector('.auth-btn');
