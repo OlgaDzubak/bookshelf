@@ -76,9 +76,10 @@ function headerAuthorised(user){
     const authBtnImg= authBtn.querySelector('.user-img');
     const authBtnName= authBtn.querySelector('.login-p');
     const userPhotoImg = document.querySelector('.user-photo-img');
+    const userLogoutBtn = document.querySelector('.logout-btn');
 
     authBtnName.textContent = user.name;
-
+   
 
     if (user.avatarURL){
         authBtnImg.src = user.avatarURL;
@@ -96,6 +97,8 @@ function headerAuthorised(user){
         displayOrdredAmountInShoppingBag(user.shopping_list);
         localStorage.setItem("bookshelf_orderedbooks",JSON.stringify(user.shopping_list));
     }
+    
+    userLogoutBtn.classList.remove('is-hidden');
 }
 
 
