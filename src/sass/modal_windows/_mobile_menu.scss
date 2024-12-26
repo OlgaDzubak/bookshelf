@@ -68,7 +68,9 @@
          background-color: var(--accent-color1-hf);
         }
     }
-
+    .user-login-btn.is-hidden{
+        display: none;
+    }
 
     .auth-mobile-btn{
         position: relative;
