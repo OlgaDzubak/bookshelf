@@ -1,14 +1,12 @@
 
 const pageWidth = document.documentElement.scrollWidth ; 
-let burgerBtn, mobileDivEl, iconOpenMobileMenu, iconCloseMobileMenu, userLoginMobileBtn, mobileNavigation, authMobileBtn;
+let mobileMenu, userLoginMobileBtn, mobileNavigation, authMobileBtn;
 
 if (pageWidth < 768) { 
     
     createMobileMenuMarkUp();
 
     mobileMenu = document.querySelector('.mobile-menu');
-    iconOpenMobileMenu = document.querySelector('.icon-burger-menu');
-    iconCloseMobileMenu = document.querySelector('.icon-close-menu');
     userLoginMobileBtn = document.querySelector('.user-login');
     mobileNavigation = document.querySelector('.navigation');
     authMobileBtn = document.querySelector('.auth-btn');
@@ -34,11 +32,11 @@ function onOpenMobileMenu(evt) {
 }
 
 function showMobileMenu() {
-  mobileDivEl.classList.remove('is-hidden');
+  mobileMenu.classList.remove('is-hidden');
 }
 
 function hideMobileMenu() {
-  mobileDivEl.classList.add('is-hidden');
+  mobileMenu.classList.add('is-hidden');
 }
 
 function createMobileMenuMarkUp(){
