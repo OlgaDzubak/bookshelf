@@ -111,6 +111,37 @@ function createNonMobileHeaderMarkUp(){
                     </svg>Bookshelf
                 </a>
 
+                <nav class="navigation is-hidden">
+
+                    <ul class="nav-list list">
+
+                        <li class="nav-item">
+                            <a class="home-link js-nav-homelink link" href="/src/index.html" aria-label="Посилання на головну сторінку">HOME</a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a  class="shopping-link link js-nav-shoppinglistlink" 
+                                href="/src/shopping_list_page.html" 
+                                aria-label="Посилання на сторінку Shopping List"
+                            >
+                                <span>SHOPPING LIST</span>
+                                
+                                <svg class="shopping-bag-icon" width="20" height="20">
+                                    <use href=${shoppingBagIcon}></use>
+                                </svg>
+                                
+                                <div class="ordered-amount-box">
+                                    <p class="ordered-amount"></p>
+                                </div>
+
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>                
+
             </div>
         
             <div class="switch-burger-login"> 
