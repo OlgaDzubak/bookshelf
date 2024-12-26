@@ -13,7 +13,7 @@ const userLoginBtn = document.querySelector('.user-login-btn');
 
 //userLoginBtn.addEventListener('click', onOpenAuthModal);
 
-function onOpenAuthModal() {
+function OpenAuthModal() {
   window.addEventListener('keydown', onEscKeyDown);
   backdrop.classList.remove('is-hidden');
   document.body.classList.add('block-scroll');
@@ -162,5 +162,5 @@ function onModalInputClick({target}){
   }
 
   export {
-    onOpenAuthModal,
+    OpenAuthModal,
   }

@@ -25,7 +25,7 @@ if (pageWidth < 768) {
 
 // ----------------------------------------------------------------------------------------------
 
-function onOpenMobileMenu(evt) {
+function onOpenMobileMenu() {
   if (closeMobileMenuIcon.classList.contains('is-hidden')) {
 
     closeMobileMenuIcon.classList.remove('is-hidden');
