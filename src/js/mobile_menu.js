@@ -74,9 +74,9 @@ function createMobileMenuMarkUp(){
           <p class="login-p">Login</p>
           
           <div  class="auth-triangle-icon-div">
-              <svg class="auth-triangle-icon">
-                  <use href="/src/images/svg/sprite.svg#auth-triangle"></use>
-              </svg>
+            <svg viewBox="0 0 15 8" class="auth-triangle-icon">
+                <path d="M0.791748 0.75H14.2084L8.17762 7.56742C7.99791 7.77051 7.7542 7.8846 7.50008 7.8846C7.24597 7.8846 7.00225 7.77051 6.82254 7.56742L0.791748 0.75Z"/>
+            </svg>              
           </div>
           
         </button>
