@@ -7,6 +7,10 @@ import logoIcon from '../images/svg/logo_icon.svg';
 import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
 import shoppingBagIcon from '../images/svg/shopping_bag_icon.svg';
 
+import authTriangle from '../images/svg/auth_triangle_icon.svg';
+import userIcon from  '../images/svg/user_icon.svg';
+import arrowRightIcon from '../images/svg/arrow_right_icon.svg';
+
 const api = new bookshelf_API();
 let burgerBtn, navigation, userLoginBtn, authBtn, authBtnImg, authBtnName, userPhotoImg, abortCtrl;
 
@@ -109,13 +113,13 @@ function createNonMobileHeaderMarkUp(){
 
                 <a class="logo-link link" href="/src/index.html" aria-label="Посилання на головну сторінку">
                     <svg class="logo-icon" width="24" height="24">
-                        <use href="/src/images/svg/sprite.svg#logo-icon"></use>
+                        <use href=${logoIcon}></use>
                     </svg>Bookshelf
                 </a>
 
             </div>
         
-            <div class="switch-burger-login">
+            <div class="switch-burger-login"> 
 
                 <label class="switch">
                     <input type="checkbox"  name="theme" id="theme-switch-toggle" aria-label="Переключить между тёмной и светлой темой" />
@@ -125,20 +129,20 @@ function createNonMobileHeaderMarkUp(){
                 <div class="log-div">
 
                     <button class="user-login-btn link is-hidden">Sign up<svg class="icon-arrow-right" width="20" height="20">
-                        <use href="/src/images/svg/sprite.svg#arrow-narrow-right-icon"></use></svg>
+                        <use href=${arrowRightIcon}></use></svg>
                     </button>
 
                     <button class="auth-btn is-hidden">
 
                         <div  class="user-img-div">
-                            <img class="user-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
+                            <img class="user-img" alt="user photo" src=${userIcon}/>
                         </div>
 
                         <p class="login-p">Login</p>
                         
                         <div  class="auth-triangle-icon-div">
                             <svg class="auth-triangle-icon">
-                                <use href="/src/images/svg/sprite.svg#auth-triangle"></use>
+                                <use href=${authTriangle}></use>
                             </svg>
                         </div>
                         
