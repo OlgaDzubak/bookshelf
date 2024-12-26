@@ -6,7 +6,7 @@ const iconCloseMobileMenu = document.querySelector('.icon-close-mobile-menu');
 const userLoginMobileBtn = document.querySelector('.user-login-mobile');
 const mobileNavigation = document.querySelector('.mobile-navigation');
 
-const authMobileBtn = document.querySelector('auth-btn');
+const authMobileBtn = document.querySelector('.auth-btn');
 
 burgerBtnEl.addEventListener('click', onOpenMobileMenu);
 authMobileBtn.addEventListener('click', onOpenMobileMenu);
