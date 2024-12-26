@@ -7,7 +7,7 @@ const api = new bookshelf_API();
 let abortCtrl;
 
 const navigation = document.querySelector('.navigation');
-const navigationMobile = document.querySelector('mobile-navigation');
+const navigationMobile = document.querySelector('.mobile-navigation');
 
 const userLoginBtn = document.querySelector('.user-login-btn');
 const userLoginMobileBtn = document.querySelector('.user-login-mobile-btn');
