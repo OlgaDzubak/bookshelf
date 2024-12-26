@@ -4,16 +4,7 @@ import { bookshelf_API } from './API';
 import { openLogoutModal } from './logout_modal_window';
 
 const api = new bookshelf_API();
-let abortCtrl;
-
-const navigation = document.querySelector('.navigation');
-const userLoginBtn = document.querySelector('.user-login-btn');
-const authBtn = document.querySelector('.auth-btn');
-const authBtnImg= authBtn.querySelector('.user-img');
-const authBtnName= authBtn.querySelector('.login-p');
-const userPhotoImg = document.querySelector(".user-photo-img");
-
-authBtn.addEventListener('click', ()=>{openLogoutModal()});
+let navigation, userLoginBtn, authBtn, authBtnImg, authBtnName, userPhotoImg, abortCtrl;
 
 showHeader();
 
@@ -57,11 +48,9 @@ function headerNotAuthorised(){
     //navigationMobile.classList.add("is-hidden");
 
 }
-
 function headerAuthorised(user){
     
     authBtnName.textContent = user.name;
-    // authMobileBtnName.textContent = user.name;
 
     if (user.avatarURL){
         
@@ -78,13 +67,8 @@ function headerAuthorised(user){
     }
     
     userLoginBtn.classList.add("is-hidden");
-  //  userLoginMobileBtn.classList.add("is-hidden");
-
     authBtn.classList.remove("is-hidden");
- //   authMobileBtn.classList.remove("is-hidden");
-
     navigation.classList.remove("is-hidden");
- //   navigationMobile.classList.remove("is-hidden");    
 
     if (user.shopping_list.length > 0){
         displayOrdredAmountInShoppingBag(user.shopping_list);
@@ -141,8 +125,16 @@ function createNonMobileHeaderMarkUp(){
 
         </div>`
     header.innerHTML = headerMarkup;
-}
 
+    navigation = document.querySelector('.navigation');
+    userLoginBtn = document.querySelector('.user-login-btn');
+    authBtn = document.querySelector('.auth-btn');
+    authBtnImg= authBtn.querySelector('.user-img');
+    authBtnName= authBtn.querySelector('.login-p');
+    userPhotoImg = document.querySelector(".user-photo-img");
+
+    authBtn.addEventListener('click', ()=>{openLogoutModal()});
+}
 function createMobileHeaderMarkUp(){
 
     const header =  document.querySelector('.header');
@@ -213,6 +205,15 @@ function createMobileHeaderMarkUp(){
         </div>`
 
     header.innerHTML = headerMarkup;
+
+    navigation = document.querySelector('.navigation');
+    userLoginBtn = document.querySelector('.user-login-btn');
+    authBtn = document.querySelector('.auth-btn');
+    authBtnImg= authBtn.querySelector('.user-img');
+    authBtnName= authBtn.querySelector('.login-p');
+    userPhotoImg = document.querySelector(".user-photo-img");
+
+    authBtn.addEventListener('click', ()=>{openLogoutModal()});
 }
 
 
