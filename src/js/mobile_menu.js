@@ -103,7 +103,7 @@ function createMobileMenuMarkUp(){
 
       </div>
 
-      <button class="logout-mobile-btn is-hidden" type="button">Log out</button>
+      <button class="logout-btn is-hidden" type="button">Log out</button>
 
     </div>`
 
