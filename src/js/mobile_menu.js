@@ -69,12 +69,12 @@ function createMobileMenuMarkUp(){
             <ul class="nav-list list">
 
                 <li class="nav-item">
-                    <a class="home-link link js-mobile-nav-homelink" href="/src/index.html" aria-label="Посилання на головну сторінку">HOME</a>
+                    <a class="home-link link js-mobile-nav-homelink" href="./index.html" aria-label="Посилання на головну сторінку">HOME</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="shopping-link link js-mobile-nav-shoppinglistlink" 
-                      href="/src/shopping_list_page.html" 
+                      href="./shopping_list_page.html" 
                       aria-label="Посилання на сторінку Shopping List"
                     >
                         <span>SHOPPING LIST</span>
