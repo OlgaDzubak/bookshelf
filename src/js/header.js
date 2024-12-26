@@ -31,7 +31,7 @@ if (pageWidth < 768) {
     authBtn = document.querySelector('.auth-btn');
     authBtnImg= authBtn.querySelector('.user-img');
     authBtnName= authBtn.querySelector('.login-p');
-    userPhotoImg = document.querySelector(".user-photo-img");
+    userPhotoImg = document.querySelector('.user-photo-img');
     
     authBtn.addEventListener('click', ()=>{openLogoutModal()});
 }
@@ -80,17 +80,11 @@ function headerAuthorised(user){
     authBtnName.textContent = user.name;
 
     if (user.avatarURL){
-        
         authBtnImg.src = user.avatarURL;
-      //  authMobileBtnImg.src = user.avatarURL;
-        
         userPhotoImg.src = user.avatarURL;
-
     }else{
-        authBtnImg.src = "/src/images/svg/sprite.svg#name_icon";
-     //   authMobileBtnImg.src = "/src/images/svg/sprite.svg#name_icon";
-
-        userPhotoImg.src = "/src/images/svg/sprite.svg#name_icon";
+        authBtnImg.src = userIcon;
+        userPhotoImg.src = userIcon;
     }
     
     userLoginBtn.classList.add("is-hidden");
