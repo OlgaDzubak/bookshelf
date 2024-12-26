@@ -9,11 +9,12 @@ if (pageWidth < 768) {
     mobileMenu = document.querySelector('.mobile-menu');
     burgerIcon = document.querySelector('.burger-icon');
     closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
+    console.log(closeMobileMenuIcon);
     userLoginMobileBtn = document.querySelector('.user-login');
     mobileNavigation = document.querySelector('.navigation');
     authMobileBtn = document.querySelector('.auth-btn');
 
-    authMobileBtn.addEventListener('click', onOpenMobileMenu);
+    authMobileBtn.addEventListener('click', openMobileMenu);
 
 }else{
 
@@ -25,7 +26,8 @@ if (pageWidth < 768) {
 
 // ----------------------------------------------------------------------------------------------
 
-function onOpenMobileMenu() {
+function openMobileMenu() {
+
   if (closeMobileMenuIcon.classList.contains('is-hidden')) {
 
     closeMobileMenuIcon.classList.remove('is-hidden');
@@ -117,5 +119,5 @@ function createMobileMenuMarkUp(){
 }
 
 export {
-  onOpenMobileMenu,
+  openMobileMenu,
 }
