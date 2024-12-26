@@ -7,8 +7,8 @@ if (pageWidth < 768) {
     createMobileMenuMarkUp();
 
     mobileMenu = document.querySelector('.mobile-menu');
-    burgerIcon = document.querySelector('burger-icon');
-    closeMobileMenuIcon = document.querySelector('close-mobile-menu-icon');
+    burgerIcon = document.querySelector('.burger-icon');
+    closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
     userLoginMobileBtn = document.querySelector('.user-login');
     mobileNavigation = document.querySelector('.navigation');
     authMobileBtn = document.querySelector('.auth-btn');
