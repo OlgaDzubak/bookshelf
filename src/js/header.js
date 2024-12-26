@@ -1,6 +1,8 @@
 
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
+
+import { onOpenAuthModal } from './autorization_modal_window';
 import { openLogoutModal } from './logout_modal_window';
 import { onOpenMobileMenu } from './mobile_menu';
 
@@ -20,16 +22,18 @@ if (pageWidth < 768) {
 }else{
     
     createNonMobileHeaderMarkUp();
-
-    navigation = document.querySelector('.navigation');
-    userLoginBtn = document.querySelector('.user-login-btn');
-    authBtn = document.querySelector('.auth-btn');
-    authBtnImg= authBtn.querySelector('.user-img');
-    authBtnName= authBtn.querySelector('.login-p');
-    userPhotoImg = document.querySelector('.user-photo-img');
-    
-    authBtn.addEventListener('click', ()=>{openLogoutModal()});
 }
+
+navigation = document.querySelector('.navigation');
+userLoginBtn = document.querySelector('.user-login-btn');
+authBtn = document.querySelector('.auth-btn');
+authBtnImg= authBtn.querySelector('.user-img');
+authBtnName= authBtn.querySelector('.login-p');
+userPhotoImg = document.querySelector('.user-photo-img');
+
+userLoginBtn.addEventListener('click', onOpenAuthModal);
+authBtn.addEventListener('click', ()=>{openLogoutModal()});
+
 
 
 showHeader();

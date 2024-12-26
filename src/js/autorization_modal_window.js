@@ -10,10 +10,8 @@ let abortCtrl1, abortCtrl2, loader1;
 const backdrop = document.querySelector('.autorization-modal-backdrop');
 const modal = document.querySelector('.modal');
 const userLoginBtn = document.querySelector('.user-login-btn');
-//const userLoginMobileBtn = document.querySelector('.user-login-mobile-btn');
 
-userLoginBtn.addEventListener('click', onOpenAuthModal);
-//userLoginMobileBtn.addEventListener('click', onOpenAuthModal);
+//userLoginBtn.addEventListener('click', onOpenAuthModal);
 
 function onOpenAuthModal() {
   window.addEventListener('keydown', onEscKeyDown);
@@ -161,4 +159,8 @@ function onModalInputClick({target}){
     submitBtn.textContent = "SIGN IN";
     signInBtn.classList.add("current");
     signUpBtn.classList.remove("current");    
+  }
+
+  export {
+    onOpenAuthModal,
   }
