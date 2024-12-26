@@ -8,7 +8,7 @@ import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
 import shoppingBagIcon from '../images/svg/shopping_bag_icon.svg';
 
 import authTriangle from '../images/svg/auth_triangle_icon.svg';
-import userIcon from  '../images/svg/user_icon.svg';
+import userIcon from  '../images/svg/user_Icon.svg';
 import arrowRightIcon from '../images/svg/arrow_right_icon.svg';
 
 const api = new bookshelf_API();
