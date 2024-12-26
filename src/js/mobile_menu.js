@@ -2,15 +2,12 @@ import { openAuthModal } from './autorization_modal_window';
 import { openLogoutModal } from './logout_modal_window';
 
 const pageWidth = document.documentElement.scrollWidth ; 
-let mobileMenu, burgerIcon, closeMobileMenuIcon, userLoginBtn, navigation, authBtn;
+let  userLoginBtn, navigation, authBtn;
 
 if (pageWidth < 768) { 
     
     createMobileMenuMarkUp();
 
-    mobileMenu = document.querySelector('.mobile-menu');
-    burgerIcon = document.querySelector('.burger-icon');
-    closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
     userLoginBtn = document.querySelector('.user-login-btn');
     navigation = document.querySelector('.navigation');
     authBtn = document.querySelector('.auth-btn');
@@ -19,9 +16,8 @@ if (pageWidth < 768) {
     authBtn.addEventListener('click', openLogoutModal);
 
 }else{
-
-    const mobileMenu = document.querySelector('.mobile-menu');
-    mobileMenu.remove();
+    
+    mobidocument.querySelector('.mobile-menu').remove();
 
 }
 
@@ -29,6 +25,9 @@ if (pageWidth < 768) {
 // ----------------------------------------------------------------------------------------------
 
 function openMobileMenu() {
+  
+  const burgerIcon = document.querySelector('.burger-icon');
+  const closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
 
   if (closeMobileMenuIcon.classList.contains('is-hidden')) {
 
@@ -47,11 +46,11 @@ function openMobileMenu() {
 }
 
 function showMobileMenu() {
-  mobileMenu.classList.remove('is-hidden');
+  document.querySelector('.mobile-menu').classList.remove('is-hidden');
 }
 
 function hideMobileMenu() {
-  mobileMenu.classList.add('is-hidden');
+  document.querySelector('.mobile-menu').classList.add('is-hidden');
 }
 
 function createMobileMenuMarkUp(){

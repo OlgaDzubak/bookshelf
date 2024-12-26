@@ -28,9 +28,7 @@ if (pageWidth < 768) {
     authBtn.addEventListener('click', openLogoutModal);
 }
 
-
 showHeader();
-
 
 
 // ----------------------------------------------------------------------------------------------
@@ -189,7 +187,6 @@ function createNonMobileHeaderMarkUp(){
         </div>`
     header.innerHTML = headerMarkup;
 }
-
 function createMobileHeaderMarkUp(){
 
     const header =  document.querySelector('.header');
@@ -274,7 +271,6 @@ function createMobileHeaderMarkUp(){
 
     header.innerHTML = headerMarkup;
 }
-
 
 export {
     headerNotAuthorised,
