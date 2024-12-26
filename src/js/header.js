@@ -7,7 +7,7 @@ const api = new bookshelf_API();
 let abortCtrl;
 
 const navigation = document.querySelector('.navigation');
-const userLoginBtn = document.querySelector('.mobile-menu .user-login-btn');
+const userLoginBtn = document.querySelector('.user-login-btn');
 const authBtn = document.querySelector('.auth-btn');
 const authBtnImg= authBtn.querySelector('.user-img');
 const authBtnName= authBtn.querySelector('.login-p');
