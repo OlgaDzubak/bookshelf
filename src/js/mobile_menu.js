@@ -28,29 +28,21 @@ function openMobileMenu() {
   
   const burgerIcon = document.querySelector('.burger-icon');
   const closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
+  const mobileMenu = document.querySelector('.mobile-menu');
 
   if (closeMobileMenuIcon.classList.contains('is-hidden')) {
 
     closeMobileMenuIcon.classList.remove('is-hidden');
     burgerIcon.classList.add('is-hidden');
-
-    showMobileMenu();
+    mobileMenu.classList.remove('is-hidden');
 
   } else {
 
     closeMobileMenuIcon.classList.add('is-hidden');
     burgerIcon.classList.remove('is-hidden');
+    mobileMenu.classList.add('is-hidden');
 
-    hideMobileMenu();
   }
-}
-
-function showMobileMenu() {
-  document.querySelector('.mobile-menu').classList.remove('is-hidden');
-}
-
-function hideMobileMenu() {
-  document.querySelector('.mobile-menu').classList.add('is-hidden');
 }
 
 function createMobileMenuMarkUp(){

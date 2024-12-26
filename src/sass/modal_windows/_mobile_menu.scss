@@ -67,13 +67,7 @@
         border: none;
         color: var(--text-white-color);
         background-color: transparent;
-       // transition: background-color var(--transition);
         cursor: pointer;        
-
-        &:hover,
-        &:focus{
-         background-color: var(--accent-color1-hf);
-        }
     }
     .auth-btn.is-hidden{
         display: none;
