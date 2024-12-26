@@ -1,6 +1,7 @@
 
 const pageWidth = document.documentElement.scrollWidth ; 
-let mobileMenu, burgerIcon, closeMobileMenuIcon, userLoginMobileBtn, mobileNavigation, authMobileBtn;
+let mobileMenu, burgerIcon, closeMobileMenuIcon;
+//, userLoginMobileBtn, mobileNavigation, authMobileBtn;
 
 if (pageWidth < 768) { 
     
@@ -12,7 +13,6 @@ if (pageWidth < 768) {
 //    userLoginMobileBtn = document.querySelector('.user-login');
 //    mobileNavigation = document.querySelector('.navigation');
  //   authMobileBtn = document.querySelector('.auth-btn');
-
     // authMobileBtn.addEventListener('click', openLogoutModal);
 
 }else{

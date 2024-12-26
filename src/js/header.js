@@ -6,7 +6,8 @@ import { openLogoutModal } from './logout_modal_window';
 import userIcon from  '../images/svg/user_Icon.svg';
 
 const api = new bookshelf_API();
-let burgerBtn, navigation, userLoginBtn, authBtn, authBtnImg, authBtnName, userPhotoImg, abortCtrl;
+let burgerBtn, navigation, userLoginBtn, authBtn, abortCtrl; 
+//authBtnImg, authBtnName, userPhotoImg,
 
 const pageWidth = document.documentElement.scrollWidth ; 
 if (pageWidth < 768) {
@@ -24,9 +25,9 @@ if (pageWidth < 768) {
 navigation = document.querySelector('.navigation');
 userLoginBtn = document.querySelector('.user-login-btn');
 authBtn = document.querySelector('.auth-btn');
-authBtnImg= authBtn.querySelector('.user-img');
-authBtnName= authBtn.querySelector('.login-p');
-userPhotoImg = document.querySelector('.user-photo-img');
+//authBtnImg= authBtn.querySelector('.user-img');
+//authBtnName= authBtn.querySelector('.login-p');
+//userPhotoImg = document.querySelector('.user-photo-img');
 
 
 userLoginBtn.addEventListener('click', openAuthModal);
@@ -72,7 +73,12 @@ function headerNotAuthorised(){
 }
 function headerAuthorised(user){
     
+    const authBtnImg= authBtn.querySelector('.user-img');
+    const authBtnName= authBtn.querySelector('.login-p');
+    const userPhotoImg = document.querySelector('.user-photo-img');
+
     authBtnName.textContent = user.name;
+
 
     if (user.avatarURL){
         authBtnImg.src = user.avatarURL;
