@@ -93,6 +93,20 @@
     .auth-mobile-btn.is-hidden{
         display: none;
     }
+    .user-mobile-img-div{
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        margin-right: 9px;
+        overflow: hidden;
+        background-color: var(--accent-color3);
+        --auth-icon-color: var(--auth-icon-color2);
+    }
+    .user-mobile-img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     .login-mobile-p{
         max-width: 150px;
         margin-right: 4px;
