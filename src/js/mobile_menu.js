@@ -1,16 +1,24 @@
 
-const burgerBtnEl = document.querySelector('.js-open-mobile-menu');
-const mobileDivEl = document.querySelector('.js-mobile-menu');
-const iconOpenMobileMenu = document.querySelector('.icon-burger-mobile-menu');
-const iconCloseMobileMenu = document.querySelector('.icon-close-mobile-menu');
-const userLoginMobileBtn = document.querySelector('.user-login-mobile');
-const mobileNavigation = document.querySelector('.mobile-navigation');
+const pageWidth = document.documentElement.scrollWidth ; 
 
+if (pageWidth < 768) { 
+    createMobileMenuMarkUp();
+}
+
+const burgerBtnEl = document.querySelector('.js-open-menu');
+const mobileDivEl = document.querySelector('.js-menu');
+const iconOpenMobileMenu = document.querySelector('.icon-burger-menu');
+const iconCloseMobileMenu = document.querySelector('.icon-close-menu');
+const userLoginMobileBtn = document.querySelector('.user-login');
+const mobileNavigation = document.querySelector('.navigation');
 const authMobileBtn = document.querySelector('.auth-btn');
 
 burgerBtnEl.addEventListener('click', onOpenMobileMenu);
 authMobileBtn.addEventListener('click', onOpenMobileMenu);
 
+
+
+// ----------------------------------------------------------------------------------------------
 
 function onOpenMobileMenu(evt) {
   if (iconCloseMobileMenu.classList.contains('is-hidden')) {
@@ -27,6 +35,7 @@ function onOpenMobileMenu(evt) {
 function showMobileMenu() {
   mobileDivEl.classList.remove('is-hidden');
 }
+
 function hideMobileMenu() {
   mobileDivEl.classList.add('is-hidden');
 }
@@ -95,8 +104,4 @@ function createMobileMenuMarkUp(){
     </div>`
 
   mobileMenu.innerHTML = mobileMenuMarkup;
-}
-
-export {
-  createMobileMenuMarkUp,
 }
