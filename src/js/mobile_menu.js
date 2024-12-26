@@ -1,7 +1,6 @@
 
 const pageWidth = document.documentElement.scrollWidth ; 
-let mobileMenu, burgerIcon, closeMobileMenuIcon;
-//, userLoginMobileBtn, mobileNavigation, authMobileBtn;
+let mobileMenu, burgerIcon, closeMobileMenuIcon, userLoginBtn, navigation, authBtn;
 
 if (pageWidth < 768) { 
     
@@ -10,10 +9,12 @@ if (pageWidth < 768) {
     mobileMenu = document.querySelector('.mobile-menu');
     burgerIcon = document.querySelector('.burger-icon');
     closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
-//    userLoginMobileBtn = document.querySelector('.user-login');
-//    mobileNavigation = document.querySelector('.navigation');
- //   authMobileBtn = document.querySelector('.auth-btn');
-    // authMobileBtn.addEventListener('click', openLogoutModal);
+    userLoginBtn = document.querySelector('.user-login-btn');
+    navigation = document.querySelector('.navigation');
+    authBtn = document.querySelector('.auth-btn');
+        
+    userLoginBtn.addEventListener('click', openAuthModal);
+    authBtn.addEventListener('click', openLogoutModal);
 
 }else{
 

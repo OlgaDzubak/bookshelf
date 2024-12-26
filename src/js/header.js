@@ -20,18 +20,17 @@ if (pageWidth < 768) {
 }else{
     
     createNonMobileHeaderMarkUp();
+
+    navigation = document.querySelector('.navigation');
+    userLoginBtn = document.querySelector('.user-login-btn');
+    authBtn = document.querySelector('.auth-btn');
+    //authBtnImg= authBtn.querySelector('.user-img');
+    //authBtnName= authBtn.querySelector('.login-p');
+    //userPhotoImg = document.querySelector('.user-photo-img');
+
+    userLoginBtn.addEventListener('click', openAuthModal);
+    authBtn.addEventListener('click', openLogoutModal);
 }
-
-navigation = document.querySelector('.navigation');
-userLoginBtn = document.querySelector('.user-login-btn');
-authBtn = document.querySelector('.auth-btn');
-//authBtnImg= authBtn.querySelector('.user-img');
-//authBtnName= authBtn.querySelector('.login-p');
-//userPhotoImg = document.querySelector('.user-photo-img');
-
-
-userLoginBtn.addEventListener('click', openAuthModal);
-authBtn.addEventListener('click', openLogoutModal);
 
 
 showHeader();
