@@ -17,7 +17,7 @@ if (pageWidth < 768) {
 
 }else{
     
-    mobidocument.querySelector('.mobile-menu').remove();
+    document.querySelector('.mobile-menu').remove();
 
 }
 
