@@ -3,13 +3,8 @@ import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { openLogoutModal } from './logout_modal_window';
 
-import logoIcon from '../images/svg/logo_icon.svg';
 import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
-import shoppingBagIcon from '../images/svg/shopping_bag_icon.svg';
-
-import authTriangle from '../images/svg/auth_triangle_icon.svg';
 import userIcon from  '../images/svg/user_Icon.svg';
-import arrowRightIcon from '../images/svg/arrow_right_icon.svg';
 
 const api = new bookshelf_API();
 let burgerBtn, navigation, userLoginBtn, authBtn, authBtnImg, authBtnName, userPhotoImg, abortCtrl;
@@ -106,9 +101,14 @@ function createNonMobileHeaderMarkUp(){
             <div class="logo-and-navigation">
 
                 <a class="logo-link link" href="/src/index.html" aria-label="Посилання на головну сторінку">
-                    <svg class="logo-icon" width="24" height="24">
-                        <use href=${logoIcon}></use>
-                    </svg>Bookshelf
+                    <svg viewBox="0 0 32 32" class="logo-icon" width="24" height="24">
+                        <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M0 0l16.343 16.172 15.657 15.828v-32h-32z"></path>
+                        <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M4.457 4.228l11.943 11.829 11.257 11.485h-23.2v-23.315z"></path>
+                        <path fill="#4f2ee8" style="fill: var(--color3, #4f2ee8)" d="M27.733 27.619l-11.944-11.829-11.256-11.485h23.2v23.315z"></path>
+                        <path fill="#4f2ee8" style="fill: var(--color3, #4f2ee8)" d="M9.257 9.028l13.6 13.601h-13.6v-13.6z"></path>
+                        <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M9.257 9.028l13.6 13.601v-13.6h-13.6z"></path>
+                    </svg>
+                    Bookshelf
                 </a>
 
                 <nav class="navigation is-hidden">
@@ -155,7 +155,9 @@ function createNonMobileHeaderMarkUp(){
                 <div class="log-div">
 
                     <button class="user-login-btn link is-hidden">Sign up<svg class="icon-arrow-right" width="20" height="20">
-                        <use href=${arrowRightIcon}></use></svg>
+                        <svg id="arrow-right-icon" viewBox="0 0 32 32">
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M5.333 16h21.333M26.667 16l-8-8M26.667 16l-8 8"></path>
+                        </svg>
                     </button>
 
                     <button class="auth-btn is-hidden">
@@ -190,9 +192,14 @@ function createMobileHeaderMarkUp(){
             <div class="logo-and-navigation">
 
                 <a class="logo-link link" href="/src/index.html" aria-label="Посилання на головну сторінку">
-                    <svg class="logo-icon" width="24" height="24">
-                        <use href=${logoIcon}></use>
-                    </svg>Bookshelf
+                    <svg viewBox="0 0 32 32" class="logo-icon" width="24" height="24">
+                        <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M0 0l16.343 16.172 15.657 15.828v-32h-32z"></path>
+                        <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M4.457 4.228l11.943 11.829 11.257 11.485h-23.2v-23.315z"></path>
+                        <path fill="#4f2ee8" style="fill: var(--color3, #4f2ee8)" d="M27.733 27.619l-11.944-11.829-11.256-11.485h23.2v23.315z"></path>
+                        <path fill="#4f2ee8" style="fill: var(--color3, #4f2ee8)" d="M9.257 9.028l13.6 13.601h-13.6v-13.6z"></path>
+                        <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M9.257 9.028l13.6 13.601v-13.6h-13.6z"></path>
+                    </svg>
+                    Bookshelf
                 </a>
 
                 <nav class="navigation is-hidden">
@@ -238,8 +245,11 @@ function createMobileHeaderMarkUp(){
                 <div class="log-div">
 
                     <button class="burger-menu-btn js-open-mobile-menu" type="button" aria-label="mobile menu">
-                        <svg class="burger-logo">
-                            <use class="icon-burger-mobile-menu" href=${burgerMenuIcon}></use>
+                        <svg class="burger-logo" viewBox="0 0 32 32">
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M22.667 13.333h-18.667"></path>
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M28 8h-24"></path>
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M28 18.667h-24"></path>
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M22.667 24h-18.667"></path>
                         </svg>
                     </button>
 
