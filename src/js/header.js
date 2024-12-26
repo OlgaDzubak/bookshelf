@@ -117,15 +117,27 @@ function createNonMobileHeaderMarkUp(){
                 
                 <div class="log-div">
 
-                    <button class="burger-menu js-open-mobile-menu" type="button" aria-label="mobile menu">
-                        <svg class="burger-logo">
-                        <use class="icon-burger-mobile-menu" href="/src/images/svg/sprite.svg#burger-menu-icon"></use>
-                        <use class="icon-close-mobile-menu is-hidden" href="/src/images/svg/sprite.svg#x-close-icon"></use>
-                        </svg>
+                    <button class="user-login-btn link is-hidden">Sign up<svg class="icon-arrow-right" width="20" height="20">
+                        <use href="/src/images/svg/sprite.svg#arrow-narrow-right-icon"></use></svg>
                     </button>
 
-                 </div>
-            </div>
+                    <button class="auth-btn is-hidden">
+
+                        <div  class="user-img-div">
+                            <img class="user-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
+                        </div>
+
+                        <p class="login-p">Login</p>
+                        
+                        <div  class="auth-triangle-icon-div">
+                            <svg class="auth-triangle-icon">
+                                <use href="/src/images/svg/sprite.svg#auth-triangle"></use>
+                            </svg>
+                        </div>
+                        
+                    </button>
+
+                </div>
 
         </div>`
 
@@ -193,26 +205,6 @@ function createMobileHeaderMarkUp(){
                         <use class="icon-burger-mobile-menu" href="/src/images/svg/sprite.svg#burger-menu-icon"></use>
                         <use class="icon-close-mobile-menu is-hidden" href="/src/images/svg/sprite.svg#x-close-icon"></use>
                         </svg>
-                    </button>
-
-                    <button class="user-login-btn link is-hidden">Sign up<svg class="icon-arrow-right" width="20" height="20">
-                        <use href="/src/images/svg/sprite.svg#arrow-narrow-right-icon"></use></svg>
-                    </button>
-
-                    <button class="auth-btn is-hidden">
-
-                        <div  class="user-img-div">
-                            <img class="user-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
-                        </div>
-
-                        <p class="login-p">Login</p>
-                        
-                        <div  class="auth-triangle-icon-div">
-                            <svg class="auth-triangle-icon">
-                                <use href="/src/images/svg/sprite.svg#auth-triangle"></use>
-                            </svg>
-                        </div>
-                        
                     </button>
 
                 </div>
