@@ -8,9 +8,9 @@ import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
 import shoppingBagIcon from '../images/svg/shopping_bag_icon.svg';
 
 const api = new bookshelf_API();
-let burgerBtn, userLoginBtn, navigation, authBtn, authBtnImg, abortCtrl;
-const pageWidth = document.documentElement.scrollWidth ; 
+let burgerBtn, navigation, userLoginBtn, authBtn, authBtnImg, authBtnName, userPhotoImg, abortCtrl;
 
+const pageWidth = document.documentElement.scrollWidth ; 
 if (pageWidth < 768) {
 
     createMobileHeaderMarkUp();
