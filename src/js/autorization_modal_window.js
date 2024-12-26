@@ -33,7 +33,7 @@ function onCloseAuthModal() {
 
 function onEscKeyDown(e) {
   if (e.code === 'Escape') {
-    onCloseModal();
+    onCloseAuthModal();
   }
 }
 
