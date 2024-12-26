@@ -3,6 +3,10 @@ import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { openLogoutModal } from './logout_modal_window';
 
+import logoIcon from '../images/svg/logo_icon.svg';
+import burgerMenuIcon from '../images/svg/burger_menu_icon.svg';
+import shoppingBagIcon from '../images/svg/shopping_bag_icon.svg';
+
 const api = new bookshelf_API();
 let abortCtrl;
 const pageWidth = document.documentElement.scrollWidth ; 
@@ -49,7 +53,6 @@ async function showHeader(){
             headerNotAuthorised();
         }
 }
-
 
 function headerNotAuthorised(){
 
@@ -151,7 +154,7 @@ function createMobileHeaderMarkUp(){
 
                 <a class="logo-link link" href="/src/index.html" aria-label="Посилання на головну сторінку">
                     <svg class="logo-icon" width="24" height="24">
-                        <use href="/src/images/svg/sprite.svg#logo-icon"></use>
+                        <use href=${logoIcon}></use>
                     </svg>Bookshelf
                 </a>
 
@@ -172,7 +175,7 @@ function createMobileHeaderMarkUp(){
                                 <span>SHOPPING LIST</span>
                                 
                                 <svg class="shopping-bag-icon" width="20" height="20">
-                                    <use href="/src/images/svg/sprite.svg#shopping-bag-icon"></use>
+                                    <use href=${shoppingBagIcon}></use>
                                 </svg>
                                 
                                 <div class="ordered-amount-box">
@@ -199,8 +202,7 @@ function createMobileHeaderMarkUp(){
 
                     <button class="burger-menu js-open-mobile-menu" type="button" aria-label="mobile menu">
                         <svg class="burger-logo">
-                        <use class="icon-burger-mobile-menu" href="/src/images/svg/sprite.svg#burger-menu-icon"></use>
-                        <use class="icon-close-mobile-menu is-hidden" href="/src/images/svg/sprite.svg#x-close-icon"></use>
+                            <use class="icon-burger-mobile-menu" href=${burgerMenuIcon}></use>
                         </svg>
                     </button>
 

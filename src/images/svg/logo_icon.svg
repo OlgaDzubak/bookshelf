@@ -1,0 +1,7 @@
+<svg id="logo-icon" viewBox="0 0 32 32">
+    <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M0 0l16.343 16.172 15.657 15.828v-32h-32z"></path>
+    <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M4.457 4.228l11.943 11.829 11.257 11.485h-23.2v-23.315z"></path>
+    <path fill="#4f2ee8" style="fill: var(--color3, #4f2ee8)" d="M27.733 27.619l-11.944-11.829-11.256-11.485h23.2v23.315z"></path>
+    <path fill="#4f2ee8" style="fill: var(--color3, #4f2ee8)" d="M9.257 9.028l13.6 13.601h-13.6v-13.6z"></path>
+    <path fill="#f6f6f6" style="fill: var(--color2, #f6f6f6)" d="M9.257 9.028l13.6 13.601v-13.6h-13.6z"></path>
+</svg>
