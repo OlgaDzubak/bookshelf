@@ -1,3 +1,5 @@
+import { openAuthModal } from './autorization_modal_window';
+import { openLogoutModal } from './logout_modal_window';
 
 const pageWidth = document.documentElement.scrollWidth ; 
 let mobileMenu, burgerIcon, closeMobileMenuIcon, userLoginBtn, navigation, authBtn;
