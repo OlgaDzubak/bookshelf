@@ -7,7 +7,6 @@ if (pageWidth < 768) {
     createMobileMenuMarkUp();
 
     burgerBtnEl = document.querySelector('.js-open-menu');
-    burgerBtnEl.addEventListener('click', onOpenMobileMenu);
     mobileDivEl = document.querySelector('.js-menu');
     iconOpenMobileMenu = document.querySelector('.icon-burger-menu');
     iconCloseMobileMenu = document.querySelector('.icon-close-menu');
@@ -15,7 +14,14 @@ if (pageWidth < 768) {
     mobileNavigation = document.querySelector('.navigation');
     authMobileBtn = document.querySelector('.auth-btn');
 
+    burgerBtnEl.addEventListener('click', onOpenMobileMenu);
     authMobileBtn.addEventListener('click', onOpenMobileMenu);
+
+}else{
+
+    const mobileMenu = document.querySelector('.mobile-menu');
+    mobileMenu.remove();
+
 }
 
 
