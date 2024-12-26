@@ -16,7 +16,7 @@ const authBtn = document.querySelector('.auth-btn');
 const authMobileBtn = document.querySelector('.auth-mobile-btn');
 
 const authBtnImg= authBtn.querySelector('.user-img');
-const authMobileBtnImg= authBtn.querySelector('.user-mobile-img');
+const authMobileBtnImg= authMobileBtn.querySelector('.user-mobile-img');
 
 const authBtnName= authBtn.querySelector('.login-p');
 const authMobileBtnName= authBtn.querySelector('.login-mobile-p');
