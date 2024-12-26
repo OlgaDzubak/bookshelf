@@ -6,15 +6,13 @@ if (pageWidth < 768) {
     
     createMobileMenuMarkUp();
 
-    //burgerBtn = document.querySelector('.burger-menu-btn');
-    mobileDivEl = document.querySelector('.js-menu');
+    mobileMenu = document.querySelector('.mobile-menu');
     iconOpenMobileMenu = document.querySelector('.icon-burger-menu');
     iconCloseMobileMenu = document.querySelector('.icon-close-menu');
     userLoginMobileBtn = document.querySelector('.user-login');
     mobileNavigation = document.querySelector('.navigation');
     authMobileBtn = document.querySelector('.auth-btn');
 
-    // burgerBtn.addEventListener('click', onOpenMobileMenu);
     authMobileBtn.addEventListener('click', onOpenMobileMenu);
 
 }else{
@@ -28,14 +26,10 @@ if (pageWidth < 768) {
 // ----------------------------------------------------------------------------------------------
 
 function onOpenMobileMenu(evt) {
-  if (iconCloseMobileMenu.classList.contains('is-hidden')) {
+  if (mobileMenu.classList.contains('is-hidden')) {
     showMobileMenu();
-    iconOpenMobileMenu.classList.add('is-hidden');
-    iconCloseMobileMenu.classList.remove('is-hidden');
   } else {
     hideMobileMenu();
-    iconOpenMobileMenu.classList.remove('is-hidden');
-    iconCloseMobileMenu.classList.add('is-hidden');
   }
 }
 
