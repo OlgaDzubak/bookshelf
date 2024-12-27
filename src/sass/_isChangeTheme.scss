@@ -21,10 +21,13 @@ body.dark {
     body.dark .logo-link,
     body.dark .home-link,
     body.dark .shopping-link,
-    body.dark .shopping-link .shopping-bag-icon,
-    body.dark .burger-logo {
+    body.dark .shopping-link .shopping-bag-icon{
         color: var(--accent-color3);
         fill: var(--accent-color3);
+        stroke: var(--accent-color3);
+    }
+    body.dark .burger-menu-icon,
+    body.dark .close-mobile-menu-icon{
         stroke: var(--accent-color3);
     }
 
