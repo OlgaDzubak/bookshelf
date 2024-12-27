@@ -26,7 +26,8 @@ const booksBox = document.querySelector(".books-box");
 const scrollUpBtn = document.querySelector('.btn-up-scroll');
 const body = document.querySelector('body');
 
-let categoryList, itemAllCategories, abortCtrl1, per_page, categoriesAreLoaded=false, bestBooksAreLoaded=false;
+let categoryList, itemAllCategories, abortCtrl1, per_page;
+let categoriesAreLoaded=false, bestBooksAreLoaded=false;
 let firstLoading = true, loader1;
 
 const pageWidth = document.documentElement.scrollWidth ; 

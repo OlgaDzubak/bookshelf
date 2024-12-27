@@ -1,9 +1,9 @@
 
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
-import { openAuthModal } from './autorization_modal_window';
+import { openAuthModal } from './modal_windows/autorization_modal_window';
 import { openLogoutModal } from './modal_windows/logout_modal_window';
-import { openMobileMenu } from './mobile_menu';
+import { openMobileMenu } from './modal_windows/mobile_menu';
 import userIcon from  '../images/svg/user_Icon.svg';
 
 const api = new bookshelf_API();
