@@ -112,8 +112,7 @@
     }
     .shopping-bag-icon {
         fill: var(--text-dark-color);
-        stroke: none;
-        stroke-width: 0.2;
+        stroke: none;        
         transition: fill var(--transition), stroke var(--transition) ;
     }
     .home-link.selected, .shopping-link.selected {
@@ -125,6 +124,7 @@
     .shopping-link:focus .shopping-bag-icon{
         fill: var(--text-dark-color);
         stroke: var(--text-dark-color);
+        stroke-width: 0.2;
     }
     .ordered-amount-box{
         position: absolute;
