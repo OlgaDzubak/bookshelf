@@ -301,37 +301,6 @@ function createMobileHeaderMarkUp(){
                     Bookshelf
                 </a>
 
-                <nav class="navigation is-hidden">
-
-                    <ul class="nav-list list">
-
-                        <li class="nav-item">
-                            <a class="home-link js-nav-homelink link" href="/src/index.html" aria-label="Посилання на головну сторінку">HOME</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a  class="shopping-link link js-nav-shoppinglistlink" 
-                                href="/src/shopping_list_page.html" 
-                                aria-label="Посилання на сторінку Shopping List"
-                            >
-                                <span>SHOPPING LIST</span>
-                                
-                                <svg viewBox="0 0 32 32" class="shopping-bag-icon" width="20" height="20">
-                                    <path d="M25.333 9.333h-4v-1.333c0-2.945-2.388-5.333-5.333-5.333s-5.333 2.388-5.333 5.333v0 1.333h-4c-0 0-0.001 0-0.002 0-0.736 0-1.333 0.597-1.333 1.333 0 0.001 0 0.001 0 0.002v-0 14.666c0 2.209 1.791 4 4 4v0h13.334c2.209 0 4-1.791 4-4v0-14.666c0-0 0-0.001 0-0.002 0-0.736-0.597-1.333-1.333-1.333-0.001 0-0.001 0-0.002 0h0zM13.333 8c0-1.473 1.194-2.667 2.667-2.667s2.667 1.194 2.667 2.667v1.333h-5.334v-1.333zM24 25.333c0 0 0 0.001 0 0.002 0 0.736-0.597 1.333-1.333 1.333h-13.334c-0.736 0-1.333-0.597-1.333-1.333 0-0.001 0-0.001 0-0.002v0-13.333h2.667v1.333c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v0-1.333h5.334v1.333c0.036 0.708 0.619 1.269 1.333 1.269s1.297-0.561 1.333-1.266l0-0.003v-1.333h2.667v13.333z"></path>
-                                </svg>
-                                
-                                <div class="ordered-amount-box">
-                                    <p class="ordered-amount"></p>
-                                </div>
-
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </nav>
-
             </div>
         
             <div class="switch-burger-login">
