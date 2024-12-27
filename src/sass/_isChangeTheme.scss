@@ -41,7 +41,7 @@ body.dark {
     body.dark .shopping-link:hover .shopping-bag-icon,
     body.dark .shopping-link:focus .shopping-bag-icon,
     body.dark .shopping-link.selected .shopping-bag-icon,
-    body.dark .shopping-link.selected .shopping-bag-icon.mobile-selected{
+    body.dark .shopping-link.mobile-selected .shopping-bag-icon{
         color: var(--text-dark-color);
         fill: var(--text-dark-color);
         stroke: var(--text-dark-color);
