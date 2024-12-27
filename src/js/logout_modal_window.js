@@ -10,7 +10,7 @@ let abortCtrl1, loader;
 const pageWidth = document.documentElement.scrollWidth ; 
 
 if (pageWidth < 768) { 
-    document.querySelector('logout-modal-backdrop').remove();
+    document.querySelector('.logout-modal-backdrop').remove();
 }else{
 
 }
