@@ -4,28 +4,32 @@ import { bookshelf_API } from './API';
 import { openAuthModal } from './modal_windows/autorization_modal_window';
 import { openLogoutModal } from './modal_windows/logout_modal_window';
 import { openMobileMenu } from './modal_windows/mobile_menu';
+import { openProfileModal } from './modal_windows/user_profile_modal_window';
+
 import userIcon from  '../images/svg/user_Icon.svg';
 
-const api = new bookshelf_API();
+api = new bookshelf_API();
 let abortCtrl;
 
+const burgerBtn = document.querySelector(".burger-menu-btn");
 const navigation = document.querySelector('.navigation');
 const mobileNavigation = document.querySelector('.mobile-menu .navigation');
-
 const userLoginBtn = document.querySelector('.user-login-btn');
 const userMobileLoginBtn = document.querySelector('.mobile-menu .user-login-btn');
-
 const authBtn = document.querySelector('.auth-btn');
-const authBtnImg = authBtn.querySelector('.user-img');
-const authBtnName = authBtn.querySelector('.login-p');
-
+const authBtnImg= authBtn.querySelector('.user-img');
+const authBtnName= authBtn.querySelector('.login-p');
 const authMobileBtn = document.querySelector('.mobile-menu .auth-btn');
 const authMobileBtnImg= authMobileBtn.querySelector('.user-img');
 const authMobileBtnName= authMobileBtn.querySelector('.login-p');
-
 const userPhotoImg = document.querySelector('.user-photo-img');
 const userMobileMenuLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
 
+burgerBtn.addEventListener('click', openMobileMenu);
+userLoginBtn.addEventListener('click', openAuthModal);
+userMobileLoginBtn.addEventListener('click', openAuthModal);
+authBtn.addEventListener('click', openLogoutModal);
+authMobileBtn.addEventListener('click', openProfileModal);
 
 showHeader();
 
@@ -34,23 +38,23 @@ showHeader();
 
 async function showHeader(){
 
-    if (abortCtrl) { abortCtrl.abort(); }
-    
-    try{
+        if (abortCtrl) { abortCtrl.abort(); }
+        
+        try{
 
-        abortCtrl = new AbortController();
+            abortCtrl = new AbortController();
 
-        const {user} = await api.refreshUser(abortCtrl);
+            const {user} = await api.refreshUser(abortCtrl);
 
-        if (user){
-            headerAuthorised(user);                
-        }else{ 
-            throw new Error("Not authorized");
+            if (user){
+                headerAuthorised(user);                
+            }else{ 
+                throw new Error("Not authorized");
+            }
+
+        }catch(error){
+            headerNotAuthorised();
         }
-
-    }catch(error){
-        headerNotAuthorised();
-    }
 }
 function headerNotAuthorised(){
     
@@ -85,7 +89,7 @@ function headerAuthorised(user){
     authBtn.classList.remove("is-hidden");
     authMobileBtn.classList.remove("is-hidden");
     userMobileMenuLogoutBtn.classList.remove("is-hidden");
-    navigation.classList.remove("is-hidden");    
+    navigation.classList.remove("is-hidden");
     mobileNavigation.classList.remove("is-hidden");
     
     if (user.shopping_list.length > 0){
