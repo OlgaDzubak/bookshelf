@@ -105,24 +105,36 @@
     .slider.round:before {
         border-radius: 50%;
     }
+
+
     .shopping-link{
         position: relative;
     }
     .shopping-bag-icon {
         fill: var(--text-dark-color);
     }
+    .home-link.selected, .shopping-link.selected {
+        background-color: var(--accent-color2);
+        font-weight: 700;
+    }
+    .shopping-link.selected .shopping-bag-icon,
+    .shopping-link:hover .shopping-bag-icon,
+    .shopping-link:focus .shopping-bag-icon{
+        fill: var(--text-dark-color);
+        stroke: var(--text-dark-color);
+    }
     .ordered-amount-box{
-    position: absolute;
-    bottom: 0;
-    right: 8px;
-    background-color: var(--accent-color1);
-    text-align: center;
-    display: none;
-
-    border-radius: 50%;
-    width: 17px;
-    height: 17px;
-    padding: 2px;
+        position: absolute;
+        bottom: 0;
+        right: 8px;
+        background-color: var(--accent-color1);
+        text-align: center;
+        display: none;
+    
+        border-radius: 50%;
+        width: 17px;
+        height: 17px;
+        padding: 2px;
     }
     .ordered-amount{
         color: var(--accent-color3);
@@ -131,14 +143,7 @@
     transform: translateY(-3px);
     }
 
-    .home-link.selected, .shopping-link.selected {
-        background-color: var(--accent-color2);
-        font-weight: 700;
-    }
-    .shopping-link.selected .shopping-bag-icon {
-        fill: var(--text-dark-color);
-        stroke: var(--text-dark-color);
-    }
+
     .auth-btn{
        position: relative;
        padding: 4px 12px;
@@ -246,10 +251,6 @@
             width: 14px;
             top: 0.5px;
         }
-        .burger-logo {
-            width:20px;
-            height:20px;
-        }
         .switch {
             width: 28px;
             margin-right: 10px;
@@ -262,10 +263,10 @@
 
     }
     @media screen and (min-width: 250px){
-        .burger-logo {
-            width:28px;
-            height:28px;
-        }
+        // .burger-logo {
+        //     width:28px;
+        //     height:28px;
+        // }
         .switch {
             margin-right: 14px;
             width: 40px;
