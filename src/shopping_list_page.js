@@ -1,12 +1,12 @@
 import './js/header';
-import './js/mobile_menu';
 import './js/isChangeTheme';
 import './js/shopping_list';
 import './js/support_ukraine';
-import './js/about_us_modal_window';
-import './js/autorization_modal_window';
-import './js/logout_modal_window';
-import './js/user_profile_modal_window';
+import './js/modal_windows/mobile_menu';
+import './js/modal_windows/about_us_modal_window';
+import './js/modal_windows/autorization_modal_window';
+import './js/modal_windows/logout_modal_window';
+import './js/modal_windows/user_profile_modal_window';
 
 
 const shoppingListLinkEl = document.querySelector('.js-nav-shoppinglistlink');
