@@ -8,7 +8,7 @@ import userIcon from  '../images/svg/user_Icon.svg';
 const api = new bookshelf_API();
 let abortCtrl, burgerBtn, userLoginBtn, navigation, authBtn, logoutBtn, logoutModal, editProfileBtn;
 
-const pageWidth = document.documentElement.scrollWidth ; 
+const pageWidth = document.documentElement.scrollWidth; 
 if (pageWidth < 768) {
 
     createMobileHeaderMarkUp();
@@ -320,7 +320,7 @@ function createMobileHeaderMarkUp(){
                             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M22.667 24h-18.667"></path>
                         </svg>
 
-                        <svg class="close-mobile-menu-icon is-hidden" viewBox="0 0 32 32">
+                        <svg class="close-mobile-menu-icon is-hidden" width="14" height="14" viewBox="0 0 32 32">
                             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286" d="M24 8l-16 16M8 8l16 16"></path>
                         </svg>
                     </button>
