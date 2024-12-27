@@ -10,7 +10,10 @@ import './js/modal_windows/user_profile_modal_window';
 import './js/modal_windows/book_modal_window';
 import './js/modal_windows/about_us_modal_window';
 
+const mobileMenu = document.querySelector('.mobile-menu');
 const homeLinkEl = document.querySelector('.js-nav-homelink');
 const mobileHomeLinkEl = document.querySelector('.js-mobile-nav-homelink');
+
+mobileMenu.classList.add('is-hidden');
 homeLinkEl.classList.toggle('selected');
 mobileHomeLinkEl.classList.toggle('mobile-selected');
