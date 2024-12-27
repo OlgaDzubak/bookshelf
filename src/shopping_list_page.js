@@ -1,13 +1,11 @@
 import './js/header';
 import './js/mobile_menu';
-import './js/logout_modal_window';
-
 import './js/isChangeTheme';
 import './js/shopping_list';
 import './js/support_ukraine';
-
 import './js/about_us_modal_window';
 import './js/autorization_modal_window';
+import './js/logout_modal_window';
 import './js/user_profile_modal_window';
 
 
