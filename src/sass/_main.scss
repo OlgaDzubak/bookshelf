@@ -18,7 +18,7 @@
     .logout-modal-backdrop {
         position: fixed;
         z-index: 1100;
-        padding: 20px 20px;
+        padding: 20px 20px 20px 20px;
         top: 0;
         left: 0;
         width: 100%;
@@ -527,6 +527,12 @@
         .img-book {
             width: 335px;
             height: auto; // 485px;
+        }
+        .logout-modal-backdrop,
+        .user-profile-modal-backdrop,
+        .book-modal-backdrop,
+        .logout-modal-backdrop {
+            padding: 64px 20px 20px 20px;
         }
     }
 //}
