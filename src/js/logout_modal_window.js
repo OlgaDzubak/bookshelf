@@ -17,7 +17,7 @@ if (pageWidth < 768) {
 }
 
 const editProfileBtn = document.querySelector(".edit-profile-btn");
-const logoutBtn = document.querySelector(".logout-btn");
+const logoutBtn = logoutModal.querySelector(".logout-btn");
 
 logoutBtn.addEventListener("click", logout);
 editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
