@@ -1,4 +1,5 @@
 // MOBILE MENU ------ styles
+@media screen and (max-width: 767.8px) {
     .mobile-menu {
         position: fixed;
         z-index: 1020;
@@ -198,3 +199,4 @@
         height: 15px;
         content: url("/src/images/svg/arrow-right.svg");
     }
+}
