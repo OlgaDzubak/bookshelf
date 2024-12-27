@@ -11,12 +11,10 @@ const pageWidth = document.documentElement.scrollWidth ;
 
 if (pageWidth < 768) { 
     document.querySelector('.logout-modal-backdrop').remove();
-}else{
-
 }
 
-const editProfileBtn =  document.querySelector(".edit-profile-btn");
-const logoutBtn =  document.querySelector(".logout-btn");
+const editProfileBtn = document.querySelector(".edit-profile-btn");
+const logoutBtn = document.querySelector(".logout-btn");
 
 logoutBtn.addEventListener("click", logout);
 editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
