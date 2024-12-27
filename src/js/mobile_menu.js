@@ -1,9 +1,9 @@
 import { openAuthModal } from './autorization_modal_window';
 import { openLogoutModal } from './logout_modal_window';
 
-const pageWidth = document.documentElement.scrollWidth ; 
-let  userLoginBtn, navigation, authBtn;
+let  userLoginBtn, navigation, authBtn, logoutBtn;
 
+const pageWidth = document.documentElement.scrollWidth ; 
 if (pageWidth < 768) { 
     
     createMobileMenuMarkUp();
@@ -11,9 +11,11 @@ if (pageWidth < 768) {
     userLoginBtn = document.querySelector('.user-login-btn');
     navigation = document.querySelector('.navigation');
     authBtn = document.querySelector('.auth-btn');
-        
+    logoutBtn = document.querySelector('.logout-btn');
+
     userLoginBtn.addEventListener('click', openAuthModal);
     authBtn.addEventListener('click', openLogoutModal);
+    logoutBtn.addEventListener('click, ');
 
 }else{
     

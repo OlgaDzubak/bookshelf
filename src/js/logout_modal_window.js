@@ -7,8 +7,14 @@ const api = new bookshelf_API();
 
 let abortCtrl1, loader;
 
-const logoutModalBackDrop =  document.querySelector(".logout-modal-backdrop");
-const logoutModal =  document.querySelector(".logout-modal");
+const pageWidth = document.documentElement.scrollWidth ; 
+
+if (pageWidth < 768) { 
+    document.querySelector('logout-modal-backdrop').remove();
+}else{
+
+}
+
 const editProfileBtn =  document.querySelector(".edit-profile-btn");
 const logoutBtn =  document.querySelector(".logout-btn");
 
@@ -17,7 +23,7 @@ editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfile
 
 function openLogoutModal(){
 
-    logoutModalBackDrop.classList.remove("is-hidden");  
+    document.querySelector(".logout-modal-backdrop").classList.remove("is-hidden");  
 
     window.addEventListener('keydown', onAnyKeyDownLogoutModal);
     window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
@@ -30,11 +36,13 @@ function closeLogoutModal(){
     window.removeEventListener('mousedown', onAnyKeyDownLogoutModal);
     window.removeEventListener('scroll',  ()=>{closeLogoutModal()});
   
-    logoutModalBackDrop.classList.add("is-hidden");
+    document.querySelector(".logout-modal-backdrop").classList.add("is-hidden");
 }
 
 async function logout(){   
     
+    const logoutModal =  document.querySelector(".logout-modal");
+
     if (abortCtrl1) {
         abortCtrl1.abort();
     }
