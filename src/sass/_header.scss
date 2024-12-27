@@ -285,6 +285,11 @@
                 padding-top: 17px;
                 padding-bottom: 16px;
         }
+        .header .navigation,
+        .header .auth-btn {
+            direction: none;
+        }
+        
      }
 
 
