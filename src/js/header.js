@@ -174,7 +174,7 @@ function createNonMobileHeaderMarkUp(){
                     <button class="auth-btn is-hidden">
 
                         <div  class="user-img-div">
-                            <img class="user-img" alt="user photo" src=${userIcon}/>
+                            <img class="user-img" alt="user photo" src='../images/svg/user_Icon.svg'/>
                         </div>
 
                         <p class="login-p">Login</p>
