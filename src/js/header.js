@@ -6,19 +6,26 @@ import { openLogoutModal } from './modal_windows/logout_modal_window';
 import { openMobileMenu } from './modal_windows/mobile_menu';
 import userIcon from  '../images/svg/user_Icon.svg';
 
-const api = new bookshelf_API();
-let abortCtrl, burgerBtn, userLoginBtn, navigation, authBtn;
+api = new bookshelf_API();
+let abortCtrl;
 
-burgerBtn = document.querySelector(".burger-menu-btn");
-burgerBtn.addEventListener('click', openMobileMenu);
+const navigation = document.querySelector('.navigation');
+const mobileNavigation = document.querySelector('.mobile-menu .navigation');
 
-userLoginBtn = document.querySelector('.header .user-login-btn');
-userLoginBtn.addEventListener('click', openAuthModal);
+const userLoginBtn = document.querySelector('.user-login-btn');
+const userMobileLoginBtn = document.querySelector('.mobile-menu .user-login-btn');
 
-authBtn = document.querySelector('.header .auth-btn');
-authBtn.addEventListener('click', openLogoutModal);
+const authBtn = document.querySelector('.auth-btn');
+const authBtnImg= authBtn.querySelector('.user-img');
+const authBtnName= authBtn.querySelector('.login-p');
 
-navigation = document.querySelector('.navigation');
+const authMobileBtn = document.querySelector('.mobile-menu .auth-btn');
+const authMobileBtnImg= authMobileBtn.querySelector('.user-img');
+const authMobileBtnName= authMobileBtn.querySelector('.login-p');
+
+const userPhotoImg = document.querySelector('.user-photo-img');
+const userMobileMenuLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
+
 
 showHeader();
 
@@ -33,7 +40,7 @@ async function showHeader(){
 
             abortCtrl = new AbortController();
 
-            const {user} = await api.refreshUser(abortCtrl);
+             {user} = await api.refreshUser(abortCtrl);
 
             if (user){
                 headerAuthorised(user);                
@@ -47,11 +54,6 @@ async function showHeader(){
 }
 function headerNotAuthorised(){
     
-    const userLoginBtn = document.querySelector('.user-login-btn');
-    const authBtn = document.querySelector('.auth-btn');
-    const navigation = document.querySelector('.navigation');
-    const userMobileMenuLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
-
     document.cookie = 'accessToken=;  max-age=-1;';
     localStorage.removeItem("bookshelf_orderedbooks");
 
@@ -59,20 +61,10 @@ function headerNotAuthorised(){
 
     authBtn.classList.add("is-hidden");
     navigation.classList.add("is-hidden");
+    mobileNavigation.classList.add("is-hidden");
     userMobileMenuLogoutBtn.classList.add("is-hidden");
 }
 function headerAuthorised(user){
-
-    const navigation = document.querySelector('.navigation');
-    const userLoginBtn = document.querySelector('.user-login-btn');
-    const authBtn = document.querySelector('.auth-btn');
-    const authBtnImg= authBtn.querySelector('.user-img');
-    const authBtnName= authBtn.querySelector('.login-p');
-    const authMobileBtn = document.querySelector('.mobile-menu .auth-btn');
-    const authMobileBtnImg= authMobileBtn.querySelector('.user-img');
-    const authMobileBtnName= authMobileBtn.querySelector('.login-p');
-    const userPhotoImg = document.querySelector('.user-photo-img');
-    const userMobileMenuLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
 
     authBtnName.textContent = user.name;
     authMobileBtnName.textContent = user.name;
@@ -88,12 +80,13 @@ function headerAuthorised(user){
     }
     
     userLoginBtn.classList.add("is-hidden");
-    userMobileMenuLogoutBtn.classList.add("is-hidden");
-    
+    userMobileLoginBtn.classList.add("is-hidden");
+
     authBtn.classList.remove("is-hidden");
     authMobileBtn.classList.remove("is-hidden");
     userMobileMenuLogoutBtn.classList.remove("is-hidden");
     navigation.classList.remove("is-hidden");    
+    mobileNavigation.classList.remove("is-hidden");
     
     if (user.shopping_list.length > 0){
         displayOrdredAmountInShoppingBag(user.shopping_list);
