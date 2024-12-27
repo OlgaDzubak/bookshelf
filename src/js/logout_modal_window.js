@@ -7,11 +7,12 @@ const api = new bookshelf_API();
 
 let abortCtrl1, loader, logoutModal, editProfileBtn, logoutBtn;
 
-editProfileBtn = document.querySelector(".logout-modal .edit-profile-btn");
+logoutModal = document.querySelector(".logout-modal");
+
+editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
 editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 
-logoutBtn = document.querySelector(".logout-modal .logout-btn");
-console.log(logoutBtn);
+logoutBtn = logoutModal.querySelector(".logout-btn");
 logoutBtn.addEventListener("click", logout);
 
 
