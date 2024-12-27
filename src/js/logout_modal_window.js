@@ -5,12 +5,15 @@ import {openProfileModal} from './user_profile_modal_window';
 
 const api = new bookshelf_API();
 
-let abortCtrl1, loader;
+let abortCtrl1, loader, logoutModal;
 
 const pageWidth = document.documentElement.scrollWidth ; 
 
 if (pageWidth < 768) { 
     document.querySelector('.logout-modal-backdrop').remove();
+    logoutModal =  document.querySelector(".mobile-menu");
+}else{
+    logoutModal =  document.querySelector(".logout-modal");
 }
 
 const editProfileBtn = document.querySelector(".edit-profile-btn");
@@ -39,8 +42,6 @@ function closeLogoutModal(){
 
 async function logout(){   
     
-    const logoutModal =  document.querySelector(".logout-modal");
-
     if (abortCtrl1) {
         abortCtrl1.abort();
     }
