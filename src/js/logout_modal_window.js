@@ -5,22 +5,25 @@ import {openProfileModal} from './user_profile_modal_window';
 
 const api = new bookshelf_API();
 
-let abortCtrl1, loader, logoutModal;
+let abortCtrl1, loader, logoutModal, editProfileBtn;
 
-const pageWidth = document.documentElement.scrollWidth ; 
-
+const pageWidth = document.documentElement.scrollWidth;
 if (pageWidth < 768) { 
     document.querySelector('.logout-modal-backdrop').remove();
-    logoutModal =  document.querySelector(".mobile-menu");
+    logoutModal = document.querySelector(".mobile-menu");
+    
 }else{
-    logoutModal =  document.querySelector(".logout-modal");
+    logoutModal = document.querySelector(".logout-modal");
+    editProfileBtn = document.querySelector(".edit-profile-btn");
+    editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 }
 
-const editProfileBtn = document.querySelector(".edit-profile-btn");
 const logoutBtn = logoutModal.querySelector(".logout-btn");
-
 logoutBtn.addEventListener("click", logout);
-editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
+
+
+
+//-----------------------------------------------------------------------------------------------------------
 
 function openLogoutModal(){
 
