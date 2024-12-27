@@ -1,4 +1,3 @@
-import './js/body.js';
 import './js/header';
 import './js/mobile_menu';
 import './js/logout_modal_window';
