@@ -8,7 +8,7 @@ import { openProfileModal } from './modal_windows/user_profile_modal_window';
 
 import userIcon from  '../images/svg/user_Icon.svg';
 
-api = new bookshelf_API();
+const api = new bookshelf_API();
 let abortCtrl;
 
 const burgerBtn = document.querySelector(".burger-menu-btn");
