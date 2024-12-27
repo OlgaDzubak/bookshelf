@@ -2,11 +2,14 @@
 //{
       .user-profile-modal{
         position: absolute;
+        top: 50%;
+        left: 50%;
         padding: 40px 40px;
         z-index: 1005;
         background-color: var(--light-theme-background);
         border: 2px solid var(--dark-theme-background);
         border-radius: 18px;
+        transform: translate(-50%, -50%);
       }
 
       .user-profile-modal.is-hidden{
