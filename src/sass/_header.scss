@@ -113,8 +113,8 @@
     .shopping-bag-icon {
         fill: var(--text-dark-color);
         stroke: none;
-        stroke-width: 1;
-        transition: fill var(--transition), stroke var(--transition), stroke-width var(--transition);
+        stroke-width: 0.5;
+        transition: fill var(--transition), stroke var(--transition) ;
     }
     .home-link.selected, .shopping-link.selected {
         background-color: var(--accent-color2);
