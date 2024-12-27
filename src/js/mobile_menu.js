@@ -20,7 +20,7 @@ navigation = document.querySelector('.navigation');
 
 function openMobileMenu() {
   
-  const burgerIcon = document.querySelector('.burger-icon');
+  const burgerIcon = document.querySelector('.burger--menu-icon');
   const closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
   const mobileMenu = document.querySelector('.mobile-menu');
 
