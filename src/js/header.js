@@ -1,32 +1,52 @@
 
 import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
-import { openMobileMenu } from './mobile_menu';
 import { openAuthModal } from './autorization_modal_window';
-import { openLogoutModal } from './logout_modal_window';
+import { openProfileModal } from './user_profile_modal_window';
 import userIcon from  '../images/svg/user_Icon.svg';
 
 const api = new bookshelf_API();
-let abortCtrl; 
+let abortCtrl, burgerBtn, userLoginBtn, navigation, authBtn, logoutBtn;
 
 const pageWidth = document.documentElement.scrollWidth ; 
 if (pageWidth < 768) {
 
     createMobileHeaderMarkUp();
+    createMobileMenuMarkUp();
+    document.querySelector('.logout-modal-backdrop').remove();
 
-    const burgerBtn = document.querySelector(".burger-menu-btn");
+    burgerBtn = document.querySelector(".burger-menu-btn");
     burgerBtn.addEventListener('click', openMobileMenu);
+
+    authBtn = document.querySelector('.auth-btn');
+    authBtn.addEventListener('click', openProfileModal);
+
+    logoutModal = document.querySelector(".mobile-menu");
+    editProfileBtn = logoutModal.querySelector(".mobile-menu .auth-btn");
+    editProfileBtn.addEventListener("click", openProfileModal);
 
 }else{
     
     createNonMobileHeaderMarkUp();
+    createLogOutWindowMarkUp();
+    document.querySelector('.mobile-menu').remove();
 
-    const userLoginBtn = document.querySelector('.user-login-btn');
-    const authBtn = document.querySelector('.auth-btn');
-
-    userLoginBtn.addEventListener('click', openAuthModal);
+    authBtn = document.querySelector('.auth-btn');
     authBtn.addEventListener('click', openLogoutModal);
+
+    logoutModal = document.querySelector(".logout-modal");
+    editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
+    editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 }
+
+userLoginBtn = document.querySelector('.user-login-btn');
+userLoginBtn.addEventListener('click', openAuthModal);
+
+logoutBtn = logoutModal.querySelector(".logout-btn");
+logoutBtn.addEventListener("click", logout);
+
+navigation = document.querySelector('.navigation');
+
 
 showHeader();
 
@@ -53,7 +73,6 @@ async function showHeader(){
             headerNotAuthorised();
         }
 }
-
 function headerNotAuthorised(){
     
     const userLoginBtn = document.querySelector('.user-login-btn');
@@ -104,6 +123,79 @@ function headerAuthorised(user){
 }
 
 
+
+function openMobileMenu() {
+  
+    const burgerIcon = document.querySelector('.burger-icon');
+    const closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
+    const mobileMenu = document.querySelector('.mobile-menu');
+  
+    if (closeMobileMenuIcon.classList.contains('is-hidden')) {
+  
+      closeMobileMenuIcon.classList.remove('is-hidden');
+      burgerIcon.classList.add('is-hidden');
+      mobileMenu.classList.remove('is-hidden');
+  
+    } else {
+  
+      closeMobileMenuIcon.classList.add('is-hidden');
+      burgerIcon.classList.remove('is-hidden');
+      mobileMenu.classList.add('is-hidden');
+  
+    }
+}
+
+
+
+function openLogoutModal(){
+
+    document.querySelector(".logout-modal-backdrop").classList.remove("is-hidden");  
+
+    window.addEventListener('keydown', onAnyKeyDownLogoutModal);
+    window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
+    window.addEventListener('scroll', ()=>{closeLogoutModal()});
+}
+function closeLogoutModal(){
+
+    window.removeEventListener('keydown', onAnyKeyDownLogoutModal);
+    window.removeEventListener('mousedown', onAnyKeyDownLogoutModal);
+    window.removeEventListener('scroll',  ()=>{closeLogoutModal()});
+  
+    document.querySelector(".logout-modal-backdrop").classList.add("is-hidden");
+}
+async function logout(){   
+    
+    if (abortCtrl1) {
+        abortCtrl1.abort();
+    }
+
+    try{
+        loader = createLoader(logoutModal, "into", ["loader-logout-modal", "logout-elm"]);
+        
+        abortCtrl1 = new AbortController();
+        const data = await api.logout(abortCtrl1);
+        
+        loader.remove();       
+
+        closeLogoutModal();
+        headerNotAuthorised();
+
+    }catch(error){
+
+        loader.remove();
+        console.log("error = ",error);
+    }
+}
+function onAnyKeyDownLogoutModal({target, code}){
+   
+    if (!target.classList.contains('logout-elm') || code === 'Escape') {
+        closeLogoutModal();
+    }    
+}
+
+
+
+//створення розмітки
 function createNonMobileHeaderMarkUp(){
     const header =  document.querySelector('.header');
     const headerMarkup = `
@@ -275,9 +367,84 @@ function createMobileHeaderMarkUp(){
         </div>`
 
     header.innerHTML = headerMarkup;
+}  
+function createMobileMenuMarkUp(){
+const mobileMenu =  document.querySelector('.mobile-menu');
+
+const mobileMenuMarkup = `
+    <div class="mobile-menu-container container">
+
+    <div class="user-login-and-navigation-div">
+    
+        <button class="user-login-btn link">Sign up<svg class="icon-arrow-right" width="20" height="20">
+        <use href="/src/images/svg/sprite.svg#arrow_narrow_right_icon"></use></svg>
+        </button>
+
+        <button class="auth-btn is-hidden">
+        <div  class="user-img-div">
+            <img class="user-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
+        </div>
+        <p class="login-p">Login</p>
+        </button>
+
+        <nav class="navigation">
+
+            <ul class="nav-list list">
+
+                <li class="nav-item">
+                    <a class="home-link link js-mobile-nav-homelink" href="./index.html" aria-label="Посилання на головну сторінку">HOME</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="shopping-link link js-mobile-nav-shoppinglistlink" 
+                    href="./shopping_list_page.html" 
+                    aria-label="Посилання на сторінку Shopping List"
+                    >
+                        <span>SHOPPING LIST</span>
+
+                        <svg class="shopping-bag-icon js-mobile-shopping-bag-icon" width="20" height="20">
+                            <use href="/src/images/svg/sprite.svg#shopping-bag-icon"></use>
+                        </svg>
+
+                        <div class="ordered-amount-box">
+                        <p class="ordered-amount"></p>
+                        </div>
+
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+    <button class="logout-btn is-hidden" type="button">Log out</button>
+
+    </div>`
+
+mobileMenu.innerHTML = mobileMenuMarkup;
+}
+function createLogOutWindowMarkUp(){
+    const logOutModal =  document.querySelector('.logout-modal-backdrop');
+
+    const logOutModalMarkUp = `
+        <div class="logout-modal logout-elm ">
+            <div class="edit-profile-div logout-elm">
+                <p class="edit-profile-p logout-elm">Edit profile</p>
+                <button class="edit-profile-btn logout-elm" type="button">
+                    <svg viewBox="0 0 29 29" class="edit-profile-btn-svg logout-elm">
+                        <path d="M8.21756 19.0425C8.26351 18.629 8.28648 18.4222 8.34904 18.229C8.40454 18.0575 8.48296 17.8944 8.58216 17.7439C8.69398 17.5744 8.84107 17.4273 9.13525 17.1331L17.9025 8.36585C18.6568 7.61151 19.8799 7.61151 20.6342 8.36585V8.36585C21.3885 9.12019 21.3885 10.3432 20.6342 11.0976L11.867 19.8648C11.5728 20.159 11.4257 20.3061 11.2561 20.4179C11.1057 20.5171 10.9425 20.5955 10.7711 20.651C10.5778 20.7136 10.3711 20.7366 9.95759 20.7825L8.00006 21L8.21756 19.0425Z" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>        
+        <button class="logout-btn logout-elm" type="button">Log out</button>
+    </div>`
+
+    logOutModal.innerHTML = logOutModalMarkUp;
 }
 
+  
 export {
     headerNotAuthorised,
-    headerAuthorised,
+    headerAuthorised,    
 }

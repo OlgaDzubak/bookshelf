@@ -1,109 +1,109 @@
-import { openAuthModal } from './autorization_modal_window';
-import { openLogoutModal } from './logout_modal_window';
+// import { openAuthModal } from './autorization_modal_window';
+// import { openLogoutModal } from './logout_modal_window';
 
 
-let  userLoginBtn, navigation, authBtn, logoutBtn;
+// let  userLoginBtn, navigation, authBtn, logoutBtn;
 
-const pageWidth = document.documentElement.scrollWidth ; 
-if (pageWidth < 768) { 
+// const pageWidth = document.documentElement.scrollWidth ; 
+// if (pageWidth < 768) { 
     
-    createMobileMenuMarkUp();
+//     createMobileMenuMarkUp();
 
-    userLoginBtn = document.querySelector('.user-login-btn');
-    navigation = document.querySelector('.navigation');
-    authBtn = document.querySelector('.auth-btn');
-    logoutBtn = document.querySelector('.logout-btn');
+//     userLoginBtn = document.querySelector('.user-login-btn');
+//     navigation = document.querySelector('.navigation');
+//     authBtn = document.querySelector('.auth-btn');
+//     logoutBtn = document.querySelector('.logout-btn');
 
-    userLoginBtn.addEventListener('click', openAuthModal);
-    authBtn.addEventListener('click', openLogoutModal);
+//     userLoginBtn.addEventListener('click', openAuthModal);
+//     authBtn.addEventListener('click', openLogoutModal);
 
-}else{
+// }else{
     
-    document.querySelector('.mobile-menu').remove();
+//     document.querySelector('.mobile-menu').remove();
 
-}
+// }
 
 
 // ----------------------------------------------------------------------------------------------
 
-function openMobileMenu() {
+// function openMobileMenu() {
   
-  const burgerIcon = document.querySelector('.burger-icon');
-  const closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
-  const mobileMenu = document.querySelector('.mobile-menu');
+//   const burgerIcon = document.querySelector('.burger-icon');
+//   const closeMobileMenuIcon = document.querySelector('.close-mobile-menu-icon');
+//   const mobileMenu = document.querySelector('.mobile-menu');
 
-  if (closeMobileMenuIcon.classList.contains('is-hidden')) {
+//   if (closeMobileMenuIcon.classList.contains('is-hidden')) {
 
-    closeMobileMenuIcon.classList.remove('is-hidden');
-    burgerIcon.classList.add('is-hidden');
-    mobileMenu.classList.remove('is-hidden');
+//     closeMobileMenuIcon.classList.remove('is-hidden');
+//     burgerIcon.classList.add('is-hidden');
+//     mobileMenu.classList.remove('is-hidden');
 
-  } else {
+//   } else {
 
-    closeMobileMenuIcon.classList.add('is-hidden');
-    burgerIcon.classList.remove('is-hidden');
-    mobileMenu.classList.add('is-hidden');
+//     closeMobileMenuIcon.classList.add('is-hidden');
+//     burgerIcon.classList.remove('is-hidden');
+//     mobileMenu.classList.add('is-hidden');
 
-  }
-}
+//   }
+// }
 
-function createMobileMenuMarkUp(){
-  const mobileMenu =  document.querySelector('.mobile-menu');
+// function createMobileMenuMarkUp(){
+//   const mobileMenu =  document.querySelector('.mobile-menu');
 
-  const mobileMenuMarkup = `
-    <div class="mobile-menu-container container">
+//   const mobileMenuMarkup = `
+//     <div class="mobile-menu-container container">
   
-      <div class="user-login-and-navigation-div">
+//       <div class="user-login-and-navigation-div">
     
-        <button class="user-login-btn link">Sign up<svg class="icon-arrow-right" width="20" height="20">
-          <use href="/src/images/svg/sprite.svg#arrow_narrow_right_icon"></use></svg>
-        </button>
+//         <button class="user-login-btn link">Sign up<svg class="icon-arrow-right" width="20" height="20">
+//           <use href="/src/images/svg/sprite.svg#arrow_narrow_right_icon"></use></svg>
+//         </button>
 
-        <button class="auth-btn is-hidden">
-          <div  class="user-img-div">
-              <img class="user-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
-          </div>
-          <p class="login-p">Login</p>
-        </button>
+//         <button class="auth-btn is-hidden">
+//           <div  class="user-img-div">
+//               <img class="user-img" alt="user photo" src="/src/images/svg/sprite.svg#name_icon"/>
+//           </div>
+//           <p class="login-p">Login</p>
+//         </button>
 
-        <nav class="navigation">
+//         <nav class="navigation">
 
-            <ul class="nav-list list">
+//             <ul class="nav-list list">
 
-                <li class="nav-item">
-                    <a class="home-link link js-mobile-nav-homelink" href="./index.html" aria-label="Посилання на головну сторінку">HOME</a>
-                </li>
+//                 <li class="nav-item">
+//                     <a class="home-link link js-mobile-nav-homelink" href="./index.html" aria-label="Посилання на головну сторінку">HOME</a>
+//                 </li>
 
-                <li class="nav-item">
-                    <a class="shopping-link link js-mobile-nav-shoppinglistlink" 
-                      href="./shopping_list_page.html" 
-                      aria-label="Посилання на сторінку Shopping List"
-                    >
-                        <span>SHOPPING LIST</span>
+//                 <li class="nav-item">
+//                     <a class="shopping-link link js-mobile-nav-shoppinglistlink" 
+//                       href="./shopping_list_page.html" 
+//                       aria-label="Посилання на сторінку Shopping List"
+//                     >
+//                         <span>SHOPPING LIST</span>
 
-                        <svg class="shopping-bag-icon js-mobile-shopping-bag-icon" width="20" height="20">
-                            <use href="/src/images/svg/sprite.svg#shopping-bag-icon"></use>
-                        </svg>
+//                         <svg class="shopping-bag-icon js-mobile-shopping-bag-icon" width="20" height="20">
+//                             <use href="/src/images/svg/sprite.svg#shopping-bag-icon"></use>
+//                         </svg>
 
-                        <div class="ordered-amount-box">
-                          <p class="ordered-amount"></p>
-                        </div>
+//                         <div class="ordered-amount-box">
+//                           <p class="ordered-amount"></p>
+//                         </div>
 
-                    </a>
-                </li>
+//                     </a>
+//                 </li>
 
-            </ul>
-        </nav>
+//             </ul>
+//         </nav>
 
-      </div>
+//       </div>
 
-      <button class="logout-btn is-hidden" type="button">Log out</button>
+//       <button class="logout-btn is-hidden" type="button">Log out</button>
 
-    </div>`
+//     </div>`
 
-  mobileMenu.innerHTML = mobileMenuMarkup;
-}
+//   mobileMenu.innerHTML = mobileMenuMarkup;
+// }
 
-export {
-  openMobileMenu,
-}
+// export {
+//   openMobileMenu,
+// }

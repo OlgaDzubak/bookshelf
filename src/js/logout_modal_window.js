@@ -13,7 +13,7 @@ if (pageWidth < 768) {
     logoutModal = document.querySelector(".mobile-menu");
     editProfileBtn = logoutModal.querySelector(".mobile-menu .auth-btn");
     console.log("editProfileBtn=",editProfileBtn);
-//    editProfileBtn.addEventListener("click", openProfileModal);
+    editProfileBtn.addEventListener("click", openProfileModal);
 }else{
     logoutModal = document.querySelector(".logout-modal");
     editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
@@ -28,55 +28,55 @@ if (pageWidth < 768) {
 
 //-----------------------------------------------------------------------------------------------------------
 
-function openLogoutModal(){
+// function openLogoutModal(){
 
-    document.querySelector(".logout-modal-backdrop").classList.remove("is-hidden");  
+//     document.querySelector(".logout-modal-backdrop").classList.remove("is-hidden");  
 
-    window.addEventListener('keydown', onAnyKeyDownLogoutModal);
-    window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
-    window.addEventListener('scroll', ()=>{closeLogoutModal()});
-}
+//     window.addEventListener('keydown', onAnyKeyDownLogoutModal);
+//     window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
+//     window.addEventListener('scroll', ()=>{closeLogoutModal()});
+// }
 
-function closeLogoutModal(){
+// function closeLogoutModal(){
 
-    window.removeEventListener('keydown', onAnyKeyDownLogoutModal);
-    window.removeEventListener('mousedown', onAnyKeyDownLogoutModal);
-    window.removeEventListener('scroll',  ()=>{closeLogoutModal()});
+//     window.removeEventListener('keydown', onAnyKeyDownLogoutModal);
+//     window.removeEventListener('mousedown', onAnyKeyDownLogoutModal);
+//     window.removeEventListener('scroll',  ()=>{closeLogoutModal()});
   
-    document.querySelector(".logout-modal-backdrop").classList.add("is-hidden");
-}
+//     document.querySelector(".logout-modal-backdrop").classList.add("is-hidden");
+// }
 
-async function logout(){   
+// async function logout(){   
     
-    if (abortCtrl1) {
-        abortCtrl1.abort();
-    }
+//     if (abortCtrl1) {
+//         abortCtrl1.abort();
+//     }
 
-    try{
-        loader = createLoader(logoutModal, "into", ["loader-logout-modal", "logout-elm"]);
+//     try{
+//         loader = createLoader(logoutModal, "into", ["loader-logout-modal", "logout-elm"]);
         
-        abortCtrl1 = new AbortController();
-        const data = await api.logout(abortCtrl1);
+//         abortCtrl1 = new AbortController();
+//         const data = await api.logout(abortCtrl1);
         
-        loader.remove();       
+//         loader.remove();       
 
-        closeLogoutModal();
-        headerNotAuthorised();
+//         closeLogoutModal();
+//         headerNotAuthorised();
 
-    }catch(error){
+//     }catch(error){
 
-        loader.remove();
-        console.log("error = ",error);
-    }
-}
+//         loader.remove();
+//         console.log("error = ",error);
+//     }
+// }
 
-function onAnyKeyDownLogoutModal({target, code}){
+// function onAnyKeyDownLogoutModal({target, code}){
    
-    if (!target.classList.contains('logout-elm') || code === 'Escape') {
-        closeLogoutModal();
-    }    
-}
+//     if (!target.classList.contains('logout-elm') || code === 'Escape') {
+//         closeLogoutModal();
+//     }    
+// }
 
-export {
-    openLogoutModal,
-}
+// export {
+//     openLogoutModal,
+// }

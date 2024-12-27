@@ -1,18 +1,16 @@
 
 import './js/header';
 import './js/mobile_menu';
-
-const mobile_w = document.querySelector('.mobile-menu');
-console.log(mobile_w);
+import './js/logout_modal_window';
 
 import './js/isChangeTheme';
 import './js/support_ukraine';
 import './js/books';
 import './js/autorization_modal_window';
-import './js/logout_modal_window';
 import './js/user_profile_modal_window';
 import './js/book_modal_window';
 import './js/about_us_modal_window';
+
 
 
 
