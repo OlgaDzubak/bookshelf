@@ -1,82 +1,70 @@
-// import { bookshelf_API } from './API';
-// import {createLoader} from './help_functions';
-// import {headerNotAuthorised} from './header'
-// import {openProfileModal} from './user_profile_modal_window';
+import { bookshelf_API } from './API';
+import {createLoader} from './help_functions';
+import {headerNotAuthorised} from './header'
+import {openProfileModal} from './user_profile_modal_window';
 
-// const api = new bookshelf_API();
+const api = new bookshelf_API();
 
-// let abortCtrl1, loader, logoutModal, editProfileBtn, logoutBtn;
+let abortCtrl1, loader, logoutModal, editProfileBtn, logoutBtn;
 
-// const pageWidth = document.documentElement.scrollWidth;
-// if (pageWidth < 768) { 
-//     document.querySelector('.logout-modal-backdrop').remove();
-//     logoutModal = document.querySelector(".mobile-menu");
-//     editProfileBtn = logoutModal.querySelector(".mobile-menu .auth-btn");
-//     console.log("editProfileBtn=",editProfileBtn);
-//     editProfileBtn.addEventListener("click", openProfileModal);
-// }else{
-//     logoutModal = document.querySelector(".logout-modal");
-//     editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
-//     editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
-//     logoutBtn = logoutModal.querySelector(".logout-btn");
-//     logoutBtn.addEventListener("click", logout);
-// }
+editProfileBtn = logoutModal.querySelector(".logout-modal .edit-profile-btn");
+editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 
-//logoutBtn = logoutModal.querySelector(".logout-btn");
-//logoutBtn.addEventListener("click", logout);
+logoutBtn = logoutModal.querySelector(".logout-modal .logout-btn");
+logoutBtn.addEventListener("click", logout);
 
 
 //-----------------------------------------------------------------------------------------------------------
 
-// function openLogoutModal(){
+function openLogoutModal(){
 
-//     document.querySelector(".logout-modal-backdrop").classList.remove("is-hidden");  
+    document.querySelector(".logout-modal-backdrop").classList.remove("is-hidden");  
 
-//     window.addEventListener('keydown', onAnyKeyDownLogoutModal);
-//     window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
-//     window.addEventListener('scroll', ()=>{closeLogoutModal()});
-// }
+    window.addEventListener('keydown', onAnyKeyDownLogoutModal);
+    window.addEventListener('mousedown', onAnyKeyDownLogoutModal);
+    window.addEventListener('scroll', ()=>{closeLogoutModal()});
+}
 
-// function closeLogoutModal(){
+function closeLogoutModal(){
 
-//     window.removeEventListener('keydown', onAnyKeyDownLogoutModal);
-//     window.removeEventListener('mousedown', onAnyKeyDownLogoutModal);
-//     window.removeEventListener('scroll',  ()=>{closeLogoutModal()});
+    window.removeEventListener('keydown', onAnyKeyDownLogoutModal);
+    window.removeEventListener('mousedown', onAnyKeyDownLogoutModal);
+    window.removeEventListener('scroll',  ()=>{closeLogoutModal()});
   
-//     document.querySelector(".logout-modal-backdrop").classList.add("is-hidden");
-// }
+    document.querySelector(".logout-modal-backdrop").classList.add("is-hidden");
+}
 
-// async function logout(){   
+async function logout(){   
     
-//     if (abortCtrl1) {
-//         abortCtrl1.abort();
-//     }
+    if (abortCtrl1) {
+        abortCtrl1.abort();
+    }
 
-//     try{
-//         loader = createLoader(logoutModal, "into", ["loader-logout-modal", "logout-elm"]);
+    try{
+        loader = createLoader(logoutModal, "into", ["loader-logout-modal", "logout-elm"]);
         
-//         abortCtrl1 = new AbortController();
-//         const data = await api.logout(abortCtrl1);
+        abortCtrl1 = new AbortController();
+        const data = await api.logout(abortCtrl1);
         
-//         loader.remove();       
+        loader.remove();       
 
-//         closeLogoutModal();
-//         headerNotAuthorised();
+        closeLogoutModal();
+        headerNotAuthorised();
 
-//     }catch(error){
+    }catch(error){
 
-//         loader.remove();
-//         console.log("error = ",error);
-//     }
-// }
+        loader.remove();
+        console.log("error = ",error);
+    }
+}
 
-// function onAnyKeyDownLogoutModal({target, code}){
+function onAnyKeyDownLogoutModal({target, code}){
    
-//     if (!target.classList.contains('logout-elm') || code === 'Escape') {
-//         closeLogoutModal();
-//     }    
-// }
+    if (!target.classList.contains('logout-elm') || code === 'Escape') {
+        closeLogoutModal();
+    }    
+}
 
-// export {
-//     openLogoutModal,
-// }
+export {
+    openLogoutModal,
+}
