@@ -10,7 +10,7 @@ let abortCtrl1, loader, logoutModal, editProfileBtn, logoutBtn;
 editProfileBtn = document.querySelector(".logout-modal .edit-profile-btn");
 editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 
-logoutBtn = document.querySelector(".logout-modal.logout-btn");
+logoutBtn = document.querySelector(".logout-modal .logout-btn");
 console.log(logoutBtn);
 logoutBtn.addEventListener("click", logout);
 
