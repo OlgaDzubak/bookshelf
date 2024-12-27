@@ -123,7 +123,6 @@ function headerAuthorised(user){
 }
 
 
-
 function openMobileMenu() {
   
     const burgerIcon = document.querySelector('.burger-icon');
@@ -144,7 +143,6 @@ function openMobileMenu() {
   
     }
 }
-
 
 
 function openLogoutModal(){
@@ -192,7 +190,6 @@ function onAnyKeyDownLogoutModal({target, code}){
         closeLogoutModal();
     }    
 }
-
 
 
 //створення розмітки

@@ -1,26 +1,26 @@
-import { bookshelf_API } from './API';
-import {createLoader} from './help_functions';
-import {headerNotAuthorised} from './header'
-import {openProfileModal} from './user_profile_modal_window';
+// import { bookshelf_API } from './API';
+// import {createLoader} from './help_functions';
+// import {headerNotAuthorised} from './header'
+// import {openProfileModal} from './user_profile_modal_window';
 
-const api = new bookshelf_API();
+// const api = new bookshelf_API();
 
-let abortCtrl1, loader, logoutModal, editProfileBtn, logoutBtn;
+// let abortCtrl1, loader, logoutModal, editProfileBtn, logoutBtn;
 
-const pageWidth = document.documentElement.scrollWidth;
-if (pageWidth < 768) { 
-    document.querySelector('.logout-modal-backdrop').remove();
-    logoutModal = document.querySelector(".mobile-menu");
-    editProfileBtn = logoutModal.querySelector(".mobile-menu .auth-btn");
-    console.log("editProfileBtn=",editProfileBtn);
-    editProfileBtn.addEventListener("click", openProfileModal);
-}else{
-    logoutModal = document.querySelector(".logout-modal");
-    editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
-    editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
-    logoutBtn = logoutModal.querySelector(".logout-btn");
-    logoutBtn.addEventListener("click", logout);
-}
+// const pageWidth = document.documentElement.scrollWidth;
+// if (pageWidth < 768) { 
+//     document.querySelector('.logout-modal-backdrop').remove();
+//     logoutModal = document.querySelector(".mobile-menu");
+//     editProfileBtn = logoutModal.querySelector(".mobile-menu .auth-btn");
+//     console.log("editProfileBtn=",editProfileBtn);
+//     editProfileBtn.addEventListener("click", openProfileModal);
+// }else{
+//     logoutModal = document.querySelector(".logout-modal");
+//     editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
+//     editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
+//     logoutBtn = logoutModal.querySelector(".logout-btn");
+//     logoutBtn.addEventListener("click", logout);
+// }
 
 //logoutBtn = logoutModal.querySelector(".logout-btn");
 //logoutBtn.addEventListener("click", logout);
