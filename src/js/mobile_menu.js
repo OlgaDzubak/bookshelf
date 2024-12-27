@@ -1,6 +1,7 @@
 import { openAuthModal } from './autorization_modal_window';
 import { openLogoutModal } from './logout_modal_window';
 
+
 let  userLoginBtn, navigation, authBtn, logoutBtn;
 
 const pageWidth = document.documentElement.scrollWidth ; 
@@ -15,7 +16,7 @@ if (pageWidth < 768) {
 
     userLoginBtn.addEventListener('click', openAuthModal);
     authBtn.addEventListener('click', openLogoutModal);
-    logoutBtn.addEventListener('click, ');
+    //logoutBtn.addEventListener('click, ');
 
 }else{
     

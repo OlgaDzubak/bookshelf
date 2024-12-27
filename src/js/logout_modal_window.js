@@ -9,7 +9,7 @@ let abortCtrl1, loader, logoutModal, editProfileBtn, logoutBtn;
 
 const pageWidth = document.documentElement.scrollWidth;
 if (pageWidth < 768) { 
-   // document.querySelector('.logout-modal-backdrop').remove();
+    document.querySelector('.logout-modal-backdrop').remove();
     logoutModal = document.querySelector(".mobile-menu");
 
 }else{
@@ -17,6 +17,7 @@ if (pageWidth < 768) {
     editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
     editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
 }
+
 logoutBtn = logoutModal.querySelector(".logout-btn");
 logoutBtn.addEventListener("click", logout);
 
