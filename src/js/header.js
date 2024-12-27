@@ -6,7 +6,7 @@ import { openLogoutModal } from './modal_windows/logout_modal_window';
 import { openMobileMenu } from './modal_windows/mobile_menu';
 import userIcon from  '../images/svg/user_Icon.svg';
 
-api = new bookshelf_API();
+const api = new bookshelf_API();
 let abortCtrl;
 
 const navigation = document.querySelector('.navigation');
@@ -34,23 +34,23 @@ showHeader();
 
 async function showHeader(){
 
-        if (abortCtrl) { abortCtrl.abort(); }
-        
-        try{
+    if (abortCtrl) { abortCtrl.abort(); }
+    
+    try{
 
-            abortCtrl = new AbortController();
+        abortCtrl = new AbortController();
 
-            const {user} = await api.refreshUser(abortCtrl);
+        const {user} = await api.refreshUser(abortCtrl);
 
-            if (user){
-                headerAuthorised(user);                
-            }else{ 
-                throw new Error("Not authorized");
-            }
-
-        }catch(error){
-            headerNotAuthorised();
+        if (user){
+            headerAuthorised(user);                
+        }else{ 
+            throw new Error("Not authorized");
         }
+
+    }catch(error){
+        headerNotAuthorised();
+    }
 }
 function headerNotAuthorised(){
     
