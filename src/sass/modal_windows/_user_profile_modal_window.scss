@@ -1,10 +1,10 @@
 // USER PROFILE MODAL WINDOW ----- Common styles
-//{
       .user-profile-modal{
         position: absolute;
         top: 50%;
         left: 50%;
         padding: 40px 40px;
+        width: 100%;
         z-index: 1005;
         background-color: var(--light-theme-background);
         border: 2px solid var(--dark-theme-background);
@@ -173,8 +173,6 @@
       }
  
 
-//}
-
 
 // USER PROFILE MODAL WINDOW ----- Mobile styles
 //{
@@ -195,7 +193,6 @@
       @media screen and (max-width: 767.8px) {
         .user-profile-modal {
           max-width: 335px;
-          width: 100%;
         }
         .user-profile-closeBtn {
           width: 20px;
@@ -221,14 +218,10 @@
           padding: 20px 50px;
           font-size: 16px;
         }
-      }
-
-      
-//}
+      }      
 
 
 // USER PROFILE MODAL WINDOW ----- Tablet styles
-//{  
       @media screen and (min-width: 768px) {
         .user-profile-modal {
           max-width: 379px;
@@ -261,12 +254,3 @@
           font-size: 18px;
        }
       }
-//}
-
-
-// USER PROFILE MODAL WINDOW ----- Desktop styles
-//{  
-    @media screen and (min-width: 1440px) {
-
-    }
-//}
