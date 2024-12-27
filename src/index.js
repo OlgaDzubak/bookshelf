@@ -1,7 +1,7 @@
 
 import './js/header';
-import './js/mobile_menu';
-import './js/logout_modal_window';
+// import './js/mobile_menu';
+// import './js/logout_modal_window';
 
 import './js/isChangeTheme';
 import './js/support_ukraine';
