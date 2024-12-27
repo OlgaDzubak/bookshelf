@@ -1,7 +1,7 @@
-import { bookshelf_API } from './API';
+import { bookshelf_API } from '../API';
 import { Notify } from 'notiflix';
-import {createLoader, capitalizeStr } from './help_functions';
-import {headerAuthorised} from './header';
+import {createLoader, capitalizeStr } from '../help_functions';
+import {headerAuthorised} from '../header';
 
 const api = new bookshelf_API();
 let abortCtrl1, abortCtrl2, loader1;
