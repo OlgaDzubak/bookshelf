@@ -178,9 +178,23 @@
 
 // USER PROFILE MODAL WINDOW ----- Mobile styles
 //{
+      @media screen and (max-width: 270px) {
+        .user-profile-input {
+          padding: 14px 35px 14px 16px; 
+          font-size: 12px;
+        } 
+        .user-profile-input::placeholder {
+          font-size: 11px;
+        }
+        .user-profile-icon {
+          right: 16px;
+        }
+      }
+
+
       @media screen and (max-width: 767.8px) {
         .user-profile-modal {
-          max-width: 375px;
+          max-width: 335px;
         }
         .user-profile-closeBtn {
           width: 20px;
@@ -203,22 +217,11 @@
           height: 18px;
         }
         .user-profile-submitBtn {
-          padding: 20px 87.5px;
+          padding: 20px 50px;
           font-size: 16px;
         }
       }
-      @media screen and (max-width: 270px) {
-        .user-profile-input {
-          padding: 14px 35px 14px 16px; 
-          font-size: 12px;
-        } 
-        .user-profile-input::placeholder {
-          font-size: 11px;
-        }
-        .user-profile-icon {
-          right: 16px;
-        }
-      }
+
       
 //}
 
