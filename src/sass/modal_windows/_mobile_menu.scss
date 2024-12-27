@@ -117,12 +117,7 @@
       flex-direction: column;
       row-gap:8px;
     }
-    .shopping-bag-icon {
-        fill: var(--text-dark-color);
-        stroke: none;        
-        transition: fill var(--transition), stroke var(--transition) ;
-    }
-    
+
     .mobile-menu .home-link,
     .mobile-menu .shopping-link {
         padding: 8px 16px;
