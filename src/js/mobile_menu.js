@@ -12,11 +12,11 @@ if (pageWidth < 768) {
     userLoginBtn = document.querySelector('.user-login-btn');
     navigation = document.querySelector('.navigation');
     authBtn = document.querySelector('.auth-btn');
-    logoutBtn = document.querySelector('.logout-btn');
+   // logoutBtn = document.querySelector('.logout-btn');
 
     userLoginBtn.addEventListener('click', openAuthModal);
     authBtn.addEventListener('click', openLogoutModal);
-    //logoutBtn.addEventListener('click, ');
+
 
 }else{
     

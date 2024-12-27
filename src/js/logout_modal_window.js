@@ -13,8 +13,6 @@ if (pageWidth < 768) {
     logoutModal = document.querySelector(".mobile-menu");
     editProfileBtn = logoutModal.querySelector(".auth-btn");
     editProfileBtn.addEventListener("click", openProfileModal);
-
-
 }else{
     logoutModal = document.querySelector(".logout-modal");
     editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
