@@ -422,7 +422,6 @@
 //}
 
 // ------ mobile styles
-//{
     @media screen and (max-width: 249.8px) {
         .support-ukraine-box {
           padding-left: 25px;
@@ -535,10 +534,8 @@
             padding: 74px 20px 20px 20px;
         }
     }
-//}
 
 // ------ tablet styles
-//{
     @media screen and (min-width: 768px) {
         .main .container{
             row-gap: 100px;
@@ -604,10 +601,8 @@
             display: none;
         }
     }
-//}
 
 // ------ desktop styles
-//{
     @media screen and (min-width: 1440px) {
         .category-list-box {
             width: 356px;
@@ -645,4 +640,3 @@
         margin-top: 40px;
         }
     }
-//}
