@@ -69,8 +69,8 @@ function headerAuthorised(user){
     const authBtnImg= authBtn.querySelector('.user-img');
     const authBtnName= authBtn.querySelector('.login-p');
     const authMobileBtn = document.querySelector('.mobile-menu .auth-btn');
-    const authMobileBtnImg= authBtn.querySelector('.mobile-menu .user-img');
-    const authMobileBtnName= authBtn.querySelector('.mobile-menu .login-p');
+    const authMobileBtnImg= authMobileBtn.querySelector('.user-img');
+    const authMobileBtnName= authMobileBtn.querySelector('.login-p');
     const userPhotoImg = document.querySelector('.user-photo-img');
     const userMobileMenuLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
 
