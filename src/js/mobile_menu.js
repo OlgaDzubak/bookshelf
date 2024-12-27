@@ -9,7 +9,7 @@ userLoginBtn.addEventListener('click', openAuthModal);
 authBtn = document.querySelector('.mobile-menu .auth-btn');
 authBtn.addEventListener('click', openProfileModal);
 
-logoutBtn = logoutModal.querySelector(".mobile-menu .logout-btn");
+logoutBtn = document.querySelector(".mobile-menu .logout-btn");
 logoutBtn.addEventListener("click", logout);
 
 navigation = document.querySelector('.navigation');
