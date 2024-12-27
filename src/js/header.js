@@ -64,6 +64,7 @@ function headerNotAuthorised(){
     userLoginBtn.classList.remove("is-hidden");
 
     authBtn.classList.add("is-hidden");
+    authMobileBtn.classList.add("is-hidden");
     navigation.classList.add("is-hidden");
     mobileNavigation.classList.add("is-hidden");
     userMobileMenuLogoutBtn.classList.add("is-hidden");
