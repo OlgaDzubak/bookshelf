@@ -67,4 +67,5 @@ function onAnyKeyDownLogoutModal({target, code}){
 
 export {
     openLogoutModal,
+    logout,
 }
