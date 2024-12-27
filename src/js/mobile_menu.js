@@ -1,5 +1,5 @@
 import { openAuthModal } from './autorization_modal_window';
-
+import {openProfileModal} from './user_profile_modal_window';
 
 let  userLoginBtn, navigation, authBtn, logoutBtn;
 
