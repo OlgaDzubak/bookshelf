@@ -17,10 +17,12 @@ if (pageWidth < 768) {
     logoutModal = document.querySelector(".logout-modal");
     editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
     editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
+    logoutBtn = logoutModal.querySelector(".logout-btn");
+    logoutBtn.addEventListener("click", logout);
 }
 
-logoutBtn = logoutModal.querySelector(".logout-btn");
-logoutBtn.addEventListener("click", logout);
+//logoutBtn = logoutModal.querySelector(".logout-btn");
+//logoutBtn.addEventListener("click", logout);
 
 
 //-----------------------------------------------------------------------------------------------------------
