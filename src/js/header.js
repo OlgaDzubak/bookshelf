@@ -88,7 +88,8 @@ function headerAuthorised(user){
     }
     
     userLoginBtn.classList.add("is-hidden");
-        
+    userMobileMenuLogoutBtn.classList.add("is-hidden");
+    
     authBtn.classList.remove("is-hidden");
     authMobileBtn.classList.remove("is-hidden");
     userMobileMenuLogoutBtn.classList.remove("is-hidden");
