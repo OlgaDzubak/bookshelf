@@ -12,14 +12,14 @@ if (pageWidth < 768) {
     document.querySelector('.logout-modal-backdrop').remove();
     logoutModal = document.querySelector(".mobile-menu");
     logoutBtn = logoutModal.querySelector(".logout-btn");
+    logoutBtn.addEventListener("click", logout);
 }else{
     logoutModal = document.querySelector(".logout-modal");
     logoutBtn = logoutModal.querySelector(".logout-btn");
     editProfileBtn = logoutModal.querySelector(".edit-profile-btn");
     editProfileBtn.addEventListener("click", (e)=>{ closeLogoutModal();  openProfileModal(); });
+    logoutBtn.addEventListener("click", logout);
 }
-
-logoutBtn.addEventListener("click", logout);
 
 
 
