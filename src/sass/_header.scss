@@ -108,6 +108,10 @@
     .shopping-link{
         position: relative;
     }
+    .shopping-bag-icon {
+        fill: var(--text-dark-color);
+        stroke: var(--text-dark-color);
+    }
     .ordered-amount-box{
     position: absolute;
     bottom: 0;
@@ -348,7 +352,6 @@
         }
         .shopping-bag-icon {
             line-height: 0;
-            fill: var(--text-dark-color);
         }
 
         .user-login-btn {
