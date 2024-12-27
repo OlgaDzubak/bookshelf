@@ -111,7 +111,7 @@
         position: relative;
     }
     .shopping-bag-icon {
-        fill: var(--text-dark-color);
+        fill: var(--accent-color1);
     }
     .home-link.selected, .shopping-link.selected {
         background-color: var(--accent-color2);
@@ -121,7 +121,7 @@
     .shopping-link:hover .shopping-bag-icon,
     .shopping-link:focus .shopping-bag-icon{
         fill: var(--text-dark-color);
-        stroke: var(--text-dark-color);
+        stroke: var(--accent-color1);
     }
     .ordered-amount-box{
         position: absolute;
