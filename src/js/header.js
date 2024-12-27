@@ -62,6 +62,7 @@ function headerNotAuthorised(){
     localStorage.removeItem("bookshelf_orderedbooks");
 
     userLoginBtn.classList.remove("is-hidden");
+    userMobileLoginBtn.classList.remove("is-hidden");
 
     authBtn.classList.add("is-hidden");
     authMobileBtn.classList.add("is-hidden");
