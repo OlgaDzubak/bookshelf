@@ -1,6 +1,10 @@
 
 import './js/header';
 import './js/mobile_menu';
+
+const mobile_w = document.querySelector('.mobile-menu');
+console.log(mobile_w);
+
 import './js/isChangeTheme';
 import './js/support_ukraine';
 import './js/books';
