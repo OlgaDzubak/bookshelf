@@ -26,12 +26,6 @@ body.dark {
         fill: var(--accent-color3);
         stroke: var(--accent-color3);
     }
-    body.dark .burger-menu-icon,
-    body.dark .close-mobile-menu-icon{
-        stroke: var(--accent-color3);
-    }
-
-
     body.dark .home-link:hover,
     body.dark .home-link:focus,
     body.dark .shopping-link:hover,
@@ -45,7 +39,14 @@ body.dark {
         color: var(--text-dark-color);
         fill: var(--text-dark-color);
         stroke: var(--text-dark-color);
+        stroke-width: 0.2;
     }
+
+    body.dark .burger-menu-icon,
+    body.dark .close-mobile-menu-icon{
+        stroke: var(--accent-color3);
+    }
+
 //}
 
 //----------- list_of_categories -------------------//
