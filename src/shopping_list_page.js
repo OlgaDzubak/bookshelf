@@ -9,10 +9,10 @@ import './js/logout_modal_window';
 import './js/user_profile_modal_window';
 
 
-// const shoppingListLinkEl = document.querySelector('.js-nav-shoppinglistlink');
-// const mobileShoppingListLinkEl = document.querySelector('.js-mobile-nav-shoppinglistlink');
-// const mobileShoppingBagIconEl = document.querySelector('.js-mobile-shopping-bag-icon');
+const shoppingListLinkEl = document.querySelector('.js-nav-shoppinglistlink');
+const mobileShoppingListLinkEl = document.querySelector('.js-mobile-nav-shoppinglistlink');
+const mobileShoppingBagIconEl = document.querySelector('.js-mobile-shopping-bag-icon');
 
-// shoppingListLinkEl.classList.toggle('selected');
-// mobileShoppingListLinkEl.classList.toggle('mobile-selected');
-// mobileShoppingBagIconEl.classList.toggle('mobile-selected');
+shoppingListLinkEl.classList.toggle('selected');
+mobileShoppingListLinkEl.classList.toggle('mobile-selected');
+mobileShoppingBagIconEl.classList.toggle('mobile-selected');
