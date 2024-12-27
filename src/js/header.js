@@ -6,7 +6,7 @@ import { openProfileModal } from './user_profile_modal_window';
 import userIcon from  '../images/svg/user_Icon.svg';
 
 const api = new bookshelf_API();
-let abortCtrl, burgerBtn, userLoginBtn, navigation, authBtn, logoutBtn;
+let abortCtrl, burgerBtn, userLoginBtn, navigation, authBtn, logoutBtn, logoutModal, editProfileBtn;
 
 const pageWidth = document.documentElement.scrollWidth ; 
 if (pageWidth < 768) {
