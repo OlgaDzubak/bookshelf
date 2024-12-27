@@ -3,6 +3,7 @@ import { displayOrdredAmountInShoppingBag } from './help_functions';
 import { bookshelf_API } from './API';
 import { openAuthModal } from './autorization_modal_window';
 import { openLogoutModal } from './logout_modal_window';
+import { openMobileMenu } from './mobile_menu';
 import userIcon from  '../images/svg/user_Icon.svg';
 
 const api = new bookshelf_API();
