@@ -16,8 +16,8 @@ const userLoginBtn = document.querySelector('.user-login-btn');
 const userMobileLoginBtn = document.querySelector('.mobile-menu .user-login-btn');
 
 const authBtn = document.querySelector('.auth-btn');
-const authBtnImg= authBtn.querySelector('.user-img');
-const authBtnName= authBtn.querySelector('.login-p');
+const authBtnImg = authBtn.querySelector('.user-img');
+const authBtnName = authBtn.querySelector('.login-p');
 
 const authMobileBtn = document.querySelector('.mobile-menu .auth-btn');
 const authMobileBtnImg= authMobileBtn.querySelector('.user-img');
@@ -40,7 +40,7 @@ async function showHeader(){
 
             abortCtrl = new AbortController();
 
-             {user} = await api.refreshUser(abortCtrl);
+            const {user} = await api.refreshUser(abortCtrl);
 
             if (user){
                 headerAuthorised(user);                
