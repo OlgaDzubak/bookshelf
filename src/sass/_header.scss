@@ -36,7 +36,7 @@
         width: 100%;
         height: 100%;
     }
-    .burger-icon,
+    .burger-menu-icon,
     .close-mobile-menu-icon{
         stroke: black;
     }
@@ -129,10 +129,15 @@
         font-size: 10px;
         display: inline-flex;
     transform: translateY(-3px);
-    }   
+    }
+
     .home-link.selected, .shopping-link.selected {
         background-color: var(--accent-color2);
         font-weight: 700;
+    }
+    .shopping-link.selected .shopping-bag-icon {
+        fill: var(--text-dark-color);
+        stroke: var(--text-dark-color);
     }
     .auth-btn{
        position: relative;
