@@ -59,7 +59,7 @@ function headerNotAuthorised(){
     const userLoginBtn = document.querySelector('.user-login-btn');
     const authBtn = document.querySelector('.auth-btn');
     const navigation = document.querySelector('.navigation');
-    const userLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
+  //  const userLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
 
     document.cookie = 'accessToken=;  max-age=-1;';
     localStorage.removeItem("bookshelf_orderedbooks");
@@ -67,7 +67,7 @@ function headerNotAuthorised(){
     userLoginBtn.classList.remove("is-hidden");
     authBtn.classList.add("is-hidden");
     navigation.classList.add("is-hidden");
-    userLogoutBtn.classList.add("is-hidden");
+ //   userLogoutBtn.classList.add("is-hidden");
 }
 function headerAuthorised(user){
 
@@ -77,7 +77,7 @@ function headerAuthorised(user){
     const authBtnImg= authBtn.querySelector('.user-img');
     const authBtnName= authBtn.querySelector('.login-p');
     const userPhotoImg = document.querySelector('.user-photo-img');
-    const userLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
+//    const userLogoutBtn = document.querySelector('.mobile-menu .logout-btn');
 
     authBtnName.textContent = user.name;
    
@@ -93,7 +93,7 @@ function headerAuthorised(user){
     userLoginBtn.classList.add("is-hidden");
     authBtn.classList.remove("is-hidden");
     navigation.classList.remove("is-hidden");
-    userLogoutBtn.classList.remove("is-hidden");
+//    userLogoutBtn.classList.remove("is-hidden");
 
     if (user.shopping_list.length > 0){
         displayOrdredAmountInShoppingBag(user.shopping_list);
