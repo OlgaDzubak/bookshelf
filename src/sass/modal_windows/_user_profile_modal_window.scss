@@ -105,45 +105,69 @@
         font-weight: 700;
         text-transform: uppercase;
         border: 2px solid var(--text-dark-color);
-        background-color: transparent;
         border-radius: 40px;
+        background-color: transparent;
         color: var(--text-dark-color);
-        transition: border-color var(--transition);
-      }
-     
-      .user-profile-input:focus,
-      .user-profile-input:hover{
-        outline: none;
-        border-color: var(--accent-color1);
-        color: var(--text-dark-color); 
-      }
+        transition: border-color var(--transition), color var(--transition);
 
-      .user-profile-input:focus+.user-profile-icon,
-      .user-profile-input:hover+.user-profile-icon{
-        --auth-icon-color: var(--auth-icon-color2);
-      }
+        &::placeholder{
+          color: currentColor;
+          transition: color var(--transition);
+        }
+        
+        &:focus,
+        &:hover{
+          // outline: none;
+          border-color: var(--accent-color1);
+          color: var(--text-dark-color); 
+          &::placeholder{
+            color: var(--accent-color1); 
+          }
+        }
 
-      .user-profile-input::placeholder {
-        color: currentColor;
-        transition: color var(--transition);
-      }
-      .user-profile-input:focus::placeholder,
-      .user-profile-input:hover::placeholder{
-        color: var(--accent-color1); 
-      }
-
-      .user-profile-input::selection{
-        color: currentColor;
-        background-color: var(--accent-color2);
+        &::selection{
+          color: currentColor;
+          background-color: var(--accent-color2);
+        }
+  
+        // .user-profile-input::placeholder {
+        //   color: currentColor;
+        //   transition: color var(--transition);
+        // }
+        // .user-profile-input:focus::placeholder,
+        // .user-profile-input:hover::placeholder{
+        //   color: var(--accent-color1); 
+        // }
+  
       }
 
       .user-profile-icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        margin-left: 20px; 
+        margin-left: 20px;
+        fill: var(--text-dark-color); 
         transition: fill var(--transition);
       }
+      .user-profile-input:focus+.user-profile-icon,
+      .user-profile-input:hover+.user-profile-icon{
+        fill: var(--accent-color1); 
+      }
+
+      // .user-profile-input::placeholder {
+      //   color: currentColor;
+      //   transition: color var(--transition);
+      // }
+      // .user-profile-input:focus::placeholder,
+      // .user-profile-input:hover::placeholder{
+      //   color: var(--accent-color1); 
+      // }
+
+      // .user-profile-input::selection{
+      //   color: currentColor;
+      //   background-color: var(--accent-color2);
+      // }
+
 
       .user-profile-submitBtn{
         display: block;
