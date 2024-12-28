@@ -228,7 +228,6 @@ body.dark {
     body.dark select:-webkit-autofill:hover,
     body.dark select:-webkit-autofill:focus {
         -webkit-text-fill-color: var(--light-theme-background);
-        transition: background-color 5000s ease-in-out 0s;
     }
     body.dark .modalForm-input:focus {
         border: 2px solid var(--accent-color1);
