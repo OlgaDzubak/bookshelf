@@ -291,6 +291,9 @@ body.dark {
         background-color: var(--dark-theme-background);
         border-color: var(--light-theme-background);
     }
+    body.dark .user-profile-modal .icon-x{
+        fill: var(--light-theme-background);
+    }
     body.dark .user-profile-closeBtn{
         color: var(--accent-color3)
     }
