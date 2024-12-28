@@ -319,78 +319,11 @@ body.dark {
             .user-profile-icon {
                 fill: var(--light-theme-background);
             }
-
-            // &:hover,
-            // &:focus{
-        
-            //     .user-profile-input{
-            //         // outline: none;
-            //         // border-color: var(--accent-color1);
-            //         color: var(--light-theme-background);
-            
-            //         // &::placeholder{
-            //         //   color: var(--accent-color1); 
-            //         // }
-            //       }
     
         }
         
 
     }
-    // body.dark .user-profile-closeBtn{
-    //     color: var(--accent-color3)
-    // }
-    // body.dark .modalForm-inputWrap {
-    //     position: relative;
-    
-    //     &:hover,
-    //     &:focus{
-    
-    //       .modalForm-input{
-    //         border: 2px solid var(--light-theme-background);
-    //         background-color: transparent;
-    //         color: var(--light-theme-background);
-   
-    //         &::placeholder{
-    //           color: var(--accent-color1);
-    //         }
-    
-    //         &::selection{
-    //           color: currentColor;
-    //           background-color: var(--accent-color2);
-    //         }
-
-    //       }
-    
-    //       .modalForm-icon.name,
-    //       .modalForm-icon.name{
-    //         fill : var(--accent-color1);
-    //       }
-    //       .modalForm-icon.email,
-    //       .modalForm-icon.email,
-    //       .modalForm-icon.password,
-    //       .modalForm-icon.password{
-    //         stroke : var(--accent-color1);
-    //       }
-    
-    //     }
-
-    //     .user-profile-input::placeholder {
-    //         color: currentColor;
-    //     }
-    //     .user-profile-icon {
-    //         fill: var(--light-theme-background);
-    //     }
-    // }
-    // body.dark  .user-profile-submitBtn{
-    //     color:black;
-    //     background-color: var(--light-theme-background);
-    //     &:hover,
-    //     &:focus {
-    //         background-color: var(--accent-color1);
-    //         color:var(--light-theme-background);
-    //     }
-    // }
 
 
 
