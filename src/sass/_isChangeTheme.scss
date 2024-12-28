@@ -302,7 +302,7 @@ body.dark .edit-profile-btn{
     background-color: var(--dark-theme-background);
 }
 body.dark .edit-profile-btn-svg{
-    --profile-edit-color: var(--light-theme-background);
+    stroke: var(--light-theme-background);
 }
 
 
@@ -328,8 +328,8 @@ body.dark .edit-profile-btn-svg{
         border-color: var(--accent-color1);
         color: var(--text-white-color);
     }
-    body.dark .user-profile-input:focus+ .user-profile-icon,
-    body.dark .user-profile-input:hover+ .user-profile-icon,
+    body.dark .user-profile-input:focus+.user-profile-icon,
+    body.dark .user-profile-input:hover+.user-profile-icon,
     body.dark .user-profile-input+.user-profile-icon:focus,
     body.dark .user-profile-input+.user-profile-icon:hover{
         --auth-icon-color: var(--auth-icon-color2);
