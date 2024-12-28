@@ -92,7 +92,7 @@
         .modalForm-icon.email,
         .modalForm-icon.email,
         .modalForm-icon.password,
-        .modalForm-icon.password {
+        .modalForm-icon.password{
           stroke : var(--accent-color1);
         }
     }
@@ -106,8 +106,9 @@
       color: currentColor;
       background-color: var(--accent-color2);
     }
-    .modalForm-icon:hover,
-    .modalForm-icon:focus{
+
+    +.modalForm-icon:hover,
+    +.modalForm-icon:focus{
       border-color: var(--accent-color1);
     }
     
