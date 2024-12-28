@@ -15,9 +15,9 @@
     overflow: auto;
   }
   .autorization-modal-backdrop.is-hidden {
-    display: none;
-    //opacity: 0;
-    //pointer-events: none;
+    //display: none;
+    opacity: 0;
+    pointer-events: none;
   }
 
   .modal{
@@ -148,19 +148,15 @@
     font-size: 16px;
     font-weight: 700;
     color: var(--logo-theme-dark);
-   // border: 2px solid var(--logo-theme-dark);
     background-color: var(--dark-theme-background);
+    border: none;
     border-radius: 40px;
     cursor: pointer;
-    border: none;
-  
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition);
   
     &:hover,
     &:focus {
       background-color: var(--accent-color1);
-      border-color: var(--accent-color1);;
     }
   }
   .btn-signUpIn-ul {
@@ -175,12 +171,11 @@
     font-weight: 700;
     font-size: 14px;
     white-space: nowrap;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--light-theme-fifty);
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: var(--light-theme-fifty);
+    transition: color var(--transition);
 
     &:hover,
     &:focus {
