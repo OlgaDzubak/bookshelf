@@ -106,11 +106,6 @@
       color: currentColor;
       background-color: var(--accent-color2);
     }
-
-    +.modalForm-icon:hover,
-    +.modalForm-icon:focus{
-      border-color: var(--accent-color1);
-    }
     
   }
 
