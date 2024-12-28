@@ -320,6 +320,26 @@ body.dark {
                 fill: var(--light-theme-background);
             }
     
+            &:focus,
+            &:hover{
+              .user-profile-input{
+                outline: none;
+                border-color: var(--accent-color1);
+        
+                &::placeholder{
+                  color: var(--accent-color1); 
+                }
+        
+                &::selection{
+                  color: currentColor;
+                  background-color: var(--accent-color2);
+                }
+              }
+              .user-profile-icon {
+                fill: var(--accent-color1); 
+              }
+            }
+
         }
         
 
