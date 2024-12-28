@@ -30,11 +30,11 @@ import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, sc
 
 const api = new bookshelf_API();
 
-const bucketCard = [
-  {
-    img: bucketTrash,
-  },
-];
+// const bucketCard = [
+//   {
+//     img: bucketTrash,
+//   },
+// ];
 
 const shoppingBooksBox = document.querySelector('.shopping-wrapper');
 const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
@@ -173,7 +173,9 @@ function showPage(dataArray, page, itemsOnPage) {
                                           </div>
                                           
                                           <button data-id="${_id}" class="bucket-btn">
-                                            <img src="${bucketCard[0].img}" alt="amazon">
+                                            <svg id="trash_bucket_icon" viewBox="0 0 32 32">
+                                                <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M12 4h8M4 8h24M25.333 8l-0.935 14.026c-0.14 2.104-0.21 3.156-0.665 3.954-0.4 0.702-1.004 1.267-1.731 1.62-0.826 0.4-1.881 0.4-3.99 0.4h-4.025c-2.109 0-3.163 0-3.99-0.4-0.727-0.353-1.331-0.917-1.731-1.62-0.455-0.798-0.525-1.85-0.665-3.954l-0.935-14.026M13.333 14v6.667M18.667 14v6.667"></path>
+                                            </svg>
                                           </button>
                                         
                                           <ul class="market_placers_list list">
