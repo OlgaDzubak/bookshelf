@@ -267,16 +267,15 @@ body.dark {
         stroke : var(--text-white-color);
       }
 
-    body.dark .submitBtn{
-        color:black;
-        background-color: var(--accent-color3);
-        &:hover,
-        &:focus {
-            background-color: var(--accent-color1);
-            border: 2px solid var(--text-dark-color);
-            color: var(--text-white-color);
-        }
-    }
+    // body.dark .submitBtn{
+    //     color:black;
+    //     background-color: var(--accent-color3);
+    //     &:hover,
+    //     &:focus {
+    //         background-color: var(--accent-color1);
+    //         color: var(--text-white-color);
+    //     }
+    // }
 
     body.dark .btn-sign-up,
     body.dark .btn-sign-in{
