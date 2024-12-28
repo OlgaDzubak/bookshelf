@@ -4,8 +4,8 @@
         <form class="user-profile-form profile-elm">
 
             <button class="user-profile-closeBtn profile-elm" type="button" title="Close button">
-                <svg class="icon-x profile-elm">
-                    <use href="/src/images/svg/sprite.svg#x-close-icon"></use>
+                <svg class="icon-x profile-elm" viewBox="0 0 32 32">
+                    <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286" d="M24 8l-16 16M8 8l16 16"></path>
                 </svg>
             </button>
 
@@ -18,8 +18,9 @@
                 <div class="add-photo-btn-div profile-elm">
                     <input id="load-photo-file" class="profile-elm" name="file" type="file" accept="image/*" hidden>
                     <label class="plus-btn-label profile-elm" for="load-photo-file" role="button">
-                        <svg class="plus-btn-svg profile-elm">
-                            <use  class="profile-elm" href="/src/images/svg/sprite.svg#add-plus"></use>
+                        <svg class="plus-btn-svg profile-elm" viewBox="0 0 32 32">
+                            <path stroke-width="2" d="m32,20.04l-12,0l0,11.96l-8,0l0,-11.96l-12,0l0,-7.97l12,0l0,-11.96l8,0l0,11.96l12,0l0,7.97z" id="svg_1"></path>
+                            <!-- style="fill: var(--add-photo-btn-color, #fff); stroke: none; -->
                         </svg>
                     </label>
                 </div>
@@ -42,8 +43,8 @@
                         maxlength="20"
                     />
 
-                    <svg class="user-profile-icon profile-elm name">
-                        <use href="/src/images/svg/sprite.svg#name_icon" class="profile-elm"></use>
+                    <svg class="user-profile-icon profile-elm name" viewBox="0 0 19 19" >
+                        <path d="M3.16663 17.4166C3.16663 15.7369 3.83389 14.126 5.02162 12.9383C6.20935 11.7506 7.82025 11.0833 9.49996 11.0833C11.1797 11.0833 12.7906 11.7506 13.9783 12.9383C15.166 14.126 15.8333 15.7369 15.8333 17.4166H3.16663ZM9.49996 10.2916C6.87558 10.2916 4.74996 8.166 4.74996 5.54163C4.74996 2.91725 6.87558 0.791626 9.49996 0.791626C12.1243 0.791626 14.25 2.91725 14.25 5.54163C14.25 8.166 12.1243 10.2916 9.49996 10.2916Z"/>
                     </svg>
 
                 </div>
@@ -53,5 +54,6 @@
             <button class="user-profile-submitBtn profile-elm" type="submit">SAVE CHANGES</button>
             
         </form>
+
     </div>
 </div>

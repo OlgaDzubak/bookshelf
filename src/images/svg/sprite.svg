@@ -1,46 +1,6 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
    
   <defs>
-
-        <!-- header icons  -->
-
-        <symbol id="x-close-icon" viewBox="0 0 32 32">
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286" d="M24 8l-16 16M8 8l16 16"></path>
-        </symbol>
-
-        <symbol id="arrow-narrow-right-icon" viewBox="0 0 32 32">
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M5.333 16h21.333M26.667 16l-8-8M26.667 16l-8 8"></path>
-        </symbol>
-
-
-
-        <!-- mobile menu icons -->
-        
-        <symbol id="arrow_narrow_right_icon" viewBox="0 0 43 32">
-            <path fill="none" style="fill: var(--color4, #eac645)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="5.3333" d="M3.555 16h35.556M39.111 16l-13.333-13.333M39.111 16l-13.333 13.333"></path>
-        </symbol>
-
-        <symbol id="mobile_menu_icon" viewBox="0 0 32 32">
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M22.667 13.333h-18.667"></path>
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M28 8h-24"></path>
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M28 18.667h-24"></path>
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M22.667 24h-18.667"></path>
-        </symbol>
-
-
-
-         <!-- autorization window icons-->
-
-
-
-
-
-        <symbol id="close_icon" viewBox="0 0 32 32">
-            <path fill="none" stroke="#111111" style="stroke: var(--color1, #111111)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="5.3333" d="M29.333 2.667l-26.667 26.667M2.667 2.667l26.667 26.667"></path>
-        </symbol>
-
-
-
          <!--  -->
         <symbol id="trash_bucket_icon" viewBox="0 0 32 32">
             <path fill="none" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M12 4h8M4 8h24M25.333 8l-0.935 14.026c-0.14 2.104-0.21 3.156-0.665 3.954-0.4 0.702-1.004 1.267-1.731 1.62-0.826 0.4-1.881 0.4-3.99 0.4h-4.025c-2.109 0-3.163 0-3.99-0.4-0.727-0.353-1.331-0.917-1.731-1.62-0.455-0.798-0.525-1.85-0.665-3.954l-0.935-14.026M13.333 14v6.667M18.667 14v6.667"></path>
@@ -50,10 +10,6 @@
          <symbol id="add-plus" viewBox="0 0 32 32" > 
             <path style="fill: var(--add-photo-btn-color, #fff); stroke: none; stroke-width: 2px" d="m32,20.04l-12,0l0,11.96l-8,0l0,-11.96l-12,0l0,-7.97l12,0l0,-11.96l8,0l0,11.96l12,0l0,7.97z" id="svg_1"></path>
          </symbol>
-
-         <symbol id="profile-edit" viewBox="0 0 29 29">
-            <path style="stroke: var(--profile-edit-color); fill:none" d="M8.21756 19.0425C8.26351 18.629 8.28648 18.4222 8.34904 18.229C8.40454 18.0575 8.48296 17.8944 8.58216 17.7439C8.69398 17.5744 8.84107 17.4273 9.13525 17.1331L17.9025 8.36585C18.6568 7.61151 19.8799 7.61151 20.6342 8.36585V8.36585C21.3885 9.12019 21.3885 10.3432 20.6342 11.0976L11.867 19.8648C11.5728 20.159 11.4257 20.3061 11.2561 20.4179C11.1057 20.5171 10.9425 20.5955 10.7711 20.651C10.5778 20.7136 10.3711 20.7366 9.95759 20.7825L8.00006 21L8.21756 19.0425Z" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-        </symbol>
     
   </defs>
 
