@@ -187,8 +187,8 @@
         object-fit: cover;
     }
     .login-p{
-        max-width: 150px;
-        min-width: 88px;
+        //max-width: 150px;
+        width: 88px;
         margin-right: 4px;
         font-weight: 700;
         font-size: 18px;
@@ -196,7 +196,7 @@
         white-space: nowrap;
         text-transform: capitalize;
         text-align: start;
-        overflow-x: auto;
+        overflow-x: hidden;
     }
     .login-p::-webkit-scrollbar{   
         width: 0.1px;
