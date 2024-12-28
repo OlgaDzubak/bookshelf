@@ -145,7 +145,7 @@ function onModalInputClick({target}){
 
   function onSignUpBtnClick(e){
     modalForm.reset();
-    nameInput.setAttribute("required");
+    nameInput.setAttribute("required","");
     nameItem.classList.remove("is-hidden");
     submitBtn.textContent = "SIGN UP";
     signUpBtn.classList.add("current");
