@@ -72,6 +72,11 @@
         &::placeholder{
           color: var(--accent-color1);
         }
+
+        &::selection{
+          color: currentColor;
+          background-color: var(--accent-color2);
+        }
       }
 
       .modalForm-icon.name,
@@ -100,38 +105,23 @@
     color: var(--text-dark-color);
     transition: border-color var(--transition), color var(--transition);
 
-    &:focus,
-    &:hover{
-        border-color: var(--accent-color1);
-        outline: none;
-        border-color: var(--accent-color1);
-        color: var(--text-dark-color); 
-        
-        // &::placeholder{
-        //   color: var(--accent-color1);
-        // }
+    // &:focus,
+    // &:hover{
+    //     border-color: var(--accent-color1);
+    //     outline: none;
+    //     border-color: var(--accent-color1);
+    //     color: var(--text-dark-color); 
+    // }
 
-        // +.modalForm-icon.name,
-        // +.modalForm-icon.name{
-        //   fill : var(--accent-color1);
-        // }
-        // +.modalForm-icon.email,
-        // +.modalForm-icon.email,
-        // +.modalForm-icon.password,
-        // +.modalForm-icon.password{
-        //   stroke : var(--accent-color1);
-        // }
-    }
+    // &::placeholder {
+    //   color: currentColor;
+    //   transition: color var(--transition);
+    // }
 
-    &::placeholder {
-      color: currentColor;
-      transition: color var(--transition);
-    }
-
-    &::selection{
-      color: currentColor;
-      background-color: var(--accent-color2);
-    }
+    // &::selection{
+    //   color: currentColor;
+    //   background-color: var(--accent-color2);
+    // }
     
   }
 
