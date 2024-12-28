@@ -116,17 +116,19 @@
     position: absolute;
     width: 34px;
     height: 34px;
-    cursor: pointer;
-
-    background-color: var(--accent-color1);
-    border: none;
-    border-radius: 20px;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    cursor: pointer;
+    background-color: var(--accent-color1);
+    border: none;
+    border-radius: 20px;
+    //color: white;
     transition: background-color var(--transition);
+
+    .trash_bucket_icon{
+      stroke: var(--text-light-color);
+    }
   }
   .bucket-btn:hover {
     background-color: #f42b2b;
@@ -134,7 +136,7 @@
   .bucket-btn:disabled{
     background-color: var(--accent-color1);
   }
-  .bucket-btn img{
+  .bucket-btn .trash_bucket_icon{
     pointer-events: none;
   }
 
