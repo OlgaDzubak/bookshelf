@@ -7,7 +7,7 @@
 
 body.dark {
     background-color: var(--dark-theme-background);
-    color: var(--accent-color3);
+    color: var(--light-theme-background);
 }
 
 // ---------- header -------------------------------//
@@ -267,7 +267,7 @@ body.dark {
 
     body.dark .submitBtn{
         color:black;
-        background-color: var(--accent-color3);
+        background-color: var(--light-theme-background);
         &:hover,
         &:focus {
             background-color: var(--accent-color1);
@@ -353,7 +353,7 @@ body.dark .edit-profile-btn-svg{
  
     body.dark .user-profile-submitBtn{
         color:black;
-        background-color: var(--accent-color3);
+        background-color: var(--light-theme-background);
         &:hover,
         &:focus {
             background-color: var(--accent-color1);
