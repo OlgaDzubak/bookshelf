@@ -89,17 +89,12 @@
 
     &::placeholder {
       color: currentColor;
-      //transition: color var(--transition);
+      transition: color var(--transition);
     }
 
     &::selection{
       color: currentColor;
       background-color: var(--accent-color2);
-    }
-
-    .modalForm-icon.name:hover,
-    .modalForm-icon.name:focus{
-      border-color: var(--accent-color1);
     }
     
   }
@@ -132,6 +127,13 @@
     margin-left: 20px; 
     transform: translateY(-50%);
     transition: fill var(--transition), stroke var(--transition);
+
+    &:hover,
+    &:focus{
+      .modalForm-input{
+        border-color: var(--accent-color1);
+      }
+    }
   }
   .modalForm-icon.name{
     fill : var(--text-dark-color);
