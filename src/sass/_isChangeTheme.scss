@@ -331,7 +331,7 @@ body.dark {
                 }
         
                 &::selection{
-                  color: currentColor;
+                  color: var(--text-dark-color);
                   background-color: var(--accent-color2);
                 }
               }
