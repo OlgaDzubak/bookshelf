@@ -114,12 +114,13 @@
           color: currentColor;
           transition: color var(--transition);
         }
-        
+
         &:focus,
         &:hover{
-          // outline: none;
+          outline: none;
           border-color: var(--accent-color1);
-          color: var(--text-dark-color); 
+          color: var(--text-dark-color);
+
           &::placeholder{
             color: var(--accent-color1); 
           }
