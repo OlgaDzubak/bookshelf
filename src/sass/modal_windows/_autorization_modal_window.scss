@@ -52,7 +52,6 @@
     }
   }
 
-
   .modalForm-fields-list{
     display: flex;
     flex-direction: column;
@@ -125,31 +124,27 @@
   } 
 
   //--------------------------------------- 
-  .modalForm-icon {
+  .modalForm-icon.name{
     position: absolute;
     top: 50%;
     margin-left: 20px; 
     transform: translateY(-50%);
-    transition: fill var(--transition), stroke var(--transition);
-  }
-  .modalForm-icon.name{
     fill : var(--text-dark-color);
     stroke : "none";
+    transition: fill var(--transition), stroke var(--transition);
   }
   .modalForm-icon.email,
   .modalForm-icon.password{
+    position: absolute;
+    top: 50%;
+    margin-left: 20px; 
+    transform: translateY(-50%);
     fill : none;
     stroke : var(--text-dark-color);
+    transition: fill var(--transition), stroke var(--transition);
   }
-  // .modalForm-input:focus+.modalForm-icon.email,
-  // .modalForm-input:hover+.modalForm-icon.email,
-  // .modalForm-input:focus+.modalForm-icon.password,
-  // .modalForm-input:hover+.modalForm-icon.password {
-  //   stroke : var(--accent-color1);
-  // }
+
   //---------------------------------------
-
-
   .modalWrapper-btn {
     display: block;
   }
@@ -239,20 +234,20 @@
     .modalForm-input::placeholder {
       font-size: 16px;
     }
-    .modalForm-icon {
-      right: 24px;
-    }
     .modalForm-icon.name {
       width:  13px;
       height: 18px;
+      right: 24px;
     }
     .modalForm-icon.email {
       width:  15px;
       height: 12px;
+      right: 24px;
     }
     .modalForm-icon.password {
       width:  13.5px;
       height: 13.5px;
+      right: 24px;
     }
     .modalWrapper-btn {
       margin-top: 24px;
@@ -312,20 +307,20 @@
     .modalForm-input::placeholder {
         font-size: 18px;
     }
-    .modalForm-icon {
-      right: 34px;
-    }
     .modalForm-icon.name {
       width: 19px;
       height: 19px;
+      right: 34px;
     }
     .modalForm-icon.email {
       width: 23px;
       height: 18px;
+      right: 34px;
     }
     .modalForm-icon.password {
       width: 21px;
       height: 21px;
+      right: 34px;
     }
     .modalWrapper-btn {
       margin-top: 40px;
