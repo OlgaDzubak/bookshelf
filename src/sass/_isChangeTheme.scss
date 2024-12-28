@@ -340,6 +340,17 @@ body.dark {
         
             }
     
+            .user-profile-input{
+                // width: 100%;
+                // font-weight: 700;
+                // text-transform: uppercase;
+                border: 2px solid var(--light-theme-background);
+                // border-radius: 40px;
+                // background-color: transparent;
+                color: var(--light-theme-background);
+                //transition: border-color var(--transition), color var(--transition);
+            }
+
             .user-profile-input::placeholder {
                 color: currentColor;
             }
