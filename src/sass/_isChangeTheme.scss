@@ -7,7 +7,7 @@
 
 body.dark {
     background-color: var(--dark-theme-background);
-    color: var(--light-theme-background);
+    color: var(--accent-color3);
 }
 
 // ---------- header -------------------------------//
@@ -205,25 +205,19 @@ body.dark {
 //}
 
 // ---------- autorization_modal_window ------------//
-//{
+
     body.dark .modal{
-        background-color: black;
-        border-color: var(--accent-color3);
+        background-color: var(--dark-theme-background);
+        border-color: var(--light-theme-background);
     }
-
-    body.dark .close-button {
-        color: var(--accent-color3)}
-
-    // body.dark .modalForm-inputWrap{
-    //     --auth-icon-color: var(--auth-icon-color3);  
-    // }
+    body.dark .close-icon{
+        fill: var(--light-theme-background);
+    }
     body.dark .modalForm-input {
         border: 2px solid var(--light-theme-background);
         background-color: transparent;
         color: var(--light-theme-background);
     }
-
-    
     body.dark input:-webkit-autofill,
     body.dark input:-webkit-autofill:hover,
     body.dark input:-webkit-autofill:focus,
@@ -236,27 +230,15 @@ body.dark {
         -webkit-text-fill-color: var(--light-theme-background);
         transition: background-color 5000s ease-in-out 0s;
     }
-
     body.dark .modalForm-input:focus {
         border: 2px solid var(--accent-color1);
         outline: none;
         border-color: var(--accent-color1);
         color: var(--light-theme-background);
     }
-    // body.dark.modalForm-input:focus+ .modalForm-icon{
-    //     --auth-icon-color: var(--auth-icon-color2);
-    // }
-
     body.dark .modalForm-input::placeholder {
         color: currentColor;
     }
-
-    body.dark .close-icon,
-    body.dark .close-button
-    {
-        fill: var(--light-theme-background);
-    }
-
     body.dark .modalForm-icon.name{
         fill : var(--light-theme-background);
     }
@@ -264,7 +246,6 @@ body.dark {
     body.dark .modalForm-icon.password{
         stroke : var(--light-theme-background);
     }
-
     body.dark .submitBtn{
         color:black;
         background-color: var(--light-theme-background);
@@ -274,10 +255,9 @@ body.dark {
             color:var(--light-theme-background);
         }
     }
-
     body.dark .btn-sign-up,
     body.dark .btn-sign-in{
-        color: rgba(255,255,255, 0.6);
+        color: rgba(246,246,246, 0.5);
         &:hover,
         &:focus {
           color: var(--accent-color1);
@@ -288,23 +268,22 @@ body.dark {
     }
 
 
-//}
 
 //----------- user loguot window --------------------//
 
-body.dark .logout-modal{
-    background-color: var(--dark-theme-background);
-    border-color: var(--light-theme-background);
-}
-body.dark .edit-profile-p{
-    color: var(--light-theme-background);
-}
-body.dark .edit-profile-btn{
-    background-color: var(--dark-theme-background);
-}
-body.dark .edit-profile-btn-svg{
-    stroke: var(--light-theme-background);
-}
+    body.dark .logout-modal{
+        background-color: var(--dark-theme-background);
+        border-color: var(--light-theme-background);
+    }
+    body.dark .edit-profile-p{
+        color: var(--light-theme-background);
+    }
+    body.dark .edit-profile-btn{
+        background-color: var(--dark-theme-background);
+    }
+    body.dark .edit-profile-btn-svg{
+        stroke: var(--light-theme-background);
+    }
 
 
 //----------- user profile window --------------------//
@@ -316,9 +295,6 @@ body.dark .edit-profile-btn-svg{
     body.dark .user-profile-closeBtn{
         color: var(--accent-color3)
     }
-    // body.dark .user-profile-inputWrap{
-    //     --auth-icon-color: var(--auth-icon-color3);  
-    // }
     body.dark .user-profile-input {
         border: 2px solid var(--light-theme-background);
         background-color: transparent;
@@ -330,12 +306,9 @@ body.dark .edit-profile-btn-svg{
             color: var(--light-theme-background);
         }
     }
-
     body.dark .user-profile-icon {
         fill: var(--light-theme-background);
     }
-
-
     body.dark .user-profile-input:focus+.user-profile-icon,
     body.dark .user-profile-input:hover+.user-profile-icon,
     body.dark .user-profile-input+.user-profile-icon:focus,
@@ -345,12 +318,6 @@ body.dark .edit-profile-btn-svg{
     body.dark .user-profile-input::placeholder {
         color: currentColor;
     }
-
-    // body.dark .close-icon,
-    // body.dark .icon-x {
-    //     fill: var(--light-theme-background);
-    // }
- 
     body.dark .user-profile-submitBtn{
         color:black;
         background-color: var(--light-theme-background);
