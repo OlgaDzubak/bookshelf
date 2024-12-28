@@ -82,13 +82,37 @@
     fill: var(--add-photo-btn-color);
   }
 
-  .user-profile-inputWrap {
-    position: relative;
-    --auth-icon-color: var(--auth-icon-color1); 
-  }
   .user-profile-label{
     margin-bottom: 40px;
   }
+  .user-profile-inputWrap {
+    position: relative;
+
+    &:focus,
+    &:hover{
+
+      .user-profile-input{
+        outline: none;
+        border-color: var(--accent-color1);
+        color: var(--text-dark-color);
+
+        &::placeholder{
+          color: var(--accent-color1); 
+        }
+
+        &::selection{
+          color: currentColor;
+          background-color: var(--accent-color2);
+        }
+      }
+
+      .user-profile-icon{
+        fill: var(--accent-color1); 
+      }
+    }
+  }
+
+
   .user-profile-input {
     width: 100%;
     font-weight: 700;
@@ -102,27 +126,6 @@
     &::placeholder{
       color: currentColor;
       transition: color var(--transition);
-    }
-
-    &:focus,
-    &:hover{
-      outline: none;
-      border-color: var(--accent-color1);
-      color: var(--text-dark-color);
-
-      &::placeholder{
-        color: var(--accent-color1); 
-      }
-
-      +.user-profile-icon,
-      +.user-profile-icon{
-        fill: var(--accent-color1); 
-      }
-    }
-
-    &::selection{
-      color: currentColor;
-      background-color: var(--accent-color2);
     }
   }
   .user-profile-icon {
