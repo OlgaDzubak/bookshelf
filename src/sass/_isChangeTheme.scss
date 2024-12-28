@@ -305,7 +305,7 @@ body.dark {
             }
         }
 
-        .modalForm-inputWrap {
+        .user-profile-inputWrap {
             position: relative;
         
             &:hover,
@@ -349,6 +349,7 @@ body.dark {
                 // background-color: transparent;
                 color: var(--light-theme-background);
                 //transition: border-color var(--transition), color var(--transition);
+                
             }
 
             .user-profile-input::placeholder {
