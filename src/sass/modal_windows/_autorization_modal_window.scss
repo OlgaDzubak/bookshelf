@@ -85,14 +85,14 @@
           color: var(--accent-color1);
         }
 
-        .modalForm-icon.name,
-        .modalForm-icon.name{
+        +.modalForm-icon.name,
+        +.modalForm-icon.name{
           fill : var(--accent-color1);
         }
-        .modalForm-icon.email,
-        .modalForm-icon.email,
-        .modalForm-icon.password,
-        .modalForm-icon.password{
+        +.modalForm-icon.email,
+        +.modalForm-icon.email,
+        +.modalForm-icon.password,
+        +.modalForm-icon.password{
           stroke : var(--accent-color1);
         }
     }
