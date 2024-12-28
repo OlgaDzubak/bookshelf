@@ -259,13 +259,13 @@ body.dark {
         fill: #ffffff;
     }
 
-    .modalForm-icon.name{
+    body.dark .modalForm-icon.name{
         fill : var(--text-white-color);
-      }
-      .modalForm-icon.email,
-      .modalForm-icon.password{
+    }
+    body.dark .modalForm-icon.email,
+    body.dark .modalForm-icon.password{
         stroke : var(--text-white-color);
-      }
+    }
 
     body.dark .submitBtn{
         color:black;
