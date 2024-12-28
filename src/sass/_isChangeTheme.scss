@@ -259,9 +259,13 @@ body.dark {
         fill: #ffffff;
     }
 
-    body.dark .modalForm-icon.email{
-        fill: #ffffff;
-    }
+    .modalForm-icon.name{
+        fill : var(--text-white-color);
+      }
+      .modalForm-icon.email,
+      .modalForm-icon.password{
+        stroke : var(--text-white-color);
+      }
 
     body.dark .submitBtn{
         color:black;
