@@ -68,11 +68,21 @@
         outline: none;
         border-color: var(--accent-color1);
         color: var(--text-dark-color); 
+
+        &::placeholder{
+          color: var(--accent-color1);
+        }
       }
 
       .modalForm-icon.name,
       .modalForm-icon.name{
         fill : var(--accent-color1);
+      }
+      .modalForm-icon.email,
+      .modalForm-icon.email,
+      .modalForm-icon.password,
+      .modalForm-icon.password{
+        stroke : var(--accent-color1);
       }
 
     }
@@ -97,20 +107,20 @@
         border-color: var(--accent-color1);
         color: var(--text-dark-color); 
         
-        &::placeholder{
-          color: var(--accent-color1);
-        }
+        // &::placeholder{
+        //   color: var(--accent-color1);
+        // }
 
-        +.modalForm-icon.name,
-        +.modalForm-icon.name{
-          fill : var(--accent-color1);
-        }
-        +.modalForm-icon.email,
-        +.modalForm-icon.email,
-        +.modalForm-icon.password,
-        +.modalForm-icon.password{
-          stroke : var(--accent-color1);
-        }
+        // +.modalForm-icon.name,
+        // +.modalForm-icon.name{
+        //   fill : var(--accent-color1);
+        // }
+        // +.modalForm-icon.email,
+        // +.modalForm-icon.email,
+        // +.modalForm-icon.password,
+        // +.modalForm-icon.password{
+        //   stroke : var(--accent-color1);
+        // }
     }
 
     &::placeholder {
