@@ -90,7 +90,6 @@
 
     &:focus,
     &:hover{
-
       .user-profile-input{
         outline: none;
         border-color: var(--accent-color1);
@@ -105,10 +104,11 @@
           background-color: var(--accent-color2);
         }
       }
+      .user-profile-icon {
+        fill: var(--accent-color1); 
+      }
     }
   }
-
-
   .user-profile-input {
     width: 100%;
     font-weight: 700;
@@ -131,13 +131,7 @@
     margin-left: 20px;
     fill: var(--text-dark-color); 
     transition: fill var(--transition);
-
-    &:focus,
-    &:hover{
-        fill: var(--accent-color1); 
-    }
   }
-
   .user-profile-submitBtn{
     display: block;
     width: 100%;
