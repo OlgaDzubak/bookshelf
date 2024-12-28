@@ -107,6 +107,7 @@
 
     &::placeholder{
       color: currentColor;
+      transition: color var(--transition);
     }
   }
 
