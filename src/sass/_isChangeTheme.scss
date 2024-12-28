@@ -320,22 +320,18 @@ body.dark {
                 fill: var(--light-theme-background);
             }
 
-            &:hover,
-            &:focus{
+            // &:hover,
+            // &:focus{
         
-              .modalForm-input{
-                border: 2px solid var(--light-theme-background);
-                background-color: transparent;
-                color: var(--light-theme-background);
-       
-                &::placeholder{
-                  color: var(--accent-color1);
-                }
-        
-                &::selection{
-                  color: currentColor;
-                  background-color: var(--accent-color2);
-                }
+            //     .user-profile-input{
+            //         // outline: none;
+            //         // border-color: var(--accent-color1);
+            //         color: var(--light-theme-background);
+            
+            //         // &::placeholder{
+            //         //   color: var(--accent-color1); 
+            //         // }
+            //       }
     
               }
         
