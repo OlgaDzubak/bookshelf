@@ -210,7 +210,7 @@ body.dark {
         background-color: var(--dark-theme-background);
         border-color: var(--light-theme-background);
     }
-    body.dark .close-icon{
+    body.dark .modal .icon-x{
         fill: var(--light-theme-background);
     }
     body.dark .modalForm-input {
