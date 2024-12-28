@@ -11,7 +11,6 @@
         border-radius: 18px;
         transform: translate(-50%, -50%);
       }
-
       .user-profile-modal.is-hidden{
         opacity: 0;
         pointer-events: none;
@@ -35,15 +34,15 @@
         border-color: transparent;
       }
 
-      .icon-x {
-        width: 100%;
-        height: 100%;
-        stroke: var(--text-dark-color);
-      }
-      .icon-x:hover,
-      .icon-x:focus{
-        stroke: var(--accent-color1);
-      }  
+      // .icon-x {
+      //   width: 100%;
+      //   height: 100%;
+      //   stroke: var(--text-dark-color);
+      // }
+      // .icon-x:hover,
+      // .icon-x:focus{
+      //   stroke: var(--accent-color1);
+      // }  
 
       .user-photo-and-addbtn-div{
         margin-bottom: 70px;
@@ -53,7 +52,6 @@
         margin-left: auto;
         margin-right: auto;
       }
-
       .user-photo-div{
         width: 100%;
         height: 100%;
@@ -61,7 +59,6 @@
         border-radius: 100%;
         border: 1px solid #000000;
       }
-
       .user-photo-img{
         width: 100%;
         height: 100%;
@@ -71,29 +68,28 @@
 
       .add-photo-btn-div{
         position: absolute;
-        display: flex;
         top: calc(100% - 16px);
         left: calc(50% - 16px);
-        border-radius: 100%;
+        display: flex;
         border: none;
         border-radius: 100%;
         background-color: var(--add-photo-btn-bgcolor);
-        transition: var(--transition);
         cursor: pointer;
+        transition: background-color var(--transition);
+
+        &:hover,
+        &:focus{
+          background-color: var(--add-photo-btn-bgcolor-hover);
+        }
       }
       .plus-btn-label{
         display: flex;
         padding: 10.5px;
       }
-
-      .add-photo-btn-div:hover,
-      .add-photo-btn-div:focus{
-        background-color: var(--add-photo-btn-bgcolor-hover);
-      }
-
       .plus-btn-svg{
         width:  11px;
         height: 11px;
+        stroke: var(--add-photo-btn-color);
       }
 
 
