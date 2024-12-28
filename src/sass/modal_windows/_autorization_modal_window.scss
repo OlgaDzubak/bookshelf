@@ -85,8 +85,8 @@
           color: var(--accent-color1);
         }
 
-        .modalForm-icon.name,
-        .modalForm-icon.name{
+        +.modalForm-icon.name,
+        +.modalForm-icon.name{
           fill : var(--accent-color1);
         }
         .modalForm-icon.email,
