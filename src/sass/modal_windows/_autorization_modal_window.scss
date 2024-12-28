@@ -72,28 +72,46 @@
     background-color: transparent;
     border-radius: 40px;
     color: var(--text-dark-color);
-    transition: border-color var(--transition);
+    transition: border-color var(--transition), color var(--transition);
+
     &:focus,
     &:hover{
-        border: 2px solid var(--accent-color1);
+        border-color: var(--accent-color1);
         outline: none;
         border-color: var(--accent-color1);
         color: var(--text-dark-color); 
+        
+        &::placeholder{
+          color: var(--accent-color1);
+        }
+
+    }
+
+    &::placeholder {
+      color: currentColor;
+      //transition: color var(--transition);
+    }
+
+    &::selection{
+      color: currentColor;
+      background-color: var(--accent-color2);
+    }
+
+    .modalForm-icon.name:hover,
+    .modalForm-icon.name:focus{
+      border-color: var(--accent-color1);
     }
     
   }
-  .modalForm-input::placeholder {
-    color: currentColor;
-    transition: color var(--transition);
-  }
-  .modalForm-input:focus::placeholder,
-  .modalForm-input:hover::placeholder{
-    color: var(--accent-color1);
-  }
-  .modalForm-input::selection{
-    color: currentColor;
-    background-color: var(--accent-color2);
-  }
+
+  // .modalForm-input:focus::placeholder,
+  // .modalForm-input:hover::placeholder{
+  //   color: var(--accent-color1);
+  // }
+  // .modalForm-input::selection{
+  //   color: currentColor;
+  //   background-color: var(--accent-color2);
+  // }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,

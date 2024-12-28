@@ -322,17 +322,19 @@ body.dark .edit-profile-btn-svg{
         border: 2px solid var(--text-white-color);
         background-color: transparent;
         color: var(--text-white-color);
+
+        &:focus,
+        &:hover {
+            border-color: var(--accent-color1);
+            color: var(--text-white-color);
+        }
     }
-    body.dark .user-profile-input:focus,
-    body.dark .user-profile-input:hover {
-        border-color: var(--accent-color1);
-        color: var(--text-white-color);
-    }
+
     body.dark .user-profile-input:focus+.user-profile-icon,
     body.dark .user-profile-input:hover+.user-profile-icon,
     body.dark .user-profile-input+.user-profile-icon:focus,
     body.dark .user-profile-input+.user-profile-icon:hover{
-        --auth-icon-color: var(--auth-icon-color2);
+        fill: var(--auth-icon-color2);
     }
     body.dark .user-profile-input::placeholder {
         color: currentColor;
