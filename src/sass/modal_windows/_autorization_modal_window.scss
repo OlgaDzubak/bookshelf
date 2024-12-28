@@ -59,7 +59,23 @@
   }
   .modalForm-inputWrap {
     position: relative;
-    --auth-icon-color: var(--auth-icon-color1); 
+
+    &:hover,
+    &:focus{
+
+      .modalForm-input{
+        border-color: var(--accent-color1);
+        outline: none;
+        border-color: var(--accent-color1);
+        color: var(--text-dark-color); 
+      }
+
+      +.modalForm-icon.name,
+      +.modalForm-icon.name{
+        fill : var(--accent-color1);
+      }
+
+    }
   }
 
   //----------------------------------------
