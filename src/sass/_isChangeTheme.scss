@@ -209,20 +209,18 @@ body.dark {
     body.dark .modal{
         background-color: black;
         border-color: var(--accent-color3);
-        // border-radius: 18px;
-        // border: #ffffff;
     }
 
     body.dark .close-button {
         color: var(--accent-color3)}
 
-    body.dark .modalForm-inputWrap{
-        --auth-icon-color: var(--auth-icon-color3);  
-    }
+    // body.dark .modalForm-inputWrap{
+    //     --auth-icon-color: var(--auth-icon-color3);  
+    // }
     body.dark .modalForm-input {
-        border: 2px solid var(--text-white-color);
+        border: 2px solid var(--light-theme-background);
         background-color: transparent;
-        color: var(--text-white-color);
+        color: var(--light-theme-background);
     }
 
     
@@ -235,7 +233,7 @@ body.dark {
     body.dark select:-webkit-autofill,
     body.dark select:-webkit-autofill:hover,
     body.dark select:-webkit-autofill:focus {
-        -webkit-text-fill-color: var(--text-white-color);
+        -webkit-text-fill-color: var(--light-theme-background);
         transition: background-color 5000s ease-in-out 0s;
     }
 
@@ -243,11 +241,11 @@ body.dark {
         border: 2px solid var(--accent-color1);
         outline: none;
         border-color: var(--accent-color1);
-        color: var(--text-white-color);
+        color: var(--light-theme-background);
     }
-    body.dark.modalForm-input:focus+ .modalForm-icon{
-        --auth-icon-color: var(--auth-icon-color2);
-    }
+    // body.dark.modalForm-input:focus+ .modalForm-icon{
+    //     --auth-icon-color: var(--auth-icon-color2);
+    // }
 
     body.dark .modalForm-input::placeholder {
         color: currentColor;
@@ -256,15 +254,15 @@ body.dark {
     body.dark .close-icon,
     body.dark .close-button
     {
-        fill: #ffffff;
+        fill: var(--light-theme-background);
     }
 
     body.dark .modalForm-icon.name{
-        fill : var(--text-white-color);
+        fill : var(--light-theme-background);
     }
     body.dark .modalForm-icon.email,
     body.dark .modalForm-icon.password{
-        stroke : var(--text-white-color);
+        stroke : var(--light-theme-background);
     }
 
     body.dark .submitBtn{
@@ -273,7 +271,7 @@ body.dark {
         &:hover,
         &:focus {
             background-color: var(--accent-color1);
-            color: var(--text-white-color);
+            color:var(--light-theme-background);
         }
     }
 
@@ -286,7 +284,7 @@ body.dark {
         }
         &.current {
             color: var(--accent-color1);
-          }
+        }
     }
 
 
@@ -299,7 +297,7 @@ body.dark .logout-modal{
     border-color: var(--light-theme-background);
 }
 body.dark .edit-profile-p{
-    color: var(--text-white-color);
+    color: var(--light-theme-background);
 }
 body.dark .edit-profile-btn{
     background-color: var(--dark-theme-background);
@@ -318,35 +316,40 @@ body.dark .edit-profile-btn-svg{
     body.dark .user-profile-closeBtn{
         color: var(--accent-color3)
     }
-    body.dark .user-profile-inputWrap{
-        --auth-icon-color: var(--auth-icon-color3);  
-    }
+    // body.dark .user-profile-inputWrap{
+    //     --auth-icon-color: var(--auth-icon-color3);  
+    // }
     body.dark .user-profile-input {
-        border: 2px solid var(--text-white-color);
+        border: 2px solid var(--light-theme-background);
         background-color: transparent;
-        color: var(--text-white-color);
+        color: var(--light-theme-background);
 
         &:focus,
         &:hover {
-            border-color: var(--accent-color1);
-            color: var(--text-white-color);
+            border-color: var(--light-theme-background);
+            color: var(--light-theme-background);
         }
     }
+
+    body.dark .user-profile-icon {
+        fill: var(--light-theme-background);
+    }
+
 
     body.dark .user-profile-input:focus+.user-profile-icon,
     body.dark .user-profile-input:hover+.user-profile-icon,
     body.dark .user-profile-input+.user-profile-icon:focus,
     body.dark .user-profile-input+.user-profile-icon:hover{
-        fill: var(--auth-icon-color2);
+        fill: var(--light-theme-background);
     }
     body.dark .user-profile-input::placeholder {
         color: currentColor;
     }
 
-    body.dark .close-icon,
-    body.dark .icon-x {
-        fill: #ffffff;
-    }
+    // body.dark .close-icon,
+    // body.dark .icon-x {
+    //     fill: var(--light-theme-background);
+    // }
  
     body.dark .user-profile-submitBtn{
         color:black;
@@ -354,7 +357,7 @@ body.dark .edit-profile-btn-svg{
         &:hover,
         &:focus {
             background-color: var(--accent-color1);
-            color: var(--text-white-color);
+            color:var(--light-theme-background);
         }
     }
 
