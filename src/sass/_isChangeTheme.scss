@@ -308,6 +308,18 @@ body.dark {
         .user-profile-inputWrap {
             position: relative;
         
+            .user-profile-input{
+                border: 2px solid var(--light-theme-background);
+                color: var(--light-theme-background);
+
+                &::placeholder{
+                    color: currentColor;
+                }
+            }   
+            .user-profile-icon {
+                fill: var(--light-theme-background);
+            }
+
             &:hover,
             &:focus{
         
@@ -338,25 +350,6 @@ body.dark {
                 stroke : var(--accent-color1);
               }
         
-            }
-    
-            .user-profile-input{
-                // width: 100%;
-                // font-weight: 700;
-                // text-transform: uppercase;
-                border: 2px solid var(--light-theme-background);
-                // border-radius: 40px;
-                // background-color: transparent;
-                color: var(--light-theme-background);
-                //transition: border-color var(--transition), color var(--transition);
-                
-            }
-
-            .user-profile-input::placeholder {
-                color: currentColor;
-            }
-            .user-profile-icon {
-                fill: var(--light-theme-background);
             }
         }
     }
