@@ -160,8 +160,10 @@
        cursor: pointer;
        color: var(--text-white-color);
        background-color: var(--accent-color1);
+       overflow-x: auto;
        transition: background-color var(--transition);
        
+
        &:hover,
        &:focus{
         background-color: var(--accent-color1-hf);
