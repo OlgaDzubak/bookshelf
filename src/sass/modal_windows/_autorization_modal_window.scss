@@ -72,7 +72,32 @@
     border-radius: 40px;
     color: var(--text-dark-color);
     transition: border-color var(--transition);
+    &:focus,
+    &:hover{
+        border: 2px solid var(--accent-color1);
+        outline: none;
+        border-color: var(--accent-color1);
+        color: var(--text-dark-color); 
+    }
+    
   }
+
+  .modalForm-icon {
+    position: absolute;
+    top: 50%;
+    margin-left: 20px; 
+    fill : var(--accent-color3);
+    stroke : "none";
+    transform: translateY(-50%);
+    transition: fill var(--transition);
+  }
+  .modalForm-input:focus+.modalForm-icon,
+  .modalForm-input:hover+.modalForm-icon{
+      fill : var(--accent-color1);
+      stroke : "none";
+  }
+
+
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
@@ -84,18 +109,6 @@
   select:-webkit-autofill:focus {
       -webkit-text-fill-color: var(--text-dark-color);
       transition: background-color 5000s ease-in-out 0s;
-  }
-
-  .modalForm-input:focus,
-  .modalForm-input:hover{
-      border: 2px solid var(--accent-color1);
-      outline: none;
-      border-color: var(--accent-color1);
-      color: var(--text-dark-color); 
-  }
-  .modalForm-input:focus+.modalForm-icon,
-  .modalForm-input:hover+.modalForm-icon{
-      --auth-icon-color: var(--auth-icon-color2);
   }
 
   .modalForm-input::placeholder {
@@ -112,13 +125,7 @@
     background-color: var(--accent-color2);
   }
 
-  .modalForm-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 20px; 
-    transition: fill var(--transition);  // !!! не буде працювати, подумаьи як виправити
-  }
+
 
   .modalWrapper-btn {
     display: block;
