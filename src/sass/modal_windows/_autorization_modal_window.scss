@@ -15,9 +15,9 @@
     overflow: auto;
   }
   .autorization-modal-backdrop.is-hidden {
-    //display: none;
-    opacity: 0;
-    pointer-events: none;
+    display: none;
+    // opacity: 0;
+    // pointer-events: none;
   }
 
   .modal{
