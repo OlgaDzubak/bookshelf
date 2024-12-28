@@ -85,8 +85,8 @@
           color: var(--accent-color1);
         }
 
-        +.modalForm-icon.name,
-        +.modalForm-icon.name{
+        .modalForm-icon.name,
+        .modalForm-icon.name{
           fill : var(--accent-color1);
         }
         .modalForm-icon.email,
@@ -134,19 +134,17 @@
     fill : var(--text-dark-color);
     stroke : "none";
   }
-
-
   .modalForm-icon.email,
   .modalForm-icon.password{
     fill : none;
     stroke : var(--text-dark-color);
   }
-  .modalForm-input:focus+.modalForm-icon.email,
-  .modalForm-input:hover+.modalForm-icon.email,
-  .modalForm-input:focus+.modalForm-icon.password,
-  .modalForm-input:hover+.modalForm-icon.password {
-    stroke : var(--accent-color1);
-  }
+  // .modalForm-input:focus+.modalForm-icon.email,
+  // .modalForm-input:hover+.modalForm-icon.email,
+  // .modalForm-input:focus+.modalForm-icon.password,
+  // .modalForm-input:hover+.modalForm-icon.password {
+  //   stroke : var(--accent-color1);
+  // }
   //---------------------------------------
 
 
