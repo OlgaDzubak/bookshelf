@@ -34,8 +34,8 @@ paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn">
                         </svg>
                     </button>`;
 
-for (let i=1; i<=pagesCount; i++ ){
-    if (i<=visibleBtnCount){
+for (let i = 1; i <= pagesCount; i++ ){
+    if (i <= visibleBtnCount){
         paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn">${i}</button>`;
     }else{
         paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn visually-hidden">${i}</button>`;
@@ -181,12 +181,12 @@ function shiftPageLeft(paginationList, shift){
 
     if (shift) {
         if (firstVisiblePageNumber - shift >= 1) {
-            for (i=firstVisiblePageNumber-1; i>=firstVisiblePageNumber-shift; i--){
+            for (let i=firstVisiblePageNumber-1; i>=firstVisiblePageNumber-shift; i--){
                 returnPage = setPaginationPage(paginationList, i);
             }
             returnPage  = setPaginationPage(paginationList, firstVisiblePageNumber-1);;
         }else {
-            for (i=firstVisiblePageNumber-1; i>=1; i--){
+            for (let i=firstVisiblePageNumber-1; i>=1; i--){
                 returnPage = setPaginationPage(paginationList, i);
             }
         }
@@ -196,9 +196,6 @@ function shiftPageLeft(paginationList, shift){
 
 // Зміщення вправо на shift сторінок
 function shiftPageRight(paginationList, shift){
-
-    console.log("paginationList=",paginationList);
-    console.log("shift=", shift);
 
     const pages = paginationList.querySelectorAll(".number-btn");
     const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
@@ -213,12 +210,12 @@ function shiftPageRight(paginationList, shift){
 
     if (shift) {
         if (lastPageNumber - lastVisiblePageNumber >= shift) {
-            for (i=lastVisiblePageNumber; i<=lastVisiblePageNumber + shift; i++){
+            for (let i=lastVisiblePageNumber; i<=lastVisiblePageNumber + shift; i++){
                 returnPage = setPaginationPage(paginationList, i);
             }
             returnPage = setPaginationPage(paginationList, lastVisiblePageNumber+1);
         }else {
-            for (i=lastVisiblePageNumber; i<=lastPageNumber; i++){
+            for (let i = lastVisiblePageNumber; i <= lastPageNumber; i++){
                 returnPage = setPaginationPage(paginationList, i);
             }
         }
