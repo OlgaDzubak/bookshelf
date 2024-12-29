@@ -180,7 +180,7 @@ function setPaginationPage(paginationList, page) {
         }
     }
 
-    console.log("allPagesBtns = ", allPagesBtns);
+    console.log("paginationList = ",paginationList);
     return page;
 };
 
