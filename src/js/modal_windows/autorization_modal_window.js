@@ -9,9 +9,9 @@ let abortCtrl1, abortCtrl2, loader1;
 //відкриття модального вікна для авторизації
 const backdrop = document.querySelector('.autorization-modal-backdrop');
 const modal = document.querySelector('.modal');
-const userLoginBtn = document.querySelector('.user-login-btn');
+const eyeBtn = document.querySelector('.eye-btn');
 
-//userLoginBtn.addEventListener('click', onOpenAuthModal);
+eyeBtn.addEventListener('click', toggleEyeBtn);
 
 function openAuthModal() {
   window.addEventListener('keydown', onEscKeyDown);
@@ -159,6 +159,25 @@ function onModalInputClick({target}){
     submitBtn.textContent = "SIGN IN";
     signInBtn.classList.add("current");
     signUpBtn.classList.remove("current");    
+  }
+
+  function toggleEyeBtn(){
+      const openEyeIcon = eyeBtn.querySelector('.open-eye');
+      const closeEyeIcon = eyeBtn.querySelector('.close-eye');
+      const passwordInput = document.querySelector('password-input');
+
+      if (passwordInput.type = 'password'){
+
+        openEyeIcon.classList.remove("is-hidden");
+        closeEyeIcon.classList.add("is-hidden");
+        passwordInput.type = 'text';
+
+      }else{
+        openEyeIcon.classList.add("is-hidden");
+        closeEyeIcon.classList.remove("is-hidden");
+        passwordInput.type = 'password';
+      }
+      
   }
 
   export {
