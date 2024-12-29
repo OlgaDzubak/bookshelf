@@ -17,7 +17,7 @@
         background-color: var(--light-theme-background);
         scroll-behavior: auto;
     }
-    .btn-modal-close {
+    .close-button {
         position: absolute;
         top: 12px;
         right: 12px;
@@ -31,6 +31,8 @@
         border: none;
     }
     .icon-x {
+        width: 100%;
+        height: 100%;
         stroke: var(--text-dark-color);
     }
     .icon-x:hover,

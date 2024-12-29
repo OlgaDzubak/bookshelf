@@ -37,35 +37,35 @@
       padding-bottom: 40px;
     }
   }
-  .about-us-close-button {
-    position: absolute;
+  // .about-us-close-button {
+  //   position: absolute;
 
-    background-color: transparent;
-    border-color: transparent;
-    width: 20px;
-    height: 20px;
-    top: 14px;
-    right: 14px;
-    cursor: pointer;
+  //   background-color: transparent;
+  //   border-color: transparent;
+  //   width: 20px;
+  //   height: 20px;
+  //   top: 14px;
+  //   right: 14px;
+  //   cursor: pointer;
 
-    @media screen and (min-width: 768px) {
-      top: 24px;
-      right: 24px;
-    }
-  }
-  .about-us-close-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
+  //   @media screen and (min-width: 768px) {
+  //     top: 24px;
+  //     right: 24px;
+  //   }
+  // }
+  // .about-us-close-icon {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   width: 10px;
+  //   height: 10px;
 
-    @media screen and (min-width: 768px) {
-      width: 14px;
-      height: 14px;
-    }
-  }
+  //   @media screen and (min-width: 768px) {
+  //     width: 14px;
+  //     height: 14px;
+  //   }
+  // }
   .about-us-item {
     margin-bottom: 18px;
   }
