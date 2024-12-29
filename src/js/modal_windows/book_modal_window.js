@@ -22,13 +22,13 @@ const btnAddEl = document.querySelector('.add');
 const btnRemoveEl = document.querySelector('.remove');
 const textEl = document.querySelector('.modal-message');
 
+divContainerEl.addEventListener('click', onReadId);
 btnCloseModal.addEventListener('click', onCloseModal);
 btnAddEl.addEventListener('click', addToShoppingList);
-divContainerEl.addEventListener('click', onReadId);
 btnRemoveEl.addEventListener('click', removeFromShoppingList);
 
 function onReadId({target}) {
-
+    console.log("onReadId");
     if (target.classList.contains('owerlay')) {
         book_Id = target.parentElement.parentElement.dataset.id;
         createModalWindow(book_Id);
