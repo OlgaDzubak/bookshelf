@@ -375,11 +375,14 @@
                 background-color: var(--accent-color1-hf);
             }
 
+            &.is-hidden{
+                display: none;
+            }
   
         }
-        .user-login-btn.is-hidden{
-            display: none;    
-        }
+        // .user-login-btn.is-hidden{
+        //     display: none;    
+        // }
         .icon-arrow-right {
             stroke: var(--accent-color2);
         }
