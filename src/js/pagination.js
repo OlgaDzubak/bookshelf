@@ -145,6 +145,7 @@ function setPaginationPage(paginationList, page) {
 
         if (page === allPagesBtns.length) { 
             console.log("if (page === allPagesBtns.length)");
+            console.log(rightArrowBtn);
             rightArrowBtn.setAttribute('disabled',"");
         } else{
             rightArrowBtn.removeAttribute('disabled',"");
@@ -152,6 +153,9 @@ function setPaginationPage(paginationList, page) {
     
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent)  === allPagesBtns.length) {
             console.log("if (Number(visiblePagesBtns[visibleBtnCount-1].textContent)  === allPagesBtns.length) {");
+            console.log(rightDoubleArrowBtn);
+            console.log(rightThreeDots);
+
             rightDoubleArrowBtn.setAttribute('disabled',"");
             rightThreeDots.setAttribute('disabled',"");
             rightThreeDots.classList.add('visually-hidden');
@@ -176,6 +180,7 @@ function setPaginationPage(paginationList, page) {
         }
     }
 
+    console.log("allPagesBtns = ", allPagesBtns);
     return page;
 };
 
