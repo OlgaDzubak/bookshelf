@@ -29,6 +29,7 @@ btnRemoveEl.addEventListener('click', removeFromShoppingList);
 
 function onReadId({target}) {
     console.log("onReadId");
+    console.dir("target=", target);
     if (target.classList.contains('owerlay')) {
         book_Id = target.parentElement.parentElement.dataset.id;
         createModalWindow(book_Id);
