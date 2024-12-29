@@ -9,6 +9,6 @@ import './js/modal_windows/logout_modal_window';
 import './js/modal_windows/user_profile_modal_window';
 
 
-document.querySelector('.header.shopping-link').classList.toggle('selected');
-document.querySelector('.mobile-menu.shopping-link').classList.toggle('mobile-selected');
-document.querySelector('.mobile-menu.shopping-bag-icon').classList.toggle('mobile-selected');
+document.querySelector('.header .shopping-link').classList.toggle('selected');
+document.querySelector('.mobile-menu .shopping-link').classList.toggle('mobile-selected');
+document.querySelector('.mobile-menu .shopping-bag-icon').classList.toggle('mobile-selected');
