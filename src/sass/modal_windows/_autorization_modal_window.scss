@@ -29,10 +29,6 @@
   }
   .close-button {
     position: absolute;
-    top: 24px;
-    right: 24px;
-    width: 28px;
-    height: 28px;
     padding: 0px;
     display: flex;
     justify-content: center;
@@ -244,10 +240,10 @@
       transform: translate(-50%, -50%);
     }
     .close-button {
-      width: 20px;
-      height: 20px;
       top: 14px;
       right: 14px;
+      width: 20px;
+      height: 20px;
     }
     .modalForm-fields-list{
       row-gap: 24px;
@@ -322,6 +318,8 @@
       row-gap: 28px;
     }
     .close-button {
+      top: 24px;
+      right: 24px;
       width: 28px;
       height: 28px;
     }
