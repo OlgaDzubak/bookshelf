@@ -12,5 +12,5 @@ import './js/modal_windows/about_us_modal_window';
 
 
 //document.querySelector('.mobile-menu').classList.add('is-hidden');
-document.querySelector('.header.home-link').classList.toggle('selected');
-document.querySelector('.mobile-menu.home-link').classList.toggle('mobile-selected');
+document.querySelector('.header .home-link').classList.toggle('selected');
+document.querySelector('.mobile-menu .home-link').classList.toggle('mobile-selected');
