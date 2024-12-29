@@ -95,9 +95,6 @@ function setPaginationPage(paginationList, page) {
         const leftThreeDots = paginationList.querySelector('.left-three-dots-btn');
         const rightThreeDots = paginationList.querySelector('.right-three-dots-btn');
     
-        console.log("visiblePagesBtns=", visiblePagesBtns);
-        console.log("page=", page);
-
         //Обробка кнопок з цифрами сторінок
         for (const button of allPagesBtns) {
             
@@ -107,8 +104,6 @@ function setPaginationPage(paginationList, page) {
 
                 if (button.classList.contains('visually-hidden')){
                     
-                    console.log("110");
-
                     if (button.textContent <= visiblePagesBtns[0].textContent){ 
                         visiblePagesBtns[visibleBtnCount-1].setAttribute("disabled","");
                         visiblePagesBtns[visibleBtnCount-1].classList.add('visually-hidden');
@@ -131,36 +126,26 @@ function setPaginationPage(paginationList, page) {
 
             }else {
                 button.classList.remove('active');
+                console.log("button=",button);
             }
         }
         visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
-
         
-        console.log("paginationList = ",paginationList);
-
-
 
         //Обробка кнопок зі стрілкамми та трикрапками
         if (page === 1){
-            console.log("if (page === 1){");
             leftArrowBtn.setAttribute('disabled',"");
         } else {
             leftArrowBtn.removeAttribute('disabled',"");
         }
 
         if (page === allPagesBtns.length) { 
-            console.log("if (page === allPagesBtns.length)");
-            console.log(rightArrowBtn);
             rightArrowBtn.setAttribute('disabled',"");
         } else{
             rightArrowBtn.removeAttribute('disabled',"");
         }
     
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent)  === allPagesBtns.length) {
-            console.log("if (Number(visiblePagesBtns[visibleBtnCount-1].textContent)  === allPagesBtns.length) {");
-            console.log(rightDoubleArrowBtn);
-            console.log(rightThreeDots);
-
             rightDoubleArrowBtn.setAttribute('disabled',"");
             rightThreeDots.setAttribute('disabled',"");
             rightThreeDots.classList.add('visually-hidden');
@@ -171,10 +156,6 @@ function setPaginationPage(paginationList, page) {
         }
         
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {
-
-            console.log(" if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {");
-            
-
             leftDoubleArrowBtn.setAttribute('disabled',"");
             leftThreeDots.setAttribute('disabled',"");
             leftThreeDots.classList.add('visually-hidden');
@@ -184,8 +165,6 @@ function setPaginationPage(paginationList, page) {
             leftThreeDots.classList.remove('visually-hidden');
         }
     }
-
-    console.log("paginationList = ",paginationList);
     return page;
 };
 
