@@ -145,11 +145,22 @@
   }
   .eye-btn{
     position: absolute;
-    width: 26px;
-    height: 26px;
     top: 50%;
-    margin-left: 20px; 
     transform: translateY(-50%);
+    right: 34px;
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    fill: var(--text-dark-color);
+    stroke: var(--text-dark-color);
+    stroke-width: 0.9;
+    transition: fill var(--transition), stroke var(--transition);
   }
 
   //---------------------------------------
