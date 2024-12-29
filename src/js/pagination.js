@@ -95,6 +95,8 @@ function setPaginationPage(paginationList, page) {
         const leftThreeDots = paginationList.querySelector('.left-three-dots-btn');
         const rightThreeDots = paginationList.querySelector('.right-three-dots-btn');
     
+        console.log("visiblePagesBtns=", visiblePagesBtns);
+        
         //Обробка кнопок з цифрами сторінок
         for (const button of allPagesBtns) {
             
@@ -157,7 +159,9 @@ function setPaginationPage(paginationList, page) {
         }
         
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {
+
             console.log(" if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {");
+            
             leftDoubleArrowBtn.setAttribute('disabled',"");
             leftThreeDots.setAttribute('disabled',"");
             leftThreeDots.classList.add('visually-hidden');
