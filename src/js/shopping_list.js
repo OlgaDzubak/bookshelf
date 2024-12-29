@@ -6,7 +6,7 @@ import {createPagination,
         shiftPageRight, 
         nextPageGroupLeft, 
         nextPageGroupRight} from './pagination'
-import bucketTrash from '/src/images/png/trash-03.png';
+
 
 import stackOfBooks_mobile_1x from '/src/images/shopping_list/stack_of_books_mobile@1x.png';
 import stackOfBooks_mobile_2x from '/src/images/shopping_list/stack_of_books_mobile@2x.png';
@@ -29,12 +29,6 @@ import emptyImgDesktop_3x  from '/src/images/png/empty-img-desktop@3x.jpg';
 import { createBooksBoxTitle, createLoader, displayOrdredAmountInShoppingBag, scrollUp} from './help_functions';
 
 const api = new bookshelf_API();
-
-// const bucketCard = [
-//   {
-//     img: bucketTrash,
-//   },
-// ];
 
 const shoppingBooksBox = document.querySelector('.shopping-wrapper');
 const shoppingBooksBoxTitle = createBooksBoxTitle(shoppingBooksBox, "Shopping List");
@@ -92,7 +86,6 @@ async function createShoppingList() {
           pagesCount = Math.ceil(shoppingBooks.length / booksOnPage); 
 
           //стиворюємо пагінацію, якщо сторінок більше за 1
-          
           if (pagesCount > 1 ) {
             
             paginationBox = createPagination(shoppingBooks.length, booksOnPage, visiblePagesCount, "shopping_booklist_pagination");
@@ -142,7 +135,7 @@ function showPage(dataArray, page, itemsOnPage) {
                                                                 media="(min-width: 768px) and (max-width: 1439.8px)"
                                                               >
                                                               <source
-                                                                srcset="${emptyImgDesktop_1x} 1x, ${emptyImgDesktop_2x} 2x, ${emptyImgDesktop_2x} 3x"
+                                                                srcset="${emptyImgDesktop_1x} 1x, ${emptyImgDesktop_2x} 2x, ${emptyImgDesktop_3x} 3x"
                                                                 media="(min-width: 1440px)"
                                                               >
                                                         
@@ -375,6 +368,7 @@ function onPaginationClick(paginationBox, target){
 
   }else if (target.classList.contains("number-btn") && (!target.classList.contains("active"))){
 
+    console.log('else if (target.classList.contains("number-btn") && (!target.classList.contains("active"))){');
     currentPage = setPaginationPage(paginationBox, Number(target.textContent));
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
   
@@ -392,7 +386,7 @@ function onPaginationClick(paginationBox, target){
 
     console.log("currentPage = ",currentPage);
     console.log("visiblePagesCount = ",visiblePagesCount);
-    
+
     currentPage = nextPageGroupRight(paginationBox, currentPage, visiblePagesCount);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
     
