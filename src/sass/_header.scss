@@ -110,14 +110,19 @@
     .shopping-link{
         position: relative;
     }
+    .home-link:hover,
+    .home-link:focus,
+    .home-link.selected, 
+    .shopping-link:hover,
+    .shopping-link:focus,
+    .shopping-link.selected {
+        background-color: var(--accent-color2);
+        font-weight: 700;
+    }
     .shopping-bag-icon {
         fill: var(--text-dark-color);
         stroke: none;        
         transition: fill var(--transition), stroke var(--transition) ;
-    }
-    .home-link.selected, .shopping-link.selected {
-        background-color: var(--accent-color2);
-        font-weight: 700;
     }
     .shopping-link.selected .shopping-bag-icon,
     .shopping-link:hover .shopping-bag-icon,
@@ -360,12 +365,6 @@
     
             color: var(--text-dark-color);
             transition: background-color var(--transition), font-weight var(--transition);
-        }
-        .shopping-link:hover,
-        .shopping-link:focus {
-            background: var(--accent-color2);
-            font-weight: 700;
-            transition: font-weight var(--transition);
         }
         .shopping-bag-icon {
             line-height: 0;
