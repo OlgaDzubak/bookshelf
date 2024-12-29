@@ -165,6 +165,7 @@ function setPaginationPage(paginationList, page) {
 
             console.log(" if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {");
             
+
             leftDoubleArrowBtn.setAttribute('disabled',"");
             leftThreeDots.setAttribute('disabled',"");
             leftThreeDots.classList.add('visually-hidden');
@@ -206,6 +207,8 @@ function shiftPageLeft(paginationList, shift){
 
 // Зміщення вправо на shift сторінок
 function shiftPageRight(paginationList, shift){
+
+    console.log("shiftPageRight", paginationList, shift);
 
     const pages = paginationList.querySelectorAll(".number-btn");
     const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
