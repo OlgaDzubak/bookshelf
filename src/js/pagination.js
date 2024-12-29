@@ -135,6 +135,11 @@ function setPaginationPage(paginationList, page) {
         }
         visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
 
+        
+        console.log("paginationList = ",paginationList);
+
+
+
         //Обробка кнопок зі стрілкамми та трикрапками
         if (page === 1){
             console.log("if (page === 1){");
