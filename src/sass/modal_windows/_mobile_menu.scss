@@ -211,3 +211,15 @@
         content: url("/src/images/svg/arrow-right.svg");
     }
 }
+
+@media screen and (max-height: 400px){
+    .user-login-and-navigation-div{
+        min-height: 185px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;        
+    }
+    .mobile-menu .navigation {
+       // margin-top: 60px;
+    }
+}
