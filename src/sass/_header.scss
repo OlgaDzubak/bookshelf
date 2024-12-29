@@ -332,44 +332,25 @@
             display: none;
         }
 
-        .home-link {
+        .home-link,
+        .shopping-link {
             padding: 8px 16px;
             display: inline-flex;
             font-size: 14px;
+            font-weight: 500;
             line-height: 1.28;
             letter-spacing: -0.04em;
-            font-weight: 500;
-    
             border-radius: 36px;
-            color: var(--text-dark-color);
-            transition: background-color var(--transition), font-weight var(--transition);
-        }
-        .home-link:hover,
-        .home-link:focus {
-            background-color: var(--accent-color2);
-            font-weight: 700;
-            transition: font-weight var(--transition);
-        }
-
-        .shopping-link {
-            padding: 7px 16px;
-            display: inline-flex;
-            align-items: center;
             gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
-    
-            line-height: 1.28;
-            letter-spacing: -0.04em;
-            border-radius: 36px;
-    
             color: var(--text-dark-color);
-            transition: background-color var(--transition), font-weight var(--transition);
+            transition: background-color var(--transition), color var(--transition) ,font-weight var(--transition);
         }
+        // .shopping-link {
+        //     gap: 8px;
+        // }
         .shopping-bag-icon {
             line-height: 0;
         }
-
         .user-login-btn {
             display: flex;
             align-items: center;
@@ -385,17 +366,20 @@
             letter-spacing: -0.04em;
     
             color: var(--accent-color3);
-            border: 1.5px solid #111111;
+            border: 1.5px solid var(--text-dark-color);
             border-radius: 36px;
             transition: background-color var(--transition);
+            
+            &:hover,
+            &:focus {
+                background-color: var(--accent-color1-hf);
+            }
+
+            .is-hidden{
+                display: none;    
+            }
         }
-        .user-login-btn:hover,
-        .user-login-btn:focus {
-            background-color: var(--accent-color1-hf);
-        }
-        .user-login-btn.is-hidden{
-            display: none;
-        }
+
         .icon-arrow-right {
             stroke: var(--accent-color2);
         }
