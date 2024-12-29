@@ -16,11 +16,11 @@ let book_Id, abortCtrl1, abortCtrl2, loader1;
 
 const divContainerEl = document.querySelector('.books-box');
 const divBackdropEl = document.querySelector('.book-modal-backdrop');
-const bookModalContainer = document.querySelector(".book-modal-container")
-const btnCloseModal = document.querySelector('.btn-modal-close');
-const btnAddEl = document.querySelector('.add');
-const btnRemoveEl = document.querySelector('.remove');
-const textEl = document.querySelector('.modal-message');
+const bookModalContainer = divBackdropEl.querySelector(".book-modal-container")
+const btnCloseModal = bookModalContainer.querySelector('.close-button');
+const btnAddEl = bookModalContainer.querySelector('.add');
+const btnRemoveEl = bookModalContainer.querySelector('.remove');
+const textEl = bookModalContainer.querySelector('.modal-message');
 
 divContainerEl.addEventListener('click', onReadId);
 btnCloseModal.addEventListener('click', onCloseModal);
