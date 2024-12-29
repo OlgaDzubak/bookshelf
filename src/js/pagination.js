@@ -100,51 +100,53 @@ function setPaginationPage(paginationList, page) {
             
             if (Number(button.textContent) === page){
 
-            button.classList.add('active');
-        //   button.focus();
+                button.classList.add('active');
 
-            if (button.classList.contains('visually-hidden')){
+                if (button.classList.contains('visually-hidden')){
 
-                if (button.textContent <= visiblePagesBtns[0].textContent){ 
-                    visiblePagesBtns[visibleBtnCount-1].setAttribute("disabled","");
-                    visiblePagesBtns[visibleBtnCount-1].classList.add('visually-hidden');
-                    rightThreeDots.removeAttribute("disabled","");
-                    rightThreeDots.classList.remove('visually-hidden');
-                } else {
-                    visiblePagesBtns[0].setAttribute("disabled","");
-                    visiblePagesBtns[0].classList.add('visually-hidden');
-                    leftThreeDots.removeAttribute("disabled","");
-                    leftThreeDots.classList.remove('visually-hidden');
-                
-                if (Number(button.textContent) === allPagesBtns.length){
-                    rightThreeDots.setAttribute("disabled","");
-                    rightThreeDots.classList.add('visually-hidden');
+                    if (button.textContent <= visiblePagesBtns[0].textContent){ 
+                        visiblePagesBtns[visibleBtnCount-1].setAttribute("disabled","");
+                        visiblePagesBtns[visibleBtnCount-1].classList.add('visually-hidden');
+                        rightThreeDots.removeAttribute("disabled","");
+                        rightThreeDots.classList.remove('visually-hidden');
+                    } else {
+                        visiblePagesBtns[0].setAttribute("disabled","");
+                        visiblePagesBtns[0].classList.add('visually-hidden');
+                        leftThreeDots.removeAttribute("disabled","");
+                        leftThreeDots.classList.remove('visually-hidden');
+                    
+                    if (Number(button.textContent) === allPagesBtns.length){
+                        rightThreeDots.setAttribute("disabled","");
+                        rightThreeDots.classList.add('visually-hidden');
+                    }
+                    }
+                    button.removeAttribute("disabled","");
+                    button.classList.remove('visually-hidden');
                 }
-                }
-                button.removeAttribute("disabled","");
-                button.classList.remove('visually-hidden');
-            }
 
             }else {
-            button.classList.remove('active');
+                button.classList.remove('active');
             }
         }
         visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
 
         //Обробка кнопок зі стрілкамми та трикрапками
         if (page === 1){
-                    leftArrowBtn.setAttribute('disabled',"");
+            console.log("if (page === 1){");
+            leftArrowBtn.setAttribute('disabled',"");
         } else {
             leftArrowBtn.removeAttribute('disabled',"");
         }
 
         if (page === allPagesBtns.length) { 
-              rightArrowBtn.setAttribute('disabled',"");
+            console.log("if (page === allPagesBtns.length)");
+            rightArrowBtn.setAttribute('disabled',"");
         } else{
             rightArrowBtn.removeAttribute('disabled',"");
         }
     
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent)  === allPagesBtns.length) {
+            console.log("if (Number(visiblePagesBtns[visibleBtnCount-1].textContent)  === allPagesBtns.length) {");
             rightDoubleArrowBtn.setAttribute('disabled',"");
             rightThreeDots.setAttribute('disabled',"");
             rightThreeDots.classList.add('visually-hidden');
@@ -155,6 +157,7 @@ function setPaginationPage(paginationList, page) {
         }
         
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {
+            console.log(" if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {");
             leftDoubleArrowBtn.setAttribute('disabled',"");
             leftThreeDots.setAttribute('disabled',"");
             leftThreeDots.classList.add('visually-hidden');
