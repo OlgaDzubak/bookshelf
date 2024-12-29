@@ -97,6 +97,8 @@ function setPaginationPage(paginationList, page) {
     
         //Обробка кнопок з цифрами сторінок
         for (const button of allPagesBtns) {
+           
+            console.log("button=",button);
             
             if (Number(button.textContent) === page){
 
