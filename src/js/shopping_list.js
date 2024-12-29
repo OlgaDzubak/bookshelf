@@ -368,9 +368,12 @@ function onPaginationClick(paginationBox, target){
 
   }else if (target.classList.contains("number-btn") && (!target.classList.contains("active"))){
 
-    console.log('else if (target.classList.contains("number-btn") && (!target.classList.contains("active"))){');
+    console.log(' нажимаю на ', target.textContent);
+    console.log(' paginationBox = ', paginationBox);
+
     currentPage = setPaginationPage(paginationBox, Number(target.textContent));
 
+    console.log(' вхожу в showPage ', currentPage);
     console.log("paginationBox=", paginationBox);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
   
@@ -380,7 +383,7 @@ function onPaginationClick(paginationBox, target){
       books_ul.innerHTML=showPage(shoppingBooks, currentPage, booksOnPage);
 
   }else if (target.classList.contains("right-arrow-btn") || target.classList.contains("right-arrow-svg")) {
-    
+
     currentPage = setPaginationPage(paginationBox, currentPage+1);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
 
