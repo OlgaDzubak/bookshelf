@@ -226,6 +226,8 @@ function shiftPageRight(paginationList, shift){
 // Зміщення вліво на групу сторінок сторінок, що візуально відкриті в пагінації
 function nextPageGroupLeft(paginationList){
 
+    console.log("я в nextPageGroupLeft");
+
     const pages = document.querySelectorAll(".number-btn");
     const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
     const activePage_idx = visiblePages.findIndex(item => item.classList.contains('active'));
@@ -244,6 +246,8 @@ function nextPageGroupLeft(paginationList){
             
     });
 
+    console.log("я в кінці nextPageGroupLeft");
+    console.log("pageFirst  + activePage_idx", pageFirst, activePage_idx);
     return setPaginationPage(paginationList, pageFirst  + activePage_idx);
 }
 
