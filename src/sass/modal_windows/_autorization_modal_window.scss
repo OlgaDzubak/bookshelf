@@ -92,11 +92,6 @@
     }
   }
 
-  .eye-btn{
-    position: relative;
-    width: 26px;
-    height: 26px;
-  }
 
   //----------------------------------------
   .modalForm-input {
@@ -139,8 +134,7 @@
     stroke : "none";
     transition: fill var(--transition), stroke var(--transition);
   }
-  .modalForm-icon.email,
-  .modalForm-icon.password{
+  .modalForm-icon.email{
     position: absolute;
     top: 50%;
     margin-left: 20px; 
@@ -148,6 +142,14 @@
     fill : none;
     stroke : var(--text-dark-color);
     transition: fill var(--transition), stroke var(--transition);
+  }
+  .eye-btn{
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    top: 50%;
+    margin-left: 20px; 
+    transform: translateY(-50%);
   }
 
   //---------------------------------------
