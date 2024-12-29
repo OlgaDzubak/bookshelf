@@ -166,7 +166,7 @@ function onModalInputClick({target}){
       const closeEyeIcon = eyeBtn.querySelector('.close-eye');
       const passwordInput = document.querySelector('password-input');
 
-      if (passwordInput.type = 'password'){
+      if (passwordInput.type === 'password'){
 
         openEyeIcon.classList.remove("is-hidden");
         closeEyeIcon.classList.add("is-hidden");
