@@ -21,19 +21,6 @@
     flex-direction: column;
   }
 
-  // .user-profile-closeBtn{
-  //   position: absolute;
-  //   top: 24px;
-  //   right: 24px;
-  //   padding: 0px;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   cursor: pointer;
-  //   background-color: transparent;
-  //   border-color: transparent;
-  // }
-
   .user-photo-and-addbtn-div{
     margin-bottom: 70px;
     position: relative;
@@ -175,10 +162,6 @@
     .user-profile-modal {
       max-width: 335px;
     }
-    // .user-profile-closeBtn {
-    //   width: 20px;
-    //   height: 20px;
-    // }
     .user-profile-input {
       padding: 16px 40px 16px 24px;
       font-size: 16px;
@@ -211,10 +194,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    // .user-profile-closeBtn {
-    //   width: 28px;
-    //   height: 28px;
-    // }
     .user-profile-input {
         padding: 20px 70px 20px 40px;
         font-size: 18px;

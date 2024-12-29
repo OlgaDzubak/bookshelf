@@ -98,8 +98,6 @@ function setPaginationPage(paginationList, page) {
         //Обробка кнопок з цифрами сторінок
         for (const button of allPagesBtns) {
            
-            console.log("button=",button);
-            
             if (Number(button.textContent) === page){
 
                 button.classList.add('active');
@@ -128,7 +126,6 @@ function setPaginationPage(paginationList, page) {
 
             }else {
                 button.classList.remove('active');
-                console.log("button=",button);
             }
         }
         visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
@@ -199,8 +196,6 @@ function shiftPageLeft(paginationList, shift){
 // Зміщення вправо на shift сторінок
 function shiftPageRight(paginationList, shift){
 
-    console.log("shiftPageRight", paginationList, shift);
-
     const pages = paginationList.querySelectorAll(".number-btn");
     const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
     const activePage_idx = visiblePages.findIndex(item => item.classList.contains('active'));
@@ -241,7 +236,7 @@ function nextPageGroupLeft(paginationList){
     pages.forEach(page =>{
         if (page.textContent >= pageFirst && page.textContent <= pageLast){
             page.classList.remove('visually-hidden');
-            page.removeAttribute('disabled','');
+            if (page.disabled) {page.removeAttribute('disabled','');}
         } else {
             page.classList.add('visually-hidden');
             if (page.classList.contains('active')) {page.classList.remove('active');}
@@ -266,7 +261,7 @@ function nextPageGroupRight(paginationList){
     pages.forEach(page =>{
         if (page.textContent>=pageFirst && page.textContent<=pageLast){
             page.classList.remove('visually-hidden');
-            page.removeAttribute('disabled','');
+            if (page.disabled) {page.removeAttribute('disabled','');}
         } else {
             page.classList.add('visually-hidden');
             if (page.classList.contains('active')) {page.classList.remove('active');}
