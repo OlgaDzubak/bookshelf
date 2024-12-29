@@ -350,9 +350,6 @@ function onPaginationClick(paginationBox, target){
     
   if (target.classList.contains("left-double-arrow-btn") || target.classList.contains("left-double-arrow-svg")) {
 
-    console.log("currentPage = ",currentPage);
-    console.log("visiblePagesCount = ",visiblePagesCount);
-
     currentPage = nextPageGroupLeft(paginationBox, currentPage, visiblePagesCount);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
     
@@ -382,9 +379,6 @@ function onPaginationClick(paginationBox, target){
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
 
   }else if (target.classList.contains("right-double-arrow-btn") || target.classList.contains("right-double-arrow-svg")) {
-
-    console.log("currentPage = ",currentPage);
-    console.log("visiblePagesCount = ",visiblePagesCount);
 
     currentPage = nextPageGroupRight(paginationBox, currentPage, visiblePagesCount);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
