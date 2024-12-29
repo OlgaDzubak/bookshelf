@@ -7,7 +7,7 @@ const api = new bookshelf_API();
 
 const userProfileModalBackdrop =  document.querySelector(".user-profile-modal-backdrop");
 const userProfileModal =  document.querySelector(".user-profile-modal");
-const userProfileCloseBtn = document.querySelector(".user-profile-closeBtn");
+const userProfileCloseBtn = userProfileModal.querySelector(".close-button");
 const userProfileLoadPhotoFile =  document.querySelector("#load-photo-file");
 const userProfileForm =  document.querySelector(".user-profile-form");
 const userPhotoImg = document.querySelector(".user-photo-img");
