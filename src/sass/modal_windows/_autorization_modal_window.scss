@@ -159,6 +159,7 @@
     stroke: var(--text-dark-color);
     stroke-width: 0.9;
     transition: fill var(--transition), stroke var(--transition);
+    cursor: pointer;
   }
   .close-eye,
   .open-eye{
