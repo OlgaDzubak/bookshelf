@@ -356,28 +356,43 @@ function createEmptyBooksBox(){
 function onPaginationClick(paginationBox, target){
     
   if (target.classList.contains("left-double-arrow-btn") || target.classList.contains("left-double-arrow-svg")) {
+
+    console.log("currentPage = ",currentPage);
+    console.log("visiblePagesCount = ",visiblePagesCount);
+
     currentPage = nextPageGroupLeft(paginationBox, currentPage, visiblePagesCount);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
     
   }else if (target.classList.contains("left-arrow-btn") || target.classList.contains("left-arrow-svg")) {
+    
     currentPage= setPaginationPage(paginationBox, currentPage-1, visiblePagesCount);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
 
   }else if (target.classList.contains("left-three-dots-btn") || target.classList.contains("left-three-dots-svg")) {
+      
       currentPage = shiftPageLeft(paginationBox, 2);
       books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
+
   }else if (target.classList.contains("number-btn") && (!target.classList.contains("active"))){
+
     currentPage = setPaginationPage(paginationBox, Number(target.textContent));
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
   
   }else if (target.classList.contains("right-three-dots-btn") || target.classList.contains("right-three-dots-svg")) {
-      currentPage=shiftPageRight(paginationBox, 2);
+      
+    currentPage=shiftPageRight(paginationBox, 2);
       books_ul.innerHTML=showPage(shoppingBooks, currentPage, booksOnPage);
+
   }else if (target.classList.contains("right-arrow-btn") || target.classList.contains("right-arrow-svg")) {
-      // currentPage = shiftPageRight(paginationBox, 1);
+    
     currentPage = setPaginationPage(paginationBox, currentPage+1);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
+
   }else if (target.classList.contains("right-double-arrow-btn") || target.classList.contains("right-double-arrow-svg")) {
+
+    console.log("currentPage = ",currentPage);
+    console.log("visiblePagesCount = ",visiblePagesCount);
+    
     currentPage = nextPageGroupRight(paginationBox, currentPage, visiblePagesCount);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
     
