@@ -164,7 +164,7 @@ function onModalInputClick({target}){
   function toggleEyeBtn(){
       const openEyeIcon = eyeBtn.querySelector('.open-eye');
       const closeEyeIcon = eyeBtn.querySelector('.close-eye');
-      const passwordInput = document.querySelector('password-input');
+      const passwordInput = document.querySelector('.password-input');
 
       if (passwordInput.type === 'password'){
 
