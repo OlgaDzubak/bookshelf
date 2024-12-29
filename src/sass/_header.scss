@@ -177,6 +177,9 @@
     .auth-btn.is-hidden{
         display: none;
     }
+    .icon-arrow-right {
+        stroke: var(--accent-color2);
+    }
     .user-img-div{
         width: 37px;
         height: 37px;
@@ -376,10 +379,6 @@
                 display: none;
             }
   
-        }
-
-        .icon-arrow-right {
-            stroke: var(--accent-color2);
         }
         .icon-user-wrapper {
             display: inline-flex;
