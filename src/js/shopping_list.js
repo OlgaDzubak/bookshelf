@@ -370,6 +370,8 @@ function onPaginationClick(paginationBox, target){
 
     console.log('else if (target.classList.contains("number-btn") && (!target.classList.contains("active"))){');
     currentPage = setPaginationPage(paginationBox, Number(target.textContent));
+
+    console.log("paginationBox=", paginationBox);
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
   
   }else if (target.classList.contains("right-three-dots-btn") || target.classList.contains("right-three-dots-svg")) {
