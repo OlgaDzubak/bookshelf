@@ -96,7 +96,8 @@ function setPaginationPage(paginationList, page) {
         const rightThreeDots = paginationList.querySelector('.right-three-dots-btn');
     
         console.log("visiblePagesBtns=", visiblePagesBtns);
-        
+        console.log("page=", page);
+
         //Обробка кнопок з цифрами сторінок
         for (const button of allPagesBtns) {
             
@@ -105,6 +106,8 @@ function setPaginationPage(paginationList, page) {
                 button.classList.add('active');
 
                 if (button.classList.contains('visually-hidden')){
+                    
+                    console.log("110");
 
                     if (button.textContent <= visiblePagesBtns[0].textContent){ 
                         visiblePagesBtns[visibleBtnCount-1].setAttribute("disabled","");
