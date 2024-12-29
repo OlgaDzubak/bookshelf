@@ -1,6 +1,6 @@
 const openBtn = document.querySelector('.js-about-us-btn');
 const backdrop = document.querySelector('.about-us-backdrop');
-const closeBtn = document.querySelector('.about-us-close-button');
+const closeBtn = backdrop.querySelector('.close-button');
 
 openBtn.addEventListener('click', onOpenModal);
 closeBtn.addEventListener('click', onCloseModal);
