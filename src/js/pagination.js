@@ -197,6 +197,9 @@ function shiftPageLeft(paginationList, shift){
 // Зміщення вправо на shift сторінок
 function shiftPageRight(paginationList, shift){
 
+    console.log("paginationList=",paginationList);
+    console.log("shift=", shift);
+
     const pages = paginationList.querySelectorAll(".number-btn");
     const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
     const activePage_idx = visiblePages.findIndex(item => item.classList.contains('active'));

@@ -126,13 +126,9 @@ async function createShoppingList() {
   // Функція створення розмітки ShoppingBooks
 function showPage(dataArray, page, itemsOnPage) {
   
-  
-
   const startShownItem_idx = (page - 1)* itemsOnPage;
   const lastShownItem_idx = startShownItem_idx + (itemsOnPage-1); 
-
- 
-
+  
   const markup = dataArray.map(({ _id, book_image, list_name, author, title, description, buy_links }, idx) =>{
 
                         let bookImage_markup = book_image ? `<img class="book-image" src='${book_image}' alt='${title}'>`
@@ -368,8 +364,8 @@ function onPaginationClick(paginationBox, target){
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
 
   }else if (target.classList.contains("left-three-dots-btn") || target.classList.contains("left-three-dots-svg")) {
-      currentPage=shiftPageLeft(paginationBox, 2);
-      books_ul.innerHTML=showPage(shoppingBooks, currentPage, booksOnPage);
+      currentPage = shiftPageLeft(paginationBox, 2);
+      books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
   }else if (target.classList.contains("number-btn") && (!target.classList.contains("active"))){
     currentPage = setPaginationPage(paginationBox, Number(target.textContent));
     books_ul.innerHTML = showPage(shoppingBooks, currentPage, booksOnPage);
