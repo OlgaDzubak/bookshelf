@@ -270,7 +270,9 @@ body.dark {
     
         }
       }
-
+      body.dark .modalForm-input {
+        color: var(--light-theme-background); 
+      }
 
     // body.dark .modalForm-input {
     //     border-color: var(--light-theme-background);
