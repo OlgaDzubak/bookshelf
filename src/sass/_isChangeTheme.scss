@@ -218,7 +218,7 @@ body.dark {
         border-color: var(--light-theme-background);
         background-color: transparent;
         color: var(--light-theme-background);
-        transition: border-color var(--transition), color var(--transition);
+      //  transition: border-color var(--transition), color var(--transition);
     }
     body.dark input:-webkit-autofill,
     body.dark input:-webkit-autofill:hover,
