@@ -14,21 +14,17 @@
     pointer-events: none;
   }
   .about-us-modal {
-    // overflow-y: auto;
-    z-index: 1000;
-    padding-top: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 80%;
-    width: 335px;
-    background-color: var(--light-theme-background);
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-
+    padding-top: 40px 20px 40px 20px;
+    height: 80%;
+    width: 335px;
+    z-index: 1000;
+    background-color: var(--light-theme-background);
     border-radius: 18px;
-
+    transform: translate(-50%, -50%);
+    overflow-y: hidden;
     @media screen and (min-width: 768px) {
       min-width: 579px;
       padding-top: 80px;
@@ -37,9 +33,10 @@
       padding-bottom: 40px;
     }
   }
-  .about-us-list{
+  .about-us-div{
     overflow-y: auto;
   }
+
   .about-us-item {
     margin-bottom: 18px;
   }
