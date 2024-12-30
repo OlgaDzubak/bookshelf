@@ -27,8 +27,8 @@
     overflow-y: hidden;
   }
   .about-us-h2{
-    margin-bottom: 10px;
-    font-family: inherit; //var(--main-font), sans-serif;
+    margin-bottom: 20px;
+    font-family: inherit;
     font-weight: 700;
     font-size: 20px;
     line-height: 1.25;
@@ -40,7 +40,6 @@
     width: 100%;
     height: 100%;
   }
-
   .about-us-list-div{
     overflow-y: scroll;
 
@@ -88,7 +87,7 @@
   @media screen and (min-width: 768px) {
     .about-us-modal{
       min-width: 579px;
-      padding: 80px 40px 40px 40px;
+      padding: 50px 40px 40px 40px;
     }
     .about-us-item {
       display: flex;
