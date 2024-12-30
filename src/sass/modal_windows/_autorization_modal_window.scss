@@ -116,7 +116,7 @@
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
       -webkit-text-fill-color: var(--text-dark-color);
-      -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+      -webkit-box-shadow: 0 0 0px 1000px currentColor inset;
       transition: background-color var(--transition);
   } 
 
