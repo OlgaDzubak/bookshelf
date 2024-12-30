@@ -388,5 +388,11 @@ body.dark {
 
     body.dark .about-us-modal{
         background-color: var(--dark-theme-background);
+
+        .about-us-h2,
+        .about-us-item-title,
+        .about-us-item-text{
+            color: var(--light-theme-background);
+        }
     }
 
