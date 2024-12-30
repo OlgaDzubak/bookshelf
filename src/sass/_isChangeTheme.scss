@@ -242,7 +242,8 @@ body.dark {
         fill : var(--light-theme-background);
     }
     body.dark .modalForm-icon.email,
-    body.dark .modalForm-icon.eye-btn{
+    body.dark .modalForm-icon.close-eye,
+    body.dark .modalForm-icon.open-eye{
         stroke : var(--light-theme-background);
     }
     body.dark .submitBtn{
