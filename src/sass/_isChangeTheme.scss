@@ -244,8 +244,7 @@ body.dark {
           .modalForm-input{
             border-color: var(--accent-color1);
             outline: none;
-            border-color: var(--accent-color1);
-            color: var(--text-dark-color); 
+            color: var(--light-theme-background); 
     
             &::placeholder{
               color: var(--accent-color1);
@@ -254,11 +253,6 @@ body.dark {
             &::selection{
               color: currentColor;
               background-color: var(--accent-color2);
-            }
-
-            &:hover,
-            &:focus{
-                color: var(--light-theme-background); 
             }
           }
     
