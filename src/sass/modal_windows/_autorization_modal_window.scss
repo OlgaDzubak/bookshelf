@@ -57,26 +57,6 @@
 
 
   //----------------------------------------
-  .modalForm-input {
-    width: 100%;
-    font-weight: 700;
-    line-height: 1;
-    text-transform: uppercase;
-    border: 2px solid var(--text-dark-color);
-    background-color: transparent;
-    border-radius: 40px;
-    color: var(--text-dark-color);
-    transition: border var(--transition), color var(--transition);
-
-    &::placeholder{
-      color: currentColor;
-      transition: color var(--transition);
-    }
-    &::selection{
-      background-color: var(--accent-color2);
-    }
-  }
-
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
@@ -138,6 +118,26 @@
   .modalForm-inputWrap {
     position: relative;
 
+    .modalForm-input {
+      width: 100%;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+      border: 2px solid var(--text-dark-color);
+      background-color: transparent;
+      border-radius: 40px;
+      color: var(--text-dark-color);
+      transition: border var(--transition), color var(--transition);
+  
+      &::placeholder{
+        color: currentColor;
+        transition: color var(--transition);
+      }
+      &::selection{
+        background-color: var(--accent-color2);
+      }
+    }
+    
     &:hover,
     &:focus{
 
@@ -164,6 +164,7 @@
       }
       .modalForm-icon.email,
       .eye-btn{
+        fill : var(--light-theme-background);
         stroke : var(--accent-color1);
       }
 

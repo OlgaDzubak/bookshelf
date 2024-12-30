@@ -218,7 +218,7 @@ body.dark {
 
         .modalForm-input{
             border-color: var(--light-theme-background);
-            color: var(--light-theme-background); 
+            color: var(--light-theme-background);
     
             &::placeholder{
               color: var(--light-theme-background);
@@ -265,7 +265,7 @@ body.dark {
           }
     
         }
-      }
+    }
 
     body.dark input:-webkit-autofill,
     body.dark input:-webkit-autofill:hover,
