@@ -63,7 +63,7 @@
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
       -webkit-text-fill-color: var(--text-dark-color);
-      -webkit-box-shadow: none;
+      -webkit-box-shadow: 0 0 0px 1000px var(--light-theme-background) inset;
       transition: background-color var(--transition);
   } 
 
@@ -157,7 +157,9 @@
       .modalForm-icon.name{
         fill : var(--accent-color1);
       }
-      .modalForm-icon.email,
+      .modalForm-icon.email{
+        stroke : var(--accent-color1);
+      }
       .eye-btn{
         fill : var(--accent-color1);
         stroke : var(--accent-color1);

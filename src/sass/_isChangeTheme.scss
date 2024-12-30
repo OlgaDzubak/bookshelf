@@ -259,7 +259,9 @@ body.dark {
           .modalForm-icon.name{
             fill : var(--accent-color1);
           }
-          .modalForm-icon.email,
+          .modalForm-icon.email{
+            stroke : var(--accent-color1);
+          }
           .eye-btn{
             stroke : var(--accent-color1);
             fill : var(--accent-color1);
