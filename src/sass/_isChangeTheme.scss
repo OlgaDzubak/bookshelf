@@ -217,7 +217,7 @@ body.dark {
     body.dark .modalForm-inputWrap {
     
         .modalForm-input {
-            border: 2px solid var(--light-theme-background);
+            border-color: var(--light-theme-background);
             background-color: transparent;
             color: var(--light-theme-background);
         }
@@ -230,38 +230,11 @@ body.dark {
             stroke : var(--light-theme-background);
         }
 
-        &:hover,
-        &:focus{
-          .modalForm-input{
-            border-color: var(--accent-color1);
-            outline: none;
-            border-color: var(--accent-color1);
-            color: var(--text-dark-color); 
-    
-            &::placeholder{
-              color: var(--accent-color1);
-            }
-    
-            &::selection{
-              color: currentColor;
-              background-color: var(--accent-color2);
-            }
-          }
-    
-          .modalForm-icon.name,
-          .modalForm-icon.name{
-            fill : var(--accent-color1);
-          }
-          .modalForm-icon.email,
-          .eye-btn{
-            stroke : var(--accent-color1);
-          }
-    
-        }
         
-      }
+    }
+
     // body.dark .modalForm-input {
-    //     border: 2px solid var(--light-theme-background);
+    //     border-color: var(--light-theme-background);
     //     background-color: transparent;
     //     color: var(--light-theme-background);
     // }
