@@ -39,22 +39,23 @@
     overflow-y: hidden;
     width: 100%;
     height: 100%;
-
-
   }
-  .about-us-list{
-    padding-right: 10px;
+
+  .about-us-list-div{
     overflow-y: scroll;
 
     &::-webkit-scrollbar{   
       width: 8px;
       height: 8px;
-      background-color: transparent//var(--scrollbar-light-color);
+      background-color: transparent;
     }
     &::-webkit-scrollbar-thumb {
       background-color: var(--scrollbar-light-color);
       border-radius: 12em;
     }
+  }
+  .about-us-list{
+    padding-right: 10px;
   }
   .about-us-item{
     margin-bottom: 18px;
