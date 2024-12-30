@@ -26,6 +26,15 @@
     transform: translate(-50%, -50%);
     overflow-y: hidden;
   }
+  .about-us-h2{
+    margin-bottom: 10px;
+    font-family: var(--main-font), sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.04em;
+
+  }
   .about-us-div{
     overflow-y: auto;
     width: 100%;
@@ -48,25 +57,25 @@
   .about-us-item {
     margin-bottom: 18px;
   }
-  .about-us-img {
+  .about-us-item-img {
     width: 287px;
     height: 287px;
     border: var(--text-dark-color);
     margin-bottom: 14px;
   }
-  .about-us-title {
+  .about-us-item-title {
     font-family: var(--main-font), sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    line-height: calc(18 / 16);
+    line-height: 1.25;
     letter-spacing: -0.04em;
 
     color: var(--text-dark-color);
 
     margin-bottom: 18px;
   }
-  .about-us-text {
+  .about-us-item-text {
     font-family: var(--main-font), sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -89,13 +98,13 @@
       align-items: center;
       margin-bottom: 20px;
     }
-    .about-us-img {
+    .about-us-item-img {
       margin-right: 24px;
       margin-bottom: 0;
       width: 192px;
       height: 192px;
     }
-    .about-us-title {
+    .about-us-item-title {
       font-size: 24px;
       line-height: calc(28 / 24);
       margin-bottom: 20px;
