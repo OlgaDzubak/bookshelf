@@ -216,7 +216,7 @@ body.dark {
 
     body.dark .modalForm-inputWrap {
 
-        &.modalForm-input{
+        +.modalForm-input{
             border-color: var(--light-theme-background);
             color: var(--light-theme-background); 
     
@@ -230,12 +230,12 @@ body.dark {
             }
         }
 
-        &.modalForm-icon.name,
-        &.modalForm-icon.name{
+        +.modalForm-icon.name,
+        +.modalForm-icon.name{
           fill : var(--light-theme-background);
         }
-        &.modalForm-icon.email,
-        &.eye-btn{
+        +.modalForm-icon.email,
+        +.eye-btn{
           stroke : var(--light-theme-background);
         }
         
