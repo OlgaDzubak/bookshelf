@@ -225,7 +225,7 @@ body.dark {
             }    
             &::selection{
               color: currentColor;
-              background-color: var(--light-theme-background);
+              background-color: var(--accent-color2);
             }
 
         }
