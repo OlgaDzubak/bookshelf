@@ -222,14 +222,16 @@ body.dark {
     
             &::placeholder{
               color: var(--light-theme-background);
-            }
-    
+            }    
             &::selection{
               color: currentColor;
               background-color: var(--light-theme-background);
             }
+            &:hover,
+            &:focus{
+                color: var(--light-theme-background); 
+            }
         }
-
         .modalForm-icon.name,
         .modalForm-icon.name{
           fill : var(--light-theme-background);
@@ -237,8 +239,7 @@ body.dark {
         .modalForm-icon.email,
         .eye-btn{
           stroke : var(--light-theme-background);
-        }
-        
+        }        
 
         &:hover,
         &:focus{
@@ -270,20 +271,7 @@ body.dark {
     
         }
       }
-      body.dark .modalForm-input {
-        color: var(--light-theme-background); 
-      }
 
-    // body.dark .modalForm-input {
-    //     border-color: var(--light-theme-background);
-    //     background-color: transparent;
-    //     color: var(--light-theme-background);
-
-    //     &:hover,
-    //     &:focus{
-    //         color: var(--light-theme-background);
-    //     }
-    // }
     body.dark input:-webkit-autofill,
     body.dark input:-webkit-autofill:hover,
     body.dark input:-webkit-autofill:focus,
@@ -295,13 +283,7 @@ body.dark {
     body.dark select:-webkit-autofill:focus {
         -webkit-text-fill-color: var(--light-theme-background);
     }
-    // body.dark .modalForm-icon.name{
-    //     fill : var(--light-theme-background);
-    // }
-    // body.dark .modalForm-icon.email,
-    // body.dark .eye-btn{
-    //     stroke : var(--light-theme-background);
-    // }
+
     body.dark .submitBtn{
         color:black;
         background-color: var(--light-theme-background);
