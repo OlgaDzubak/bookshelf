@@ -214,16 +214,74 @@ body.dark {
         fill: var(--light-theme-background);
     }
 
-    body.dark .modalForm-input {
-        border-color: var(--light-theme-background);
-        background-color: transparent;
-        color: var(--light-theme-background);
+    body.dark .modalForm-inputWrap {
+
+        .modalForm-input{
+            border-color: var(--light-theme-background);
+            color: var(--light-theme-background); 
+    
+            &::placeholder{
+              color: var(--light-theme-background);
+            }
+    
+            &::selection{
+              color: currentColor;
+              background-color: var(--light-theme-background);
+            }
+        }
+
+        .modalForm-icon.name,
+        .modalForm-icon.name{
+          fill : var(--light-theme-background);
+        }
+        .modalForm-icon.email,
+        .eye-btn{
+          stroke : var(--light-theme-background);
+        }
+        
 
         &:hover,
         &:focus{
-            color: var(--light-theme-background);
+    
+          .modalForm-input{
+            border-color: var(--accent-color1);
+            outline: none;
+            border-color: var(--accent-color1);
+            color: var(--text-dark-color); 
+    
+            &::placeholder{
+              color: var(--accent-color1);
+            }
+    
+            &::selection{
+              color: currentColor;
+              background-color: var(--accent-color2);
+            }
+          }
+    
+          .modalForm-icon.name,
+          .modalForm-icon.name{
+            fill : var(--accent-color1);
+          }
+          .modalForm-icon.email,
+          .eye-btn{
+            stroke : var(--accent-color1);
+          }
+    
         }
-    }
+      }
+
+
+    // body.dark .modalForm-input {
+    //     border-color: var(--light-theme-background);
+    //     background-color: transparent;
+    //     color: var(--light-theme-background);
+
+    //     &:hover,
+    //     &:focus{
+    //         color: var(--light-theme-background);
+    //     }
+    // }
     body.dark input:-webkit-autofill,
     body.dark input:-webkit-autofill:hover,
     body.dark input:-webkit-autofill:focus,
@@ -235,13 +293,13 @@ body.dark {
     body.dark select:-webkit-autofill:focus {
         -webkit-text-fill-color: var(--light-theme-background);
     }
-    body.dark .modalForm-icon.name{
-        fill : var(--light-theme-background);
-    }
-    body.dark .modalForm-icon.email,
-    body.dark .eye-btn{
-        stroke : var(--light-theme-background);
-    }
+    // body.dark .modalForm-icon.name{
+    //     fill : var(--light-theme-background);
+    // }
+    // body.dark .modalForm-icon.email,
+    // body.dark .eye-btn{
+    //     stroke : var(--light-theme-background);
+    // }
     body.dark .submitBtn{
         color:black;
         background-color: var(--light-theme-background);
