@@ -53,10 +53,6 @@
     flex-direction: column;
   }
 
-
-
-
-  //----------------------------------------
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
@@ -71,7 +67,6 @@
       transition: background-color var(--transition);
   } 
 
-  //--------------------------------------- 
   .modalForm-icon.name{
     position: absolute;
     top: 50%;
@@ -164,13 +159,13 @@
       }
       .modalForm-icon.email,
       .eye-btn{
-        fill : var(--light-theme-background);
+        fill : var(--accent-color1);
         stroke : var(--accent-color1);
       }
 
     }
   }
-  //---------------------------------------
+  
   .modalWrapper-btn {
     display: block;
   }
