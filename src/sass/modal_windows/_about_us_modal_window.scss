@@ -34,10 +34,10 @@
     &::-webkit-scrollbar{   
       width: 8px;
       height: 8px;
-      background-color: var(--scrollbar-light-color);
+      background-color: transparent//var(--scrollbar-light-color);
     }
     &::-webkit-scrollbar-thumb {
-      background-color: var(--scrollbar-dark-color);
+      background-color: var(--scrollbar-light-color);
       border-radius: 12em;
     }
   }
