@@ -242,9 +242,12 @@ body.dark {
         fill : var(--light-theme-background);
     }
     body.dark .modalForm-icon.email,
-    body.dark .modalForm-icon.close-eye,
-    body.dark .modalForm-icon.open-eye{
+    body.dark .modalForm-icon.password{
         stroke : var(--light-theme-background);
+    }
+    body.dark .close-eye,
+    body.dark .open-eye{
+      stroke: currentColor;
     }
     body.dark .submitBtn{
         color:black;
