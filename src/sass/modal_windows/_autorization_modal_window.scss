@@ -58,7 +58,7 @@
 
     &:hover,
     &:focus{
-      
+
 
       .modalForm-input{
         border-color: var(--accent-color1);
@@ -115,8 +115,8 @@
   select:-webkit-autofill,
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
-      -webkit-text-fill-color: var(--text-dark-color);
-      transition: background-color var(--transition);
+      // -webkit-text-fill-color: var(--text-dark-color);
+      // transition: background-color var(--transition);
   } 
 
   //--------------------------------------- 
