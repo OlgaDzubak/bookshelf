@@ -103,7 +103,7 @@ function changeActiveItem(headerElement, list, checkedElement){
 
 //Функція створює заголовок h2 в контейнері box з текстом titleStr і робить останє столово блакитним
 function createBooksBoxTitle(box, titleStr){
-  const title = document.createElement("h2");
+  const title = document.createElement("h1");
   title.classList.add("title-theme-book");
   title.innerHTML = `${lastBlueWord(titleStr)}`;
   box.prepend(title);
