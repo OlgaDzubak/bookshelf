@@ -104,6 +104,9 @@
       color: currentColor;
       transition: color var(--transition);
     }
+    &::selection{
+      background-color: var(--accent-color2);
+    }
   }
 
   input:-webkit-autofill,
