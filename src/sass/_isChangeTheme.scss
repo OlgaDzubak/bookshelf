@@ -212,32 +212,32 @@ body.dark {
     }
     body.dark .modal .icon-x{
         fill: var(--light-theme-background);
-    }
+    // }
 
-    body.dark .modalForm-inputWrap {
+    // body.dark .modalForm-inputWrap {
     
-        .modalForm-input {
-            border-color: var(--light-theme-background);
-            background-color: transparent;
-            color: var(--light-theme-background);
-        }
+    //     .modalForm-input {
+    //         border-color: var(--light-theme-background);
+    //         background-color: transparent;
+    //         color: var(--light-theme-background);
+    //     }
 
-        .modalForm-icon.name{
-            fill : var(--light-theme-background);
-        }
-        .modalForm-icon.email,
-        .eye-btn{
-            stroke : var(--light-theme-background);
-        }
+    //     .modalForm-icon.name{
+    //         fill : var(--light-theme-background);
+    //     }
+    //     .modalForm-icon.email,
+    //     .eye-btn{
+    //         stroke : var(--light-theme-background);
+    //     }
 
         
-    }
-
-    // body.dark .modalForm-input {
-    //     border-color: var(--light-theme-background);
-    //     background-color: transparent;
-    //     color: var(--light-theme-background);
     // }
+
+    body.dark .modalForm-input {
+        border-color: var(--light-theme-background);
+        background-color: transparent;
+        color: var(--light-theme-background);
+    }
     body.dark input:-webkit-autofill,
     body.dark input:-webkit-autofill:hover,
     body.dark input:-webkit-autofill:focus,
@@ -258,13 +258,13 @@ body.dark {
     // body.dark .modalForm-input::placeholder {
     //     color: currentColor;
     // }
-    // body.dark .modalForm-icon.name{
-    //     fill : var(--light-theme-background);
-    // }
-    // body.dark .modalForm-icon.email,
-    // body.dark .modalForm-icon.password{
-    //     stroke : var(--light-theme-background);
-    // }
+    body.dark .modalForm-icon.name{
+        fill : var(--light-theme-background);
+    }
+    body.dark .modalForm-icon.email,
+    body.dark .eye-btn{
+        stroke : var(--light-theme-background);
+    }
     body.dark .submitBtn{
         color:black;
         background-color: var(--light-theme-background);
