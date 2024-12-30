@@ -33,7 +33,6 @@
     font-size: 16px;
     line-height: 1.25;
     letter-spacing: -0.04em;
-
   }
   .about-us-div{
     overflow-y: auto;
@@ -50,11 +49,10 @@
       border-radius: 12em;
     }
   }
-
   .about-us-list{
     padding-right: 10px;
   }
-  .about-us-item {
+  .about-us-item{
     margin-bottom: 18px;
   }
   .about-us-item-img {
@@ -64,7 +62,7 @@
     margin-bottom: 14px;
   }
   .about-us-item-title {
-    font-family: var(--main-font), sans-serif;
+    font-family: inherit;//var(--main-font), sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -76,14 +74,10 @@
     margin-bottom: 18px;
   }
   .about-us-item-text {
-    font-family: var(--main-font), sans-serif;
-    font-style: normal;
-    font-weight: 400;
+    font-family: inherit;//var(--main-font), sans-serif;
     font-size: 14px;
-    line-height: calc(18 / 14);
-
+    line-height: 1.28;
     letter-spacing: -0.04em;
-
     color: var(--text-dark-color);
   }
 
