@@ -227,10 +227,7 @@ body.dark {
               color: currentColor;
               background-color: var(--light-theme-background);
             }
-            &:hover,
-            &:focus{
-                color: var(--light-theme-background); 
-            }
+
         }
         .modalForm-icon.name,
         .modalForm-icon.name{
@@ -257,6 +254,11 @@ body.dark {
             &::selection{
               color: currentColor;
               background-color: var(--accent-color2);
+            }
+
+            &:hover,
+            &:focus{
+                color: var(--light-theme-background); 
             }
           }
     
