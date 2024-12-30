@@ -219,7 +219,7 @@ body.dark {
         background-color: transparent;
         color: var(--light-theme-background);
 
-        &:hover
+        &:hover,
         &:focus{
             color: var(--light-theme-background);
         }
