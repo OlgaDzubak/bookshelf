@@ -75,7 +75,7 @@ export class bookshelf_API {
         
         this.setAuthHeader(accessToken);
         axios.defaults.headers.patch['Content-Type'] = 'multipart/form-data';
-       // axios.defaults.headers.patch['Cache-Control'] = 'no-cache, no-store, must-revalidate';
+        axios.defaults.headers.patch['Cache-Control'] = 'no-cache, no-store, must-revalidate';
         const {data} = await axios.patch(`${this.#BASE_URL}users/update`, formData, { signal: abortCtrl.signal});
         
         this.rewriteAccessTokenCookie(data.accessToken);
