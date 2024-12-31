@@ -46,6 +46,7 @@
         border: none;
         background-color: var(--light-theme-background);
         cursor: pointer;
+        transition: background-color var(--transition);
     }
     .edit-profile-btn-svg{
         width: 100%;

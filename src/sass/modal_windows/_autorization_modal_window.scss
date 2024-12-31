@@ -182,7 +182,7 @@
     border: none;
     border-radius: 40px;
     cursor: pointer;
-    transition: background-color var(--transition);
+    transition: background-color var(--transition), color var(--transition);
   
     &:hover,
     &:focus {

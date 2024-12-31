@@ -129,7 +129,7 @@
         border: 2px solid var(--accent-color1);
         border-radius: 40px;
         color: var(--text-dark-color);
-        transition: background-color var(--transition), color var(--transition);
+        transition: background-color var(--transition), color var(--transition), border var(--transition);
     }
     .btn-shopping:focus,
     .btn-shopping:hover {
