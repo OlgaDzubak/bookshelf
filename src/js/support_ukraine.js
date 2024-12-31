@@ -19,9 +19,9 @@ function createFundsMarkup(supportItems) {
       return `
             <li class="support_gallery_item ">
             <span class="support_gallery_number">${pad(id)}</span>
-              <a class="support_gallery_link link" href="${url}">
+              <a class="support_gallery_link link" href="${url} target="_blank">
                 <img class="support_gallery_link_img"  src="${img}" alt="${title}" height="32">
-            </a>
+              </a>
             </li>
             `;
     })
