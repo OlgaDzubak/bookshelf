@@ -394,5 +394,18 @@ body.dark {
         .about-us-item-text{
             color: var(--light-theme-background);
         }
+        .about-us-list-div{
+
+            &::-webkit-scrollbar{   
+                width: 8px;
+                height: 8px;
+                background-color: var(--scrollbar-dark-color);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: var(--scrollbar-light-color);
+                border-radius: 12em;
+            }
+          }
     }
 
