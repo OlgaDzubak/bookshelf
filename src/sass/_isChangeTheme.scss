@@ -397,14 +397,12 @@ body.dark {
         .about-us-list-div{
 
             &::-webkit-scrollbar{   
-                width: 8px;
-                height: 8px;
                 background-color: var(--scrollbar-dark-color);
             }
 
             &::-webkit-scrollbar-thumb {
-                background-color: var(--scrollbar-light-color);
-                border-radius: 12em;
+                background-color: var(--scrollbar-dark-color);
+                box-shadow: inset 1px 1px 10px #797a74;
             }
           }
     }
