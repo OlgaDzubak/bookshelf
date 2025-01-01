@@ -54,7 +54,6 @@ async function createShoppingList() {
 
     if (abortCtrl1) { 
       abortCtrl1.abort();
-      console.log("abortCtrl1.abort()"); 
     }
 
     try{
@@ -213,7 +212,6 @@ async function deleteBook({target}){
     //Видаляємо id книги з shoppinglist користувача в базі даних
     if (abortCtrl2) { 
       abortCtrl2.abort(); 
-      console.log("abortCtrl2.abort()");
     }
 
     try{
