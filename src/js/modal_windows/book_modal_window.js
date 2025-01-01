@@ -139,10 +139,12 @@ async function createModalWindow(book_Id) {
                 if (authBtn.classList.contains("is-hidden")){
                     btnAddEl.setAttribute("disabled", "");
                     textEl.textContent = 'Please sign up/sign in to be able to add/remove books to shopping list!';
+                    textEl.classList.remove('is-hidden');
                 }
 
             } else {
                 btnRemoveEl.classList.remove('is-hidden');
+                textEl.textContent = "Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”;
                 textEl.classList.remove('is-hidden');
             }
 
