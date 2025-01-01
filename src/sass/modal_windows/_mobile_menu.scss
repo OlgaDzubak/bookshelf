@@ -117,19 +117,7 @@
       flex-direction: column;
       row-gap:8px;
     }
-    .shopping-bag-icon {
-        fill: var(--text-white-color);
-        // stroke: none;        
-        // transition: fill var(--transition), stroke var(--transition) ;
-    }
-    // .shopping-link.selected .shopping-bag-icon,
-    // .shopping-link:hover .shopping-bag-icon,
-    // .shopping-link:focus .shopping-bag-icon{
-    //     fill: var(--text-dark-color);
-    //     stroke: var(--text-dark-color);
-    //     stroke-width: 0.2;
-    // }
-    
+
     .mobile-menu .home-link,
     .mobile-menu .shopping-link {
         padding: 8px 16px;
@@ -157,8 +145,21 @@
         font-weight: 700;
         color: var(--text-dark-color);
         fill: var(--text-dark-color);
+        stroke: var(--text-dark-color);
+        stroke-width: 0.2;
     }
-
+    .mobile-menu .shopping-bag-icon {
+        fill: var(--text-white-color);
+        stroke: none;        
+        transition: fill var(--transition), stroke var(--transition) ;
+    }
+    // .shopping-link.selected .shopping-bag-icon,
+    // .shopping-link:hover .shopping-bag-icon,
+    // .shopping-link:focus .shopping-bag-icon{
+    //     fill: var(--text-dark-color);
+    //     stroke: var(--text-dark-color);
+    //     stroke-width: 0.2;
+    // }
 
     .mobile-menu .ordered-amount-box{
         position: absolute;
