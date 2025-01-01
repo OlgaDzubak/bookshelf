@@ -118,7 +118,7 @@ showCategoryList();
         
         if (!firstLoading) { 
             scrollToBoxTop(booksBox);
-            loader1 = createLoader(booksBoxTitle, "after", ["loader-box-trans"]);
+            loader1 = createLoader(booksBoxTitle, "after", ["loader-box-trans category-books-loader"]);
         }
 
         //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії

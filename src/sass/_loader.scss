@@ -16,7 +16,7 @@
 
   .loader{
     position: relative;
-    top: 250px;
+  //  top: 250px;
     width: max-content;
     height: 80px;
     display: flex;
@@ -27,8 +27,7 @@
     --duration: 6.8s;
     --color1:var(--accent-color1);
     --color2:var(--accent-color2);
-  }
-  
+  }  
   .loader-auth-modal .loader{
     top: 130px;
   }
@@ -619,20 +618,26 @@
 
 // ------ mobile styles
 @media screen and (max-width: 767.8px){
-
+  .loader{
+    top: 50px;
+  }
   
 }
 
 
 // ------ tablet styles
 @media screen and (min-width: 768px) and (max-width: 1439.8px){
-
+  .loader{
+    top: 50px;
+  }
 }
 
 
 // ------ desktop styles
 @media screen and (min-width: 1440px){
-
+  .loader{
+    top: 250px;
+  }
 }
 
 
