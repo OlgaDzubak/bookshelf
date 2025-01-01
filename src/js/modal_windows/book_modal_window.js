@@ -70,8 +70,7 @@ async function createModalWindow(book_Id) {
         const authorEl = document.querySelector('#author');
         const descriptionEl = document.querySelector('#description');
         const marketPlEl = document.querySelector('.market_placers_list');
-        const authBtn = document.querySelector('.auth-btn');
-
+        
         nameBookEl.textContent = title;
         authorEl.textContent = author;
 
@@ -133,20 +132,19 @@ async function createModalWindow(book_Id) {
         divBackdropEl.classList.toggle('is-hidden');
         const orderedBookID_arr = JSON.parse(localStorage.getItem('bookshelf_orderedbooks'));
         
-        if (authBtn.classList.includes("is-hidden") >= 0){
-
-            btnAddEl.setAttribute("disabled");
-            textEl.textContent = 'Please sign up/sign in to be able to add/remove books to shopping list!';
-            
-        }else{
-
             if (orderedBookID_arr === null || !orderedBookID_arr.includes(book_Id)) {
                 btnAddEl.classList.remove('is-hidden');
+
+                const authBtn = document.querySelector('.auth-btn');
+                if (authBtn.classList.includes("is-hidden") >= 0){
+                    btnAddEl.setAttribute("disabled");
+                    textEl.textContent = 'Please sign up/sign in to be able to add/remove books to shopping list!';
+                }
+
             } else {
                 btnRemoveEl.classList.remove('is-hidden');
                 textEl.classList.remove('is-hidden');
             }
-        }
 
     } catch (error) {
         if (error.code !== 'ERR_CANCELED'){
