@@ -1,5 +1,5 @@
 
-import { displayOrdredAmountInShoppingBag } from './help_functions';
+import { displayOrdredAmountInShoppingBag, getCookie } from './help_functions';
 import { bookshelf_API } from './API';
 import { openAuthModal } from './modal_windows/autorization_modal_window';
 import { openLogoutModal } from './modal_windows/logout_modal_window';
