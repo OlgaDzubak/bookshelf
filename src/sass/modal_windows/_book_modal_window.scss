@@ -43,7 +43,7 @@
         font-weight: 700;
         font-size: 16px;
         color: var(--text-dark-color);
-        margin-left: 10px;
+        overflow-wrap: break-word;
     }
     .modal-author-book {
         font-style: italic;
@@ -211,6 +211,9 @@
             display: flex;
             flex-direction: row;
             gap: 24px;
+        }
+        .book-info {
+            width: 100%;
         }
         .book-img-div {
             width: 192px;
