@@ -137,10 +137,10 @@
     }
     .mobile-menu .home-link:hover,
     .mobile-menu .home-link:focus,
-    .mobile-menu .home-link.mobile-selected,
+    .mobile-menu .home-link.selected,
     .mobile-menu .shopping-link:hover,
     .mobile-menu .shopping-link:focus,
-    .mobile-menu .shopping-link.mobile-selected{
+    .mobile-menu .shopping-link.selected{
         background-color: var(--accent-color2);
         font-weight: 700;
         color: var(--text-dark-color);
