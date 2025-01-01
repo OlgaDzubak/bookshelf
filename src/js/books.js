@@ -155,7 +155,8 @@ showCategoryList();
             abortCtrl1 = new AbortController();
 
             const data  = await fetchBooksOfCategory(category, abortCtrl1);
-
+            
+            abortCtrl1 = false;
             if (data.length) {
 
                 const categoryBooksList = document.createElement("ul");
