@@ -100,7 +100,6 @@ showCategoryList();
         //відміна попереднього запиту best-books або category-books
         if (abortCtrl1) {
             abortCtrl1.abort();
-            console.log("abort previous fetch");
         }
 
         if ((!target.classList.contains('category-list-item')) && (!target.classList.contains('js-btn-more'))){
@@ -130,7 +129,6 @@ showCategoryList();
 
             const data = await fetchBestSellersBooks(abortCtrl1);
             
-            abortCtrl1 = false;
             bestBooksAreLoaded = true;
             
             if (data.length) {
@@ -153,10 +151,9 @@ showCategoryList();
             booksBoxTitle.innerText =  target.id;
             
             abortCtrl1 = new AbortController();
-            //console.log("new abortCtrl1 = ",abortCtrl1);
+
             const data  = await fetchBooksOfCategory(category, abortCtrl1);
-            console.log("abortCtrl1 = ",abortCtrl1);
-//            abortCtrl1 = false;
+
             if (data.length) {
 
                 const categoryBooksList = document.createElement("ul");
