@@ -49,7 +49,7 @@ async function showHeader(){
             if (user){
                 headerAuthorised(user);                
             }else{ 
-                throw new Error("Not authorized");
+                headerNotAuthorised();
             }
 
         }catch(error){
