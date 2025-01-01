@@ -43,15 +43,26 @@ async function showHeader(){
         try{
 
             abortCtrl = new AbortController();
+            
+            if (!getCookie("accessToken")){
 
-            const {user} = await api.refreshUser(abortCtrl);
-
-            if (user){
-                headerAuthorised(user);                
-            }else{ 
                 headerNotAuthorised();
-            }
 
+            }else{
+
+                const {user} = await api.refreshUser(abortCtrl);
+
+                if (user){
+
+                    headerAuthorised(user);
+
+                }else{ 
+
+                    headerNotAuthorised();
+
+                }
+
+            }
         }catch(error){
             headerNotAuthorised();
         }
