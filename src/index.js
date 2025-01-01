@@ -12,11 +12,11 @@ import './js/modal_windows/about_us_modal_window';
 
 
 document.querySelector('.header .home-link').classList.toggle('selected');
-document.querySelector('.mobile-menu .home-link').classList.toggle('mobile-selected');
+document.querySelector('.mobile-menu .home-link').classList.toggle('selected');
 
-window.addEventListener('popstate', function(event){
-    console.log("popstate event= ", event);
-    if (event.state && event.state.id){
-        console.log(`Перехід до сторінки з ID: ${event.state.id}`);
-    }
-});
+// window.addEventListener('popstate', function(event){
+//     console.log("popstate event= ", event);
+//     if (event.state && event.state.id){
+//         console.log(`Перехід до сторінки з ID: ${event.state.id}`);
+//     }
+// });
