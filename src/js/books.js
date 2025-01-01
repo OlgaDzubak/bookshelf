@@ -118,11 +118,11 @@ showCategoryList();
         
         if (!firstLoading) { 
             scrollToBoxTop(booksBox);
-            loader1 = createLoader(booksBoxTitle, "after", ["loader-box-trans", "category-books-loader"]);
+            //loader1 = createLoader(booksBoxTitle, "after", ["loader-box-trans", "category-books-loader"]);
         }
 
         //якщо оано пункт All categories, то формуємо список Best Sellers Books, якщо обрано іншу категорію, то формуємо список книжок для цієї категорії
-         if (category === 'all-categories-item') {
+        if (category === 'all-categories-item') {
 
             booksBoxTitle.innerText = "Best Sellers Books";
             
@@ -147,8 +147,7 @@ showCategoryList();
                     firstLoading = false;
                 }
             }
-        } 
-        else {
+        }else {
                         
             booksBoxTitle.innerText =  target.id;
             
@@ -178,7 +177,7 @@ showCategoryList();
 
         if (bestBooksAreLoaded && categoriesAreLoaded){
            loader1.remove();
-         }
+        }
     }
 
         //Обробка події натискання кнопки seeMore

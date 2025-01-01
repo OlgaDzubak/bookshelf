@@ -618,7 +618,7 @@
 
 // ------ mobile styles
 @media screen and (max-width: 767.8px){
-  .loader{
+  .category-books-list{
     top: 70px;
   }
   
@@ -627,7 +627,7 @@
 
 // ------ tablet styles
 @media screen and (min-width: 768px) and (max-width: 1439.8px){
-  .loader{
+  .category-books-list{
     top: 70px;
   }
 }
@@ -635,7 +635,7 @@
 
 // ------ desktop styles
 @media screen and (min-width: 1440px){
-  .loader{
+  .category-books-list{
     top: 250px;
   }
 }
