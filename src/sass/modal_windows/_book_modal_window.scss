@@ -140,6 +140,7 @@
     .btn-shopping:disabled{
         color: var(--text-white-color-fifty);
         background-color: var(--accent-color4-hf);
+        border: 2px solid  var(--accent-color4-hf);
     }
     .modal-message {
         text-align: center;
