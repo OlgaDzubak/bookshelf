@@ -136,7 +136,7 @@ async function createModalWindow(book_Id) {
                 btnAddEl.classList.remove('is-hidden');
 
                 const authBtn = document.querySelector('.auth-btn');
-                if (authBtn.classList.includes("is-hidden") >= 0){
+                if (authBtn.classList.includes("is-hidden")){
                     btnAddEl.setAttribute("disabled");
                     textEl.textContent = 'Please sign up/sign in to be able to add/remove books to shopping list!';
                 }
