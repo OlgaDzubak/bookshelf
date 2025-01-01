@@ -153,7 +153,7 @@ showCategoryList();
             booksBoxTitle.innerText =  target.id;
             
             abortCtrl1 = new AbortController();
-
+            console.log("new abortCtrl1 = ",abortCtrl1);
             const data  = await fetchBooksOfCategory(category, abortCtrl1);
             console.log("abortCtrl1 = ",abortCtrl1);
             abortCtrl1 = false;
