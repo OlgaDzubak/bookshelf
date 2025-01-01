@@ -133,11 +133,14 @@
     }
     .btn-shopping:focus,
     .btn-shopping:hover {
-        color: #FFFFFF;
-        background-color: #4F2EE8;
+        color: var(--text-white-color);
+        background-color: var(--accent-color1);
         box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
     }
-
+    .btn-shopping:disabled{
+        color: var(--text-white-color-fifty);
+        background-color: var(--accent-color4-hf);
+    }
     .modal-message {
         text-align: center;
         letter-spacing: -0.03em;
