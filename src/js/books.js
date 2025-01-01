@@ -100,7 +100,6 @@ showCategoryList();
         //відміна попереднього запиту best-books або category-books
         if (abortCtrl1) {
             abortCtrl1.abort();
-            console.log("abort previous fetch");
         }
 
         if ((!target.classList.contains('category-list-item')) && (!target.classList.contains('js-btn-more'))){
@@ -130,6 +129,7 @@ showCategoryList();
 
             const data = await fetchBestSellersBooks(abortCtrl1);
             
+            abortCtrl1 = false
             bestBooksAreLoaded = true;
             
             if (data.length) {
