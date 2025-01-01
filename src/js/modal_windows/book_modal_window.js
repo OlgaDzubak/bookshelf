@@ -173,7 +173,6 @@ async function addToShoppingList() {
         
     if (abortCtrl2) {      
         abortCtrl2.abort();
-        console.log("abort previous fetch");
     }
 
     try{
@@ -211,7 +210,6 @@ async function removeFromShoppingList() {
 
     if (abortCtrl2) {      
         abortCtrl2.abort();
-        console.log("abort previous fetch");
     }
 
     try{
@@ -221,8 +219,6 @@ async function removeFromShoppingList() {
         const data = await api.removeFromShoppingList(book_Id, abortCtrl2);
         loader1.remove();
         
-        console.log("data = ", data);
-
         if (data){
 
             const {shopping_list} = data;
