@@ -12,3 +12,9 @@ import './js/modal_windows/user_profile_modal_window';
 document.querySelector('.header .shopping-link').classList.toggle('selected');
 document.querySelector('.mobile-menu .shopping-link').classList.toggle('selected');
 document.querySelector('.mobile-menu .shopping-bag-icon').classList.toggle('selected');
+
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      location.reload();
+    }
+  });
