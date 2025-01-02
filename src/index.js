@@ -15,7 +15,7 @@ document.querySelector('.header .home-link').classList.toggle('selected');
 document.querySelector('.mobile-menu .home-link').classList.toggle('selected');
 
 window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-      location.reload();
-    }
-  });
+  if (event.persisted) {
+    location.reload();
+  }
+});
