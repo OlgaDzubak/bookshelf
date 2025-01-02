@@ -16,6 +16,8 @@ document.querySelector('.mobile-menu .home-link').classList.toggle('selected');
 
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-      location.reload();
+//      location.reload();
+        document.querySelector('.header').reload(0);
+      
     }
   });
