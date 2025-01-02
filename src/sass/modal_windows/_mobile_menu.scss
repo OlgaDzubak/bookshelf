@@ -51,7 +51,7 @@
              background-color: var(--accent-color1-hf);
             }
 
-            .is-hidden{
+            &.is-hidden{
                 display: none;
             }
         }
@@ -70,7 +70,7 @@
             background-color: transparent;
             cursor: pointer;  
             
-            .is-hidden{
+            &.is-hidden{
                 display: none;
             }
         }
