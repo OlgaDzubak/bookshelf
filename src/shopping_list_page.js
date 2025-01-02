@@ -14,7 +14,6 @@ document.querySelector('.mobile-menu .shopping-link').classList.toggle('selected
 document.querySelector('.mobile-menu .shopping-bag-icon').classList.toggle('selected');
 
 window.addEventListener('pageshow', (event) => {
-    console.log("pageshow shopping page");
     if (event.persisted) {
       location.reload();
     }
