@@ -16,7 +16,6 @@
 
   .loader{
     position: relative;
-  //  top: 250px;
     width: max-content;
     height: 80px;
     display: flex;
@@ -37,7 +36,9 @@
   .loader-book-modal .loader{
     top: 130px;
   }
-
+  .loader-user-profile .loader{
+    top: 50px;
+  }
   .loader .text{
     width: 100%;
     text-align: center;

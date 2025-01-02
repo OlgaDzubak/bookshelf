@@ -77,7 +77,7 @@ async function userProfileModalFormSubmit(){
          formData.append('avatar', fileAvatar);
          formData.append('name', newName);
  
-         loader = createLoader(userProfileModal, "into", ["loader-modal"]);
+         loader = createLoader(userProfileModal, "into", ["loader-modal", "loader-user-profile"]);
          
          abortCtrl1 = new AbortController();
          const data = await api.updateUser(formData, abortCtrl1);
