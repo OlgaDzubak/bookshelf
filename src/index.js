@@ -24,6 +24,7 @@ document.querySelector('.mobile-menu .home-link').classList.toggle('selected');
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
       console.log('This page was restored from the bfcache.');
+      location.reload();
     } else {
       console.log('This page was loaded normally.');
     }
