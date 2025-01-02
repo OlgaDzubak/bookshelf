@@ -15,6 +15,7 @@ document.querySelector('.header .home-link').classList.toggle('selected');
 document.querySelector('.mobile-menu .home-link').classList.toggle('selected');
 
 window.addEventListener('pageshow', (event) => {
+  console.log("pageshow home page")
     if (event.persisted) {
       location.reload();
     }
