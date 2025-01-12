@@ -67,7 +67,52 @@
       -webkit-box-shadow: 0 0 0px 1000px var(--light-theme-background) inset;
       transition: background-color var(--transition);
   } 
+  .modalForm-inputWrap {
+    position: relative;
+  }
+  .modalForm-input {
+    width: 100%;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    border: 2px solid var(--text-dark-color);
+    background-color: transparent;
+    border-radius: 40px;
+    color: var(--text-dark-color);
+    transition: border-color var(--transition), color var(--transition);
 
+    &::placeholder{
+      color: currentColor;
+      transition: color var(--transition);
+    }
+    &::selection{
+      color: currentColor;
+      background-color: var(--accent-color2);
+    }
+
+    &:hover,
+    &:focus{
+        border-color: var(--accent-color1);
+        outline: none;
+
+        &::placeholder{
+          color: var(--accent-color1);
+        }
+
+        .modalForm-icon.name,
+        .modalForm-icon.name{
+          fill : var(--accent-color1);
+        }
+        .modalForm-icon.email{
+          stroke : var(--accent-color1);
+        }
+        .eye-btn{
+          fill : var(--accent-color1);
+          stroke : var(--accent-color1);
+        }
+
+    }
+  }
   .modalForm-icon.name{
     position: absolute;
     top: 50%;
@@ -111,39 +156,10 @@
     width: 100%;
     height: 100%;
   }
-  .modalForm-inputWrap {
-    position: relative;
-  }
-  .modalForm-input {
-    width: 100%;
-    font-weight: 700;
-    line-height: 1;
-    text-transform: uppercase;
-    border: 2px solid var(--text-dark-color);
-    background-color: transparent;
-    border-radius: 40px;
-    color: var(--text-dark-color);
-    transition: border-color var(--transition), color var(--transition);
+  
 
-    &::placeholder{
-      color: currentColor;
-      transition: color var(--transition);
-    }
-    &::selection{
-      color: currentColor;
-      background-color: var(--accent-color2);
-    }
 
-    &:hover,
-    &:focus{
-        border-color: var(--accent-color1);
-        outline: none;
-
-        &::placeholder{
-          color: var(--accent-color1);
-        }
-    }
-  }
+  
 
       // .modalForm-icon.name,
       // .modalForm-icon.name{
