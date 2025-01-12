@@ -70,19 +70,24 @@
 
   .modalForm-inputWrap {
     position: relative;
+    color: var(--text-dark-color);
+
+    &:hover, &:focus{
+      color: var(--accent-color1);
+    }
   }
    .modalForm-icon.name{
     position: absolute;
     top: 50%;
     margin-left: 20px; 
     transform: translateY(-50%);
-    fill : var(--text-dark-color);
+    fill : currentColor;
     stroke : "none";
     transition: fill var(--transition), stroke var(--transition);
 
-    &:hover, &:focus{
-      fill : var(--accent-color1);
-    }
+    // &:hover, &:focus{
+    //   fill : var(--accent-color1);
+    // }
   }
   .modalForm-icon.email{
     position: absolute;
@@ -90,12 +95,12 @@
     margin-left: 20px; 
     transform: translateY(-50%);
     fill : none;
-    stroke : var(--text-dark-color);
+    stroke : currentColor;
     transition: fill var(--transition), stroke var(--transition);
 
-    &:hover, &:focus{
-      stroke : var(--accent-color1);
-    }
+    // &:hover, &:focus{
+    //   stroke : var(--accent-color1);
+    // }
   }
   .eye-btn{
     position: absolute;
@@ -111,16 +116,16 @@
     justify-content: center;
     border: none;
     background-color: transparent;
-    fill: var(--text-dark-color);
-    stroke: var(--text-dark-color);
+    fill: currentColor;
+    stroke: currentColor;
     stroke-width: 0.9;
     transition: fill var(--transition), stroke var(--transition);
     cursor: pointer;
     
-    &:hover, &:focus{
-      fill : var(--accent-color1);
-      stroke : var(--accent-color1);
-    }
+    // &:hover, &:focus{
+    //   fill : var(--accent-color1);
+    //   stroke : var(--accent-color1);
+    // }
   }
   .close-eye,
   .open-eye{
@@ -132,7 +137,7 @@
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
-    border: 2px solid var(--text-dark-color);
+    border: 2px solid currentColor;;
     background-color: transparent;
     border-radius: 40px;
     color: var(--text-dark-color);
@@ -146,22 +151,6 @@
       color: currentColor;
       background-color: var(--accent-color2);
     }
-
-
-    
-    
-    +.modalForm-icon.name:hover, 
-    +.modalForm-icon.name:focus,
-    +.modalForm-icon.email:hover, 
-    +.modalForm-icon.email:focus,
-    +.eye-btn:hover, 
-    +.eye-btn:focus{ 
-      border-color: var(--accent-color1);
-      outline: none;
-    }
-
-
-
     &:hover,
     &:focus{
         border-color: var(--accent-color1);
@@ -179,7 +168,16 @@
         }
     }
   }
-
+    
+  .modalForm-input+.modalForm-icon.name:hover, 
+  .modalForm-input+.modalForm-icon.name:focus,
+  .modalForm-input+.modalForm-icon.email:hover, 
+  .modalForm-input+.modalForm-icon.email:focus,
+  .modalForm-input+.eye-btn:hover, 
+  .modalForm-input+.eye-btn:focus{ 
+    border-color: var(--accent-color1);
+    outline: none;
+  }
 
   
 
