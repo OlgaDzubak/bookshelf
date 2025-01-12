@@ -216,55 +216,52 @@ body.dark {
 
     body.dark .modalForm-inputWrap {
 
-        .modalForm-input{
-            border-color: var(--light-theme-background);
-            color: var(--light-theme-background);
-    
-            &::placeholder{
-              color: var(--light-theme-background);
-            }    
-            &::selection{
-              background-color: var(--accent-color2);
-            }
-
-        }
-        .modalForm-icon.name,
-        .modalForm-icon.name{
-          fill : var(--light-theme-background);
-        }
-        .modalForm-icon.email,
-        .eye-btn{
-          stroke : var(--light-theme-background);
-        }        
-
-        &:hover,
-        &:focus{
+        &:hover, &:focus{
     
           .modalForm-input{
-            border-color: var(--accent-color1);
-            outline: none;
+            // border-color: var(--accent-color1);
+            // outline: none;
             color: var(--light-theme-background); 
     
-            &::placeholder{
-              color: var(--accent-color1);
-            }
+            // &::placeholder{
+            //   color: var(--accent-color1);
+            // }
     
-            &::selection{
-              color: currentColor;
-              background-color: var(--accent-color2);
-            }
+            // &::selection{
+            //   color: currentColor;
+            //   background-color: var(--accent-color2);
+            // }
           }
     
-          .modalForm-icon.name, 
-          .eye-btn{
-            fill : var(--accent-color1);
-          }
-          .modalForm-icon.email, 
-          .eye-btn{
-            stroke : var(--accent-color1);
-          }
+        //   .modalForm-icon.name, 
+        //   .eye-btn{
+        //     fill : var(--accent-color1);
+        //   }
+        //   .modalForm-icon.email, 
+        //   .eye-btn{
+        //     stroke : var(--accent-color1);
+        //   }
         }
     }
+
+    .modalForm-input{
+        border-color: var(--light-theme-background);
+        color: var(--light-theme-background);
+
+        &::placeholder{
+          color: var(--light-theme-background);
+        }    
+        &::selection{
+          background-color: var(--accent-color2);
+        }
+
+    }
+    .modalForm-icon.name, .eye-btn{
+      fill : var(--light-theme-background);
+    }
+    .modalForm-icon.email, .eye-btn{
+      stroke : var(--light-theme-background);
+    }  
 
     body.dark input:-webkit-autofill,
     body.dark input:-webkit-autofill:hover,
