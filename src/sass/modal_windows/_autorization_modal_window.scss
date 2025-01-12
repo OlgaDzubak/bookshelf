@@ -123,7 +123,7 @@
       background-color: transparent;
       border-radius: 40px;
       color: var(--text-dark-color);
-      transition: border var(--transition), color var(--transition);
+      transition: border-color var(--transition), color var(--transition);
   
       &::placeholder{
         color: currentColor;
