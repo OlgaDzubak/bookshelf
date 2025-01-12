@@ -86,20 +86,19 @@
   
       &::placeholder{
         color: currentColor;
-        //transition: color var(--transition);
       }
       &::selection{
         color: currentColor;
         background-color: var(--accent-color2);
       }
-      .modalForm-icon.name,
+      &.modalForm-icon.name,
       .modalForm-icon.name{
         fill : currentColor;
       }
-      .modalForm-icon.email{
+      &.modalForm-icon.email{
         stroke : currentColor;
       }
-      .eye-btn{
+      &.eye-btn{
         fill : currentColor;
         stroke : currentColor;
       }
@@ -110,20 +109,6 @@
           border-color: var(--accent-color1);
           outline: none;
           color: var(--accent-color1);
-          
-  
-          // &::placeholder{
-          //   color: var(--accent-color1);
-          // }
-  
-          // &::selection{
-          //   color: currentColor;
-          //   background-color: var(--accent-color2);
-          // }
-
-
-
-  
       }
 
     }
