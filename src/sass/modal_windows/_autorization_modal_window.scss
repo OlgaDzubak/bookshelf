@@ -78,6 +78,10 @@
     fill : var(--text-dark-color);
     stroke : "none";
     transition: fill var(--transition), stroke var(--transition);
+
+    &:hover, &:focus{
+      fill : var(--accent-color1);
+    }
   }
   .modalForm-icon.email{
     position: absolute;
@@ -87,6 +91,10 @@
     fill : none;
     stroke : var(--text-dark-color);
     transition: fill var(--transition), stroke var(--transition);
+
+    &:hover, &:focus{
+      stroke : var(--accent-color1);
+    }
   }
   .eye-btn{
     position: absolute;
@@ -107,6 +115,11 @@
     stroke-width: 0.9;
     transition: fill var(--transition), stroke var(--transition);
     cursor: pointer;
+    
+    &:hover, &:focus{
+      fill : var(--accent-color1);
+      stroke : var(--accent-color1);
+    }
   }
   .close-eye,
   .open-eye{
