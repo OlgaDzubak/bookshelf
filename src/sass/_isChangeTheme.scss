@@ -244,7 +244,7 @@ body.dark {
         }
     }
 
-    .modalForm-input{
+    body.dark .modalForm-input{
         border-color: var(--light-theme-background);
         color: var(--light-theme-background);
 
@@ -256,10 +256,12 @@ body.dark {
         }
 
     }
-    .modalForm-icon.name, .eye-btn{
+    body.dark .modalForm-icon.name, 
+    body.dark .eye-btn{
       fill : var(--light-theme-background);
     }
-    .modalForm-icon.email, .eye-btn{
+    body.dark .modalForm-icon.email,
+    body.dark .eye-btn{
       stroke : var(--light-theme-background);
     }  
 
