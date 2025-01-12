@@ -148,12 +148,14 @@
     }
 
 
-    &.modalForm-icon.name:hover, 
-    &.modalForm-icon.name:focus,
-    &.modalForm-icon.email:hover, 
-    &.modalForm-icon.email:focus,
-    &.eye-btn:hover, 
-    &.eye-btn:focus{ 
+    
+    
+    +.modalForm-icon.name:hover, 
+    +.modalForm-icon.name:focus,
+    +.modalForm-icon.email:hover, 
+    +.modalForm-icon.email:focus,
+    +.eye-btn:hover, 
+    +.eye-btn:focus{ 
       border-color: var(--accent-color1);
       outline: none;
     }
