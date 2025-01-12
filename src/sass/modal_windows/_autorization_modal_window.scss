@@ -73,6 +73,10 @@
     position: relative;
     color : var(--text-dark-color);
 
+    &:hover, &:focus{
+        color: var(--accent-color1);
+    }
+
     .modalForm-input {
       width: 100%;
       font-weight: 700;
@@ -96,7 +100,7 @@
       &:focus{
           border-color: var(--accent-color1);
           outline: none;
-          color: var(--accent-color1);
+   //       color: var(--accent-color1);
       }
 
     &.modalForm-icon.name,
@@ -111,11 +115,6 @@
       stroke : currentColor;
     }
 
-    }
-
-    &:hover,
-    &:focus{
-        color: var(--accent-color1);
     }
     .modalForm-icon.name{
       position: absolute;
