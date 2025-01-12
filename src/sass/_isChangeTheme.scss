@@ -254,6 +254,11 @@ body.dark {
         &::selection{
           background-color: var(--accent-color2);
         }
+        &:hover,
+        &:focus{
+            border-color: var(--accent-color1);
+            outline: none;
+        }
 
     }
     body.dark .modalForm-icon.name, 
