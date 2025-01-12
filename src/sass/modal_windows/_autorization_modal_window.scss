@@ -72,68 +72,64 @@
     position: relative;
 
     .modalForm-input {
-      width: 100%;
-      font-weight: 700;
-      line-height: 1;
-      text-transform: uppercase;
-      border: 2px solid var(--text-dark-color);
-      background-color: transparent;
-      border-radius: 40px;
-      color: var(--text-dark-color);
-      transition: border-color var(--transition), color var(--transition);
+      // border: 2px solid var(--text-dark-color);
+      // background-color: transparent;
+      // border-radius: 40px;
+      // color: var(--text-dark-color);
+      // transition: border-color var(--transition), color var(--transition);
   
-      &::placeholder{
-        color: currentColor;
-        transition: color var(--transition);
-      }
-      &::selection{
-        color: currentColor;
-        background-color: var(--accent-color2);
-      }
+      // &::placeholder{
+      //   color: currentColor;
+      //   transition: color var(--transition);
+      // }
+      // &::selection{
+      //   color: currentColor;
+      //   background-color: var(--accent-color2);
+      // }
     }
    .modalForm-icon.name{
-    position: absolute;
-    top: 50%;
-    margin-left: 20px; 
-    transform: translateY(-50%);
-    fill : var(--text-dark-color);
-    stroke : "none";
-    transition: fill var(--transition), stroke var(--transition);
-    }
-    .modalForm-icon.email{
-      position: absolute;
-      top: 50%;
-      margin-left: 20px; 
-      transform: translateY(-50%);
-      fill : none;
-      stroke : var(--text-dark-color);
-      transition: fill var(--transition), stroke var(--transition);
-    }
-    .eye-btn{
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 34px;
-      width: 30px;
-      height: 30px;
-      margin-left: 20px;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      background-color: transparent;
-      fill: var(--text-dark-color);
-      stroke: var(--text-dark-color);
-      stroke-width: 0.9;
-      transition: fill var(--transition), stroke var(--transition);
-      cursor: pointer;
-    }
-    .close-eye,
-    .open-eye{
-      width: 100%;
-      height: 100%;
-    }
+    // position: absolute;
+    // top: 50%;
+    // margin-left: 20px; 
+    // transform: translateY(-50%);
+    // fill : var(--text-dark-color);
+    // stroke : "none";
+    // transition: fill var(--transition), stroke var(--transition);
+    // }
+    // .modalForm-icon.email{
+    //   position: absolute;
+    //   top: 50%;
+    //   margin-left: 20px; 
+    //   transform: translateY(-50%);
+    //   fill : none;
+    //   stroke : var(--text-dark-color);
+    //   transition: fill var(--transition), stroke var(--transition);
+    // }
+    // .eye-btn{
+    //   position: absolute;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    //   right: 34px;
+    //   width: 30px;
+    //   height: 30px;
+    //   margin-left: 20px;
+    //   padding: 0;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   border: none;
+    //   background-color: transparent;
+    //   fill: var(--text-dark-color);
+    //   stroke: var(--text-dark-color);
+    //   stroke-width: 0.9;
+    //   transition: fill var(--transition), stroke var(--transition);
+    //   cursor: pointer;
+    // }
+    // .close-eye,
+    // .open-eye{
+    //   width: 100%;
+    //   height: 100%;
+     }
 
     &:hover, &:focus{
 
@@ -159,98 +155,97 @@
         stroke : var(--accent-color1);
       }
     }
-
   }
   .modalForm-icon.name{
-    // position: absolute;
-    // top: 50%;
-    // margin-left: 20px; 
-    // transform: translateY(-50%);
-    // fill : var(--text-dark-color);
-    // stroke : "none";
-    // transition: fill var(--transition), stroke var(--transition);
+    position: absolute;
+    top: 50%;
+    margin-left: 20px; 
+    transform: translateY(-50%);
+    fill : var(--text-dark-color);
+    stroke : "none";
+    transition: fill var(--transition), stroke var(--transition);
 
     &:hover, &:focus{
       fill : var(--accent-color1);
     }
   }
   .modalForm-icon.email{
-    // position: absolute;
-    // top: 50%;
-    // margin-left: 20px; 
-    // transform: translateY(-50%);
-    // fill : none;
-    // stroke : var(--text-dark-color);
-    // transition: fill var(--transition), stroke var(--transition);
+    position: absolute;
+    top: 50%;
+    margin-left: 20px; 
+    transform: translateY(-50%);
+    fill : none;
+    stroke : var(--text-dark-color);
+    transition: fill var(--transition), stroke var(--transition);
 
     &:hover, &:focus{
       stroke : var(--accent-color1);
     }
   }
   .eye-btn{
-    // position: absolute;
-    // top: 50%;
-    // transform: translateY(-50%);
-    // right: 34px;
-    // width: 30px;
-    // height: 30px;
-    // margin-left: 20px;
-    // padding: 0;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // border: none;
-    // background-color: transparent;
-    // fill: var(--text-dark-color);
-    // stroke: var(--text-dark-color);
-    // stroke-width: 0.9;
-    // transition: fill var(--transition), stroke var(--transition);
-    // cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 34px;
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    fill: var(--text-dark-color);
+    stroke: var(--text-dark-color);
+    stroke-width: 0.9;
+    transition: fill var(--transition), stroke var(--transition);
+    cursor: pointer;
     
     &:hover, &:focus{
       fill : var(--accent-color1);
       stroke : var(--accent-color1);
     }
   }
-  // .close-eye,
-  // .open-eye{
-  //   width: 100%;
-  //   height: 100%;
-  // }
+  .close-eye,
+  .open-eye{
+    width: 100%;
+    height: 100%;
+  }
   .modalForm-input {
-    // width: 100%;
-    // font-weight: 700;
-    // line-height: 1;
-    // text-transform: uppercase;
-    // border: 2px solid var(--text-dark-color);
-    // background-color: transparent;
-    // border-radius: 40px;
-    // color: var(--text-dark-color);
-    // transition: border-color var(--transition), color var(--transition);
+    width: 100%;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    border: 2px solid var(--text-dark-color);
+    background-color: transparent;
+    border-radius: 40px;
+    color: var(--text-dark-color);
+    transition: border-color var(--transition), color var(--transition);
 
-    // &::placeholder{
-    //   color: currentColor;
-    //   transition: color var(--transition);
-    // }
-    // &::selection{
-    //   color: currentColor;
-    //   background-color: var(--accent-color2);
-    // }
+    &::placeholder{
+      color: currentColor;
+      transition: color var(--transition);
+    }
+    &::selection{
+      color: currentColor;
+      background-color: var(--accent-color2);
+    }
     &:hover,
     &:focus{
         border-color: var(--accent-color1);
         outline: none;
 
-        // &::placeholder{
-        //   color: var(--accent-color1);
-        // }
+        &::placeholder{
+          color: var(--accent-color1);
+        }
 
-        // +.modalForm-icon.name, +.eye-btn{
-        //   fill : var(--accent-color1);
-        // }
-        // +.modalForm-icon.email, +.eye-btn{
-        //   stroke : var(--accent-color1);
-        // }
+        +.modalForm-icon.name, +.eye-btn{
+          fill : var(--accent-color1);
+        }
+        +.modalForm-icon.email, +.eye-btn{
+          stroke : var(--accent-color1);
+        }
     }
   }
     
