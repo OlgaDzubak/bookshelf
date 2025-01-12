@@ -113,61 +113,50 @@
   }
   .modalForm-inputWrap {
     position: relative;
+  }
+  .modalForm-input {
+    width: 100%;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    border: 2px solid var(--text-dark-color);
+    background-color: transparent;
+    border-radius: 40px;
+    color: var(--text-dark-color);
+    transition: border-color var(--transition), color var(--transition);
 
-    .modalForm-input {
-      width: 100%;
-      font-weight: 700;
-      line-height: 1;
-      text-transform: uppercase;
-      border: 2px solid var(--text-dark-color);
-      background-color: transparent;
-      border-radius: 40px;
-      color: var(--text-dark-color);
-      transition: border-color var(--transition), color var(--transition);
-  
-      &::placeholder{
-        color: currentColor;
-        transition: color var(--transition);
-      }
-      &::selection{
-        background-color: var(--accent-color2);
-      }
+    &::placeholder{
+      color: currentColor;
+      transition: color var(--transition);
     }
-    
+    &::selection{
+      color: currentColor;
+      background-color: var(--accent-color2);
+    }
+
     &:hover,
     &:focus{
-
-
-      .modalForm-input{
         border-color: var(--accent-color1);
         outline: none;
-        color: var(--text-dark-color);
-        
 
         &::placeholder{
           color: var(--accent-color1);
         }
-
-        &::selection{
-          color: currentColor;
-          background-color: var(--accent-color2);
-        }
-      }
-
-      .modalForm-icon.name,
-      .modalForm-icon.name{
-        fill : var(--accent-color1);
-      }
-      .modalForm-icon.email{
-        stroke : var(--accent-color1);
-      }
-      .eye-btn{
-        fill : var(--accent-color1);
-        stroke : var(--accent-color1);
-      }
-
     }
   }
+
+      // .modalForm-icon.name,
+      // .modalForm-icon.name{
+      //   fill : var(--accent-color1);
+      // }
+      // .modalForm-icon.email{
+      //   stroke : var(--accent-color1);
+      // }
+      // .eye-btn{
+      //   fill : var(--accent-color1);
+      //   stroke : var(--accent-color1);
+      // }
+
   
   .modalWrapper-btn {
     display: block;
