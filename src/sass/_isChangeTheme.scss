@@ -208,7 +208,7 @@ body.dark {
 
     body.dark .modal{
         background-color: var(--dark-theme-background);
-       // border-color: var(--light-theme-background);
+
     }
     body.dark .modal .icon-x{
         fill: var(--light-theme-background);
@@ -255,18 +255,14 @@ body.dark {
             }
           }
     
-          .modalForm-icon.name,
-          .modalForm-icon.name{
-            fill : var(--accent-color1);
-          }
-          .modalForm-icon.email{
-            stroke : var(--accent-color1);
-          }
-          .eye-btn{
-            stroke : var(--accent-color1);
-            fill : var(--accent-color1);
-          }
-    
+        //   .modalForm-icon.name, 
+        //   .eye-btn{
+        //     fill : var(--accent-color1);
+        //   }
+        //   .modalForm-icon.email, 
+        //   .eye-btn{
+        //     stroke : var(--accent-color1);
+        //   }
         }
     }
 
