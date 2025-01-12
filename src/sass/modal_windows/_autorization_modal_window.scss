@@ -89,10 +89,10 @@
       transition: border var(--transition), color var(--transition);
   
       &::placeholder{
-     //   color: currentColor;
+        color: currentColor;
       }
       &::selection{
-      //  color: var(--text-dark-color);;
+        color: var(--text-dark-color);
         background-color: var(--accent-color2);
       }
 
@@ -100,25 +100,25 @@
       &:focus{
           border-color: var(--accent-color1);
           outline: none;
-   //       color: var(--accent-color1);
       }
 
-    // &.modalForm-icon.name,
-    // .modalForm-icon.name{
-    //   fill : currentColor;
-    //   transition: fill var(--transition);
-    // }
-    // &.modalForm-icon.email{
-    //   stroke : currentColor;
-    //   transition: stroke var(--transition);
-    // }
-    // &.eye-btn{
-    //   fill : currentColor;
-    //   stroke : currentColor;
-    //   transition: fill var(--transition), stroke var(--transition);
-    // }
+    .modalForm-icon.name,
+    .modalForm-icon.name{
+      fill : currentColor;
+      transition: fill var(--transition);
+    }
+    .modalForm-icon.email{
+      stroke : currentColor;
+      transition: stroke var(--transition);
+    }
+    .eye-btn{
+      fill : currentColor;
+      stroke : currentColor;
+      transition: fill var(--transition), stroke var(--transition);
+    }
 
     }
+    
     .modalForm-icon.name{
       position: absolute;
       top: 50%;
