@@ -68,101 +68,104 @@
       transition: background-color var(--transition);
   } 
 
-
+  .modalForm-icon.name{
+    position: absolute;
+    top: 50%;
+    margin-left: 20px; 
+    transform: translateY(-50%);
+    fill : var(--text-dark-color);
+    stroke : "none";
+    transition: fill var(--transition), stroke var(--transition);
+  }
+  .modalForm-icon.email{
+    position: absolute;
+    top: 50%;
+    margin-left: 20px; 
+    transform: translateY(-50%);
+    fill : none;
+    stroke : var(--text-dark-color);
+    transition: fill var(--transition), stroke var(--transition);
+  }
+  .eye-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 34px;
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    fill: var(--text-dark-color);
+    stroke: var(--text-dark-color);
+    stroke-width: 0.9;
+    transition: fill var(--transition), stroke var(--transition);
+    cursor: pointer;
+  }
+  .close-eye,
+  .open-eye{
+    width: 100%;
+    height: 100%;
+  }
   .modalForm-inputWrap {
     position: relative;
-    color : var(--text-dark-color);
-    transition: border-color var(--transition), color var(--transition), fill var(--transition), stroke var(--transition);
-
-    &:hover, &:focus{
-        color: var(--accent-color1);
-    }
 
     .modalForm-input {
       width: 100%;
       font-weight: 700;
       line-height: 1;
       text-transform: uppercase;
-      border: 2px solid currentColor;
+      border: 2px solid var(--text-dark-color);
       background-color: transparent;
       border-radius: 40px;
-      color: var(--text-dark-color);      
+      color: var(--text-dark-color);
+      transition: border var(--transition), color var(--transition);
   
       &::placeholder{
         color: currentColor;
         transition: color var(--transition);
       }
       &::selection{
-        color: var(--text-dark-color);
         background-color: var(--accent-color2);
       }
+    }
+    
+    &:hover,
+    &:focus{
 
-      &:hover,
-      &:focus{
-          border-color: var(--accent-color1);
-          outline: none;
-          
-          &::placeholder{
-            color: var(--accent-color1);
-          }
+
+      .modalForm-input{
+        border-color: var(--accent-color1);
+        outline: none;
+        color: var(--text-dark-color);
+        
+
+        &::placeholder{
+          color: var(--accent-color1);
+        }
+
+        &::selection{
+          color: currentColor;
+          background-color: var(--accent-color2);
+        }
       }
 
-    &.modalForm-icon.name,
-    &.modalForm-icon.name{
-      fill : currentColor;
-      transition: fill var(--transition);
-    }
-    &.modalForm-icon.email{
-      stroke : currentColor;
-      transition: stroke var(--transition);
-    }
-    &.eye-btn{
-      fill : currentColor;
-      stroke : currentColor;
-      transition: fill var(--transition), stroke var(--transition);
-    }
-
-    }
-
-    .modalForm-icon.name{
-      position: absolute;
-      top: 50%;
-      margin-left: 20px; 
-      transform: translateY(-50%);
-      fill : currentColor;
-      stroke : "none";
-    }
-    .modalForm-icon.email{
-      position: absolute;
-      top: 50%;
-      margin-left: 20px; 
-      transform: translateY(-50%);
-      fill : none;
-      stroke : currentColor;
+      .modalForm-icon.name,
+      .modalForm-icon.name{
+        fill : var(--accent-color1);
       }
-    .eye-btn{
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 34px;
-      width: 30px;
-      height: 30px;
-      margin-left: 20px;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      background-color: transparent;
-      fill: currentColor;
-      stroke: currentColor;
-      stroke-width: 0.9;
-  //    transition: fill var(--transition), stroke var(--transition);
-      cursor: pointer;
-    }
-    .close-eye, .open-eye{
-      width: 100%;
-      height: 100%;
+      .modalForm-icon.email{
+        stroke : var(--accent-color1);
+      }
+      .eye-btn{
+        fill : var(--accent-color1);
+        stroke : var(--accent-color1);
+      }
+
     }
   }
   
