@@ -86,7 +86,7 @@
   
       &::placeholder{
         color: currentColor;
-        transition: color var(--transition);
+        //transition: color var(--transition);
       }
       &::selection{
         color: currentColor;
