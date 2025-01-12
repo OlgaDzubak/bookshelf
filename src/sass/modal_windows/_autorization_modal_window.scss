@@ -142,18 +142,12 @@
           color: var(--accent-color1);
         }
 
-        .modalForm-icon.name,
-        .modalForm-icon.name{
+        &.modalForm-icon.name, &.eye-btn{
           fill : var(--accent-color1);
         }
-        .modalForm-icon.email{
+        &.modalForm-icon.email, &.eye-btn{
           stroke : var(--accent-color1);
         }
-        .eye-btn{
-          fill : var(--accent-color1);
-          stroke : var(--accent-color1);
-        }
-
     }
   }
   
