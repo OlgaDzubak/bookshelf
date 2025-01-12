@@ -258,6 +258,9 @@ body.dark {
         &:focus{
             border-color: var(--accent-color1);
             outline: none;
+            &::placeholder{
+                color: var(--accent-color1);
+              } 
         }
 
     }
