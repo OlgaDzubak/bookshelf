@@ -67,6 +67,7 @@
       -webkit-box-shadow: 0 0 0px 1000px var(--light-theme-background) inset;
       transition: background-color var(--transition);
   } 
+
   .modalForm-inputWrap {
     position: relative;
   }
@@ -146,6 +147,19 @@
       background-color: var(--accent-color2);
     }
 
+
+    &.modalForm-icon.name:hover, 
+    &.modalForm-icon.name:focus,
+    &.modalForm-icon.email:hover, 
+    &.modalForm-icon.email:focus,
+    &.eye-btn:hover, 
+    &.eye-btn:focus{ 
+      border-color: var(--accent-color1);
+      outline: none;
+    }
+
+
+
     &:hover,
     &:focus{
         border-color: var(--accent-color1);
@@ -163,6 +177,8 @@
         }
     }
   }
+
+
   
 
 
