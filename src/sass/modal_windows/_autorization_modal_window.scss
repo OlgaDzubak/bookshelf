@@ -122,7 +122,7 @@
       top: 50%;
       margin-left: 20px; 
       transform: translateY(-50%);
-      fill : var(--text-dark-color);
+      fill : currentColor;
       stroke : "none";
       transition: fill var(--transition), stroke var(--transition);
     }
@@ -132,7 +132,7 @@
       margin-left: 20px; 
       transform: translateY(-50%);
       fill : none;
-      stroke : var(--text-dark-color);
+      stroke : currentColor;
       transition: fill var(--transition), stroke var(--transition);
     }
     .eye-btn{
@@ -149,8 +149,8 @@
       justify-content: center;
       border: none;
       background-color: transparent;
-      fill: var(--text-dark-color);
-      stroke: var(--text-dark-color);
+      fill: currentColor;
+      stroke: currentColor;
       stroke-width: 0.9;
       transition: fill var(--transition), stroke var(--transition);
       cursor: pointer;
