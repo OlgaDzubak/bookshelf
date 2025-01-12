@@ -71,17 +71,17 @@
 
   .modalForm-inputWrap {
     position: relative;
-    
+    color : var(--text-dark-color);
 
     .modalForm-input {
       width: 100%;
       font-weight: 700;
       line-height: 1;
       text-transform: uppercase;
-      border: 2px solid var(--text-dark-color);
+      border: 2px solid currentColor;
       background-color: transparent;
       border-radius: 40px;
-      color: var(--text-dark-color);
+      color: currentColor;      
       transition: border var(--transition), color var(--transition);
   
       &::placeholder{
@@ -89,37 +89,40 @@
         transition: color var(--transition);
       }
       &::selection{
+        color: currentColor;
         background-color: var(--accent-color2);
       }
+      .modalForm-icon.name,
+      .modalForm-icon.name{
+        fill : currentColor;
+      }
+      .modalForm-icon.email{
+        stroke : currentColor;
+      }
+      .eye-btn{
+        fill : currentColor;
+        stroke : currentColor;
+      }
+
 
       &:hover,
       &:focus{
           border-color: var(--accent-color1);
           outline: none;
-          color: var(--text-dark-color);
+          color: var(--accent-color1);
           
   
-          &::placeholder{
-            color: var(--accent-color1);
-          }
+          // &::placeholder{
+          //   color: var(--accent-color1);
+          // }
   
-          &::selection{
-            color: currentColor;
-            background-color: var(--accent-color2);
-          }
+          // &::selection{
+          //   color: currentColor;
+          //   background-color: var(--accent-color2);
+          // }
 
 
-        +.modalForm-icon.name,
-        +.modalForm-icon.name{
-          fill : var(--accent-color1);
-        }
-        +.modalForm-icon.email{
-          stroke : var(--accent-color1);
-        }
-        +.eye-btn{
-          fill : var(--accent-color1);
-          stroke : var(--accent-color1);
-        }
+
   
       }
 
