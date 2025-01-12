@@ -90,7 +90,7 @@
       &::selection{
         background-color: var(--accent-color2);
       }
-      
+
       &:hover,
       &:focus{
           border-color: var(--accent-color1);
@@ -108,14 +108,14 @@
           }
 
 
-        .modalForm-icon.name,
-        .modalForm-icon.name{
+        &.modalForm-icon.name,
+        &.modalForm-icon.name{
           fill : var(--accent-color1);
         }
-        .modalForm-icon.email{
+        &.modalForm-icon.email{
           stroke : var(--accent-color1);
         }
-        .eye-btn{
+        &.eye-btn{
           fill : var(--accent-color1);
           stroke : var(--accent-color1);
         }
