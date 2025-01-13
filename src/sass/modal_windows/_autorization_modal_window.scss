@@ -114,11 +114,9 @@
       transition: color var(--transition);
     }
     &::selection{
-      //color: var(--text-dark-color);
       background-color: var(--accent-color2);
     }
-    &:hover,
-    &:focus{
+    &:hover, &:focus{
         border-color: var(--accent-color1);
         outline: none;
 
