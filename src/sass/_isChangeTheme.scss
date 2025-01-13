@@ -316,7 +316,7 @@ body.dark {
     body.dark .user-profile-modal .icon-x{
         fill: var(--light-theme-background);
     }
-    .user-profile-inputWrap {
+    body.dark .user-profile-inputWrap {
 
         &:hover, &:focus{
 
@@ -329,28 +329,28 @@ body.dark {
         }
     }
 
-        .user-profile-input{
-            border-color: var(--light-theme-background);
-            color: var(--light-theme-background);
+    body.dark .user-profile-input{
+        border-color: var(--light-theme-background);
+        color: var(--light-theme-background);
 
-            &::placeholder{
-                color: var(--light-theme-background);
-            }    
-            &::selection{
-                background-color: var(--accent-color2);
-            }
-            &:hover,
-            &:focus{
-                border-color: var(--accent-color1);
-                outline: none;
-                &::placeholder{
-                    color: var(--accent-color1);
-                } 
-            }
-        }  
-        .user-profile-icon {
-            fill: var(--light-theme-background);
+        &::placeholder{
+            color: var(--light-theme-background);
+        }    
+        &::selection{
+            background-color: var(--accent-color2);
         }
+        &:hover,
+        &:focus{
+            border-color: var(--accent-color1);
+            outline: none;
+            &::placeholder{
+                color: var(--accent-color1);
+            } 
+        }
+    }  
+    body.dark .user-profile-icon {
+        fill: var(--light-theme-background);
+    }
 
     body.dark .user-profile-submitBtn{
         color:black;
