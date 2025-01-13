@@ -219,28 +219,8 @@ body.dark {
         &:hover, &:focus{
     
           .modalForm-input{
-            // border-color: var(--accent-color1);
-            // outline: none;
             color: var(--light-theme-background); 
-    
-            // &::placeholder{
-            //   color: var(--accent-color1);
-            // }
-    
-            // &::selection{
-            //   color: currentColor;
-            //   background-color: var(--accent-color2);
-            // }
           }
-    
-        //   .modalForm-icon.name, 
-        //   .eye-btn{
-        //     fill : var(--accent-color1);
-        //   }
-        //   .modalForm-icon.email, 
-        //   .eye-btn{
-        //     stroke : var(--accent-color1);
-        //   }
         }
     }
 
@@ -348,22 +328,8 @@ body.dark {
         }
 
         .user-profile-inputWrap {
-            position: relative;
-        
-            .user-profile-input{
-                border: 2px solid var(--light-theme-background);
-                color: var(--light-theme-background);
 
-                &::placeholder{
-                    color: currentColor;
-                }
-            }   
-            .user-profile-icon {
-                fill: var(--light-theme-background);
-            }
-    
-            &:focus,
-            &:hover{
+            &:focus, &:hover{
               .user-profile-input{
                 outline: none;
                 border-color: var(--accent-color1);
@@ -382,6 +348,29 @@ body.dark {
               }
             }
 
+        }
+
+        .user-profile-input{
+            border-color: var(--light-theme-background);
+            color: var(--light-theme-background);
+
+            &::placeholder{
+                color: var(--light-theme-background);
+            }    
+            &::selection{
+                background-color: var(--accent-color2);
+            }
+            &:hover,
+            &:focus{
+                border-color: var(--accent-color1);
+                outline: none;
+                &::placeholder{
+                    color: var(--accent-color1);
+                } 
+            }
+        }  
+        .user-profile-icon {
+            fill: var(--light-theme-background);
         }
         
 
