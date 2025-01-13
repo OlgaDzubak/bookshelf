@@ -312,43 +312,22 @@ body.dark {
         
         background-color: var(--dark-theme-background);
         border-color: var(--light-theme-background);
-        
-        .icon-x{
-            fill: var(--light-theme-background);
-        }
+    }    
+    body.dark .user-profile-modal .icon-x{
+        fill: var(--light-theme-background);
+    }
+    .user-profile-inputWrap {
 
-        .user-profile-submitBtn{
-            color:black;
-            background-color: var(--light-theme-background);
-            &:hover,
-            &:focus {
-                background-color: var(--accent-color1);
-                color:var(--light-theme-background);
+        &:hover, &:focus{
+
+            .user-profile-input{
+            color: var(--light-theme-background); 
             }
         }
-
-        .user-profile-inputWrap {
-
-            &:focus, &:hover{
-              .user-profile-input{
-                outline: none;
-                border-color: var(--accent-color1);
-        
-                &::placeholder{
-                  color: var(--accent-color1); 
-                }
-        
-                &::selection{
-                  color: var(--text-dark-color);
-                  background-color: var(--accent-color2);
-                }
-              }
-            //   .user-profile-icon {
-            //     fill: var(--accent-color1); 
-            //   }
-            }
-
+        .user-profile-input{
+            color: var(--light-theme-background); 
         }
+    }
 
         .user-profile-input{
             border-color: var(--light-theme-background);
@@ -372,9 +351,18 @@ body.dark {
         .user-profile-icon {
             fill: var(--light-theme-background);
         }
-        
 
-    }
+    body.dark .user-profile-submitBtn{
+        color:black;
+        background-color: var(--light-theme-background);
+        &:hover,
+        &:focus {
+            background-color: var(--accent-color1);
+            color:var(--light-theme-background);
+        }
+    }   
+
+    
 
 //----------- about us window --------------------//
 
