@@ -178,7 +178,7 @@ function showPage(dataArray, page, itemsOnPage) {
                                             </li>
                                       
                                             <li class="marketplacer_li_two">
-                                              <a href="${buy_links[1].url}" class="marketplacer_li_link link" target="_blank" aria-label="to buy the book on the ibooks">
+                                              <a href="${buy_links[1].url}" class="marketplacer_li_link link" target="_blank" aria-label="to buy the book on the apple books">
                                                 <svg id="apple-ibooks" xmlns="http://www.w3.org/2000/svg" x="0" y="0" version="1.1" viewBox="0 0 100 100" xml:space="preserve">
                                                       <g>
                                                         <linearGradient id="gradient-background${idx}" x1="-303.017" x2="-303.017" y1="748.267" y2="746.767" gradientTransform="matrix(60 0 0 -60 18231 44901)" gradientUnits="userSpaceOnUse">
