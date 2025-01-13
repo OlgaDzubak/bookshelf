@@ -13,20 +13,20 @@ function createPaginationMarkup(pagesCount, visibleBtnCount){
 
 let paginationMarkup = "";
 
-paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn">
+paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn" aria-label="go back skiping the previous page">
                         <svg class="left-double-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13 13">
                             <path class="left-double-arrow-svg path" fill="var(--pgn-fill-color)" d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="translate(-7.40682-4.499673)"/>
                             <path class="left-double-arrow-svg path" fill="var(--pgn-fill-color)" d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="translate(-1.40682-4.499673)"/>
                         </svg>
                     </button>` +
 
-                    `<button type="button" class="pgn-btn left-arrow-btn">
+                    `<button type="button" class="pgn-btn left-arrow-btn" aria-label="go to the previous page">
                         <svg class="left-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 7.5 13">
                             <path class="left-arrow-svg path" fill="var(--pgn-fill-color)"<path d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="translate(-7.40682-4.499673)""/>
                         </svg>
                     </button>` +
     
-                    `<button type="button" class="pgn-btn three-dots-btn left-three-dots-btn visually-hidden">
+                    `<button type="button" class="pgn-btn three-dots-btn left-three-dots-btn visually-hidden aria-label="show previous pagination buttons">
                         <svg class="three-dots-svg left-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
                             <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
                             <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
@@ -36,7 +36,7 @@ paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn">
 
 for (let i = 1; i <= pagesCount; i++ ){
     if (i <= visibleBtnCount){
-        paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn">${i}</button>`;
+        paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn" aria-label="go to the page">${i}</button>`;
     }else{
         paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn visually-hidden">${i}</button>`;
     }
@@ -54,7 +54,7 @@ if (pagesCount > visibleBtnCount)  {
                         </button>`;
 }else{
             paginationMarkup = paginationMarkup +
-            `<button type="button" class="right-three-dots-btn visually-hidden">
+            `<button type="button" class="right-three-dots-btn visually-hidden" aria-label="show next pagination buttons">
             <svg class="three-dots-svg right-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
                 <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
                 <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
@@ -64,13 +64,13 @@ if (pagesCount > visibleBtnCount)  {
 }
 
 paginationMarkup = paginationMarkup +                   
-                    `<button type="button" class="pgn-btn right-arrow-btn">
+                    `<button type="button" class="pgn-btn right-arrow-btn" aria-label="go to the next page">
                         <svg class="right-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 7.5 13">
                         <path class="right-arrow-svg path" fill="var(--pgn-fill-color)" d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="matrix(-1 0 0-1 15.40682 17.499673)"/>
                         </svg>
                     </button>` +
 
-                    `<button type="button" class="pgn-btn right-double-arrow-btn">
+                    `<button type="button" class="pgn-btn right-double-arrow-btn" aria-label="go forward skiping the next page">
                         <svg class="right-double-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13 13">
                         <path class="right-double-arrow-svg path" fill="var(--pgn-fill-color)" d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="matrix(-1 0 0-1 14.40682 17.499673)"/>
                         <path class="right-double-arrow-svg path" fill="var(--pgn-fill-color)" d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="matrix(-1 0 0-1 20.40682 17.499673)"/>
