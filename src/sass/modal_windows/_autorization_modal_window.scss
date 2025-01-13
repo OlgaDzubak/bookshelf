@@ -126,12 +126,12 @@
           color: var(--accent-color1);
         }
 
-        // +.modalForm-icon.name, +.eye-btn{
-        //   fill : var(--accent-color1);
-        // }
-        // +.modalForm-icon.email, +.eye-btn{
-        //   stroke : var(--accent-color1);
-        // }
+        +.modalForm-icon.name, +.eye-btn{
+          fill : var(--accent-color1);
+        }
+        +.modalForm-icon.email, +.eye-btn{
+          stroke : var(--accent-color1);
+        }
     }
   }
   .modalForm-icon.name{
