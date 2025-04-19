@@ -1,6 +1,5 @@
 import { bookshelf_API } from '../API';
-import { displayOrdredAmountInShoppingBag, 
-         createLoader, objScroll } from '../help_functions';
+import { displayOrdredAmountInShoppingBag, createLoader, objScroll } from '../help_functions';
 import emptyImgMobile_1x  from '/src/images/png/empty-img-mobile@1x.jpg';
 import emptyImgMobile_2x  from '/src/images/png/empty-img-mobile@2x.jpg';
 import emptyImgMobile_3x  from '/src/images/png/empty-img-mobile@3x.jpg';
