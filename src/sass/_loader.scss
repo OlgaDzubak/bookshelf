@@ -629,6 +629,9 @@
 // ------ tablet styles
 @media screen and (min-width: 768px) and (max-width: 1439.8px){
   .loader{
+    top: 250px;
+  }
+  .category-books-loader{
     top: 70px;
   }
 }
