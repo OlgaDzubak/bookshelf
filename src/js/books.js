@@ -174,9 +174,9 @@ showCategoryList();
             }
         }
 
-        //if (bestBooksAreLoaded && categoriesAreLoaded){
-         //  loader1.remove();
-        //}
+        if (bestBooksAreLoaded && categoriesAreLoaded){
+          loader1.remove();
+        }
         
 
     }
