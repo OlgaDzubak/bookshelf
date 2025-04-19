@@ -174,9 +174,15 @@ showCategoryList();
             }
         }
 
-        if (bestBooksAreLoaded && categoriesAreLoaded){
+        //if (bestBooksAreLoaded && categoriesAreLoaded){
          //  loader1.remove();
+        //}
+        
+        
+        if (bestBooksAreLoaded){
+           loader1.remove();
         }
+
     }
 
         //Обробка події натискання кнопки seeMore
