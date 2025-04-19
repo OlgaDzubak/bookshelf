@@ -77,7 +77,8 @@ function createLoader(el, where, classArray){
           case "befor":
             el.before(loaderBox);
             break;
-        }
+  }
+        console.log(loaderBox);
         return loaderBox;
 }
 
