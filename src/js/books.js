@@ -178,10 +178,6 @@ showCategoryList();
          //  loader1.remove();
         //}
         
-        
-        if (bestBooksAreLoaded){
-           loader1.remove();
-        }
 
     }
 
