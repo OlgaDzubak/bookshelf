@@ -173,12 +173,9 @@ showCategoryList();
 
             }
         }
-
-        if (firstLoading) {
-            if (bestBooksAreLoaded && categoriesAreLoaded) {
-                loader1.remove();
-            }
-        } 
+        if (bestBooksAreLoaded && categoriesAreLoaded) {
+            loader1.remove();
+        }
     }
 
         //Обробка події натискання кнопки seeMore
