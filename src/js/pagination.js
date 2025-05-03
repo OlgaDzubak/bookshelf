@@ -13,14 +13,14 @@ function createPaginationMarkup(pagesCount, visibleBtnCount){
 
 let paginationMarkup = "";
 
-paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn" aria-label="go back skiping the previous page">
+paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn" disabled aria-label="go back skiping the previous page">
                         <svg class="left-double-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13 13">
                             <path class="left-double-arrow-svg path" fill="var(--pgn-fill-color)" d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="translate(-7.40682-4.499673)"/>
                             <path class="left-double-arrow-svg path" fill="var(--pgn-fill-color)" d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="translate(-1.40682-4.499673)"/>
                         </svg>
                     </button>` +
 
-                    `<button type="button" class="pgn-btn left-arrow-btn" aria-label="go to the previous page">
+                    `<button type="button" class="pgn-btn left-arrow-btn" disabled aria-label="go to the previous page">
                         <svg class="left-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 7.5 13">
                             <path class="left-arrow-svg path" fill="var(--pgn-fill-color)"<path d="M9.71589,11.6509c-.08592-.0852-.15412-.1866-.20065-.2983s-.0705-.2316-.0705-.3526.02396-.2408.0705-.3525.11473-.2131.20065-.2983L13.9234,6.15086c.0859-.08522.1541-.1866.2006-.29831s.0705-.23152.0705-.35253-.0239-.24082-.0705-.35253-.1147-.21309-.2006-.2983c-.1718-.17073-.4041-.26656-.6463-.26656s-.4745.09583-.6462.26656L8.42339,9.05669C7.9084,9.57232,7.61914,10.2713,7.61914,11s.28926,1.4277.80425,1.9434l4.20751,4.2075c.1707.1693.4012.2648.6417.2658.1206.0007.2402-.0224.3519-.068s.2132-.1129.2989-.1978c.0859-.0852.1541-.1866.2006-.2983s.0705-.2315.0705-.3526-.0239-.2408-.0705-.3525-.1147-.2131-.2006-.2983L9.71589,11.6509Z" transform="translate(-7.40682-4.499673)""/>
                         </svg>
@@ -101,7 +101,8 @@ function setPaginationPage(paginationList, page) {
     if (paginationList && page>0){
     
         const allPagesBtns = paginationList.querySelectorAll(".number-btn");
-        let visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
+        // let visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
+        let visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("hidden"));
         const visibleBtnCount = visiblePagesBtns.length;
         
         const leftDoubleArrowBtn = paginationList.querySelector('.left-double-arrow-btn');
