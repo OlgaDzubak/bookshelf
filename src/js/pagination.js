@@ -102,33 +102,40 @@ function setPaginationPage(paginationList, page) {
 
                 button.classList.add('active');
 
-                if (button.classList.contains('visually-hidden')){
-                    
+                //if (button.classList.contains('visually-hidden')){
+                if (button.classList.contains('hidden')){
                     if (button.textContent <= visiblePagesBtns[0].textContent){ 
-                        visiblePagesBtns[visibleBtnCount-1].setAttribute("disabled","");
-                        visiblePagesBtns[visibleBtnCount-1].classList.add('visually-hidden');
-                        rightThreeDots.removeAttribute("disabled","");
-                        rightThreeDots.classList.remove('visually-hidden');
+                        //visiblePagesBtns[visibleBtnCount-1].setAttribute("disabled","");
+                        //visiblePagesBtns[visibleBtnCount-1].classList.add('visually-hidden');
+                        //rightThreeDots.removeAttribute("disabled","");
+                        //rightThreeDots.classList.remove('visually-hidden');
+                        visiblePagesBtns[visibleBtnCount - 1].classList.add('hidden');
+                        rightThreeDots.classList.remove('hidden');
                     } else {
-                        visiblePagesBtns[0].setAttribute("disabled","");
-                        visiblePagesBtns[0].classList.add('visually-hidden');
-                        leftThreeDots.removeAttribute("disabled","");
-                        leftThreeDots.classList.remove('visually-hidden');
-                    
-                    if (Number(button.textContent) === allPagesBtns.length){
-                        rightThreeDots.setAttribute("disabled","");
-                        rightThreeDots.classList.add('visually-hidden');
+                        // visiblePagesBtns[0].setAttribute("disabled","");
+                        // visiblePagesBtns[0].classList.add('visually-hidden');
+                        // leftThreeDots.removeAttribute("disabled","");
+                        // leftThreeDots.classList.remove('visually-hidden');
+                        visiblePagesBtns[0].classList.add('hidden');
+                        leftThreeDots.classList.remove('hidden');
+
+                        if (Number(button.textContent) === allPagesBtns.length){
+                            // rightThreeDots.setAttribute("disabled","");
+                            // rightThreeDots.classList.add('visually-hidden');
+                            rightThreeDots.classList.add('hidden');
+                        }
                     }
-                    }
-                    button.removeAttribute("disabled","");
-                    button.classList.remove('visually-hidden');
+                    // button.removeAttribute("disabled","");
+                    // button.classList.remove('visually-hidden');
+                    button.classList.remove('hidden');
                 }
 
             }else {
                 button.classList.remove('active');
             }
         }
-        visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
+        //visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("visually-hidden"));
+        visiblePagesBtns = [...allPagesBtns].filter(btn => !btn.classList.contains("hidden"));
         
 
         //Обробка кнопок зі стрілкамми та трикрапками
@@ -146,22 +153,26 @@ function setPaginationPage(paginationList, page) {
     
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent)  === allPagesBtns.length) {
             rightDoubleArrowBtn.setAttribute('disabled',"");
-            rightThreeDots.setAttribute('disabled',"");
-            rightThreeDots.classList.add('visually-hidden');
+            rightThreeDots.setAttribute('disabled', "");
+            //rightThreeDots.classList.add('visually-hidden');
+            rightThreeDots.classList.add('hidden');
         }else{
             rightDoubleArrowBtn.removeAttribute('disabled',"");
             rightThreeDots.removeAttribute('disabled',"");
-            rightThreeDots.classList.remove('visually-hidden');
+            //rightThreeDots.classList.remove('visually-hidden');
+            rightThreeDots.classList.remove('hidden');
         }
         
         if (Number(visiblePagesBtns[visibleBtnCount-1].textContent) - visibleBtnCount  < 1) {
             leftDoubleArrowBtn.setAttribute('disabled',"");
             leftThreeDots.setAttribute('disabled',"");
-            leftThreeDots.classList.add('visually-hidden');
+            //leftThreeDots.classList.add('visually-hidden');
+            leftThreeDots.classList.add('hidden');
         }else{
             leftDoubleArrowBtn.removeAttribute('disabled',"");
             leftThreeDots.removeAttribute('disabled',"");
-            leftThreeDots.classList.remove('visually-hidden');
+            //leftThreeDots.classList.remove('visually-hidden');
+            leftThreeDots.classList.remove('hidden');
         }
     }
     return page;
@@ -171,7 +182,8 @@ function setPaginationPage(paginationList, page) {
 function shiftPageLeft(paginationList, shift){
 
     const pages = paginationList.querySelectorAll(".number-btn");
-    const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
+    //const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
+    const visiblePages = [...pages].filter(item => !item.classList.contains('hidden'));
     const firstVisiblePageNumber = Number(visiblePages[0].textContent);
     const activePage_idx = visiblePages.findIndex(item => item.classList.contains('active'));
     const activePageNumber = Number(visiblePages[activePage_idx].textContent);
@@ -197,7 +209,8 @@ function shiftPageLeft(paginationList, shift){
 function shiftPageRight(paginationList, shift){
 
     const pages = paginationList.querySelectorAll(".number-btn");
-    const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
+    //const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
+    const visiblePages = [...pages].filter(item => !item.classList.contains('hidden'));
     const activePage_idx = visiblePages.findIndex(item => item.classList.contains('active'));
     const activePageNumber = Number(visiblePages[activePage_idx].textContent);
     const visLen = visiblePages.length;
@@ -226,7 +239,8 @@ function shiftPageRight(paginationList, shift){
 function nextPageGroupLeft(paginationList){
 
     const pages = document.querySelectorAll(".number-btn");
-    const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
+    // const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
+    const visiblePages = [...pages].filter(item => !item.classList.contains('hidden'));
     const activePage_idx = visiblePages.findIndex(item => item.classList.contains('active'));
     const visLen = visiblePages.length;
 
@@ -235,11 +249,13 @@ function nextPageGroupLeft(paginationList){
 
     pages.forEach(page =>{
         if (page.textContent >= pageFirst && page.textContent <= pageLast){
-            page.classList.remove('visually-hidden');
-            if (page.disabled) {page.removeAttribute('disabled','');}
+            //page.classList.remove('visually-hidden');
+            page.classList.remove('hidden');
+           // if (page.disabled) {page.removeAttribute('disabled','');}
         } else {
-            page.classList.add('visually-hidden');
-            if (page.classList.contains('active')) {page.classList.remove('active');}
+            // page.classList.add('visually-hidden');
+            page.classList.add('hidden');
+            // if (page.classList.contains('active')) {page.classList.remove('active');}
         }
             
     });
@@ -251,7 +267,8 @@ function nextPageGroupLeft(paginationList){
 function nextPageGroupRight(paginationList){
 
     const pages = document.querySelectorAll(".number-btn");
-    const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
+    // const visiblePages = [...pages].filter(item => !item.classList.contains('visually-hidden'));
+    const visiblePages = [...pages].filter(item => !item.classList.contains('hidden'));
     const activePage_idx = visiblePages.findIndex(item => item.classList.contains('active'));
     const visLen = visiblePages.length;
 
@@ -260,11 +277,13 @@ function nextPageGroupRight(paginationList){
 
     pages.forEach(page =>{
         if (page.textContent>=pageFirst && page.textContent<=pageLast){
-            page.classList.remove('visually-hidden');
-            if (page.disabled) {page.removeAttribute('disabled','');}
+            // page.classList.remove('visually-hidden');
+            page.classList.remove('hidden');
+            // if (page.disabled) {page.removeAttribute('disabled','');}
         } else {
-            page.classList.add('visually-hidden');
-            if (page.classList.contains('active')) {page.classList.remove('active');}
+            // page.classList.add('visually-hidden');
+            page.classList.add('hidden');
+            // if (page.classList.contains('active')) {page.classList.remove('active');}
         }
     });
 
@@ -281,18 +300,22 @@ function deleteLastPaginationPage(paginationList){
 
     let firstVisibleBtn_idx = 0;
 
-    if (pages){
+    if (pages.length > 0){
         let lastPage = pages[pLen-1];
         const lastPageNumber= Number(lastPage.textContent);
 
-        if (!lastPage.classList.contains('visually-hidden')){
-            firstVisibleBtn_idx = [...pages].findIndex(item=>!item.classList.contains('visually-hidden'));
-        }    
+        // if (!lastPage.classList.contains('visually-hidden')){
+        //     firstVisibleBtn_idx = [...pages].findIndex(item=>!item.classList.contains('visually-hidden'));
+        // }    
+        if (!lastPage.classList.contains('hidden')){
+            firstVisibleBtn_idx = [...pages].findIndex(item=>!item.classList.contains('hidden'));
+        }  
         
         lastPage.remove();
 
         if (firstVisibleBtn_idx >= 1){ 
-            pages[firstVisibleBtn_idx-1].classList.remove('visually-hidden'); 
+            // pages[firstVisibleBtn_idx - 1].classList.remove('visually-hidden'); 
+            pages[firstVisibleBtn_idx-1].classList.remove('hidden'); 
         }
         
         if (pLen > 1 && activePageNumber === lastPageNumber) {

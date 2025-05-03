@@ -192,6 +192,9 @@
     background-color: var(--text-dark-color);
     --pgn-fill-color: var(--text-light-color);
   }
+  .hidden{
+    display: none;
+  }
   .pgn-btn.visually-hidden{ 
     width: 1px;
     height: 1px;
