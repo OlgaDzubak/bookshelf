@@ -26,7 +26,14 @@ paginationMarkup = `<button type="button" class="pgn-btn left-double-arrow-btn" 
                         </svg>
                     </button>` +
     
-                    `<button type="button" class="pgn-btn three-dots-btn left-three-dots-btn visually-hidden aria-label="show previous pagination buttons">
+                    // `<button type="button" class="pgn-btn three-dots-btn left-three-dots-btn visually-hidden aria-label="show previous pagination buttons">
+                    //     <svg class="three-dots-svg left-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
+                    //         <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
+                    //         <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
+                    //         <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(11 16.516716)"/>
+                    //     </svg>
+    // </button>`;
+                        `<button type="button" class="pgn-btn three-dots-btn left-three-dots-btn hidden aria-label="show previous pagination buttons">
                         <svg class="three-dots-svg left-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
                             <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
                             <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
@@ -38,7 +45,8 @@ for (let i = 1; i <= pagesCount; i++ ){
     if (i <= visibleBtnCount){
         paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn" aria-label="go to the page">${i}</button>`;
     }else{
-        paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn visually-hidden">${i}</button>`;
+        // paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn visually-hidden">${i}</button>`;
+        paginationMarkup = paginationMarkup + `<button type="button" class="pgn-btn number-btn hidden">${i}</button>`;
     }
 }
 
@@ -54,7 +62,15 @@ if (pagesCount > visibleBtnCount)  {
                         </button>`;
 }else{
             paginationMarkup = paginationMarkup +
-            `<button type="button" class="right-three-dots-btn visually-hidden" aria-label="show next pagination buttons">
+            // `<button type="button" class="right-three-dots-btn visually-hidden" aria-label="show next pagination buttons">
+            // <svg class="three-dots-svg right-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
+            //     <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
+            //     <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
+            //     <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(11 16.516716)"/>
+            // </svg>
+    // </button>`;
+                
+            `<button type="button" class="right-three-dots-btn hidden" aria-label="show next pagination buttons">
             <svg class="three-dots-svg right-three-dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
                 <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(4 16.516716)"/>
                 <ellipse rx="1.5" ry="1.5" fill="var(--pgn-fill-color)" transform="translate(18 16.516716)"/>
