@@ -133,10 +133,11 @@ async function createModalWindow(book_Id) {
         const orderedBookID_arr = JSON.parse(localStorage.getItem('bookshelf_orderedbooks'));
         
             if (orderedBookID_arr === null || !orderedBookID_arr.includes(book_Id)) {
+                
                 btnAddEl.classList.remove('is-hidden');
-
                 const authBtn = document.querySelector('.auth-btn');
-                if (authBtn.classList.contains("is-hidden")){
+
+                if (authBtn.classList.contains("is-hidden")) {
                     btnAddEl.setAttribute("disabled", "");
                     textEl.textContent = 'Please signup/signin to be able to add books to your shopping list!';
                     textEl.classList.remove('is-hidden');
@@ -190,8 +191,8 @@ async function addToShoppingList() {
    
             btnAddEl.classList.add('is-hidden');
             btnRemoveEl.classList.remove('is-hidden');
+            textEl.textContent = 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”';
             textEl.classList.remove('is-hidden');
-
             localStorage.setItem('bookshelf_orderedbooks', JSON.stringify(shopping_list));
 
             displayOrdredAmountInShoppingBag(shopping_list);
