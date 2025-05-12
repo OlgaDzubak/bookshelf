@@ -186,6 +186,9 @@ body.dark {
     body.dark .modal-message{
         color: var(--text-white-color-fifty);
     }
+    body.dark .modal-message {
+        color: var(--red);
+    }
     
     body.dark .btn-shopping {
         background-color: var(--dark-theme-background);
