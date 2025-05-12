@@ -30,7 +30,7 @@ let categoryList, itemAllCategories, abortCtrl1, per_page;
 let categoriesAreLoaded=false, bestBooksAreLoaded=false;
 let firstLoading = true, loader1;
 
-const pageWidth = document.documentElement.scrollWidth ; 
+const pageWidth = document.documentElement.scrollWidth; 
 
 if (pageWidth < 768) {
     per_page = 1;

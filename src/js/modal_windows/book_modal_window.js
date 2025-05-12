@@ -140,6 +140,8 @@ async function createModalWindow(book_Id) {
                     btnAddEl.setAttribute("disabled", "");
                     textEl.textContent = 'Please signup/signin to be able to add books to your shopping list!';
                     textEl.classList.remove('is-hidden');
+                } else {
+                    btnAddEl.removeAttribute("disabled", "");
                 }
 
             } else {
