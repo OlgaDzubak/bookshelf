@@ -143,6 +143,10 @@
         letter-spacing: -0.03em;
         color: rgba(17, 17, 17, 0.5);
         margin-top: 8px;
+
+        &.red{
+            color: rgba(255, 0, 0, 1);
+        }
     }
 
 
