@@ -141,11 +141,7 @@ async function createModalWindow(book_Id) {
                     textEl.textContent = 'Please signup/signin to be able to add books to your shopping list!';
                     textEl.classList.remove('is-hidden');
                     textEl.classList.add('red');
-                } else {
-                    btnAddEl.removeAttribute("disabled", "");
-                    textEl.classList.remove('red');
                 }
-
             } else {
                 btnRemoveEl.classList.remove('is-hidden');
                 textEl.textContent = 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”';
@@ -170,7 +166,10 @@ function onCloseModal() {
     divBackdropEl.classList.add('is-hidden');
     btnRemoveEl.classList.add('is-hidden');
     btnAddEl.classList.add('is-hidden');
+    btnAddEl.removeAttribute("disabled", "");
     textEl.classList.add('is-hidden');
+    textEl.classList.remove('red');
+    
 }
 
 async function addToShoppingList() {
